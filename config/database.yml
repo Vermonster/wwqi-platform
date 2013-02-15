@@ -1,0 +1,13 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: wwqi-platform_development
+  pool: 5
+  min_messages: warning
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: wwqi-platform_test
+  pool: 5
+  min_messages: warning
