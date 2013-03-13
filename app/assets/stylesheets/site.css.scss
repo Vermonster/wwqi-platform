@@ -1,12 +1,73 @@
-header {
-  background-color: #333;
-  #logo {
-    background: url("/assets/flag.png");
-    /*width: 136px;*/
-    float: left;
+#header {
+  background-color: #000;
+  border-top: 1px solid rgba(255, 255, 255, .25);
+  #logo-container {
+    #logo-img {
+      background: url("/assets/flag.png") no-repeat;
+      float: left;
+      position: absolute;
+      height: 134px;
+      width: 130px;
+    }
   }
   h1 {
-    float: left;
+    margin-left: -20px;
+  }
+}
+#main-nav {
+  background: #333;
+  border-top: 1px solid rgba(255, 255, 255, .25);
+  max-height: 60px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, .25);
+  #nav { 
+    ul {
+      margin-left: -47px;
+      li {
+        float: left;
+        border-right: 1px solid rgba(255, 255, 255, .25);
+        padding: 20px 20px;
+        &:first-child {
+          padding-left: 0;
+        }
+        a {
+          color: #FFF;
+        }
+      }
+    }
+  }
+  #login-nav {
+    h4 { 
+      margin: 10px 0 0; 
+      text-align: center;
+    }
+    ul { 
+     padding: 0 10px;
+     li {
+        background: #eee;
+        border-radius: 10px;
+        height: 20px;
+        margin-right: 10px;
+        min-width: 70px;
+        /*margin: 0 0 0 -33px;*/
+        /*left: 50%;*/
+        /*position: relative;*/
+        a { 
+          line-height: 0px; 
+          font-size: .75em;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+#main-content {
   background: url("/assets/lightpaperfibers.png");
+  .content-bg {
+    background: #FFF;
+    margin-top: -10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, .25);
+    .content {
+      margin: 2em;
+    }
   }
 }
