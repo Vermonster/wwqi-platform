@@ -1,1 +1,81 @@
-hello world
+#main-nav.row-fluid
+  .span12
+    #nav.span4.offset4
+      %ul.nav
+        %li 
+          %a{:href => "#"} Browse
+        %li
+          %a{:href => "#"} Collections
+        %li
+          %a{:href => "#"} People
+        %li
+          %a{:href => "#"} Contact Us
+        %li
+          %a{:href => "#"} FAQ
+    #login-nav.span2
+      %h4 My WWQI
+      %ul.nav.nav-pills.pull-left
+        %li 
+          %a{:href => "#"} Sign Up
+        %li 
+          %a{:href => "#"} Login
+#main-content.row-fluid
+  .span12
+    .content-bg.span8.offset2
+      .content
+        %h2 My WWQI
+        %p My WWQI is a powerful research platform helping you use the wealth of WWQI’s archival information for your own study and research. Signing up for WWQI is free, and gives you access to tools such as:
+      #features.span8.offset2
+        .col1.span3
+          #img1
+          %h2 Feature 1
+          %p Lorem ipsum
+        .col2.span2
+          #img2
+          %h2 Feature 2
+          %p Lorem ipsum
+        .col3.span3
+          #img3
+          %h2 Feature 3
+          %p Lorem ipsum
+      #login-main.span8.offset2
+        %form.col1.span4
+          %fieldset
+            %legend 
+              %h2 Sign Up Now
+              %p Start using the research platform today.
+              %label{:for => "firstname"} First Name
+              %input{:type => "text", :name => "firstname"}
+              %label{:for => "lastname"} Last Name
+              %input{:type => "text", :name => "lastname"}
+              %label{:for => "email"} Your Email Address
+              %input{:type => "text", :name => "email"}
+              %label{:for => "password"} Choose a password
+              %input{:type => "text", :name => "password"}
+              %button.btn{:type => "submit"}Sign Up
+        %form.col2.span4
+          %fieldset
+            %legend 
+              %h2 Log In
+              %p Already a member? Log in below.
+              %label{:for => "email"} Email Address
+              %input{:type => "text", :name => "email"}
+              %label{:for => "email"} Password 
+              %input{:type => "text", :name => "password"}
+              %button.btn{:type => "submit"}Log In
+      #testimonials.span8.offset2
+        %h2 What others say about WWQI’s Research Platform
+        .col1.span4
+          .testimonial-copy
+            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque est augue, iaculis at facilisis et, ultrices eu elit. Phasellus orci dolor, dignissim eu rhoncus a, mattis at justo.
+          .testimonal-caption
+            .testimonial-image
+            %h3 Professor John Paddington
+            %p.caption Lorem ipsum
+        .col2.span4
+          .testimonial-copy
+            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque est augue, iaculis at facilisis et, ultrices eu elit. Phasellus orci dolor, dignissim eu rhoncus a, mattis at justo.
+          .testimonal-caption
+            .testimonial-image
+            %h3 Professor Kelly Middle 
+            %p.caption Lorem ipsum

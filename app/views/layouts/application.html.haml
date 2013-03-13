@@ -1,19 +1,15 @@
 !!! 5
-
 %html{:lang => "en"}
-
   %head
     %title WwqiPlatform
     = stylesheet_link_tag "application", :media => "all"
     = javascript_include_tag "application"
     = csrf_meta_tags
-
   %body
     #header.row-fluid
       .span12 
-        #logo.span2
-        %h1.span4 Women's Worlds in Qajar Iran
-
-
-
-  = yield
+        #logo-container.span2.offset2
+          #logo-img
+        %h1.span3 Women's Worlds in Qajar Iran
+        %h4.span1.offset4 farsi here
+    = yield
