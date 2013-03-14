@@ -1,0 +1,7 @@
+@import 'compass';
+
+@mixin quote-triangle { // needs latest Compass, add '@import "compass"' to your scss
+  background-color: #eeeeee; // Old browsers
+  @include filter-gradient(#eeeeee, #ffffff, horizontal); // IE6-9 fallback on horizontal gradient
+  @include background-image(linear-gradient(left top,  #eeeeee 0%,#eeeeee 50%,#ffffff 51%,#ffffff 100%));
+}

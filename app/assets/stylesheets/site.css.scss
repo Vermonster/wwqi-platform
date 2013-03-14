@@ -1,4 +1,6 @@
 #header {
+@import "mixins";
+
   background-color: #000;
   border-top: 1px solid rgba(255, 255, 255, .25);
   #logo-container {
