@@ -3,17 +3,26 @@
 
 h1 {
   font-size: 2em;
-  font-weight: 400;
+  font-weight: 500;
   color: #FFF;
-  font-kerning: auto;
 }
 
 h2 {
   font-size: 1.5em;
   color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  line-height: 1.5em;
 }
 
 h4 {
-  font-size: .5em;
-  color: #FFF;
+  font-size: 1em;
+  color: #333;
+}
+
+p {
+  font-size: 1em;
+  color: #696969;
+  line-height: 1.5em;
+  font-weight: 400;
 }

@@ -14,7 +14,7 @@
           %li
             %a{:href => "#"} FAQ
       #login-nav.span3
-        %h4 My WWQI
+        -#%h4 My WWQI
         %ul.nav.nav-pills.pull-left
           %li 
             %a{:href => "#"} Sign Up
@@ -24,32 +24,33 @@
   .span12
     .content-bg.span8.offset2
       .content
-        #intro
+        .intro.span10
           %h2 My WWQI
           %p My WWQI is a powerful research platform helping you use the wealth of WWQI’s archival information for your own study and research. Signing up for WWQI is free, and gives you access to tools such as:
-        #features
-          .col1.span4
-            .feature-image
-              #img1
-            .feature-copy
-              %h2 Feature 1
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          .col2.span4
-            .feature-image
-              #img2
-            .feature-copy
-              %h2 Feature 2
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          .col3.span4
-            .feature-image
-              #img3
-            .feature-copy
-              %h2 Feature 3
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        #features.row-fluid
+          .span12
+            .col1.span4
+              .feature-image
+                #img1
+              .feature-copy
+                %h2 Feature 1
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            .col2.span4
+              .feature-image
+                #img2
+              .feature-copy
+                %h2 Feature 2
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            .col3.span4
+              .feature-image
+                #img3
+              .feature-copy
+                %h2 Feature 3
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
       #login-main.span12
         %form.col1.span4.offset1
           %fieldset
-            %legend 
+            %legend.first
               %h2 Sign Up Now
               %p Start using the research platform today.
               %label{:for => "firstname"} First Name
@@ -65,7 +66,7 @@
               %button.btn{:type => "submit"}Sign Up
         %form.col2.span4.offset1
           %fieldset
-            %legend 
+            %legend.second
               %h2 Log In
               %p Already a member? Log in below.
               %label{:for => "email"} Email Address
@@ -74,7 +75,9 @@
               %input{:type => "text", :name => "password"}
               %button.btn{:type => "submit"}Log In
       #testimonials.span12
-        %h2 What others say about WWQI’s Research Platform
+        .intro.span9
+          %h2 What others are saying 
+          %p about WWQI’s Research Platform
         .col1.span5
           .testimonial-block
             .testimonial-copy
