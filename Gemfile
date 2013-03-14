@@ -13,6 +13,8 @@ gem "haml", "~> 4.0.0"
 
 gem "thin", "~> 1.5.0"
 
+gem "devise", "~> 2.2.3"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -34,4 +36,10 @@ group :test, :development do
   gem 'database_cleaner', '0.6.7'
   gem 'nokogiri', '~> 1.5.0'
   gem 'poltergeist'
+  gem 'factory_girl_rails'
+  gem 'pry', '~> 0.9.12'
+end
+
+group :test do
+  gem "shoulda-matchers"
 end
