@@ -9,10 +9,11 @@
     :javascript
       try{Typekit.load();}catch(e){}
   %body
-    #header.row-fluid
-      .span12 
-        #logo-container.span2.offset2
-          #logo-img
+    #header-wrapper.row-fluid
+      .span12
+        #header.span8.offset2
+          #logo-container.span2
+            #logo-img
           %h1.span5 Women's Worlds in Qajar Iran
           %h4.span1.offset3 farsi here
     = yield
