@@ -38,4 +38,7 @@ RSpec.configure do |config|
   config.after do
     DatabaseCleaner.clean
   end
+
+  config.include FactoryGirl::Syntax::Methods
+  config.color_enabled = true
 end
