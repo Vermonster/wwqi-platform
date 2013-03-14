@@ -24,9 +24,10 @@
   .span12
     .content-bg.span8.offset2
       .content
-        %h2 My WWQI
-        %p My WWQI is a powerful research platform helping you use the wealth of WWQI’s archival information for your own study and research. Signing up for WWQI is free, and gives you access to tools such as:
-        #features.span12
+        #intro
+          %h2 My WWQI
+          %p My WWQI is a powerful research platform helping you use the wealth of WWQI’s archival information for your own study and research. Signing up for WWQI is free, and gives you access to tools such as:
+        #features
           .col1.span4
             .feature-image
               #img1
@@ -59,6 +60,8 @@
               %input{:type => "text", :name => "email"}
               %label{:for => "password"} Choose a password
               %input{:type => "text", :name => "password"}
+              %label{:for => "password-confirm"} Please confirm your password
+              %input{:type => "text", :name => "password-confirm"}
               %button.btn{:type => "submit"}Sign Up
         %form.col2.span4.offset1
           %fieldset
@@ -67,23 +70,28 @@
               %p Already a member? Log in below.
               %label{:for => "email"} Email Address
               %input{:type => "text", :name => "email"}
-              %label{:for => "email"} Password 
+              %label{:for => "password"} Password 
               %input{:type => "text", :name => "password"}
               %button.btn{:type => "submit"}Log In
-      #testimonials.span8.offset2
+      #testimonials.span12
         %h2 What others say about WWQI’s Research Platform
-        .col1.span4
-          .testimonial-copy
-            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque est augue, iaculis at facilisis et, ultrices eu elit. Phasellus orci dolor, dignissim eu rhoncus a, mattis at justo.
+        .col1.span5
+          .testimonial-block
+            .testimonial-copy
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque est augue, iaculis at facilisis et, ultrices eu elit. Phasellus orci dolor, dignissim eu rhoncus a, mattis at justo.
           .testimonal-caption
             .testimonial-image
-            %h3 Professor John Paddington
-            %p.caption Lorem ipsum
-        .col2.span4
-          .testimonial-copy
-            %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque est augue, iaculis at facilisis et, ultrices eu elit. Phasellus orci dolor, dignissim eu rhoncus a, mattis at justo.
+            .testimonial-info
+              %h4 Professor John Paddington
+              %p.caption Lorem ipsum
+        .col2.span5
+          .testimonial-block
+            .testimonial-copy
+              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque est augue, iaculis at facilisis et, ultrices eu elit. Phasellus orci dolor, dignissim eu rhoncus a, mattis at justo.
           .testimonal-caption
             .testimonial-image
-            %h3 Professor Kelly Middle 
-            %p.caption Lorem ipsum
+            .testimonial-info
+              %h4 Professor Kelly Middle 
+              %p.caption Lorem ipsum
+
 = render "partials/footer"
