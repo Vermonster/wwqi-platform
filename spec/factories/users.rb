@@ -1,10 +1,10 @@
 # Read about factories at https://github.com/thoughtbot/factory_girl
 
 FactoryGirl.define do
-  factory :user do
-    first_name "Meg"
-    last_name "Broughton"
-    email "meg@vermonster.com"
+  factory :user, aliases: [:creator] do
+    first_name { generate(:string) }
+    last_name { generate(:string) }
+    email { generate(:email) }
     password "password"
     password_confirmation "password"
   end

@@ -1,0 +1,3 @@
+class Discussion < Post
+end
+
