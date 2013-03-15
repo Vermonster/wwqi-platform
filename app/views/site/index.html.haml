@@ -48,32 +48,21 @@
                 %h2 Feature 3
                 %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
       #login-main.span12
-        %form.col1.span4.offset1
-          %fieldset
-            %legend.first
-              %h2 Sign Up Now
-              %p Start using the research platform today.
-              %label{:for => "firstname"} First Name
-              %input{:type => "text", :name => "firstname"}
-              %label{:for => "lastname"} Last Name
-              %input{:type => "text", :name => "lastname"}
-              %label{:for => "email"} Your Email Address
-              %input{:type => "text", :name => "email"}
-              %label{:for => "password"} Choose a password
-              %input{:type => "text", :name => "password"}
-              %label{:for => "password-confirm"} Please confirm your password
-              %input{:type => "text", :name => "password-confirm"}
-              %button.btn{:type => "submit"}Sign Up
-        %form.col2.span4.offset1
-          %fieldset
-            %legend.second
-              %h2 Log In
-              %p Already a member? Log in below.
-              %label{:for => "email"} Email Address
-              %input{:type => "text", :name => "email"}
-              %label{:for => "password"} Password 
-              %input{:type => "text", :name => "password"}
-              %button.btn{:type => "submit"}Log In
+        = simple_form_for "user", url: user_registration_path, html: { class: 'col1 span4 offset1' } do |f|
+          %h2 Sign Up Now
+          %p Start using the research platform today.
+          = f.input :first_name
+          = f.input :last_name
+          = f.input :email
+          = f.input :password
+          = f.input :password_confirmation
+          = f.button :submit, "Sign Up", { class: "btn" }
+        = simple_form_for "user", url: user_session_path, html: { class: 'col2 span4 offset1' } do |f|
+          %h2 Log In
+          %p Already a member? Log in below.
+          = f.input :email
+          = f.input :password
+          = f.button :submit, "Log In", { class: "btn" }
       #testimonials.span12
         .intro.span9
           %h2 What others are saying 
