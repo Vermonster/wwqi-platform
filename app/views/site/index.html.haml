@@ -48,42 +48,44 @@
                 %h2 Feature 3
                 %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
       #login-main.span12
-        = simple_form_for "user", url: user_registration_path, html: { class: 'col1 span4 offset1' } do |f|
-          %h2 Sign Up Now
-          %p Start using the research platform today.
-          = f.input :first_name
-          = f.input :last_name
-          = f.input :email
-          = f.input :password
-          = f.input :password_confirmation
-          = f.button :submit, "Sign Up", { class: "btn" }
-        = simple_form_for "user", url: user_session_path, html: { class: 'col2 span4 offset1' } do |f|
-          %h2 Log In
-          %p Already a member? Log in below.
-          = f.input :email
-          = f.input :password
-          = f.button :submit, "Log In", { class: "btn" }
+        .col1.span5.offset1
+          = simple_form_for "user", url: user_registration_path do |f|
+            %h2 Sign Up Now
+            %p Start using the research platform today.
+            = f.input :first_name, wrapper_html: { class: "name" }
+            = f.input :last_name, wrapper_html: { class: "name" }
+            = f.input :email
+            = f.input :password
+            = f.input :password_confirmation
+            = f.button :submit, "Sign Up", { class: "btn" }
+        .col2.span5.offset1
+          = simple_form_for "user", url: user_session_path do |f|
+            %h2 Log In
+            %p Already a member? Log in below.
+            = f.input :email
+            = f.input :password
+            = f.button :submit, "Log In", { class: "btn" }
       #testimonials.span12
-        .intro.span9
+        .intro.span12
           %h2 What others are saying 
           %p about WWQI’s Research Platform
-        .col1.span5
-          .testimonial-block
-            .testimonial-copy
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque est augue, iaculis at facilisis et, ultrices eu elit. Phasellus orci dolor, dignissim eu rhoncus a, mattis at justo.
-          .testimonal-caption
-            .testimonial-image
-            .testimonial-info
-              %h4 Professor John Paddington
-              %p.caption Lorem ipsum
-        .col2.span5
-          .testimonial-block
-            .testimonial-copy
-              %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque est augue, iaculis at facilisis et, ultrices eu elit. Phasellus orci dolor, dignissim eu rhoncus a, mattis at justo.
-          .testimonal-caption
-            .testimonial-image
-            .testimonial-info
-              %h4 Professor Kelly Middle 
-              %p.caption Lorem ipsum
+          .col1.span6
+            .testimonial-block
+              .testimonial-copy
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque est augue, iaculis at facilisis et, ultrices eu elit. Phasellus orci dolor, dignissim eu rhoncus a, mattis at justo.
+            .testimonal-caption
+              .testimonial-image
+              .testimonial-info
+                %h4 Professor John Paddington
+                %p.caption Lorem ipsum
+          .col2.span6
+            .testimonial-block
+              .testimonial-copy
+                %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque est augue, iaculis at facilisis et, ultrices eu elit. Phasellus orci dolor, dignissim eu rhoncus a, mattis at justo.
+            .testimonal-caption
+              .testimonial-image
+              .testimonial-info
+                %h4 Professor Kelly Middle 
+                %p.caption Lorem ipsum
 
 = render "partials/footer"

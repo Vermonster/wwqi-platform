@@ -71,14 +71,6 @@
     }
     #login-nav {
       margin-top: 1.15em;
-      /*h4 { */
-        /*margin: 2px 0 0; */
-        /*text-align: center;*/
-        /*color: #FFF;*/
-        /*font-size: .7em;*/
-        /*font-weight: 400;*/
-        /*margin-left: -5em;*/
-      /*}*/
       ul { 
         margin-bottom: 0;
         padding: 0 10px;
@@ -141,47 +133,50 @@
     }
     #login-main {
       margin: 0;
-      padding: 30px 0 0 0;
+      padding: 20px 0;
       background: #eee;
-      form {
-        legend {
-          border-bottom: none;
+      .col1, .col2 {
+        &.col1 {
+          /*border-right: 1px solid #444;*/
+          margin-left: 5%;
+        }
+        &.col2 {
+          margin-left: 5%;
+        }
+        form {
           h2 {
             color: #333;
             font-weight: 600;
-            font-size: 1em;
+            font-size: 1.5em;
             margin-bottom: -.125em;
           }
           p {
-            font-size: .65em;
+            font-size: 1em;
             margin-bottom: 1em;
             color: #333;
           }
-          label {
-            font-size: .5em;
-            color: #333;
-            margin-bottom: 0;
+          .name {
+            float: left;
+            width: 50%;
+            input, label {
+              width: 80%;
+            }
           }
           input {
-            background: #FFF;
-            padding-right: 5em;
-            margin-bottom: 15px;
+            width: 90%;
           }
           .btn {
             display: block;
             margin-top: 1em;
+            width: 25%;
+            margin-left: 68.75%;
           }
-          /*&.first {*/
-            /*border-right: 1px solid #333;*/
-            padding-right: 2em;
-          /*}*/
-          /*&.second {*/
-            /*padding-left: 4em;*/
-          /*}*/
         }
       }
     }
     #testimonials {
+      margin: 0;
+      padding: 2em;
       .intro {
         h2 {
           margin-top: 0;
@@ -190,14 +185,16 @@
           margin-top: -15px;
         }
       }
-      margin: 2em;
       .col1, .col2 {
         padding-left: 2.75em;
+        margin-left: 0;
+        &.col1 {
+          border-right: 1px solid #000;
+        }
         .testimonial-block {
           position: relative;
-          margin: 1em 0;
-          padding: 2em;
-          width: 20em;
+          margin: 20px 2em 15px 0;
+          padding: 3em 3em 1.5em;
           background-color: #eee;
           border-radius: 20px;
           &:after {
@@ -211,8 +208,8 @@
         }
         .testimonial-image {
           background: url("/assets/placeholder.png");
-          width: 50px;
-          height: 50px;
+          width: 60px;
+          height: 60px;
           margin-top: .5em;
           background-size: contain;
           float: left;
@@ -223,7 +220,7 @@
           h4 {
             color: #000;
             font-size: 1em;
-            margin-bottom: 0;
+            margin-bottom: 20px;
           }
         }
       }
