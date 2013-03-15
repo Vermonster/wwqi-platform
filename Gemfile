@@ -30,7 +30,7 @@ end
 gem 'jquery-rails'
 
 group :test, :development do
-  gem 'rspec-rails', '2.6.1'
+  gem 'rspec-rails', '2.13.0'
   gem 'capybara', '~> 1.1'
   gem 'database_cleaner', '0.6.7'
   gem 'nokogiri', '~> 1.5.0'
