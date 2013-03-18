@@ -13,6 +13,7 @@ gem "devise", "~> 2.2.3"
 gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'carrierwave'
+gem 'kaminari'
 
 # Gems used only for assets and not required
 # in production environments by default.
