@@ -5,7 +5,7 @@ class PostDecorator < Draper::Decorator
     "#{h.time_ago_in_words(created_at)} ago" 
   end
 
-  def comments_received
+  def comments_size
     if comments_count.zero?
       "no #{comment_key.pluralize}"
     else
