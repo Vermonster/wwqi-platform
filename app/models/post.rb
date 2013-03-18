@@ -12,4 +12,8 @@ class Post < ActiveRecord::Base
   validates :title, :details, :creator_id, presence: true
 
   default_scope order('created_at DESC')
+
+  include PgSearch
+  pg_search_scope :search_text, against: [:title, :details],
+    associated_against: { tags: [:name] }
 end
