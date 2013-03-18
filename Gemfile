@@ -15,6 +15,7 @@ gem 'acts-as-taggable-on'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'lorem'
+gem 'pg_search'
 
 # Gems used only for assets and not required
 # in production environments by default.
