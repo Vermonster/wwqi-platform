@@ -17,7 +17,7 @@ gem 'kaminari'
 gem 'lorem'
 gem 'pg_search'
 gem 'inherited_resources'
-gem 'draper'
+gem 'draper', git: 'git://github.com/drapergem/draper.git'
 
 # Gems used only for assets and not required
 # in production environments by default.

@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/drapergem/draper.git
+  revision: dc430b3e82de0d9cae86f7297f816e5b69d9ca58
+  specs:
+    draper (1.1.0)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      request_store (~> 1.0.3)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -72,10 +81,6 @@ GEM
       railties (~> 3.1)
       warden (~> 1.2.1)
     diff-lcs (1.2.1)
-    draper (1.1.0)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      request_store (~> 1.0.3)
     erubis (2.7.0)
     eventmachine (1.0.0)
     execjs (1.4.0)
@@ -227,7 +232,7 @@ DEPENDENCIES
   compass-rails
   database_cleaner (= 0.6.7)
   devise (~> 2.2.3)
-  draper
+  draper!
   factory_girl_rails
   haml (~> 4.0.0)
   inherited_resources
