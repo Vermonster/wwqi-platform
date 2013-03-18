@@ -1,0 +1,9 @@
+= link_to 'Lastest', collection_url
+= link_to 'Followed Threads', collection_url(followed: true)
+
+- collection.each do |post|
+  = post.header
+  = post.title
+  = post.comments_size
+  = post.created_ago
+
