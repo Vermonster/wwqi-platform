@@ -10,4 +10,6 @@ class Post < ActiveRecord::Base
   attr_accessible :title, :details, :item_related, :private, :creator_id
 
   validates :title, :details, :creator_id, :presence => true
+
+  default_scope order('created_at DESC')
 end
