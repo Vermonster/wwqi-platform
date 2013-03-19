@@ -10,9 +10,9 @@ module ApplicationHelper
   def comment_btn_text(post)
     case post
     when Question
-      "Submit answer"
+      "Submit Answer"
     when Discussion
-      "Submit reply"
+      "Submit Reply"
     end
   end
 end
