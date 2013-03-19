@@ -10,8 +10,17 @@ class PostsController < ApplicationController
   private
 
   def collection
-    # https://github.com/drapergem/draper/issues/468
-    @posts ||= end_of_association_chain.decorate(with: nil)
+    # see https://github.com/drapergem/draper/issues/468
+    # to view the explanation for `decorate(with: nil)`
+    @posts ||= begin
+                 posts = if params[:followed]
+                  current_user.followed_posts
+                 else
+                  end_of_association_chain
+                 end
+
+                 posts.decorate(with: nil)
+               end
   end
 
   def select_type
