@@ -36,12 +36,12 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails', '2.13.0'
-  gem 'capybara', '~> 1.1'
+  gem 'capybara', '2.0.2'
   gem 'database_cleaner', '0.6.7'
-  gem 'nokogiri', '~> 1.5.0'
+  gem 'nokogiri'
   gem 'poltergeist'
   gem 'factory_girl_rails'
-  gem 'pry', '~> 0.9.12'
+  gem 'pry'
 end
 
 group :test do
