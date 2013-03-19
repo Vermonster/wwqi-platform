@@ -23,4 +23,11 @@ en:
     #   defaults:
     #     username: 'User name to sign in.'
     #     password: 'No special characters, please.'
-
+    labels:
+      post:
+        type: 'Thread Type'
+        tag_list: 'Tags'
+        title: 'Title or Question'
+        details: 'Additional Details'
+        item_related: 'Is this related to specific WWQI items?'
+        private: 'Who do you want to ask?'

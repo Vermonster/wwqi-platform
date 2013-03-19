@@ -1,0 +1,9 @@
+= simple_form_for resource do |f|
+  = f.collection_radio_buttons :type, post_type_radio_options, :first, :last, checked: 'question'
+  = f.input :tag_list
+  = f.input :title
+  = f.input :details
+  -# file upload input here
+  = f.input :item_related, as: :radio_buttons
+  = f.collection_radio_buttons :private, post_private_radio_options, :first, :last
+  = f.submit 'Post thread'
