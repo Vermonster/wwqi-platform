@@ -2,6 +2,11 @@ class PostsController < ApplicationController
   inherit_resources
   respond_to :html
 
+  def show
+    @post = resource.decorate
+    show!
+  end
+
   def create
     @post = select_type(params)
     create! { resource_url }

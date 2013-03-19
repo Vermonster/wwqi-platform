@@ -3,7 +3,7 @@
 
 - collection.each do |post|
   = post.header
-  = post.title
+  = link_to post.title, post_path(post)
   = post.comments_size
   = post.created_ago
 

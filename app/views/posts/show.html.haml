@@ -1,0 +1,13 @@
+= "#{resource.created_ago}, #{resource.header}"
+= resource.title
+= resource.details
+= "tags: #{resource.tag_list}"
+
+- resource.comments.each do |c|
+  = "#{c.header} #{c.created_ago}"
+  = c.details
+
+= simple_form_for Comment.new, url: post_comments_path(resource) do |f|
+  = f.input :details
+  = f.submit comment_btn_text(resource)
+

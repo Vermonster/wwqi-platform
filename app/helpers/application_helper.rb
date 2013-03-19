@@ -6,4 +6,13 @@ module ApplicationHelper
   def post_private_radio_options
     [['true', 'People I Choose'], ['false', 'Everyone']] 
   end
+
+  def comment_btn_text(post)
+    case post
+    when Question
+      "Submit answer"
+    when Discussion
+      "Submit reply"
+    end
+  end
 end
