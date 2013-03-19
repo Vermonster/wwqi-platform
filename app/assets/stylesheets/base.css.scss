@@ -1,5 +1,9 @@
 @import 'bootstrap';
 @import 'bootstrap-responsive';
+@import "compass/reset.scss";
+@import "compass/layout.scss";
+ 
+@include sticky-footer(142px);
 
 h1 {
   font-size: 2em;
