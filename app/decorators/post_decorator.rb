@@ -1,5 +1,6 @@
 class PostDecorator < Draper::Decorator
   delegate_all
+  decorates_association :comments
 
   def created_ago
     "#{h.time_ago_in_words(created_at)} ago" 
