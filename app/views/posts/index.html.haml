@@ -1,9 +1,37 @@
-= link_to 'Latest', collection_url
-= link_to 'Followed Threads', collection_url(followed: true)
-
-- collection.each do |post|
-  = post.header
-  = link_to post.title, post_path(post)
-  = post.comments_size
-  = post.created_ago
-
+.content#posts.span11
+  %form.navbar-search
+    %input.search-query.pull-left
+    .btn.pull-right
+      %p Start A New Thread
+  %ul.thread-type.btn-group
+    %li.btn.active
+      = link_to 'Latest', collection_url
+    %li.btn
+      = link_to 'Followed Threads', collection_url(followed: true)
+  %ul.posts
+    %li
+      - collection.each do |post|
+        .post-image.pull-left
+        .post-content
+          .post-header
+            = post.header
+          .post-title
+            = post.title
+          .post-comments
+            = post.comments_size
+          %p &bull; 
+          .post-created
+            = post.created_ago
+    %li
+      - collection.each do |post|
+        .post-image.pull-left
+        .post-content
+          .post-header
+            = post.header
+          .post-title
+            = post.title
+          .post-comments
+            = post.comments_size
+          %p &bull; 
+          .post-created
+            = post.created_ago
