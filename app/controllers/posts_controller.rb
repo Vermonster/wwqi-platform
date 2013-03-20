@@ -24,7 +24,7 @@ class PostsController < ApplicationController
                   end_of_association_chain
                  end
 
-                  if params[:q]
+                  if params[:q].present?
                     posts = posts.search_text(params[:q])
                   end
                  posts.decorate(with: nil)

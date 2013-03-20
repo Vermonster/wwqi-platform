@@ -44,6 +44,14 @@ describe "post search" do
 
       page.should_not have_content('Goodbye Cruel World')
       page.should have_content('Hello World')
+
+      within('#post_search') do
+        fill_in 'q', with: ''
+        click_on 'Search'
+      end
+
+      page.should have_content('Hello World')
+      page.should have_content('Goodbye Cruel World')
     end
   end
 end
