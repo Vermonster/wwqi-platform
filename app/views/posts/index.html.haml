@@ -2,7 +2,7 @@
   %form.navbar-search
     %input.search-query.pull-left
     .btn.pull-right
-      %p Start A New Thread
+      = link_to 'Start A New Thread', new_post_path
   %ul.thread-type.btn-group
     %li.btn.active
       = link_to 'Latest', collection_url
@@ -16,7 +16,7 @@
           .post-header
             = post.header
           .post-title
-            = post.title
+            = link_to post.title, post_path(post)
           .post-comments
             = post.comments_size
           %p &bull; 
