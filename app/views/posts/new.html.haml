@@ -3,7 +3,9 @@
   = f.input :tag_list
   = f.input :title
   = f.input :details
-  -# file upload input here
+  = f.simple_fields_for :uploads do |upload|
+    = render 'upload_fields', f: upload
+    = link_to_add_association 'add upload', f, :uploads
   = f.input :item_related, as: :radio_buttons
   = f.collection_radio_buttons :private, post_private_radio_options, :first, :last
   = f.submit 'Post Thread'
