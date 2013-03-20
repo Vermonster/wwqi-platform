@@ -1,8 +1,10 @@
 .content#posts.span11
-  %form.navbar-search
-    %input.search-query.pull-left
-    .btn.pull-right
-      = link_to 'Start A New Thread', new_post_path
+  = simple_form_for "search", html: { class: "navbar-search pull-left" },
+url: posts_path, method: :get do |f|
+    = f.input :q, placeholder: "Search Questions & Discussions", label: false, input_html: { class: "search-query pull-left" }
+    = f.button :submit, "Search", { class: "btn" }
+  .btn.pull-right
+    = link_to 'Start A New Thread', new_post_path
   %ul.thread-type.btn-group
     %li.btn.active
       = link_to 'Latest', collection_url

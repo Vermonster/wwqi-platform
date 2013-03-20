@@ -245,8 +245,11 @@
         input {
           width: 60%;
         }
-        .btn p {
-          margin-bottom: 0;
+        .btn {
+          display: none;
+          p {
+            margin-bottom: 0;
+          }
         }
       }
       .thread-type {
