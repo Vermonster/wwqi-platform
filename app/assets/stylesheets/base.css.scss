@@ -3,7 +3,7 @@
 @import "compass/reset.scss";
 @import "compass/layout.scss";
  
-@include sticky-footer(142px);
+@include sticky-footer(142px, "#root", "#root_footer", "#footer");
 
 h1 {
   font-size: 2em;
@@ -32,4 +32,8 @@ p, label, a {
   line-height: 1.5em;
   font-weight: 400;
   font-family: "proxima-nova", sans-serif;
+}
+
+.full-width {
+  width: 100%;
 }
