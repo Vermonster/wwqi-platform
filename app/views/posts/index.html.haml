@@ -1,8 +1,7 @@
 .content#posts.span11
-  = simple_form_for "search", html: { class: "navbar-search pull-left" },
-url: posts_path, method: :get do |f|
-    = f.input :q, placeholder: "Search Questions & Discussions", label: false, input_html: { class: "search-query pull-left" }
-    = f.button :submit, "Search", { class: "btn" }
+  = form_tag posts_path, html: { class: "navbar-search pull-left" }, method: :get do |f|
+    = search_field_tag :q, params[:q], placeholder: "Search Questions & Discussions", class: "search-query pull-left"
+    = submit_tag "Search", { class: "btn" }
   .btn.pull-right
     = link_to 'Start A New Thread', new_post_path
   %ul.thread-type.btn-group

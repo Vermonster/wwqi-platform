@@ -18,14 +18,14 @@ class PostsController < ApplicationController
     # see https://github.com/drapergem/draper/issues/468
     # to view the explanation for `decorate(with: nil)`
     @posts ||= begin
-                 posts = if params[:followed]
+                 posts = if params[:followed] && current_user
                   current_user.followed_posts
                  else
                   end_of_association_chain
                  end
 
-                  if params[:search] && params[:search][:q]
-                    posts = posts.search_text(params[:search][:q])
+                  if params[:q]
+                    posts = posts.search_text(params[:q])
                   end
                  posts.decorate(with: nil)
                end
