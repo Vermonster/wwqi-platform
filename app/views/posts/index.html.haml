@@ -18,7 +18,9 @@
           .post-title
             = link_to post.title, post_path(post)
           .post-comments
-            = post.comments_size
+            %p 
+              = post.comments_size
           %p &bull; 
           .post-created
-            = post.created_ago
+            %p
+              = post.created_ago

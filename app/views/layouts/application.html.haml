@@ -21,12 +21,16 @@
             #login-nav.span5
               %ul.pull-right
                 %li
-                  %a{:href => "#"} WWQI Archive
-                %li#bullet &#124;
+                  %a{:href => "#"} 
+                    %h2 WWQI Archive
+                %li#bullet 
+                  %h2 &#124;
                 %li 
-                  %a{:href => "#"} Sign Up
+                  %a{:href => "#"} 
+                    %h2 Sign Up
                 %li 
-                  %a{:href => "#"} Login
+                  %a{:href => "#"} 
+                    %h2 Login
       #main-nav-wrapper.row-fluid
         .span12
           #main-nav.span8.offset2
@@ -44,5 +48,5 @@
         .span12
           .content-bg.span8.offset2
             = yield
-      #root_footer
+        #root_footer
 = render "partials/footer"
