@@ -16,18 +16,23 @@
         width: 130px;
       }
     }
-    h1 {
-      font-size: 2.5em;
-      margin-top: .875em;
-      margin-bottom: -4px;
-    }
-    h2 {
-      color: #b29628;
-      font-size: 1em;
-      line-height: 1em;
-      margin: 0 0 1em 8px;
-      text-transform: uppercase;
-      font-weight: 700;
+    #title a {
+      h1 {
+        font-size: 2.5em;
+        margin-top: .875em;
+        margin-bottom: -4px;
+      }
+      h2 {
+        color: #b29628;
+        font-size: 1em;
+        line-height: 1em;
+        margin: .6em 0 1em 8px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      &:hover {
+        text-decoration: none;
+      }
     }
     h4 {
       color: #b29628;
@@ -48,7 +53,12 @@
           padding-left: 15px;
         }
         &#bullet {
-          color: #b29628;
+          margin-top: -6px;
+          font-size: .75em;
+          line-height: .75em;
+          h2 {
+            color: #b29628;
+          }
         }
         a h2, #bullet h2 { 
           color: #888;
@@ -108,6 +118,7 @@
 #main-content {
   background: url("/assets/lightpaperfibers.png");
   .content-bg {
+    min-width: 800px;
     background: #FFF;
     box-shadow: 0 0 6px rgba(0, 0, 0, .25);
     .content {
@@ -237,13 +248,13 @@
         }
       }
     }
-    #posts {
+    #posts-index {
       form {
         display: block;
-        width: 100%;
-        margin-bottom: 2.5em;
+        width: 75%;
+        margin: 0 0 2.5em;
         input {
-          width: 60%;
+          width: 95%;
         }
         .btn {
           display: none;
@@ -251,6 +262,9 @@
             margin-bottom: 0;
           }
         }
+      }
+      .btn {
+        width: 147px;
       }
       .thread-type {
         display: block;
@@ -297,11 +311,11 @@
         list-style: none;
         li {
           padding: 2em 1.5em;
-          /*margin: 25px 0;*/
           border-bottom: 1px #a8a8a8 solid;
           overflow: auto;
           &:last-child {
             border-bottom: none;
+            margin-bottom: 25px;
           }
           .post-image {
             float: left;
@@ -320,19 +334,10 @@
               color: #b29628;
             }
             .post-title, {
-              font-size: 1.25em;
-              font-family: "proxima-nova",sans-serif;
-              font-weight: 300;
-              color: #505050;
-              margin: .25em 0;
+              @include post-title;
             }
             .post-created, .post-comments, p {
-              float: left;
-              font-size: .85em;
-              color: #A8A8A8;
-              font-weight: 600;
-              margin-right: 10px;
-              line-height: 1em;
+              @include post-created;
               &:first-child {
                 margin-right: 0;
               }
@@ -341,9 +346,55 @@
         }
       }
     }
+    #posts-show {
+      margin-left: 0;
+      .show-intro {
+        width: 100%;
+        overflow: hidden;
+      }
+      .post-image {
+        background: url("/assets/placeholder.png");
+        background-size: contain;
+        height: 30px;
+        width: 30px;
+        margin-right: 10px;
+      }
+      .post-created {
+        @include post-created;
+        margin-top: .75em;
+        &.full-width {
+          margin-top: 0;
+        }
+      }
+      .post-title {
+        @include post-title;
+        color: #505050;
+        width: 100%;
+      }
+      .post-details {
+        margin: .5em 0 1em;
+      }
+      .post-tags {
+        @include proxima-bold;
+        font-size: .75em;
+        color: #696969;
+      }
+      #side-box {
+        background-color: #333;
+        height: 100px;
+      }
+      .comments {
+        overflow: auto;
+        margin-top: 4em;
+        border-top: 1px solid #eee;
+        padding-top: 2em;
+      }
+      textarea {
+        width: 100%;
+      }
+    }
   }
 }
 #footer {
-  height: 142px;
   background-color: #eee;
 }

@@ -5,3 +5,27 @@
   @include filter-gradient(#eeeeee, #ffffff, horizontal); // IE6-9 fallback on horizontal gradient
   @include background-image(linear-gradient(left top,  #eeeeee 0%,#eeeeee 50%,#ffffff 51%,#ffffff 100%));
 }
+
+@mixin post-created {
+  float: left;
+  font-size: .85em;
+  color: #696969;
+  font-weight: 600;
+  margin: 0 10px .25em 0;
+  line-height: 1em;
+  @include proxima-bold;
+}
+
+@mixin post-title {
+  font-size: 1.65em;
+  font-family: "proxima-nova",sans-serif;
+  font-weight: 300;
+  color: #696969;
+  margin: .75em 0 .25em; 
+  width: 100%;
+}
+
+@mixin proxima-bold {
+  font-family: "proxima-nova",sans-serif;
+  font-weight: 700;
+}
