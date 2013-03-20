@@ -22,16 +22,3 @@
           %p &bull; 
           .post-created
             = post.created_ago
-    %li
-      - collection.each do |post|
-        .post-image.pull-left
-        .post-content
-          .post-header
-            = post.header
-          .post-title
-            = post.title
-          .post-comments
-            = post.comments_size
-          %p &bull; 
-          .post-created
-            = post.created_ago
