@@ -10,8 +10,8 @@
     %li.btn
       = link_to 'Followed Threads', collection_url(followed: true)
   %ul.posts
-    %li
-      - collection.each do |post|
+    - collection.each do |post|
+      %li
         .post-image.pull-left
         .post-content
           .post-header
