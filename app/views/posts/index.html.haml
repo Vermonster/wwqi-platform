@@ -1,4 +1,4 @@
-.content#posts.span11
+.content#posts-index.span11
   = form_tag posts_path, class: "navbar-search pull-left", id: 'post_search', method: :get do |f|
     = search_field_tag :q, params[:q], placeholder: "Search Questions & Discussions", class: "search-query pull-left"
     = submit_tag "Search", { class: "btn" }
