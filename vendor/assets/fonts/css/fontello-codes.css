@@ -1,0 +1,3 @@
+@charset "UTF-8";
+
+.icon-notification:before { content: '\006e'; } /* 'n' */
