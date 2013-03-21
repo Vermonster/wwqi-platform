@@ -39,4 +39,4 @@
     .post-content.pull-left
       = simple_form_for Comment.new, url: post_comments_path(resource) do |f|
         = f.input :details, label: "Submit your answer", input_html: {cols: 115}
-        = f.submit comment_btn_text(resource)
+        = f.submit comment_btn_text(resource), { class: "btn pull-right" }
