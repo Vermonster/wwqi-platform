@@ -13,12 +13,7 @@ describe Post do
   it { should belong_to(:creator).class_name(:User) }
   it { should have_many(:followings).dependent(:destroy) }
   it { should have_many(:followers).through(:followings).class_name(:User) }
-<<<<<<< HEAD
-=======
-  it { should have_many(:related_items).dependent(:destroy) }
-  it { should have_many(:items).through(:related_items) }
   it { should accept_nested_attributes_for(:uploads) }
->>>>>>> 5e42495... --wip it
 
   shared_examples "a post" do
     let(:klass) { described_class.to_s.downcase.intern }
