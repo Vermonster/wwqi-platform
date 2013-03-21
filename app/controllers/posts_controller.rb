@@ -1,14 +1,15 @@
 class PostsController < ApplicationController
   inherit_resources
   respond_to :html
+  before_filter :authenticate_user!, except: [:index, :show]
 
   def show
-    @post = resource.decorate
+    @post = "#{resource.type}Decorator".constantize.decorate(resource)
     show!
   end
 
   def create
-    @post = select_type(params)
+    @post = Post.new(params[:post].merge(creator_id: current_user.id))
     create! { resource_url }
   end
 
@@ -29,16 +30,5 @@ class PostsController < ApplicationController
                   end
                  posts.decorate(with: nil)
                end
-  end
-
-  def select_type
-    if params[:post]
-      case params[:post][:type]
-      when 'question'
-        Question.new(params[:post])
-      when 'discussion'
-        Discussion.new(params[:post])
-      end
-    end
   end
 end

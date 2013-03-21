@@ -2,7 +2,7 @@
 
 module ApplicationHelper
   def post_type_radio_options
-    [['question', 'Question'], ['discussion', 'Discussion']]
+    [['Question', 'Question'], ['Discussion', 'Discussion']]
   end
 
   def post_private_radio_options

@@ -7,7 +7,8 @@ class Post < ActiveRecord::Base
   has_many :followings, as: :followable, dependent: :destroy
   has_many :followers, through: :followings, class_name: :User
 
-  attr_accessible :title, :details, :item_related, :private, :creator_id
+  attr_accessible :title, :details, :item_related, :private, :creator_id, :type, 
+    :tag_list, :uploads_attributes
 
   validates :title, :details, :creator_id, presence: true
 
