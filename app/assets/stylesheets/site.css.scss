@@ -113,6 +113,65 @@
         }
       }
     }
+    #notifications-wrapper {
+      margin-top: 1em;
+      #dropdown {
+        margin-top: 1em;
+        button, .btn {
+          background: none;
+          border: none;
+          text-shadow: none;
+          box-shadow: none;
+          p {
+            color: #eee;
+            border-top: none;
+            font-size: 1.25em;
+          }
+          &.dropdown-toggle {
+            padding-left: 0;
+          }
+          .caret {
+            border-top: 4px solid #eee;
+            padding-left: 0;
+          }
+        }
+        ul.dropdown-menu {
+          padding: .5em 1.5em;
+          background: #eee;
+          color: #A8A8A8;
+          li {
+            border-bottom: 1px solid #a8a8a8;
+            margin: .5em 0;
+            padding: .5em 0 .65em;
+            &:last-child {
+              border-bottom: none;
+            }
+          }
+        }
+      }
+      #notifications {
+        margin-right: 1em;
+        a.icon-notification {
+          font-family: "fontello";
+          content: "\6e";
+          font-size: 1.5em;
+          color: $gold;
+          margin-top: .1em;
+        }
+        .notification-count {
+          top: 17px;
+          width: 1.5em;
+          text-align: center;
+          position: absolute;
+          p {
+            margin-left: .65em;
+            color: #333;
+            font-weight: 700;
+            font-size: .875em;
+          }
+        }
+      }
+    }
   }
 }
 #main-content {

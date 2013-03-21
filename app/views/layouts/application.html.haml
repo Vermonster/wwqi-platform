@@ -36,7 +36,7 @@
       #main-nav-wrapper.row-fluid
         .span12
           #main-nav.span8.offset2
-            #nav.span10.offset2
+            #nav.span8.offset2.pull-left
               %ul.nav
                 %li
                   = link_to 'Questions & Discussions', posts_path
@@ -44,6 +44,22 @@
                   %a{:href => "#"} Research-in-Progress
                 %li
                   %a{:href => "#"} Contributions
+            #notifications-wrapper.span2.pull-right
+              #dropdown.btn-group.pull-right
+                %button.btn.btn-mini 
+                  %p Me
+                %button.btn.btn-mini.dropdown-toggle{:"data-toggle" => "dropdown"}
+                  %span
+                    %a.caret
+                %ul.dropdown-menu
+                  %li 
+                    %p Alice commented on your question
+                  %li 
+                    %p John posted in your discussion
+              #notifications.pull-right
+                %a.icon-notification
+                .notification-count
+                  %p 2
         .flash
           = flash_messages
       #main-content.row-fluid
