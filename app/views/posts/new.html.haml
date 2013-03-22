@@ -9,4 +9,9 @@
     = link_to_add_association 'add upload', f, :uploads
   = f.input :item_related, as: :radio_buttons
   = f.collection_radio_buttons :private, post_private_radio_options, :first, :last
+  #Items
+    = f.simple_fields_for :items do |item|
+      = render 'item_fields', :f => item 
+    .links
+      = link_to_add_association 'add item URL', f, :items
   = f.submit 'Post Thread'
