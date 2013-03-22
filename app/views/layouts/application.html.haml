@@ -14,7 +14,7 @@
         .span12
           #header.span8.offset2
             #logo-container.span2
-              %a{:href => "#"}
+              = link_to root_path do
                 #logo-img
             #title.span5 
               %a{:href => "#"}
@@ -23,16 +23,21 @@
             #login-nav.span5
               %ul.pull-right
                 %li
-                  %a{:href => "#"} 
+                  = link_to 'http://www.qajarwomen.org/en/index.html' do
                     %h2 WWQI Archive
                 %li#bullet 
                   %h2 &#124;
-                %li 
-                  %a{:href => "#"} 
-                    %h2 Sign Up
-                %li 
-                  %a{:href => "#"} 
-                    %h2 Login
+                - unless user_signed_in?
+                  %li 
+                    = link_to new_user_registration_path do
+                      %h2 Sign Up
+                  %li 
+                    = link_to new_user_session_path do
+                      %h2 Login
+                - else
+                  %li
+                    = link_to destroy_user_session_path, method: :delete do
+                      %h2 Logout
       #main-nav-wrapper.row-fluid
         .span12
           #main-nav.span8.offset2

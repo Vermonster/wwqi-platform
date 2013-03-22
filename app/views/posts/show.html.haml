@@ -11,6 +11,9 @@
         = resource.details
     .post-tags    
       = "tags: #{resource.tag_list}"
+    .post-uploads
+      - resource.uploads.each do |u|
+        = u[:content]
   #side-box.span4.pull-right
     %h3 This post is related to
     %ul

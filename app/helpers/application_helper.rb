@@ -1,6 +1,10 @@
 # encoding: utf-8
 
 module ApplicationHelper
+  def user_signed_in?
+    current_user.present?
+  end
+
   def post_type_radio_options
     [['Question', 'Question'], ['Discussion', 'Discussion']]
   end

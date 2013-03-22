@@ -10,9 +10,14 @@ describe "post creation" do
   end
 
   context "authenticated" do
-    before do
-      user = create(:user)
-      login(user)
+    let(:user) { create(:user) }
+
+    before(:each) do
+      sign_in(user)
+    end
+
+    after(:each) do
+      sign_out
     end
 
     describe "Start a new thread button" do
@@ -33,7 +38,7 @@ describe "post creation" do
         Question.count.should == 1
         question = Question.last
         current_path.should == post_path(question)
-        
+        page.should have_content('Thread was successfully created.') 
         page.should have_content('a tag')
         page.should have_content('a title')
         page.should have_content('additional details')
@@ -51,31 +56,38 @@ describe "post creation" do
         Discussion.count.should == 1
         discussion = Discussion.last
         current_path.should == post_path(discussion)
-        
+        page.should have_content('Thread was successfully created.') 
         page.should have_content('a tag')
         page.should have_content('a title')
         page.should have_content('additional details')
       end
     end
+  end
 
+  context "with javascript" do
     describe "question creation with uploads" do
-      it "creates new uploads" do
+      let(:user) { create(:user) }
+
+      it "creates new uploads", js: true do
         pending('work in progress')
+        sign_in_with(user.email, 'password')
+
         visit new_post_path
 
         fill_in_required_post_fields
-        #click_on 'add upload'
-        #attach_file 'Choose File', 'spec/support/files/cow.jpg'
+        click_on 'add upload'
+        file_field = page.find('.upload')
+        file_field.set 'spec/support/files/cow.jpg'
         click_on 'Post Thread'
 
-        Post.count.should == 1
-        post = Post.last
-        current_path.should == post_path(post)
+        Question.count.should == 1
+        question = Question.last
+        current_path.should == post_path(question)
         
         page.should have_content('a tag')
         page.should have_content('a title')
         page.should have_content('additional details')
-        #page.should have_content('cow.jpg')
+        page.should have_content('cow.jpg')
       end
     end
   end
