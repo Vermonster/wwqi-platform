@@ -19,6 +19,7 @@ gem 'pg_search'
 gem 'inherited_resources'
 gem 'draper', git: 'git://github.com/drapergem/draper.git'
 gem 'cocoon'
+gem 'factory_girl_rails'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -41,7 +42,6 @@ group :test, :development do
   gem 'database_cleaner', '0.6.7'
   gem 'nokogiri'
   gem 'poltergeist'
-  gem 'factory_girl_rails'
   gem 'pry'
   gem 'launchy'
 end

@@ -1,5 +1,7 @@
 # encoding: utf-8
 
+require 'factory_girl_rails'
+
 module DemoData
   def self.load
     ActiveRecord::Base.transaction do
