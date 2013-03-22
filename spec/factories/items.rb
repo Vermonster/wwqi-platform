@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :item do
-    url "MyString"
-    post nil
+    url { generate(:url) }
+    association :post, factory: :question
   end
 end

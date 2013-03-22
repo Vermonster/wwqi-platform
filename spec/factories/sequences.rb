@@ -10,5 +10,9 @@ FactoryGirl.define do
   sequence :number do |n|
     n
   end
+
+  sequence :url do |n|
+    "http://www.example#{n}.com"
+  end
 end
 
