@@ -28,6 +28,42 @@ describe "post creation" do
         visit new_post_path
 
         fill_in_required_post_fields
+        click_on 'Post Thread'
+
+        Question.count.should == 1
+        question = Question.last
+        current_path.should == post_path(question)
+        
+        page.should have_content('a tag')
+        page.should have_content('a title')
+        page.should have_content('additional details')
+      end
+    end
+
+    describe "discussion creation" do
+      it "creates a new discussion" do
+        visit new_post_path
+
+        fill_in_required_post_fields
+        choose 'post_type_discussion'
+        click_on 'Post Thread'
+
+        Discussion.count.should == 1
+        discussion = Discussion.last
+        current_path.should == post_path(discussion)
+        
+        page.should have_content('a tag')
+        page.should have_content('a title')
+        page.should have_content('additional details')
+      end
+    end
+
+    describe "question creation with uploads" do
+      it "creates new uploads" do
+        pending('work in progress')
+        visit new_post_path
+
+        fill_in_required_post_fields
         #click_on 'add upload'
         #attach_file 'Choose File', 'spec/support/files/cow.jpg'
         click_on 'Post Thread'
@@ -40,19 +76,6 @@ describe "post creation" do
         page.should have_content('a title')
         page.should have_content('additional details')
         #page.should have_content('cow.jpg')
-      end
-    end
-
-    describe "discussion creation" do
-      it "creates a new discussion" do
-
-      end
-
-    end
-
-    describe "question creation with uploads" do
-      it "creates new uploads" do
-
       end
     end
   end
