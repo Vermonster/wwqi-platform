@@ -10,7 +10,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(params[:post].merge(creator_id: current_user.id))
-    create! { resource_url }
+    create!(notice: "Thread was successfully created.") { resource_url }
   end
 
   private
