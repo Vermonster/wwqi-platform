@@ -17,6 +17,11 @@
       = render 'item_fields', :f => item 
     .links
       = link_to_add_association 'add item URL', f, :items
+  #collaborators
+    = f.simple_fields_for :collaborators do |collaborator|
+      = render 'collaborator_fields', :f => collaborator
+    .links
+      = link_to_add_association 'Add Collaborator', f, :collaborators
   = f.submit 'Post Thread'
 
 :coffeescript
