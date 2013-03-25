@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(:version => 20130405201742) do
 
+  create_table "collaborators", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "collaborators", ["post_id"], :name => "index_collaborators_on_post_id"
+
   create_table "comments", :force => true do |t|
     t.text     "details"
     t.integer  "commentable_id"
@@ -39,6 +48,15 @@ ActiveRecord::Schema.define(:version => 20130405201742) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
+
+  create_table "item_urls", :force => true do |t|
+    t.string   "url"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "item_urls", ["post_id"], :name => "index_item_urls_on_post_id"
 
   create_table "items", :force => true do |t|
     t.string   "url"

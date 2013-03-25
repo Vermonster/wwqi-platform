@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
   has_many :followings, as: :followable, dependent: :destroy
   has_many :followers, through: :followings, class_name: :User
   has_many :items
+  has_many :collaborators
 
   attr_accessible :title, :details, :item_related, :private, :creator_id, :type, 
     :tag_list, :uploads_attributes, :items_attributes
@@ -15,6 +16,7 @@ class Post < ActiveRecord::Base
 
   accepts_nested_attributes_for :uploads, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :items, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :collaborators, :reject_if => :all_blank, :allow_destroy => true
 
   default_scope order('created_at DESC')
   scope :questions_and_discussions, where("type = 'Question' or type = 'Discussion'")
