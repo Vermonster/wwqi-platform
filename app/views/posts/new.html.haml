@@ -6,6 +6,33 @@
         %button.btn.active{"data-toggle" => "button", :value => "Question"} Question
         %button.btn{"data-toggle" => "button", :value => "Discussion"} Discussion
       = f.input :type, as: :hidden, input_html: { value: 'Question' }
+  %label= t('simple_form.labels.post.tag_list')
+  #tag-list.tag-list
+    .tags
+  = f.input :tag_list
+  = f.input :title
+  = f.input :details
+  = f.simple_fields_for :uploads do |upload|
+    = render 'upload_fields', f: upload
+  .links
+    = link_to_add_association 'add upload', f, :uploads
+  = f.input :item_related, as: :radio_buttons
+  = f.collection_radio_buttons :private, post_private_radio_options, :first, :last
+  #items
+    = f.simple_fields_for :items do |item|
+      = render 'item_fields', :f => item 
+    .links
+      = link_to_add_association 'add item URL', f, :items
+  #collaborators
+    = f.simple_fields_for :collaborators do |collaborator|
+      = render 'collaborator_fields', :f => collaborator
+    .links
+      = link_to_add_association 'Add Collaborator', f, :collaborators
+  = f.submit 'Post Thread'
+
+:coffeescript
+  $(->
+    $('.post_tag_list').hide()
 
     #tag-list.tag-list.span8
       %label= t('simple_form.labels.post.tag_list')
