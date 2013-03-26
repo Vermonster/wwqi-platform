@@ -1,0 +1,42 @@
+.content
+  #posts-show.span8.pull-left
+    .show-intro
+      .post-image.pull-left
+      .post-created.pull-left
+        = "#{resource.created_ago}, #{resource.header}"
+    .post-title
+      = resource.title
+    .post-details
+      %p
+        = resource.details
+    .post-tags    
+      = "tags: #{resource.tag_list}"
+    .post-uploads
+      - resource.uploads.each do |u|
+        = u[:content]
+  #side-box.span4.pull-right
+    %h3 This post is related to
+    %ul
+      %li
+        .image.pull-left
+        .caption.pull-left
+          %p Dawlatabadi's postcard from Paris
+      %li
+        .image.pull-left
+        .caption.pull-left
+          %p Dawlatabadi's postcard from Paris
+  #comments.span12
+    .post-image.pull-left
+    .post-content.pull-left
+      - resource.comments.each do |c|
+        .post-created.full-width
+          = "#{c.header} #{c.created_ago}"
+        .post-details
+          %p
+            = c.details
+  #comments.span12
+    .post-image.pull-left
+    .post-content.pull-left
+      = simple_form_for Comment.new, url: post_comments_path(resource) do |f|
+        = f.input :details, label: "Submit your answer", input_html: {cols: 115}
+        = f.submit comment_btn_text(resource), { class: "btn pull-right" }

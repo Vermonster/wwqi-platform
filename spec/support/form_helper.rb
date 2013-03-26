@@ -1,7 +1,13 @@
-def fill_in_required_post_fields
+def fill_in_required_thread_fields
   fill_in 'post_tag_list', with: 'a tag'
   fill_in 'post_title', with: 'a title'
   fill_in 'post_details', with: 'additional details'
+end
+
+def fill_in_required_research_fields
+  fill_in 'research_tag_list', with: 'a tag'
+  fill_in 'research_title', with: 'a title'
+  fill_in 'research_details', with: 'additional details'
 end
 
 def sign_in_with(email, password)

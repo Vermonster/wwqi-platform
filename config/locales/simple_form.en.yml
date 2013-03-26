@@ -31,3 +31,9 @@ en:
         details: 'Additional Details'
         item_related: 'Is this related to specific WWQI items?'
         private: 'Who do you want to ask?'
+      research:
+        tag_list: 'Tags'
+        title: 'Your Research Title'
+        details: 'Additional Details'
+        item_related: 'Is this related to specific WWQI items?'
+        private: 'Who do you want to ask?'

@@ -40,4 +40,8 @@ describe Post do
   describe Discussion do
     it_behaves_like "a post"
   end
+
+  describe Research do
+    it_behaves_like "a post"
+  end
 end

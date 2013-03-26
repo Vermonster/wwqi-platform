@@ -1,0 +1,27 @@
+.content#posts-index.span11
+  = form_tag researches_path, class: "navbar-search pull-left", id: 'post_search', method: :get do |f|
+    = search_field_tag :q, params[:q], placeholder: "Search Research in Progress", class: "search-query pull-left"
+    = submit_tag "Search", { class: "btn" }
+  .btn.pull-right
+    = link_to 'Submit Your Research', new_research_path
+  %ul.thread-type.btn-group
+    %li.btn.active
+      = link_to 'Latest', collection_url
+    %li.btn
+      = link_to 'Followed Research', collection_url(followed: true)
+  %ul.posts
+    - collection.each do |post|
+      %li
+        .post-image.pull-left
+        .post-content
+          .post-header
+            = post.header
+          .post-title
+            = link_to post.title, post_path(post)
+          .post-comments
+            %p 
+              = post.comments_size
+          %p &bull; 
+          .post-created
+            %p
+              = post.created_ago

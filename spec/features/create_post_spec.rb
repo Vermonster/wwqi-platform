@@ -32,7 +32,7 @@ describe "post creation" do
       it "creates a new question" do
         visit new_post_path
 
-        fill_in_required_post_fields
+        fill_in_required_thread_fields
         click_on 'Post Thread'
 
         Question.count.should == 1
@@ -49,7 +49,7 @@ describe "post creation" do
       it "creates a new discussion" do
         visit new_post_path
 
-        fill_in_required_post_fields
+        fill_in_required_thread_fields
         choose 'post_type_discussion'
         click_on 'Post Thread'
 
@@ -74,7 +74,7 @@ describe "post creation" do
 
         visit new_post_path
 
-        fill_in_required_post_fields
+        fill_in_required_thread_fields
         click_on 'add upload'
         file_field = page.find('.upload')
         file_field.set 'spec/support/files/cow.jpg'
