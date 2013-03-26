@@ -3,7 +3,7 @@
   %label= t('simple_form.labels.post.tag_list')
   #tag-list.tag-list
     .tags
-  = f.input :tag_list, as: :hidden
+  = f.input :tag_list
   = f.input :title
   = f.input :details
   = f.simple_fields_for :uploads do |upload|
@@ -21,6 +21,8 @@
 
 :coffeescript
   $(->
+    $('.post_tag_list').hide()
+
     $('#tag-list').tags
       promptText: 'For each tag, type in a name and press enter.'
 
