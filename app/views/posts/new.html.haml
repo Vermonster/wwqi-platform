@@ -1,6 +1,9 @@
 = simple_form_for resource do |f|
   = f.collection_radio_buttons :type, post_type_radio_options, :first, :last, checked: 'Question'
-  = f.input :tag_list
+  %label= t('simple_form.labels.post.tag_list')
+  #tag-list.tag-list
+    .tags
+  = f.input :tag_list, as: :hidden
   = f.input :title
   = f.input :details
   = f.simple_fields_for :uploads do |upload|
@@ -15,3 +18,15 @@
     .links
       = link_to_add_association 'add item URL', f, :items
   = f.submit 'Post Thread'
+
+:coffeescript
+  $(->
+    $('#tag-list').tags
+      promptText: 'For each tag, type in a name and press enter.'
+
+    $('#tag-list').on 'keypress', (e) ->
+      if (e.keyCode is 13)
+        tags = $('#tag-list').tags().getTags()
+        $('#post_tag_list').val(tags.join(','))    
+        false
+  )

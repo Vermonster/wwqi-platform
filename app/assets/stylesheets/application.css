@@ -11,5 +11,6 @@
  *= require_self
  *= require base
  *= require site
+ *= require bootstrap-tags
  *= require_tree .
  */
