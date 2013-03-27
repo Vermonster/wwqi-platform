@@ -3,12 +3,18 @@
   %head
     %title WWQI Platform
     = stylesheet_link_tag "application", :media => "all"
+    = stylesheet_link_tag "//code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css"
     = javascript_include_tag "application"
     = csrf_meta_tags
     %script{:src => "//use.typekit.net/bwh1aah.js", :type => "text/javascript"}
+<<<<<<< HEAD
     - if AJAX_STUB_MODE
       = javascript_include_tag 'jquery.mockjax.js'
       = javascript_include_tag 'wwqi-search-mock'
+=======
+    %script{ :src => "//code.jquery.com/jquery-1.9.1.js", :type => "text/javascript"  }
+    %script{ :src => "//code.jquery.com/ui/1.10.2/jquery-ui.js", :type => "text/javascript" }
+>>>>>>> Fetch origin
     :javascript
       try{Typekit.load();}catch(e){}
   %body
