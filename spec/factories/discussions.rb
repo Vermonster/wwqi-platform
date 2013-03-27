@@ -1,4 +1,3 @@
 FactoryGirl.define do
-  factory :discussion, parent: :post, class: :Discussion do
-  end
+  factory :discussion, parent: :post, class: :Discussion
 end
