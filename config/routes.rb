@@ -1,4 +1,6 @@
 WwqiPlatform::Application.routes.draw do
+  get "autocomplete/users"
+
   devise_for :users
 
   resources :posts, path: "threads" do
