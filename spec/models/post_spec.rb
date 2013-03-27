@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Post do
-  it { should respond_to(:type) }
+  it { should have_db_column(:type) }
   it { should respond_to(:tag_list) }
   it { should validate_presence_of(:title) }
   it { should validate_presence_of(:details) }
@@ -17,11 +17,12 @@ describe Post do
 
   shared_examples "a post" do
     let(:klass) { described_class.to_s.downcase.intern }
+    
+    it "has a valid factory" do
+      build(klass).should be_valid
+    end
 
     describe "ordering" do
-      it "has a valid factory" do
-        build(klass).should be_valid
-      end
 
       it "has a default ordering of created_at DESC" do
         c1 = create(klass, created_at: Time.zone.today)
