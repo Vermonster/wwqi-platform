@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
   has_many :posts, foreign_key: :creator_id
   has_many :comments
+  has_many :contributions, foreign_key: :creator_id
   has_many :followings
   has_many :followed_posts, through: :followings, source: :followable, source_type: :Post
 end

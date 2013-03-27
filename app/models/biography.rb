@@ -1,0 +1,2 @@
+class Biography < Contribution
+end

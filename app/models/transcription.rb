@@ -1,0 +1,2 @@
+class Transcription < Contribution
+end

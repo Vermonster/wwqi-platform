@@ -4,8 +4,7 @@ describe PostDecorator do
   let!(:user) do
     user = create(
       :user,
-      first_name: 'Mila',
-      last_name: 'Kunis',
+      first_name: 'Mila'
     )
   end
   

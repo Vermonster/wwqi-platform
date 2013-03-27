@@ -12,6 +12,7 @@ describe User do
   it { should have_many(:comments) }
   it { should have_many(:followings) }
   it { should have_many(:followed_posts).through(:followings) }
+  it { should have_many(:contributions) }
   
   it "has a valid factory" do
     build(:user).should be_valid

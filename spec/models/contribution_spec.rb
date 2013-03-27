@@ -1,23 +1,19 @@
 require 'spec_helper'
 
-describe Post do
+describe Contribution do
   it { should have_db_column(:type) }
-  it { should respond_to(:tag_list) }
-  it { should validate_presence_of(:title) }
   it { should validate_presence_of(:details) }
   it { should validate_presence_of(:creator_id) }
-  it { should have_many(:uploads).dependent(:destroy) }
-  it { should have_many(:comments).dependent(:destroy) }
-  it { should respond_to(:item_related?) }
-  it { should respond_to(:private?) }
+  it { should validate_presence_of(:item_id) }
   it { should belong_to(:creator).class_name(:User) }
-  it { should have_many(:followings).dependent(:destroy) }
-  it { should have_many(:followers).through(:followings).class_name(:User) }
+  it { should have_many(:uploads).dependent(:destroy) }
   it { should accept_nested_attributes_for(:uploads) }
+  it { should have_many(:comments).dependent(:destroy) }
+  it { should belong_to(:item) }
 
-  shared_examples "a post" do
+  shared_examples "a contribution" do
     let(:klass) { described_class.to_s.downcase.intern }
-    
+
     it "has a valid factory" do
       build(klass).should be_valid
     end
@@ -33,15 +29,19 @@ describe Post do
     end
   end
 
-  describe Question do
-    it_behaves_like "a post"
+  describe Transcription do
+    it_behaves_like "a contribution"
   end
 
-  describe Discussion do
-    it_behaves_like "a post"
+  describe Translation do
+    it_behaves_like "a contribution"
   end
 
-  describe Research do
-    it_behaves_like "a post"
+  describe Biography do
+    it_behaves_like "a contribution"
+  end
+
+  describe Correction do
+    it_behaves_like "a contribution"
   end
 end
