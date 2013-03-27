@@ -8,10 +8,12 @@ $ ->
     selector_for_email = 'input[name$=\"' + item_id + '][user_email]\"]'
     selector_for_id = 'input[name$=\"' + item_id + '][user_id]\"]'
 
-    console.log(selector_for_email)
-    console.log(selector_for_id)
-
     $(selector_for_email).autocomplete 
-      source: '/autocomplete/users' 
+      source: '/autocomplete/users'
+      messages: 
+        noResults: ''
+        results: ->
       select: (event, ui) -> $(selector_for_id).val(ui.item.user_id)
+    .data("ui-autocomplete")._renderItem = (ul, item) ->
+      return $('<li>').append("<a>" + item.label + "<br>" + item.user_email+ "</a>").appendTo(ul)
   )
