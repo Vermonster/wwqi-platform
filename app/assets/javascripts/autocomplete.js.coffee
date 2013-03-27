@@ -4,27 +4,14 @@
 
 $ -> 
   $('#collaborators').on('cocoon:after-insert', (e) ->
-    console.log('cocoon after-insert triggered')
-    test = [ "Alex", "Pendar Yousefi", "Ali Pendarpour", "Jason" ]
-    alert("wow")
-    $('input[name$="[user_id]"]').autocomplete source: test
+    item_id = $(this).context.children[$(this).context.children.length - 2].firstElementChild.id.split('_')[3]
+    selector_for_email = 'input[name$=\"' + item_id + '][user_email]\"]'
+    selector_for_id = 'input[name$=\"' + item_id + '][user_id]\"]'
+
+    console.log(selector_for_email)
+    console.log(selector_for_id)
+
+    $(selector_for_email).autocomplete 
+      source: '/autocomplete/users' 
+      select: (event, ui) -> $(selector_for_id).val(ui.item.user_id)
   )
-  # -# $(function() {
-  # -#   $('#collaborators')
-  # -#     .on('cocoon:after-insert', function (e, added_collborator) {
-  # -#       console.log('hello');
-  # -#       var test = [
-  # -#        "Alex",
-  # -#         "Pendar Yousefi",
-  # -#         "Ali pendarpour",
-  # -#         "Jason Baguio"
-  # -#         ];
-  # -#       alert("wow");
-  # -#       $('input[name$="[user_id]"]').autocomplete({
-  # -#         source: test 
-  # -#       });
-  # -#   });
-  # -#  //$('#collaborators a.add_fields').autocomplete({
-  # -#     //  source: availableUsers
-  # -#     //});
-  # -#   });
