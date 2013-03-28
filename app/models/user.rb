@@ -53,4 +53,9 @@ class User < ActiveRecord::Base
   def followed_researches
     followed_posts.where(type: 'Research')
   end
+
+  # Retrun full name
+  def fullname
+    "#{first_name} #{last_name}"
+  end
 end
