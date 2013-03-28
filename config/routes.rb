@@ -4,7 +4,12 @@ WwqiPlatform::Application.routes.draw do
   resources :posts, path: "threads" do
     resources :comments
   end
+  
   resources :researches do
+    resources :comments
+  end
+
+  resources :contributions do
     resources :comments
   end
   
