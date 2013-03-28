@@ -15,5 +15,5 @@ $ ->
         results: ->
       select: (event, ui) -> $(selector_for_id).val(ui.item.user_id)
     .data("ui-autocomplete")._renderItem = (ul, item) ->
-      return $('<li>').append("<a>" + item.label + "<br>" + item.user_email+ "</a>").appendTo(ul)
+      return $('<li>').append("<a>" + item.label + "<br><span class='email'>" + item.user_email+ "</span></a>").appendTo(ul)
   )

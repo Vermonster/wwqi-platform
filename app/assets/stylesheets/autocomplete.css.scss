@@ -1,3 +1,17 @@
 // Place all the styles related to the autocomplete controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.ui-autocomplete {
+  // Makie the list scrollable
+  max-height: 500px;
+  max-width: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: DimGray;
+  //a { color: white; }
+}
+.ui-menu-item {
+  a { color: white; }
+  .email { color: silver; }
+}
