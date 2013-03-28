@@ -12,6 +12,10 @@ WwqiPlatform::Application.routes.draw do
   resources :contributions do
     resources :comments
   end
+
+  resources :items do
+    get 'search', on: :collection
+  end
   
   root :to => 'site#index'
 end
