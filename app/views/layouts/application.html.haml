@@ -49,22 +49,23 @@
                   = link_to 'Research-in-Progress', researches_path
                 %li
                   %a{:href => "#"} Contributions
-            #notifications-wrapper.span2.pull-right
-              #dropdown.btn-group.pull-right
-                %button.btn.btn-mini 
-                  %p Me
-                %button.btn.btn-mini.dropdown-toggle{:"data-toggle" => "dropdown"}
-                  %span
-                    %a.caret
-                %ul.dropdown-menu
-                  %li 
-                    %p Alice commented on your question
-                  %li 
-                    %p John posted in your discussion
-              #notifications.pull-right
-                %a.icon-notification
-                .notification-count
-                  %p 2
+            - if user_signed_in?
+              #notifications-wrapper.span2.pull-right
+                #dropdown.btn-group.pull-right
+                  %button.btn.btn-mini 
+                    %p Me
+                  %button.btn.btn-mini.dropdown-toggle{:"data-toggle" => "dropdown"}
+                    %span
+                      %a.caret
+                  %ul.dropdown-menu
+                    %li 
+                      %p Alice commented on your question
+                    %li 
+                      %p John posted in your discussion
+                #notifications.pull-right
+                  %a.icon-notification
+                  .notification-count
+                    %p 2
         .flash
           = flash_messages
       #main-content.row-fluid
