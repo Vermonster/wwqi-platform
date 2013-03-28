@@ -18,4 +18,9 @@ class User < ActiveRecord::Base
   has_many :comments
   has_many :followings
   has_many :followed_posts, through: :followings, source: :followable, source_type: :Post
+
+  # Retrun full name
+  def fullname
+    "#{first_name} #{last_name}"
+  end
 end

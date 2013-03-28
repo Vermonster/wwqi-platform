@@ -19,17 +19,17 @@ class PostsController < ApplicationController
     end
   end
 # for autocomplete
-  def user_name=(name)
-    user = User.find_by_first_name(name)
+  def user_email=(email)
+    user = User.find_by_email(email)
     if user
       self.user_id = user.id
     else
-      errors[:user_name] << "Invalid name entered"
+      errors[:user_email] << "Invalid name entered"
     end
   end
 
-  def user_name
-    User.find(user_id).name if user_id
+  def user_email
+    User.find(user_id).fullname if user_id
   end
   # end fo autocomplete
   private
