@@ -15,4 +15,3 @@
 //= require bootstrap
 //= require bootstrap-tags
 //= require cocoon
-//= require_tree .

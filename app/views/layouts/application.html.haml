@@ -6,6 +6,10 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
     %script{:src => "//use.typekit.net/bwh1aah.js", :type => "text/javascript"}
+    - if AJAX_STUB_MODE
+      = javascript_include_tag 'jquery.mockjax.js'
+      = javascript_include_tag 'wwqi-search-mock'
+
     :javascript
       try{Typekit.load();}catch(e){}
   %body
