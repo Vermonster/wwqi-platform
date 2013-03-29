@@ -1,6 +1,9 @@
 = simple_form_for resource do |f|
-  = f.collection_radio_buttons :type, post_type_radio_options, :first, :last, checked: 'Question'
-  %label= t('simple_form.labels.post.tag_list')
+  .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[type]"}
+    %button.btn{"data-toggle" => "button", :value => "Question"} Question
+    %button.btn{"data-toggle" => "button", :value => "Discussion"} Discussion
+    = f.input :type, as: :hidden
+  -# %label= t('simple_form.labels.post.tag_list')
   #tag-list.tag-list
     .tags
   = f.input :tag_list
@@ -10,8 +13,14 @@
     = render 'upload_fields', f: upload
   .links
     = link_to_add_association 'add upload', f, :uploads
-  = f.input :item_related, as: :radio_buttons
-  = f.collection_radio_buttons :private, post_private_radio_options, :first, :last
+  .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name"=> "post[item_related]"}
+    %button.btn{"data-toggle" => "button", :value => "true"} Yes
+    %button.btn{"data-toggle" => "button", :value => "false"} No
+    = f.input :item_related, as: :hidden
+  .btn-group{"data-toggle" => "button", "data-toggle-name" => "post[private]"}
+    %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
+    %button.btn{"data-toggle" => "button", :value => "false"} Everyone
+    = f.input :private, as: :hidden
   #items
     = f.simple_fields_for :items do |item|
       = render 'item_fields', :f => item 
@@ -22,7 +31,7 @@
       = render 'collaborator_fields', :f => collaborator
     .links
       = link_to_add_association 'Add Collaborator', f, :collaborators
-  = f.submit 'Post Thread'
+  = f.button :submit, :class => 'btn', :lable => 'Post Thread'
 
 :coffeescript
   $(->
