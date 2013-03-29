@@ -61,11 +61,27 @@ wwqiMockSearchResponses.gold = {
   }
 };
 
+wwqiMockSearchResponses.noResults = {
+  "took" : 1,
+  "timed_out" : false,
+  "_shards" : {
+    "total" : 1,
+    "successful" : 1,
+    "failed" : 0
+  },
+  "hits" : {
+    "total" : 0,
+    "max_score" : null,
+    "hits" : [ ]
+  }
+};
+
+
 $.mockjax({
   url: /^http:\/\/api\.searchbox\.io\/api-key\/.*\/item\/_search\?q=title_en:(.*)$/,
   urlParams: ['query'],
   response: function(settings) {
     q = settings.urlParams.query;
-    this.responseText = wwqiMockSearchResponses[q];
+    this.responseText = wwqiMockSearchResponses[q] || wwqiMockSearchResponses.noResults;
   }
 });
