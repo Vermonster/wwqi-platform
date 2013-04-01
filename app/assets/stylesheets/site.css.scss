@@ -191,8 +191,6 @@
         h2 {
           margin-bottom: 5px;
           color: #333;
-          text-transform: uppercase;
-          font-weight: 700;
         }
       }
       #features {
@@ -326,14 +324,11 @@
           }
         }
       }
-      .btn {
-        width: 147px;
-      }
       .thread-type {
         display: block;
         width: 100%;
         overflow: hidden;
-        margin-top: .5em;
+        margin-top: 4em;
         a {
           color: #696969;
           text-decoration: none;
@@ -369,7 +364,7 @@
         }
       }
       ul.items {
-        margin: 1.5em 0 0;
+        margin: 1em 0 0;
         overflow: hidden;
         list-style: none;
         li {
@@ -382,15 +377,17 @@
           }
           .item-image {
             float: left;
-            background: url("/assets/placeholder.png");
+            background: url("/assets/placeholder.png") no-repeat;
             background-size: contain;
-            height: 30px;
-            width: 30px;
-            margin-right: 10px;
+            height: 60px;
+            width: 9%;
+            margin-right: 2%;
           }
           .item-content {
             float: left;
-            .post-header {
+            width: 89%;
+            .item-header {
+              @include item-header;
               font-size: .75em;
               font-family: "proxima-nova",sans-serif;
               font-weight: 600;
@@ -400,6 +397,9 @@
               @include post-title;
               color: #505050;
               width: 100%;
+              a {
+                line-height: 1.25em;
+              }
             }
             .item-created, .item-comments, p {
               @include post-created;
@@ -407,6 +407,33 @@
                 margin-right: 0;
               }
             }
+          }
+        }
+      }
+      #contributions-navlinks {
+        margin-bottom: 2em;
+        p {
+          margin-bottom: 1.75em;
+        }
+      }
+      #contributions-content {
+        #contribution-list, #contribution-feed {
+          margin: 4em 0;
+          h4 {
+            font-weight: 700;
+            margin-bottom: .25em;
+          }
+          .item-content {
+            width: 70%;
+          }
+          .transcribe {
+            width: 13%;
+            margin-left: 2%;
+          }
+          .transcription-subnav {
+            width: 100%;
+            overflow: hidden;
+            font-size: .75em;
           }
         }
       }
@@ -430,14 +457,14 @@
         margin-right: 10px;
       }
       .item-created {
-        @include post-created;
+        @include item-created;
         margin-top: .75em;
         &.full-width {
           margin-top: 0;
         }
       }
       .item-title {
-        @include post-title;
+        @include item-title;
         color: #505050;
         width: 100%;
       }
@@ -461,7 +488,7 @@
       h3 {
         margin-bottom: 1.5em;
       }
-      ul 
+      ul { 
         li {
           width: 100%;
           overflow: hidden;
@@ -478,6 +505,7 @@
               font-size: .65em;
             }
           }
+        }
       }
     }
   }

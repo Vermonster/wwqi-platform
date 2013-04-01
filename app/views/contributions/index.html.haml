@@ -1,13 +1,64 @@
-.content#posts-index.span11
-  %h2 Contributions
-  %p Help us enrich the WWQI archives by contributing information to the project. There are numerous ways you can contribute.
+.content#items-index.span11
+  #contributions-navlinks
+    %h2 Contributions
+    %p Help us enrich the WWQI archives by contributing information to the project. There are numerous ways you can contribute.
 
-  %ul.thread-type.btn-group
-    %li.btn.active
-      = link_to 'Transcribe a document'
-    %li.btn
-      = link_to 'Translate a document'
-    %li.btn
-      = link_to 'Write a biography'
-    %li.btn
-      = link_to 'Submit a correction'
+    %ul.thread-type.btn-group
+      %li.btn.active
+        = link_to 'Transcribe a document'
+      %li.btn
+        = link_to 'Translate a document'
+      %li.btn
+        = link_to 'Write a biography'
+      %li.btn
+        = link_to 'Submit a correction'
+  #contributions-content
+    #contribution-list
+      %h4 Items in need of transcription
+      %p Do you have experience translating from Persian to English? If so, help us translate documents from our archives. Here are some suggested items that need a translation:
+      %ul.items
+        %li
+          .item-image.pull-left
+          .item-content.pull-left
+            .item-title Publication permit for Zaban-i zanan, 4 March 1944 
+          .transcribe.btn.pull-right
+            = link_to 'Transcribe'
+        %li
+          .item-image.pull-left
+          .item-content.pull-left
+            .item-title Lists of jewelry and kitchen items
+          .transcribe.btn.pull-right
+            = link_to 'Transcribe'
+      .transcription-subnav
+        .show-more.pull-left
+          %a{href: '#'} Show more documents
+        .search.pull-right
+          %a{href: '#'} Transcribe a different document       
+    #contribution-feed
+      %h4 Items in need of translation
+      %p Here are some recent transcriptions contributed by the WWQI users:
+      %ul.items
+        %li
+          .item-image.pull-left
+          .item-content.pull-left
+            .item-header
+              Maryam contributed a transcription for
+            .item-title
+              School diplomas of Houri Mostofi Moghadam
+            .item-comments
+              %p 2 comments
+            %p &bull;
+            .item-created
+              %p 2 weeks ago
+        %li
+          .item-image.pull-left
+          .item-content.pull-left
+            .item-header
+              Maryam contributed a transcription for
+            .item-title
+              Kanun-i Banuvan Cultural Services Cooperative, Articles of Association, 1964
+            .item-comments
+              %p 5 comments
+            %p &bull;
+            .item-created
+              %p Last month
