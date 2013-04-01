@@ -1,4 +1,4 @@
-.content#posts-index.span11
+.content#items-index.span11
   = form_tag posts_path, class: "navbar-search pull-left", id: 'post_search', method: :get do |f|
     = search_field_tag :q, params[:q], placeholder: "Search Questions & Discussions", class: "search-query pull-left"
     = submit_tag "Search", { class: "btn" }
@@ -9,19 +9,19 @@
       = link_to 'Latest', collection_url
     %li.btn
       = link_to 'Followed Threads', collection_url(followed: true)
-  %ul.posts
+  %ul.items
     - collection.each do |post|
       %li
-        .post-image.pull-left
-        .post-content
-          .post-header
+        .item-image.pull-left
+        .item-content
+          .item-header
             = post.header
-          .post-title
+          .item-title
             = link_to post.title, post_path(post)
-          .post-comments
+          .item-comments
             %p 
               = post.comments_size
           %p &bull; 
-          .post-created
+          .item-created
             %p
               = post.created_ago

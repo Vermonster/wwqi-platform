@@ -311,7 +311,7 @@
         }
       }
     }
-    #posts-index {
+    #items-index {
       form {
         display: block;
         width: 75%;
@@ -368,7 +368,7 @@
           }
         }
       }
-      ul.posts {
+      ul.items {
         margin: 1.5em 0 0;
         overflow: hidden;
         list-style: none;
@@ -380,7 +380,7 @@
             border-bottom: none;
             margin-bottom: 25px;
           }
-          .post-image {
+          .item-image {
             float: left;
             background: url("/assets/placeholder.png");
             background-size: contain;
@@ -388,7 +388,7 @@
             width: 30px;
             margin-right: 10px;
           }
-          .post-content {
+          .item-content {
             float: left;
             .post-header {
               font-size: .75em;
@@ -396,12 +396,12 @@
               font-weight: 600;
               color: #b29628;
             }
-            .post-title {
+            .item-title {
               @include post-title;
               color: #505050;
               width: 100%;
             }
-            .post-created, .post-comments, p {
+            .item-created, .item-comments, p {
               @include post-created;
               &:first-child {
                 margin-right: 0;
@@ -411,7 +411,7 @@
         }
       }
     }
-    #posts-show, #comments {
+    #item-show, #comments {
       margin:0;
       &#comments {
         margin: 2em 0 1em;
@@ -422,29 +422,29 @@
         width: 100%;
         overflow: hidden;
       }
-      .post-image {
+      .item-image {
         background: url("/assets/placeholder.png");
         background-size: contain;
         height: 30px;
         width: 30px;
         margin-right: 10px;
       }
-      .post-created {
+      .item-created {
         @include post-created;
         margin-top: .75em;
         &.full-width {
           margin-top: 0;
         }
       }
-      .post-title {
+      .item-title {
         @include post-title;
         color: #505050;
         width: 100%;
       }
-      .post-details {
+      .item-details {
         margin: .5em 0 1em;
       }
-      .post-tags {
+      .item-tags {
         @include proxima-bold;
         font-size: .75em;
         color: #696969;

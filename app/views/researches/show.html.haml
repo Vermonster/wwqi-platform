@@ -1,17 +1,17 @@
 .content
-  #posts-show.span8.pull-left
+  #item-show.span8.pull-left
     .show-intro
-      .post-image.pull-left
-      .post-created.pull-left
+      .item-image.pull-left
+      .item-created.pull-left
         = "#{resource.created_ago}, #{resource.header}"
-    .post-title
+    .item-title
       = resource.title
-    .post-details
+    .item-details
       %p
         = resource.details
-    .post-tags    
+    .item-tags    
       = "tags: #{resource.tag_list}"
-    .post-uploads
+    .item-uploads
       - resource.uploads.each do |u|
         = u[:content]
   #side-box.span4.pull-right
@@ -26,17 +26,17 @@
         .caption.pull-left
           %p Dawlatabadi's postcard from Paris
   #comments.span12
-    .post-image.pull-left
-    .post-content.pull-left
+    .item-image.pull-left
+    .item-content.pull-left
       - resource.comments.each do |c|
-        .post-created.full-width
+        .item-created.full-width
           = "#{c.header} #{c.created_ago}"
-        .post-details
+        .item-details
           %p
             = c.details
   #comments.span12
-    .post-image.pull-left
-    .post-content.pull-left
+    .item-image.pull-left
+    .item-content.pull-left
       = simple_form_for Comment.new, url: post_comments_path(resource) do |f|
         = f.input :details, label: "Submit your answer", input_html: {cols: 115}
         = f.submit comment_btn_text(resource), { class: "btn pull-right" }
