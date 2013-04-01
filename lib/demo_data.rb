@@ -6,7 +6,7 @@ module DemoData
   def self.load
     ActiveRecord::Base.transaction do
       load_users
-      load_posts
+      load_content
     end
   end
 
@@ -16,26 +16,20 @@ module DemoData
     FactoryGirl.create(:user,
                        first_name: 'Greg',
                        last_name: 'Salmon',
-                       email: 'user1@example.com',
-                       password: 'password',
-                       password_confirmation: 'password')
+                       email: 'user1@example.com')
     
     FactoryGirl.create(:user,
                        first_name: 'Andrew',
                        last_name: 'Ross',
-                       email: 'user2@example.com',
-                       password: 'password',
-                       password_confirmation: 'password')
+                       email: 'user2@example.com')
 
     FactoryGirl.create(:user,
                        first_name: 'Steve',
                        last_name: 'Nash',
-                       email: 'user3@example.com',
-                       password: 'password',
-                       password_confirmation: 'password')
+                       email: 'user3@example.com')
   end
 
-  def self.load_posts
+  def self.load_content
     andrew = User.where(first_name: 'Andrew').first
     steve = User.where(first_name: 'Steve').first
     
@@ -64,5 +58,15 @@ module DemoData
                        details: "I'm guessing you had green eggs and ham. Am I close?",
                        commentable: post2,
                        user: andrew)
+
+    FactoryGirl.create(:research,
+                       title: 'Images of Lur and Turk Nomads on Qajar Period Gravestones',
+                       details: "Dear colleagues, I am preparing a paper for the upcoming Qajar Studies conference. I have attached an early draft. I would appreciate your feedback and comments",
+                       creator: andrew)
+
+    #FactoryGirl.create(:translation,
+                       #title: 'Shaykh Baqir Najmabadi Books of Register, 12 volumes, 1910-1931',
+                       #details: 'This is a translation.',
+                       #creator: steve)
   end
 end
