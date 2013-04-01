@@ -7,8 +7,9 @@
   %ul.thread-type.btn-group
     %li.btn{class: current_page?(action: 'index', followed: nil) && !current_page?(action: 'index', followed: 'true') && 'active'}
       = link_to 'Latest', collection_url
-    %li.btn{class: current_page?(action: 'index', followed: 'true') && 'active'}
-      = link_to 'Followed Research', collection_url(followed: true)
+    - if user_signed_in?
+      %li.btn{class: current_page?(action: 'index', followed: 'true') && 'active'}
+        = link_to 'Followed Research', collection_url(followed: true)
   %ul.items
     - collection.each do |post|
       %li
