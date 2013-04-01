@@ -2,3 +2,5 @@
 .DS_Store
 tmp/*
 log/*
+.env.development
+.env.production
