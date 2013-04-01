@@ -28,6 +28,6 @@
     $('#tag-list').on 'keypress', (e) ->
       if (e.keyCode is 13)
         tags = $('#tag-list').tags().getTags()
-        $('#post_tag_list').val(tags.join(','))    
+        $('#research_tag_list').val(tags.join(','))    
         false
   )
