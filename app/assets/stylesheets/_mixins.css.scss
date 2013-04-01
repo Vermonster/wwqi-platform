@@ -6,7 +6,14 @@
   @include background-image(linear-gradient(left top,  #eeeeee 0%,#eeeeee 50%,#ffffff 51%,#ffffff 100%));
 }
 
-@mixin post-created {
+@mixin item-header {
+  font-size: .75em;
+  font-family: "proxima-nova",sans-serif;
+  font-weight: 600;
+  color: #b29628;
+}
+
+@mixin item-created {
   float: left;
   font-size: .85em;
   color: #696969;
@@ -16,14 +23,21 @@
   @include proxima-bold;
 }
 
-@mixin post-title {
-  font-size: 1.65em;
+@mixin item-title {
+  font-size: 1.5em;
   font-family: "proxima-nova",sans-serif;
   font-weight: 300;
   color: #696969;
-  margin: .75em 0 .25em; 
+  margin: .25em 0; 
   width: 100%;
 }
+
+/*@mixin item-image {*/
+  /*background-size: contain;*/
+  /*height: 30px;*/
+  /*width: 30px;*/
+  /*margin-right: 10px;*/
+/*}*/
 
 @mixin proxima-bold {
   font-family: "proxima-nova",sans-serif;
