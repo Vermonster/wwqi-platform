@@ -5,9 +5,9 @@
   .btn.pull-right
     = link_to 'Start A New Thread', new_post_path
   %ul.thread-type.btn-group
-    %li.btn.active
+    %li.btn{class: current_page?(action: 'index', followed: nil) && !current_page?(action: 'index', followed: 'true') && 'active'}
       = link_to 'Latest', collection_url
-    %li.btn
+    %li.btn{class: current_page?(action: 'index', followed: 'true') && 'active'}
       = link_to 'Followed Threads', collection_url(followed: true)
   %ul.items
     - collection.each do |post|
