@@ -17,6 +17,7 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :items, :reject_if => :all_blank, :allow_destroy => true
 
   default_scope order('created_at DESC')
+  scope :questions_and_discussions, where("type = 'Question' or type = 'Discussion'")
 
   include PgSearch
   pg_search_scope :search_text, against: [:title, :details],

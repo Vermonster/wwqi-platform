@@ -18,7 +18,7 @@ class ResearchesController < ApplicationController
   def collection
     @researches ||= begin
                       researches = if params[:followed] && current_user
-                                     current_user.followed_research
+                                     current_user.followed_researches
                                   else
                                     end_of_association_chain
                                   end

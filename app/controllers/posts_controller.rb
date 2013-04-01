@@ -25,9 +25,9 @@ class PostsController < ApplicationController
     # to view the explanation for `decorate(with: nil)`
     @posts ||= begin
                  posts = if params[:followed] && current_user
-                  current_user.followed_posts
+                  current_user.followed_questions_and_discussions
                  else
-                  end_of_association_chain
+                  end_of_association_chain.questions_and_discussions
                  end
 
                   if params[:q].present?

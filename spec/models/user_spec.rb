@@ -17,4 +17,33 @@ describe User do
   it "has a valid factory" do
     build(:user).should be_valid
   end
+
+
+  describe "followings" do
+    let!(:user) { create(:user) }
+
+    it "can follow posts" do
+      research = create(:research)
+      create(:following, followable: research, user: user)
+
+      user.followed_posts.should =~ [research]
+    end
+    
+    it "can retrieve followed questions and discussions" do
+      question = create(:question)
+      create(:following, followable: question, user: user)
+
+      discussion = create(:discussion)
+      create(:following, followable: discussion, user: user)
+      
+      user.followed_questions_and_discussions.should =~ [question, discussion]
+    end
+    
+    it "can retrieve followed researches" do
+      research = create(:research)
+      create(:following, followable: research, user: user)
+
+      user.followed_researches.should =~ [research]
+    end
+  end
 end

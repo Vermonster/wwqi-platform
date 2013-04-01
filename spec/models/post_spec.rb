@@ -44,4 +44,14 @@ describe Post do
   describe Research do
     it_behaves_like "a post"
   end
+
+  describe "aggregation" do
+    it "returns a collection of questions and discussions only" do
+      question = create(:question)
+      discussion = create(:discussion)
+      research = create(:discussion)
+
+      Post.questions_and_discussions =~ [question, discussion]
+    end
+  end
 end
