@@ -32,6 +32,7 @@ module DemoData
   def self.load_content
     andrew = User.where(first_name: 'Andrew').first
     steve = User.where(first_name: 'Steve').first
+    greg = User.where(first_name: 'Greg').first
     
 
     post1 = FactoryGirl.create(:question,
@@ -46,7 +47,11 @@ module DemoData
                        details: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Vivamus vitae risus vitae lorem iaculis placerat. Aliquam sit amet felis. Etiam congue. Donec risus risus, pretium ac, tincidunt eu, tempor eu, quam. Morbi blandit mollis magna. Suspendisse eu tortor. Donec vitae felis nec ligula blandit rhoncus. Ut a pede ac neque mattis facilisis. Nulla nunc ipsum, sodales vitae, hendrerit non, imperdiet ac, ante. Morbi sit amet mi. Ut magna. Curabitur id est. Nulla velit. Sed consectetuer sodales justo. Aliquam dictum gravida libero. Sed eu turpis. Nunc id lorem. Aenean consequat tempor mi. Phasellus in neque. Nunc fermentum convallis ligula.",
                        commentable: post1,
                        user: steve)
-  
+
+    FactoryGirl.create(:following,
+           followable: post1,
+           user: greg)
+
     post2 = FactoryGirl.create(:discussion,
                                title: "Guess what I had for breakfast today.",
                                details: "Ok, guys. I woke up with such a headache. I think I'm 
@@ -59,10 +64,19 @@ module DemoData
                        commentable: post2,
                        user: andrew)
 
-    FactoryGirl.create(:research,
+    research = FactoryGirl.create(:research,
                        title: 'Images of Lur and Turk Nomads on Qajar Period Gravestones',
                        details: "Dear colleagues, I am preparing a paper for the upcoming Qajar Studies conference. I have attached an early draft. I would appreciate your feedback and comments",
                        creator: andrew)
+
+    FactoryGirl.create(:research,
+                       title: "The world's largest pizza pie",
+                       details: "Well it was until I ate it.",
+                       creator: steve)
+
+    FactoryGirl.create(:following,
+           followable: research,
+           user: greg)
 
     #FactoryGirl.create(:translation,
                        #title: 'Shaykh Baqir Najmabadi Books of Register, 12 volumes, 1910-1931',
