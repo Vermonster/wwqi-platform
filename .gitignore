@@ -4,3 +4,4 @@ tmp/*
 log/*
 .env.development
 .env.production
+public/*
