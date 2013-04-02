@@ -201,7 +201,7 @@
   .content-bg {
     /*min-width: 800px;*/
     background: #FFF;
-    box-shadow: 0 0 6px rgba(0, 0, 0, .25);
+    @include box-shadow(0 0 6px rgba(0, 0, 0, .25));
     .content {
       overflow: hidden;
       margin: 3em 3% .5em;
@@ -225,7 +225,9 @@
           float: left;
           h2 {
             margin: 0;
-            font-size: 1.25em;
+            font-size: 1em;
+            font-weight: 600;
+          }
           #img1, #img2, #img3 {
             background: url("http://placekitten.com/80/80");
             width: 80px;
@@ -238,7 +240,7 @@
     }
     #login-main {
       margin: 0;
-      padding: 20px 0;
+      padding: 35px 0;
       background: $darkgrey;
       .col1, .col2 {
         &.col1 {
@@ -250,15 +252,23 @@
         }
         form {
           h2 {
-            font-weight: 600;
-            font-size: 1.5em;
             color: $lightgrey;
+            font-weight: 300;
+            font-size: 1.75em;
             margin-bottom: -.125em;
+            text-align: center;
+            text-transform: none;
           }
           p {
-            font-size: 1em;
-            margin-bottom: 1em;
+            font-size: .875em;
+            font-weight: 300;
+            margin-bottom: 2em;
             color: $medgrey;
+            text-align: center;
+          }
+          label {
+            font-size: .875em;
+            font-weight: 300;
             color: $medgrey;
           }
           .name {
@@ -269,15 +279,23 @@
             }
           }
           input {
-            width: 90%;
+            width: 93%;
             background: $medgrey;
+            border: 1px solid grey;
             color: $lightgrey;
           }
           .btn {
             display: block;
             margin-top: 1em;
-            width: 25%;
+            width: 28%;
             margin-left: 68.75%;
+            background: $gold;
+            border: none;
+            text-shadow: none;
+            font-weight: 600;
+            &:hover {
+              background: #a08222;
+            }
           }
         }
       }
@@ -352,6 +370,7 @@
         width: 100%;
         overflow: hidden;
         margin-top: 4em;
+        text-align: center;
         a {
           color: #696969;
           text-decoration: none;
@@ -364,7 +383,7 @@
         list-style: none;
         border-bottom: none;
         li {
-          border-radius: 20px;
+          @include border-radius(20px);
           background: none; 
           border: none;
           &.active {
@@ -433,13 +452,14 @@
           }
         }
       }
-      #contributions-navlinks {
+      .intro {
         margin-bottom: 2em;
         p {
           margin-bottom: 1.75em;
         }
       }
       #contributions-content {
+        margin:0;
         #contribution-list, #contribution-feed {
           margin: 4em 0;
           h4 {
@@ -449,14 +469,33 @@
           .item-content {
             width: 70%;
           }
-          .transcribe {
-            width: 13%;
+          ul li {
             margin-left: 2%;
+            .btn {
+              @include border-radius(20px);
+              background: $gold; 
+              border: none;
+              color: $lightgrey;
+              padding: .3em 1.5em .25em;
+              &:hover {
+                background: #000;
+              }
+              a {
+                color: white;
+                text-shadow: none;
+                font-family: "proxima-nova",sans-serif;
+              }
+            }
           }
           .transcription-subnav {
             width: 100%;
-            overflow: hidden;
+            margin-right: 2em;
             font-size: .75em;
+            &:after {
+              display: table;
+              content: '';
+              clear: both;
+            }
           }
         }
       }
