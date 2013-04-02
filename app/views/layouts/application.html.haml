@@ -38,6 +38,8 @@
                   %li
                     = link_to destroy_user_session_path, method: :delete do
                       %h2 Logout
+              .flash.pull-right
+                = flash_messages
       #main-nav-wrapper.row-fluid
         .span12
           #main-nav.span8.offset2
@@ -66,8 +68,6 @@
                   %a.icon-notification
                   .notification-count
                     %p 2
-        .flash
-          = flash_messages
       #main-content.row-fluid
         .span12
           .content-bg.span8.offset2

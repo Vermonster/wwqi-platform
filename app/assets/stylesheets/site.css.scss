@@ -42,6 +42,7 @@
     }
   }
   #login-nav {
+    overflow: hidden;
     margin-top: 1.15em;
     ul { 
       margin-bottom: 0;
@@ -75,6 +76,25 @@
             color: #b29628;
           }
         }
+      }
+    }
+  }
+  .flash {
+    font-family: 'proxima-nova', sans-serif;
+    font-weight: 300;
+    font-size: 1em;
+    float: right;
+    text-align: center;
+    overflow: hidden;
+    .alert {
+      background: none;
+      color: $gold;
+      text-shadow: none;
+      border: none;
+      float: right;
+      padding-right: 0;
+      button {
+        /*display: none;*/
       }
     }
   }
