@@ -179,40 +179,40 @@
 #main-content {
   background: url("/assets/lightpaperfibers.png");
   .content-bg {
-    min-width: 800px;
+    /*min-width: 800px;*/
     background: #FFF;
     box-shadow: 0 0 6px rgba(0, 0, 0, .25);
     .content {
       overflow: hidden;
-      margin: 3em 0 2.5em 2em;
+      margin: 3em 3% .5em;
       padding-top: .25em;
       .intro {
-        margin: -10px 0 20px;
-        h2 {
-          margin-bottom: 5px;
-          color: #333;
-        }
+        margin-bottom: .75em;
       }
       #features {
         padding-top: 15px;
-        margin: 30px 0 0;
+        margin: 30px 0;
         overflow: hidden;
-        #img1, #img2, #img3 {
-          background: url("/assets/placeholder.png");
-          width: 70px;
-          height: 70px;
-          background-size: contain;
+        .col-1, .col-2, .col-3 {
+          width: 30%;
+          overflow: hidden;
+        }
+        .feature-copy {
+          width: 70%;
+          margin-left: 5%;
         }
         .feature-copy, .feature-image {
           float: left;
-          padding: 0 1em 0 0;
           h2 {
             margin: 0;
             font-size: 1.25em;
+          #img1, #img2, #img3 {
+            background: url("http://placekitten.com/80/80");
+            width: 80px;
+            height: 80px;
+            background-size: contain;
+            @include border-radius;
           }
-        }
-        .feature-copy {
-          width: 62%;
         }
       }
     }
@@ -244,7 +244,7 @@
             float: left;
             width: 50%;
             input, label {
-              width: 80%;
+              width: 85%;
             }
           }
           input {
