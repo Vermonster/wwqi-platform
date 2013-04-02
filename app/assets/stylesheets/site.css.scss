@@ -80,13 +80,13 @@
   }
 }
 #main-nav-wrapper {
-  background: #333;
+  background: $darkgrey;
   border-top: 1px solid rgba(255, 255, 255, .25);
   z-index: 99;
   position:relative;
   box-shadow: 0 2px 2px rgba(0, 0, 0, .35);
   #main-nav {
-    background: #333;
+    background: $darkgrey;
     min-width: 800px;
     #nav { 
       ul {
@@ -109,7 +109,7 @@
             background: #000;
             cursor: pointer;
             a {
-              color: #eee;
+              color: $lightgrey;
             }
           }
         }
@@ -125,7 +125,7 @@
           text-shadow: none;
           box-shadow: none;
           p {
-            color: #eee;
+            color: $lightgrey;
             border-top: none;
             font-size: 1.25em;
           }
@@ -133,13 +133,13 @@
             padding-left: 0;
           }
           .caret {
-            border-top: 4px solid #eee;
+            border-top: 4px solid $lightgrey;
             padding-left: 0;
           }
         }
         ul.dropdown-menu {
           padding: .5em 1.5em;
-          background: #eee;
+          background: $lightgrey;
           color: #A8A8A8;
           li {
             border-bottom: 1px solid #a8a8a8;
@@ -167,7 +167,7 @@
           position: absolute;
           p {
             margin-left: .65em;
-            color: #333;
+            color: $darkgrey;
             font-weight: 700;
             font-size: .875em;
           }
@@ -219,7 +219,7 @@
     #login-main {
       margin: 0;
       padding: 20px 0;
-      background: #eee;
+      background: $darkgrey;
       .col1, .col2 {
         &.col1 {
           /*border-right: 1px solid #444;*/
@@ -230,15 +230,16 @@
         }
         form {
           h2 {
-            color: #333;
             font-weight: 600;
             font-size: 1.5em;
+            color: $lightgrey;
             margin-bottom: -.125em;
           }
           p {
             font-size: 1em;
             margin-bottom: 1em;
-            color: #333;
+            color: $medgrey;
+            color: $medgrey;
           }
           .name {
             float: left;
@@ -249,6 +250,8 @@
           }
           input {
             width: 90%;
+            background: $medgrey;
+            color: $lightgrey;
           }
           .btn {
             display: block;
@@ -278,7 +281,7 @@
           position: relative;
           margin: 20px 2em 15px 0;
           padding: 2em 2em 1.5em;
-          background-color: #eee;
+          background-color: $lightgrey;
           border-radius: 20px;
           &:after {
             content: "";
@@ -345,7 +348,7 @@
           background: none; 
           border: none;
           &.active {
-            background: #333;
+            background: $darkgrey;
             &:hover {
               background: #444;
             }
@@ -357,7 +360,7 @@
           }
           a {
             background: none;
-            color: #333;
+            color: $darkgrey;
             line-height: 12px;
             padding: 5px 1em;
           }
@@ -443,7 +446,7 @@
       &#comments {
         margin: 2em 0 1em;
         padding-top: 2em;
-        border-top: 1px solid #eee;
+        border-top: 1px solid $lightgrey;
       }
       .show-intro {
         width: 100%;
@@ -481,7 +484,7 @@
       }
     }
     #side-box {
-      background: #333;
+      background: $darkgrey;
       margin-left: 0;
       padding: 1.5em;
       overflow: hidden;
@@ -511,5 +514,5 @@
   }
 }
 #footer {
-  background-color: #eee;
+  background-color: $lightgrey;
 }
