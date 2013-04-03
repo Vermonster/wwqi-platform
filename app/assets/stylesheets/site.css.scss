@@ -427,7 +427,6 @@
           }
           .item-content {
             float: left;
-            width: 89%;
             .item-header {
               @include item-header;
               font-size: .75em;
@@ -536,6 +535,13 @@
                   }
                 }
               }
+            }
+          }
+        }
+        #contribution-feed {
+          ul li {
+            .item-content {
+              width: 90%;
             }
           }
         }
