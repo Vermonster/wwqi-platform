@@ -6,6 +6,6 @@ describe Collaborator do
   it { should validate_presence_of(:post_id) }
 
   it "has a valid factory" do
-    build(:item).should be_valid
+    build(:collaborator).should be_valid
   end
 end
