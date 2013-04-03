@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :collaborator do
     user_id 1
-    post nil
+    association :post, factory: :question
   end
 end

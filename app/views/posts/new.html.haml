@@ -1,37 +1,65 @@
 = simple_form_for resource do |f|
-  .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[type]"}
-    %button.btn{"data-toggle" => "button", :value => "Question"} Question
-    %button.btn{"data-toggle" => "button", :value => "Discussion"} Discussion
-    = f.input :type, as: :hidden
-  -# %label= t('simple_form.labels.post.tag_list')
-  #tag-list.tag-list
-    .tags
-  = f.input :tag_list
-  = f.input :title
-  = f.input :details
-  = f.simple_fields_for :uploads do |upload|
-    = render 'upload_fields', f: upload
-  .links
-    = link_to_add_association 'add upload', f, :uploads
-  .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name"=> "post[item_related]"}
-    %button.btn{"data-toggle" => "button", :value => "true"} Yes
-    %button.btn{"data-toggle" => "button", :value => "false"} No
-    = f.input :item_related, as: :hidden
-  .btn-group{"data-toggle" => "button", "data-toggle-name" => "post[private]"}
-    %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
-    %button.btn{"data-toggle" => "button", :value => "false"} Everyone
-    = f.input :private, as: :hidden
-  #items
-    = f.simple_fields_for :items do |item|
-      = render 'item_fields', :f => item 
+  .row-fluid
+    .span3
+      %label Thread Type
+      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[type]"} 
+        %button.btn.active{"data-toggle" => "button", :value => "Question"} Question
+        %button.btn{"data-toggle" => "button", :value => "Discussion"} Discussion
+      = f.input :type, as: :hidden, input_html: { value: 'Question' }
+    #tag-list.tag-list.span8
+      -# .tags
+      %label Tags
+      = f.input :tag_list
+    -# %label= t('simple_form.labels.post.tag_list')
+  .row-fluid
+    %br
+    %label#title Your Concise Question
+    = f.input :title, label: false, :input_html => {:class => 'span12'}
+  .row-fluid
+    %br
+    = f.input :details, required: false, :input_html => {:class => 'span12'}
+  .row-fluid
+    = f.simple_fields_for :uploads do |upload|
+      = render 'upload_fields', f: upload
     .links
-      = link_to_add_association 'add item URL', f, :items
-  #collaborators
-    = f.simple_fields_for :collaborators do |collaborator|
-      = render 'collaborator_fields', :f => collaborator
-    .links
-      = link_to_add_association 'Add Collaborator', f, :collaborators
-  = f.button :submit, :class => 'btn', :lable => 'Post Thread'
+      = link_to_add_association 'add upload', f, :uploads
+  .row-fluid
+    %br
+    %br
+  .row-fluid
+    .span6
+      %label Is this related to specific WWQI items?
+      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name"=> "post[item_related]"}
+        %button.btn{"data-toggle" => "button", :value => "true"} Yes
+        %button.btn{"data-toggle" => "button", :value => "false"} No
+      = f.input :item_related, as: :hidden
+    .span6
+      %label Who do you want to ask?
+      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[private]"}
+        %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
+        %button.btn{"data-toggle" => "button", :value => "false"} Everyone
+      = f.input :private, as: :hidden
+  .row-fluid
+    %br
+  .row-fluid
+    #items.span6
+      %label Enter the Item URL
+      = f.simple_fields_for :items do |item|
+        = render 'item_fields', :f => item
+      .links
+        = link_to_add_association '', f, :items, :class => 'icon-plus-sign'
+    #collaborators.span6
+      %label Enter Name or Email Adress of Recipients
+      = f.simple_fields_for :collaborators do |collaborator|
+        = render 'collaborator_fields', :f => collaborator
+      .links
+        = link_to_add_association '', f, :collaborators, :class => 'icon-plus-sign'
+  .row-fluid
+    %br
+    %br
+    %br
+  .row-fluid
+    = f.button :submit, :class => 'span4 offset8', :label => 'Post Thread', :value => 'Submit Question'
 
 :coffeescript
   $(->
