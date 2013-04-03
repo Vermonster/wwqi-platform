@@ -8,7 +8,7 @@
   z-index: 999;
   position: relative;
   #header {
-    min-width: 800px;    
+    width: 960px;    
     #logo-container {
       #logo-img {
         background: url("/assets/flag.png") no-repeat;
@@ -107,7 +107,7 @@
   box-shadow: 0 2px 2px rgba(0, 0, 0, .35);
   #main-nav {
     background: $darkgrey;
-    min-width: 800px;
+    width: 960px;
     #nav { 
       ul {
         margin-bottom: 0;
@@ -199,7 +199,7 @@
 #main-content {
   background: url("/assets/lightpaperfibers.png");
   .content-bg {
-    /*min-width: 800px;*/
+    width: 960px; 
     background: #FFF;
     @include box-shadow(0 0 6px rgba(0, 0, 0, .25));
     .content {
