@@ -481,20 +481,8 @@
           ul li {
             margin: 0 2%;
             .btn {
-              @include border-radius(20px);
-              background: $gold; 
-              border: none;
-              color: $lightgrey;
-              padding: .3em 1.5em .25em;
+              @include action-button;
               margin-top: 2%;
-              &:hover {
-                background: #000;
-              }
-              a {
-                color: white;
-                text-shadow: none;
-                font-family: "proxima-nova",sans-serif;
-              }
             }
           }
           .transcription-subnav {
