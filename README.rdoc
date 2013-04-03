@@ -10,30 +10,30 @@ Run `rake db!` to load the database schema and seed the app with demo data.
 
 This app uses .env files for environment configuration. Take a look at the .env.example for
 an example on how to create and set your environment variables. Each .env file should be named
-according to the environment. For example for the development environment, name is .env.development.
+according to the environment. For example, for the development environment, name it .env.development.
 Here's a list of environment variables that this app makes use for:
 
-ENABLE_S3
+ENABLE_S3:
 AWS S3 is used for file storage. This option is not necessary on production where S3 is automatically
 used. Set to true to allow files to be uploaded to S3. Otherwise files are saved to your local machine.
 
-AWS_ACCESS_KEY_ID
+AWS_ACCESS_KEY_ID:
 The access key for S3.
 
-AWS_SECRET_ACCESS_KEY
+AWS_SECRET_ACCESS_KEY:
 The secret key for S3.
 
-AWS_S3_BUCKET
+AWS_S3_BUCKET:
 The bucket name that holds the uploaded files.
 
-LIVE_SEARCH
+LIVE_SEARCH:
 In the development environment calls to wwqi-search's search api will be mocked. Set this to true
 to allow live calls.
 
-SEARCH_URL
+SEARCH_URL:
 The url for wwqi-search's search api.
 
-SEARCH_INDEX
+SEARCH_INDEX:
 The name of the index used by wwqi-search.
 
 == Remember to run specs before you commit!
