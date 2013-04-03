@@ -11,7 +11,7 @@ Run `rake db!` to load the database schema and seed the app with demo data.
 This app uses .env files for environment configuration. Take a look at the .env.example for
 an example on how to create and set your environment variables. Each .env file should be named
 according to the environment. For example, for the development environment, name it .env.development.
-Here's a list of environment variables that this app makes use for:
+Here's a list of environment variables that this app makes use of:
 
 ENABLE_S3:
 AWS S3 is used for file storage. This option is not necessary on production where S3 is automatically
