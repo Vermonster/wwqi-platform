@@ -15,6 +15,15 @@ if defined?(Bundler)
   # Bundler.require(:default, :assets, Rails.env)
 end
 
+# include the current environment's .env file
+env = File.expand_path("../../.env.#{Rails.env}", __FILE__)
+if File.exists? env
+  File.readlines(env).each do |line|
+    k, v = line.strip.split('=', 2)
+    ENV[k] = v if k && v
+  end
+end
+
 module WwqiPlatform
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
