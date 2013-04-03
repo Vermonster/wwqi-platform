@@ -391,11 +391,9 @@
           border: none;
           &.active {
             background: $darkgrey;
-            &:hover {
-              background: #444;
-            }
+            color: #FFF;
             a {
-              color: white;
+              color: #FFF;
               text-shadow: none;
               font-family: "proxima-nova",sans-serif;
             }
@@ -405,6 +403,9 @@
             color: $darkgrey;
             line-height: 12px;
             padding: 5px 1em;
+            &:hover {
+              background: none;
+            }
           }
         }
       }
@@ -414,7 +415,7 @@
         list-style: none;
         li {
           padding: 1em 0;
-          border-bottom: 1px #a8a8a8 solid;
+          border-bottom: 1px #a8a8a8 dotted;
           overflow: auto;
           &:last-child {
             border-bottom: none;
