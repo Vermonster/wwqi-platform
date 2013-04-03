@@ -13,6 +13,7 @@ gem "devise", "~> 2.2.3"
 gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'fog'
+gem 'mini_magick'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'lorem'
