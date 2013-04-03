@@ -461,7 +461,11 @@
       #contributions-content {
         margin:0;
         #contribution-list, #contribution-feed {
-          margin: 4em 0;
+          background: $lightgrey;
+          @include border-radius(5px);
+          border: 2px solid #CCC;
+          padding: 2em;
+          margin: 3em 0;
           h4 {
             font-weight: 700;
             margin-bottom: .25em;
