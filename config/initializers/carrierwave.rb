@@ -1,4 +1,4 @@
-s3_enabled = ENV['ENABLE_S3'].inquiry.true?
+s3_enabled = ENV['ENABLE_S3'] ? ENV['ENABLE_S3'].inquiry.true? : false
 
 ENABLE_S3 = s3_enabled || Rails.env.production?
 
