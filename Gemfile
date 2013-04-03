@@ -12,6 +12,7 @@ gem "thin", "~> 1.5.0"
 gem "devise", "~> 2.2.3"
 gem 'simple_form'
 gem 'acts-as-taggable-on'
+gem 'fog'
 gem 'carrierwave'
 gem 'kaminari'
 gem 'lorem'
