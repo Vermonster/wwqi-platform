@@ -365,6 +365,9 @@
           }
         }
       }
+      .btn {
+        @include action-button;
+      }
       .thread-type {
         display: block;
         width: 100%;
