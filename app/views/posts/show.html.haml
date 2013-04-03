@@ -26,15 +26,15 @@
         .caption.pull-left
           %p Dawlatabadi's postcard from Paris
   #comments.span12
-    .item-image.pull-left
-    .item-content.pull-left
-      - resource.comments.each do |c|
+    - resource.comments.each do |c|
+      .item-image.pull-left
+      .item-content.pull-left
         .item-created.full-width
           = "#{c.header} #{c.created_ago}"
         .item-details
           %p
             = c.details
-  #comments.span12
+  #comment-box.span12
     .item-image.pull-left
     .item-content.pull-left
       = simple_form_for Comment.new, url: post_comments_path(resource) do |f|
