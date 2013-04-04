@@ -26,18 +26,3 @@
         .caption.pull-left
           %p Dawlatabadi's postcard from Paris
   = render 'partials/comments', resource: resource 
-  .comments.span12
-    - resource.comments.each do |c|
-      .item-image.pull-left
-      .item-content.pull-left
-        .item-created.full-width
-          = "#{c.header} #{c.created_ago}"
-        .item-details
-          %p
-            = c.details
-  .comment-box.span12
-    .item-image.pull-left
-    .item-content.pull-left
-      = simple_form_for Comment.new, url: post_comments_path(resource) do |f|
-        = f.input :details, label: "Submit your answer", input_html: {cols: 115}
-        = f.submit comment_btn_text(resource), { class: "btn pull-right" }

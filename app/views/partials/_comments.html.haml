@@ -1,6 +1,6 @@
 - klass_name = resource.model.class.to_s.downcase
 
-#comments.span12
+.comments.span12
   - resource.comments.each do |c|
     .item-image.pull-left
     .item-content.pull-left
@@ -9,7 +9,7 @@
       .item-details
         %p
           = c.details
-#comment-box.span12
+.comment-box.span12
   .item-image.pull-left
   .item-content.pull-left
     - if user_signed_in?
