@@ -197,9 +197,9 @@
   }
 }
 #main-content {
-  background: url("/assets/lightpaperfibers.png");
   .content-bg {
     width: 960px; 
+  background: url("/assets/textured_paper.png");
     background: #FFF;
     @include box-shadow(0 0 6px rgba(0, 0, 0, .25));
     .content {
