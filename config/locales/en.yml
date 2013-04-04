@@ -2,4 +2,12 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  question:
+    comment_label: 'Your answer'
+    submit: 'Submit answer'
+  discussion:
+    comment_label: 'Your reply'
+    submit: 'Submit reply'
+  research:
+    comment_label: 'Your research'
+    submit: 'Submit research'

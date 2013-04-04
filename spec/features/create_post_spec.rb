@@ -12,13 +12,8 @@ describe "post creation" do
   context "authenticated" do
     let(:user) { create(:user) }
 
-    before(:each) do
-      sign_in(user)
-    end
-
-    after(:each) do
-      sign_out
-    end
+    before(:each) { sign_in(user) }
+    after(:each) { sign_out }
 
     describe "Start a new thread button" do
       it "goes to the new post form" do

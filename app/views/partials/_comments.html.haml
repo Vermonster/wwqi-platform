@@ -1,0 +1,20 @@
+- klass_name = resource.model.class.to_s.downcase
+
+#comments.span12
+  - resource.comments.each do |c|
+    .item-image.pull-left
+    .item-content.pull-left
+      .item-created.full-width
+        = "#{c.header} #{c.created_ago}"
+      .item-details
+        %p
+          = c.details
+#comment-box.span12
+  .item-image.pull-left
+  .item-content.pull-left
+    - if user_signed_in?
+      = simple_form_for Comment.new, url: post_comments_path(resource) do |f|
+        = f.input :details, label: t("#{klass_name}.comment_label"), input_html: {cols: 115}
+        = f.submit t("#{klass_name}.submit"), { class: "btn pull-right" }
+    - else
+      %p You have to login to comment. Login #{link_to 'here', new_user_session_path}.

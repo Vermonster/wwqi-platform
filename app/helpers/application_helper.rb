@@ -13,15 +13,6 @@ module ApplicationHelper
     [['true', 'People I Choose'], ['false', 'Everyone']] 
   end
 
-  def comment_btn_text(post)
-    case post
-    when Question
-      "Submit Answer"
-    when Discussion
-      "Submit Reply"
-    end
-  end
-
   def flash_messages
     return if flash.empty?
 

@@ -580,6 +580,12 @@
       textarea {
         width: 100%;
       }
+
+      p {
+        a {
+          text-decoration: underline;
+        }
+      }
     }
     #side-box {
       background: $darkgrey;
