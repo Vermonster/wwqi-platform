@@ -14,17 +14,17 @@
       try{Typekit.load();}catch(e){}
   %body
     #root
-      #header-wrapper.row-fluid
-        .span12
-          #header.span8.offset2
-            #logo-container.span2
+      #header-wrapper
+        .container
+          #header.row
+            #logo-container.span2.pull-left
               = link_to root_path do
                 #logo-img
-            #title.span5 
+            #title.span5.pull-left
               %a{:href => "#"}
                 %h1 Women&rsquo;s Worlds 
                 %h2 in Qajar Iran
-            #login-nav.span5
+            #login-nav.span5.pull-right
               %ul.pull-right
                 %li
                   = link_to 'http://www.qajarwomen.org/en/index.html' do
@@ -44,37 +44,38 @@
                       %h2 Logout
               .flash.pull-right
                 = flash_messages
-      #main-nav-wrapper.row-fluid
-        .span12
-          #main-nav.span8.offset2
-            #nav.span8.offset2.pull-left
-              %ul.nav
-                %li
-                  = link_to 'Questions & Discussions', posts_path
-                %li
-                  = link_to 'Research-in-Progress', researches_path
-                %li
-                  = link_to 'Contributions', contributions_path
-            - if user_signed_in?
-              #notifications-wrapper.span2.pull-right
-                #dropdown.btn-group.pull-right
-                  %button.btn.btn-mini 
-                    %p Me
-                  %button.btn.btn-mini.dropdown-toggle{:"data-toggle" => "dropdown"}
-                    %span
-                      %a.caret
-                  %ul.dropdown-menu
-                    %li 
-                      %p Alice commented on your question
-                    %li 
-                      %p John posted in your discussion
-                #notifications.pull-right
-                  %a.icon-notification
-                  .notification-count
-                    %p 2
-      #main-content.row-fluid
-        .span12
-          .content-bg.span8.offset2
+      #main-nav-wrapper
+        .container
+          .row
+            #main-nav
+              #nav.span8.offset2.pull-left
+                %ul.nav
+                  %li
+                    = link_to 'Questions & Discussions', posts_path
+                  %li
+                    = link_to 'Research-in-Progress', researches_path
+                  %li
+                    = link_to 'Contributions', contributions_path
+              - if user_signed_in?
+                #notifications-wrapper.span2.pull-right
+                  #dropdown.btn-group.pull-right
+                    %button.btn.btn-mini 
+                      %p Me
+                    %button.btn.btn-mini.dropdown-toggle{:"data-toggle" => "dropdown"}
+                      %span
+                        %a.caret
+                    %ul.dropdown-menu
+                      %li 
+                        %p Alice commented on your question
+                      %li 
+                        %p John posted in your discussion
+                  #notifications.pull-right
+                    %a.icon-notification
+                    .notification-count
+                      %p 2
+      #main-content
+        .container
+          .content
             = yield
-      #root_footer
-    = render "partials/footer"
+        #root_footer
+      = render "partials/footer"
