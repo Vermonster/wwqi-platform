@@ -1,3 +1,3 @@
 FactoryGirl.define do
-  factory :biography, parent: :contribution, class: :Contribution
+  factory :biography, parent: :contribution, class: :Biography
 end

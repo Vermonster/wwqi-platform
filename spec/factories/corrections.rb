@@ -1,4 +1,4 @@
 FactoryGirl.define do
-  factory :correction, parent: :contribution, class: :Contribution
+  factory :correction, parent: :contribution, class: :Correction
 end
 
