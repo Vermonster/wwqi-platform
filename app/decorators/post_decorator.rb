@@ -13,4 +13,8 @@ class PostDecorator < Draper::Decorator
       h.pluralize(comments_count, comment_key)
     end
   end
+  
+  def title_link
+    h.link_to title, h.post_path(model)
+  end
 end

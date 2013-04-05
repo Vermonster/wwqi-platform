@@ -17,4 +17,12 @@ class ContributionDecorator < Draper::Decorator
   def comment_key
     "comments"
   end
+  
+  def title_link
+    h.link_to title, h.contribution_path(model)
+  end
+  
+  def title
+    item.name
+  end
 end
