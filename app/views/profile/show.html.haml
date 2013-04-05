@@ -1,0 +1,30 @@
+#items-index
+  .intro.row
+    %h2 #{current_user.first_name} #{current_user.last_name}
+
+    %ul.thread-type.btn-group
+      %li.btn.active.pull-left
+        = link_to 'Latest', me_path
+      %li.btn.pull-left
+        = link_to 'My Questions and Discussions', me_path(type: "threads")
+      %li.btn.pull-left
+        = link_to 'My Research-in-Progress', me_path(type: "researches")
+      %li.btn.pull-left
+        = link_to 'My Contributions', me_path(type: "contributions")
+        
+    %ul.items
+    - @resources.each do |resource|
+      %li
+        .item-image.pull-left
+        .item-content
+          .item-header
+            = resource.header
+          .item-title
+            = resource.title_link
+          .item-comments
+            %p 
+              = resource.comments_size
+          %p.bullet &bull; 
+          .item-created
+            %p
+              = resource.created_ago
