@@ -18,6 +18,7 @@ class Post < ActiveRecord::Base
 
   default_scope order('created_at DESC')
   scope :questions_and_discussions, where("type = 'Question' or type = 'Discussion'")
+  scope :researches, where("type = 'Research'")
 
   include PgSearch
   pg_search_scope :search_text, against: [:title, :details],

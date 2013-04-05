@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130327143533) do
+ActiveRecord::Schema.define(:version => 20130405201742) do
 
   create_table "comments", :force => true do |t|
     t.text     "details"
@@ -27,8 +27,9 @@ ActiveRecord::Schema.define(:version => 20130327143533) do
     t.string   "type"
     t.integer  "item_id"
     t.integer  "creator_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "comments_count", :default => 0
   end
 
   create_table "followings", :force => true do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20130327143533) do
     t.integer  "post_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
   add_index "items", ["post_id"], :name => "index_items_on_post_id"
