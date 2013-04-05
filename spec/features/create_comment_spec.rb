@@ -23,7 +23,7 @@ describe 'comment creation' do
       visit posts_path
       click_on question.title
       
-      within('#comment-box') do
+      within('.comment-box') do
         fill_in 'comment_details', with: 'squirrel'
         click_on 'Submit answer'
       end
@@ -32,7 +32,7 @@ describe 'comment creation' do
       
       current_path.should == post_path(question)
 
-      within('#comments') do
+      within('.comments') do
         page.should have_content("#{user.first_name} asked")
         page.should have_content("squirrel")
       end
