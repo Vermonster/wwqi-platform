@@ -6,11 +6,10 @@ class Post < ActiveRecord::Base
   has_many :uploads, as: :uploadable, dependent: :destroy
   has_many :followings, as: :followable, dependent: :destroy
   has_many :followers, through: :followings, class_name: :User
-  has_many :items
-  has_many :collaborators
+  has_many :items, dependent: :destroy
+  has_many :collaborators, dependent: :destroy
 
-  attr_accessible :title, :details, :item_related, :private, :creator_id, :type, 
-    :tag_list, :uploads_attributes, :items_attributes
+  attr_accessible :title, :details, :item_related, :private, :creator_id, :type, :tag_list, :uploads_attributes, :items_attributes, :collaborators_attributes
 
   validates :title, :details, :creator_id, presence: true
 

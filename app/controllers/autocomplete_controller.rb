@@ -1,4 +1,5 @@
 class AutocompleteController < ApplicationController
+  respond_to :json
   def users
     if params[:term]
       like = "%".concat(params[:term].concat("%"))
@@ -7,6 +8,6 @@ class AutocompleteController < ApplicationController
       users = User.all
     end
     list = users.map { |u| Hash[ user_id: u.id, label: u.email, user_email: u.email, label: u.fullname, user_name: u.fullname ] }
-    render json: list
+    respond_with list
   end
 end
