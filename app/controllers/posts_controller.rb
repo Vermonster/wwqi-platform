@@ -11,27 +11,14 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post].merge(creator_id: current_user.id))
     #create!(notice: "Thread was successfully created.") { resource_url }
-    
+    logger.debug "param is #{@post}"
+
     if @post.save
       redirect_to post_path(@post), notice: "Thread was successfully created."
     else
       render :new
     end
   end
-# for autocomplete
-  def user_email=(email)
-    user = User.find_by_email(email)
-    if user
-      self.user_id = user.id
-    else
-      errors[:user_email] << "Invalid name entered"
-    end
-  end
-
-  def user_email
-    User.find(user_id).fullname if user_id
-  end
-  # end fo autocomplete
   private
 
   def collection

@@ -12,6 +12,12 @@
   //a { color: white; }
 }
 .ui-menu-item {
-  a { color: white; }
-  .email { color: silver; }
+  a { color: white;
+    display: block;
+    text-decoration: none;
+}
+  .email { color: white; }
+}
+.ui-menu-item a.ui-state-focus {
+  background-color: DarkGray;
 }
