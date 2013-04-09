@@ -3,10 +3,9 @@ class Collaborator < ActiveRecord::Base
   belongs_to :user
   attr_accessible :user_id, :post_id, :term # term doesn't exist in database
 
-  validates :user_id, :post_id, presence: true
-  validates :user_id, uniqueness: {:scope => :post_id}
-
-  delegate :email, :fullname, :to => :user, :allow_nil => true
+  validates :user_id, presence: true
+  validates :post_id, presence: true, on: :update
+  validates :user_id, uniqueness: {:scope => :post_id, message: 'has been added already.'}
 
   def term
     # for the temporary field to display a user's full name.

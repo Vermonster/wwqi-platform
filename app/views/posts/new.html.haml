@@ -50,6 +50,7 @@
         = link_to_add_association '', f, :items, :class => 'icon-plus-sign'
     #collaborators.span6
       %label Enter Name or Email Adress of Recipients
+      = f.error :collaborator
       = f.simple_fields_for :collaborators do |collaborator|
         = render 'collaborator_fields', :f => collaborator
       .links
