@@ -11,7 +11,6 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post].merge(creator_id: current_user.id))
     #create!(notice: "Thread was successfully created.") { resource_url }
-    # binding.pry
 
     if @post.save
       redirect_to post_path(@post), notice: "Thread was successfully created."

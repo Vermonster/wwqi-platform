@@ -5,7 +5,6 @@ class Collaborator < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :post_id, presence: true, on: :update
-  validates :user_id, uniqueness: {:scope => :post_id, message: 'has been added already.'}
 
   def term
     # for the temporary field to display a user's full name.
