@@ -13,7 +13,6 @@ class ProfileController < ApplicationController
                       latest.sort_by { |result| result.created_at }
                       latest.reverse!
                  end
-    #binding.pry
   end
   
 end
