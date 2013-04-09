@@ -63,14 +63,14 @@
                     = link_to 'Contributions', contributions_path
               - if user_signed_in?
                 #notifications-wrapper.span2.pull-right
-                  #dropdown.btn-group.pull-right
+                  .dropdown.btn-group.pull-right
                     %button.btn.btn-mini 
                       %p 
                         = link_to 'Me', me_path
                     %button.btn.btn-mini.dropdown-toggle{:"data-toggle" => "dropdown"}
                       %span
                         %a.caret
-                    %ul.dropdown-menu
+                    %ul.dropdown-menu{role: "menu", "aria-labeledby" => "dLabel"}
                       %li 
                         %p Alice commented on your question
                       %li 

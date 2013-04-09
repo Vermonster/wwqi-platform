@@ -290,7 +290,16 @@
         margin: 0 auto;
         float: none;
       }
-      #dropdown {
+      .open {
+        position: absolute;
+        ul {
+          @media (max-width: 480px) {
+            right: -140px;
+            top: 24px;
+          }
+        }
+      }
+      .dropdown {
         margin-top: 1em;
         button, .btn {
           background: none;
