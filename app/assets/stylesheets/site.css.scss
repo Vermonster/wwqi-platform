@@ -290,12 +290,14 @@
           font-size: 1.5em;
           color: $gold;
           margin-top: .1em;
+          @include flip;
         }
         .notification-count {
           top: 17px;
           width: 1.5em;
           text-align: center;
           position: absolute;
+          @include flip;
           p {
             margin-left: .65em;
             color: $darkgrey;
