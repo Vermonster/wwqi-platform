@@ -4,18 +4,17 @@
 
 $ -> 
   $('#collaborators').on('cocoon:after-insert', (e, it) ->
-    console.log(it[0].firstElementChild.children[1].firstElementChild.id)
     item_id = it[0].firstElementChild.children[1].firstElementChild.id.split('_')[3]
-    # item_id = it[0].firstElementChild.firstElementChild.firstElementChild.id.split('_')[3]
     selector_for_id = 'input[name$=\"' + item_id + '][user_id]\"]'
     selector_for_term = 'input[name$=\"' + item_id + '][term]\"]'
-    console.log(item_id)
 
     $(selector_for_term).autocomplete 
       source: '/autocomplete/users'
       messages: 
         noResults: ''
         results: ->
+      open: (event, ui) ->
+        $("ui-autocomplete").append("<div id='invite_user_link'><a href='#'>Invite the person!</a></div>")
       select: (event, ui) ->
         $(selector_for_id).val(ui.item.user_id)
     .data("ui-autocomplete")._renderItem = (ul, item) ->

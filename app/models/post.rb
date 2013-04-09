@@ -29,9 +29,15 @@ class Post < ActiveRecord::Base
   private
 
   def collaborator_duplication
+    # a quick validtion method for checking a duplication of recipients with the
+    # post
 
+    # Get the number of the user_ids in the list that are uniquely identified.
     num_of_unique = self.collaborators.map{ |i| i.user_id }.uniq.length
 
+    # Compare to the length of the collaborators array against to num_of_unique.
+    # If they are same, each collaborators are unique. If not, one or more
+    # collaborators are added more than once. 
     if self.collaborators.length != num_of_unique 
       errors.add(:collaborator, 'One or more recipients are added more than once.')
     end
