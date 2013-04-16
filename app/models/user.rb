@@ -18,6 +18,7 @@ class User < ActiveRecord::Base
   has_many :followings
   has_many :followed_posts, through: :followings, source: :followable, source_type: 'Post'
   has_many :notifications
+  has_many :invitations, foreign_key: :inviter_id, dependent: :destroy
 
   def followed_questions_and_discussions
     followed_posts.where("type = 'Question' or type = 'Discussion'") 

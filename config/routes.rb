@@ -14,7 +14,8 @@ WwqiPlatform::Application.routes.draw do
   resources :contributions do
     resources :comments
   end
-  
+  resources :invitations
+
   match "/me" => "profile#show"
 
   root :to => 'site#index'
