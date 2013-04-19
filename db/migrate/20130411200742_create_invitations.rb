@@ -4,7 +4,7 @@ class CreateInvitations < ActiveRecord::Migration
       t.string :recipient_name
       t.string :recipient_email
       t.text :message
-      t.references :inviter
+      t.references :post
 
       t.timestamps
     end

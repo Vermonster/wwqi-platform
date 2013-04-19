@@ -9,6 +9,7 @@ class Post < ActiveRecord::Base
   has_many :items, dependent: :destroy
   has_many :collaborators, dependent: :destroy
   attr_accessible :title, :details, :item_related, :private, :creator_id, :type, :tag_list, :uploads_attributes, :items_attributes, :collaborators_attributes
+  delegate :fullname, to: :creator, prefix: true
 
   validates :title, :details, :creator_id, presence: true
   validate :collaborator_duplication

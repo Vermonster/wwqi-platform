@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe Invitation do
-  it { should belong_to(:inviter).class_name(:User) }
-  it { should validate_presence_of :inviter_id }
+  it { should belong_to(:post) }
+  it { should validate_presence_of :post_id }
   it { should validate_presence_of :recipient_email}
 
   it "has a valid factory" do 
@@ -26,7 +26,8 @@ describe Invitation do
     end
 
     it 'has an invitation message' do
-      email.body.encoded.should match(new_invitation.inviter_fullname)
+      email.body.encoded.should match(new_invitation.post_creator_fullname)
+      email.body.encoded.should match(new_invitation.post_title)
       email.body.encoded.should match("http://www.example.com/signup") 
     end
   end

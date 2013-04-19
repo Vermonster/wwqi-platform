@@ -1,11 +1,11 @@
 class Invitation < ActiveRecord::Base
-  attr_accessible :inviter_id, :message, :recipient_name, :recipient_email
+  attr_accessible :post_id, :message, :recipient_name, :recipient_email
 
-  belongs_to :inviter, class_name: :User
+  belongs_to :post
 
-  delegate :fullname, :email, to: :inviter, prefix: true
+  delegate :title, :creator_fullname, to: :post, prefix: true
 
-  validates :inviter_id, presence: true
+  validates :post_id, presence: true
   validates :recipient_email,
     presence: true,
      format: {
