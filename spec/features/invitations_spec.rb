@@ -13,6 +13,27 @@ feature "User invites" do
       sign_out
     end
 
+    scenario 'using Invite someone else! button', js: true do
+      visit new_post_path
+      within('#collaborators') do
+        # Locate the plus icon and click it
+        find(:xpath, "div[@class='links']/a[@class='icon-plus-sign add_fields']").click
+        # Check there is a minus icon
+        expect(page).to have_xpath("div[@class='nested-fields row-fluid']/div[@class='links span2']/a[@class='icon-minus-sign remove_fields dynamic']")
+        expect(page).to have_xpath("div[@class='nested-fields row-fluid']/div[@class='span10']/div[@class='input string optional post_collaborators_term']")
+        
+        # Bring the autocomplete list
+        find(:xpath, "div[@class='nested-fields row-fluid']/div[@class='span10']/div[@class='input string optional post_collaborators_term']/input[@*]").set('e')
+        # find('.ui-menu-item a:contains("Invite")').click
+        # expect(page).to have_selector('.ui-menu-item')
+      end
+      # expect(page).to have_content('Recipient email')
+      selector = "input[class^=\"string optional ui-autocomplete-input\"]"
+      page.execute_script("$(\'#{selector}\').val(\'c\');")
+      #sleep 3
+      expect(page).to have_content('Invite someone else!')
+    end
+
     scenario 'in the invitation page' do
       visit '/invitations/new'
       expect(page).to have_content('Recipient email')
