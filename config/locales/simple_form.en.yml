@@ -26,13 +26,13 @@ en:
     labels:
       post:
         type: 'Thread Type'
-        tag_list: 'Tags'
+        tag_list: 'Tags (Use tags to describe the people, places, or subjects related to this thread.)'
         title: 'Title or Question'
         details: 'Additional Details'
         item_related: 'Is this related to specific WWQI items?'
         private: 'Who do you want to ask?'
       research:
-        tag_list: 'Tags'
+        tag_list: 'Tags (Use tags to describe the people, places, or subjects related to this thread.)'
         title: 'Your Research Title'
         details: 'Additional Details'
         item_related: 'Is this related to specific WWQI items?'

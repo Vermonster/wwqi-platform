@@ -1,0 +1,23 @@
+form#new_post {
+  margin: 50px;
+
+  label {
+    font-weight: bold;
+  }
+
+  input, textarea, .btn-group {
+    margin-top: 3px;
+  }
+
+  input.tags-input {
+    padding-left: 10px !important;
+  }
+
+  #items, #collaborators {
+    .nested-fields {
+      a.icon-minus-sign {
+        vertical-align: -12px; 
+      }
+    }
+  }
+}

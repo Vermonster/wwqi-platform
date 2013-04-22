@@ -1,4 +1,5 @@
 .nested-fields.row-fluid
-  = f.input :url, label: false, wrapper_html: {class: 'span10'}, placeholder: 'e.g. http://qajarwomen.org/fa/item', input_html: { style: 'width:20em' }
-  .links.span2
-    = link_to_remove_association '', f, :class => 'icon-minus-sign'
+  .span7
+    = f.input :url, label: false, placeholder: 'e.g. http://qajarwomen.org/fa/item', input_html: { style: 'width:20em' }
+  .links
+    = link_to_remove_association '', f, :class => 'icon-minus-sign icon-2x'

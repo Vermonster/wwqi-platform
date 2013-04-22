@@ -28,7 +28,7 @@ describe "post creation" do
         visit new_post_path
 
         fill_in_required_thread_fields
-        click_on 'Post Thread'
+        click_on 'Submit Question'
 
         Question.count.should == 1
         question = Question.last
@@ -41,12 +41,12 @@ describe "post creation" do
     end
 
     describe "discussion creation" do
-      it "creates a new discussion" do
+      it "creates a new discussion", js: true do
         visit new_post_path
 
         fill_in_required_thread_fields
-        choose 'post_type_discussion'
-        click_on 'Post Thread'
+        click_button 'Discussion'
+        click_on 'Create Discussion'
 
         Discussion.count.should == 1
         discussion = Discussion.last

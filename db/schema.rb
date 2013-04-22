@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(:version => 20130405201742) do
     t.string   "type"
     t.integer  "item_id"
     t.integer  "creator_id"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
     t.integer  "comments_count", :default => 0
   end
 
@@ -48,15 +48,6 @@ ActiveRecord::Schema.define(:version => 20130405201742) do
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
-
-  create_table "item_urls", :force => true do |t|
-    t.string   "url"
-    t.integer  "post_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "item_urls", ["post_id"], :name => "index_item_urls_on_post_id"
 
   create_table "items", :force => true do |t|
     t.string   "url"

@@ -7,17 +7,15 @@
         %button.btn{"data-toggle" => "button", :value => "Discussion"} Discussion
       = f.input :type, as: :hidden, input_html: { value: 'Question' }
     #tag-list.tag-list.span8
-      -# .tags
-      %label Tags
+      %label= t('simple_form.labels.post.tag_list')
       = f.input :tag_list
-    -# %label= t('simple_form.labels.post.tag_list')
   .row-fluid
     %br
     %label#title Your Concise Question
-    = f.input :title, label: false, :input_html => {:class => 'span12'}
+    = f.input :title, label: false, :input_html => { :class => 'span12' }
   .row-fluid
     %br
-    = f.input :details, required: false, :input_html => {:class => 'span12'}
+    = f.input :details, required: false, :input_html => { :class => 'span12 '}
   .row-fluid
     = f.simple_fields_for :uploads do |upload|
       = render 'upload_fields', f: upload

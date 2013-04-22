@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :collaborator do
-    user_id 1
+    user
     association :post, factory: :question
   end
 end

@@ -3,6 +3,13 @@ class PostsController < ApplicationController
   respond_to :html
   before_filter :authenticate_user!, except: [:index, :show]
 
+  def new
+    @post = Post.new
+    @post.items.build
+    @post.collaborators.build
+    new!
+  end
+
   def show
     @post = "#{resource.type}Decorator".constantize.decorate(resource)
     show!
