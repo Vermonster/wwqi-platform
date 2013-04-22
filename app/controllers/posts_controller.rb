@@ -5,6 +5,18 @@ class PostsController < ApplicationController
 
   helper_method :resource_name
 
+  def new
+    @post = Post.new
+    @post.items.build
+    @post.collaborators.build
+    new!
+  end
+
+  def show
+    @post = "#{resource.type}Decorator".constantize.decorate(resource)
+    show!
+  end
+
   private
 
   def resource_name

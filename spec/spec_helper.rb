@@ -8,6 +8,7 @@ require 'capybara-screenshot/rspec'
 require 'selenium/webdriver'
 require 'vcr'
 
+
 # For a stubborn spec, switch the driver to :chrome and put a binding.pry
 # before the failure. Once the pry console is hit, you can interact with
 # the Chrome window it's been driving, with everything in the proper state.
