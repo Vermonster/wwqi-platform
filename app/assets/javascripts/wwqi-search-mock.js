@@ -61,7 +61,6 @@ wwqiMockSearchResponses.gold = {
   }
 };
 
-<<<<<<< HEAD
 wwqiMockSearchResponses.noResults = {
   "took" : 1,
   "timed_out" : false,
@@ -77,18 +76,11 @@ wwqiMockSearchResponses.noResults = {
   }
 };
 
-
-=======
->>>>>>> mock wwqi-search results
 $.mockjax({
   url: /^http:\/\/api\.searchbox\.io\/api-key\/.*\/item\/_search\?q=title_en:(.*)$/,
   urlParams: ['query'],
   response: function(settings) {
     q = settings.urlParams.query;
-<<<<<<< HEAD
     this.responseText = wwqiMockSearchResponses[q] || wwqiMockSearchResponses.noResults;
-=======
-    this.responseText = wwqiMockSearchResponses[q];
->>>>>>> mock wwqi-search results
   }
 });

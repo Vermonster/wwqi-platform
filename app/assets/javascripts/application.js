@@ -16,7 +16,7 @@
 //= require bootstrap
 //= require bootstrap-tags
 //= require cocoon
-//= require_tree .
+//= require autocomplete
 
 // Javascript for Bootstraps radio buttons within Simple Form
 $(function() {
