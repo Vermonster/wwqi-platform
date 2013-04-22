@@ -54,6 +54,8 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 1.0.0)
+    capybara-screenshot (0.3.6)
+      capybara (>= 1.0, < 3)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -248,6 +250,7 @@ DEPENDENCIES
   acts-as-taggable-on
   bootstrap-sass (~> 2.3.0.1)
   capybara (= 2.0.2)
+  capybara-screenshot
   carrierwave
   cocoon
   coffee-rails (~> 3.2.1)
