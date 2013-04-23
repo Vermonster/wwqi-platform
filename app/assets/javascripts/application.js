@@ -16,6 +16,8 @@
 //= require bootstrap
 //= require bootstrap-tags
 //= require cocoon
+//= require bootstrap-wysihtml5
 //= require autocomplete
 //= require radio_buttons
 //= require tags
+//= require wysiwyg

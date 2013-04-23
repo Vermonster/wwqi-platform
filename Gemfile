@@ -22,6 +22,7 @@ gem 'inherited_resources'
 gem 'draper', git: 'git://github.com/drapergem/draper.git'
 gem 'cocoon'
 gem 'factory_girl_rails'
+gem 'bootstrap-wysihtml5-rails'
 
 # Gems used only for assets and not required
 # in production environments by default.

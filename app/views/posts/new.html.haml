@@ -17,7 +17,7 @@
     = f.input :title, label: false, :input_html => { :class => 'span12' }
   .row-fluid
     %br
-    = f.input :details, required: false, :input_html => { :class => 'span12 '}
+    = f.input :details, required: false, :input_html => { :class => 'span12 wysihtml5'}
   .row-fluid
     = f.simple_fields_for :uploads do |upload|
       = render 'upload_fields', f: upload
