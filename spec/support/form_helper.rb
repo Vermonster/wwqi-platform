@@ -17,6 +17,5 @@ def sign_in_with(email, password)
     fill_in 'user_password', with: password
     click_on 'Log In'
   end
-  #page.save_screenshot('error.png', full: true)
   page.should have_content('Successfully signed in.')
 end
