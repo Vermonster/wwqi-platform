@@ -46,8 +46,6 @@
                     %li
                       = link_to destroy_user_session_path, method: :delete do
                         %h2 Logout
-              .flash.pull-right
-                = flash_messages
       #main-nav-wrapper
         .container
           .row
@@ -78,6 +76,7 @@
                         %p John posted in your discussion
       #main-content
         .container
+          = flash_messages
           .content
             = yield
         #root_footer
