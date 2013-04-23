@@ -10,7 +10,16 @@ form#new_post {
   }
 
   input.tags-input {
-    padding-left: 10px !important;
+    padding-left: 10px;
+    width: 700px;
+  }
+
+  .tag-list {
+    .tags {
+      .tag {
+        margin-top: 10px;
+      }
+    }
   }
 
   #items, #collaborators {

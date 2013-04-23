@@ -6,9 +6,11 @@
         %button.btn.active{"data-toggle" => "button", :value => "Question"} Question
         %button.btn{"data-toggle" => "button", :value => "Discussion"} Discussion
       = f.input :type, as: :hidden, input_html: { value: 'Question' }
+
     #tag-list.tag-list.span8
       %label= t('simple_form.labels.post.tag_list')
-      = f.input :tag_list
+      .tags
+    = f.input :tag_list
   .row-fluid
     %br
     %label#title Your Concise Question
@@ -59,17 +61,3 @@
     %br
   .row-fluid
     = f.button :submit, :class => 'span4 offset8', :label => 'Post Thread', :value => 'Submit Question'
-
-:coffeescript
-  $(->
-    $('.post_tag_list').hide()
-
-    $('#tag-list').tags
-      promptText: 'For each tag, type in a name and press enter.'
-
-    $('#tag-list').on 'keypress', (e) ->
-      if (e.keyCode is 13)
-        tags = $('#tag-list').tags().getTags()
-        $('#post_tag_list').val(tags.join(','))    
-        false
-  )

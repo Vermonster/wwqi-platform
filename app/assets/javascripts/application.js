@@ -18,3 +18,4 @@
 //= require cocoon
 //= require autocomplete
 //= require radio_buttons
+//= require tags
