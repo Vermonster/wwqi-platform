@@ -14,6 +14,11 @@ form#new_post, form#new_research {
     width: 700px;
   }
 
+  span.error {
+    color: red;
+    font-family: "proxima-nova", sans-serif;
+  }
+
   .tag-list {
     .tags {
       .tag {
