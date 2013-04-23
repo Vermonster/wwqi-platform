@@ -3,6 +3,13 @@ class ResearchesController < ApplicationController
   respond_to :html
   before_filter :authenticate_user!, except: [:index, :show]
 
+  def new
+    @research = Research.new
+    @research.items.build
+    @research.collaborators.build
+    new!
+  end
+
   def show
     @research = resource.decorate
     show!
