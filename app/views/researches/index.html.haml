@@ -1,4 +1,4 @@
-.content#items-index.span11
+#items-index.row
   = form_tag researches_path, class: "navbar-search pull-left", id: 'post_search', method: :get do |f|
     = search_field_tag :q, params[:q], placeholder: "Search Research in Progress", class: "search-query pull-left"
     = submit_tag "Search", { class: "btn" }
