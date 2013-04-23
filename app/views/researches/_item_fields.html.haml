@@ -1,4 +1,5 @@
-.nested-fields
-  = f.input :url
+.nested-fields.row-fluid
+  .span7
+    = f.input :url, label: false, placeholder: 'e.g. http://qajarwomen.org/fa/item', input_html: { style: 'width:20em' }
   .links
-    = link_to_remove_association "remove Item URL", f
+    = link_to_remove_association '', f, :class => 'icon-minus-sign'

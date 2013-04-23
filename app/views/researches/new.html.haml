@@ -1,22 +1,59 @@
 = simple_form_for resource do |f|
-  %label= t('simple_form.labels.research.tag_list')
-  #tag-list.tag-list
-    .tags
-  = f.input :tag_list
-  = f.input :title
-  = f.input :details
-  = f.simple_fields_for :uploads do |upload|
-    = render 'upload_fields', f: upload
-  .links
-    = link_to_add_association 'add upload', f, :uploads
-  = f.input :item_related, as: :radio_buttons
-  = f.collection_radio_buttons :private, post_private_radio_options, :first, :last
-  #items
-    = f.simple_fields_for :items do |item|
-      = render 'item_fields', :f => item 
+  .row-fluid
+    #tag-list.tag-list.span8
+      %label= t('simple_form.labels.research.tag_list')
+      .tags
+        = f.input :tag_list
+  .row-fluid
+    %br
+    %br
+    = f.input :title, :input_html => { :class => 'span12' }
+  .row-fluid
+    %br
+    = f.input :details, :input_html => { :class => 'span12 wysihtml5' }
+  .row-fluid
+    = f.simple_fields_for :uploads do |upload|
+      = render 'upload_fields', f: upload
     .links
-      = link_to_add_association 'add item URL', f, :items
-  = f.submit 'Submit Research'
+      = link_to_add_association 'add upload', f, :uploads
+  .row-fluid
+    %br
+    %br
+  .row-fluid
+    .span6
+      %label Is this related to specific WWQI items?
+      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[item_related]"}
+        %button.btn{"data-toggle" => "button", :value => "true"} Yes
+        %button.btn{"data-toggle" => "button", :value => "false"} No
+      = f.input :item_related, as: :hidden
+    .span6
+      %label Is this related to specific WWQI items?
+      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[item_related]"}
+        %button.btn{"data-toggle" => "button", :value => "true"} Yes
+        %button.btn{"data-toggle" => "button", :value => "false"} No
+      = f.input :private, as: :hidden
+  .row-fluid
+    %br
+  .row-fluid
+    #items.span6
+      %label Enter the Item URL
+      = f.simple_fields_for :items do |item|
+        = render 'item_fields', :f => item 
+      .links
+        = link_to_add_association '', f, :items, :class => 'icon-plus-sign'
+    #collaborators.span6
+      %label Enter Name or Email Address of Recipients
+      = f.error :collaborator
+      = f.simple_fields_for :collaborators do |collaborator|
+        = render 'collaborator_fields', :f => collaborator
+      .links
+        = link_to_add_association '', f, :collaborators, :class => 'icon-plus-sign'
+  .row-fluid
+    %br
+    %br
+    %br
+  .row-fluid
+    = f.button :submit, :class => 'span4 offset8', :label => 'Post Research', :value => 'Submit Research'
 
 :coffeescript
   $(->
