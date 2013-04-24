@@ -22,13 +22,13 @@
   .row-fluid
     .span6
       %label Is this related to specific WWQI items?
-      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[item_related]"}
+      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[item_related]"}
         %button.btn{"data-toggle" => "button", :value => "true"} Yes
         %button.btn{"data-toggle" => "button", :value => "false"} No
       = f.input :item_related, as: :hidden
     .span6
       %label Is this related to specific WWQI items?
-      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[item_related]"}
+      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[item_related]"}
         %button.btn{"data-toggle" => "button", :value => "true"} Yes
         %button.btn{"data-toggle" => "button", :value => "false"} No
       = f.input :private, as: :hidden
