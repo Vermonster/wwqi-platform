@@ -15,7 +15,10 @@ form#new_post, form#new_research {
   }
 
   span.error {
-    color: red;
+    color: #fff;
+    font-weight: bold;
+    background-color: #C5112C;
+    padding: 0px 3px;
     font-family: "proxima-nova", sans-serif;
   }
 
