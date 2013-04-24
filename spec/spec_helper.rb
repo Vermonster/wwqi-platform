@@ -5,8 +5,19 @@ require 'rspec/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'capybara-screenshot/rspec'
+require 'selenium/webdriver'
 
+# For a stubborn spec, switch the driver to :chrome and put a binding.pry
+# before the failure. Once the pry console is hit, you can interact with
+# the Chrome window it's been driving, with everything in the proper state.
+# Even works for javascript heavy single-page apps!
 Capybara.javascript_driver = :poltergeist
+
+Capybara.register_driver :chrome do |app|
+  profile = Selenium::WebDriver::Chrome::Profile.new
+  profile['extensions.password_manager_enabled'] = false
+  Capybara::Selenium::Driver.new(app, browser::chrome, profile::profile)
+end
 
 include Warden::Test::Helpers
 

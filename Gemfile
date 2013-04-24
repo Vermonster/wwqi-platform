@@ -41,13 +41,14 @@ gem 'jquery-rails'
 
 group :test, :development do
   gem 'rspec-rails', '2.13.0'
-  gem 'capybara', '2.0.2'
+  gem 'capybara', '2.1.0'
   gem 'database_cleaner', '0.6.7'
   gem 'nokogiri'
   gem 'poltergeist'
   gem 'pry'
   gem 'launchy'
   gem 'capybara-screenshot'
+  gem 'selenium-webdriver'
 end
 
 group :test do
