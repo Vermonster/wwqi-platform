@@ -3,21 +3,25 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .ui-autocomplete {
-  // Makie the list scrollable
+  border: 2px solid #000;
   max-height: 500px;
   max-width: 300px;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: DimGray;
-  //a { color: white; }
-}
-.ui-menu-item {
-  a { color: white;
-    display: block;
-    text-decoration: none;
-}
-  .email { color: white; }
-}
-.ui-menu-item a.ui-state-focus {
-  background-color: DarkGray;
+  background-color: #fff;
+
+  .ui-menu-item {
+    border-bottom: 1px solid #000;
+    a { 
+      color: black ;
+      font-family: "proxima-nova", sans-serif;
+      padding: 5px;
+      display: block;
+      text-decoration: none;
+      
+      &.ui-state-focus {
+        background-color: Gainsboro;
+      }
+    }
+  }
 }
