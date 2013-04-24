@@ -37,3 +37,5 @@ en:
         details: 'Additional Details'
         item_related: 'Is this related to specific WWQI items?'
         private: 'Who do you want to ask?'
+      item:
+        search: 'Enter the item name or id'

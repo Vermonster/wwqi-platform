@@ -1,0 +1,28 @@
+$ ->
+  options =
+    source: (request, response) ->
+      $.ajax
+        url: "<%= SEARCH_ENDPOINT %>/item/_search"
+        dataType: "json"
+        type: 'get'
+        data:
+          query_string:
+            query: request.term
+        success: (data) ->
+          response($.map(data.hits.hits, (item) ->
+            label: "#{item._source.id} - #{item._source.title_en}"
+            thumbnail: item._source.thumbnail
+            name: item._source.title_en
+            url: item._source.url_en
+            item_id: item._source.id))
+    select: (event, ui) ->
+      group = $(event.target).parents('.item_group')
+      group.find('input[id$="_url"]').val(ui.item.url)
+      group.find('input[id$="_thumbnail"]').val(ui.item.thumbnail)
+      group.find('input[id$="_item_id"]').val(ui.item.item_id)
+      group.find('input[id$="_name"]').val(ui.item.name)
+
+  $('#items').find('input[id$="_search"]').autocomplete(options)
+
+  $('#items').on('cocoon:after-insert', (e, insertedItem) ->
+    $(insertedItem).find('input[id$="_search"]').autocomplete(options))

@@ -36,7 +36,7 @@
     %br
   .row-fluid
     #items.span6
-      %label Enter the Item URL
+      %label Enter the Item name or id
       = f.simple_fields_for :items do |item|
         = render 'item_fields', :f => item 
       .links

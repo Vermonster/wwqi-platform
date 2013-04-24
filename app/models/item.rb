@@ -1,6 +1,7 @@
 class Item < ActiveRecord::Base
   belongs_to :post
-  attr_accessible :url, :name
+  attr_accessible :url, :name, :thumbnail, :item_id
+  attr_accessor :search
 
   validates :url, presence: true
   validates :post_id, presence: true, on: :update

@@ -18,6 +18,7 @@
 //= require cocoon
 //= require bootstrap-wysihtml5
 //= require autocomplete
+//= require item_search
 //= require radio_buttons
 //= require tags
 //= require wysiwyg

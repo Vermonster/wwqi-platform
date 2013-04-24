@@ -22,6 +22,11 @@ form#new_post, form#new_research {
     font-family: "proxima-nova", sans-serif;
   }
 
+  span.ui-helper-hidden-accessible {
+    font-weight: bold;
+    font-family: "proxima-nova", sans-serif;
+  }
+
   .tag-list {
     .tags {
       .tag {
