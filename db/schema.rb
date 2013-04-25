@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130424151952) do
+ActiveRecord::Schema.define(:version => 20130425153809) do
 
   create_table "collaborators", :force => true do |t|
     t.integer  "user_id"
@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(:version => 20130424151952) do
   create_table "items", :force => true do |t|
     t.string   "url"
     t.integer  "post_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "name"
     t.string   "thumbnail"
-    t.integer  "item_id"
+    t.integer  "accession_no"
   end
 
   add_index "items", ["post_id"], :name => "index_items_on_post_id"
@@ -71,13 +71,6 @@ ActiveRecord::Schema.define(:version => 20130424151952) do
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.integer  "comments_count", :default => 0
-  end
-
-  create_table "related_items", :force => true do |t|
-    t.integer  "item_id"
-    t.integer  "post_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "taggings", :force => true do |t|
