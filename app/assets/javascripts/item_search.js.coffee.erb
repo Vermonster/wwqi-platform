@@ -9,7 +9,6 @@ $ ->
           q: request.term
         success: (data) ->
           response($.map(data.hits.hits, (item) ->
-            console.log item
             label: "#{item._source.accession_num} - #{item._source.title_en}"
             thumbnail: item._source.thumbnail
             name: item._source.title_en
