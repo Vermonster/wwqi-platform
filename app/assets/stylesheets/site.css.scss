@@ -778,11 +778,18 @@
               height: 50px;
               width: 50px;
               margin: 0 .5em 1.5em 0;
+              border: 1px #fff solid;
             }
             .caption {
               p {
-                color: #FFF;
-                font-size: .65em;
+                color: #fff;
+                font-size: .8em;
+                a {
+                  color: #fff;
+                  &:hover {
+                    color: #fff;
+                  }
+                }
               }
             }
           }

@@ -9,5 +9,5 @@ en:
     comment_label: 'Your reply'
     submit: 'Submit reply'
   research:
-    comment_label: 'Your research'
-    submit: 'Submit research'
+    comment_label: 'Your reply'
+    submit: 'Submit reply'

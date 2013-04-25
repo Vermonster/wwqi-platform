@@ -17,12 +17,11 @@
   #side-box.span4.pull-right
     %h3 This post is related to
     %ul
-      %li
-        .image.pull-left
-        .caption.pull-left
-          %p Dawlatabadi's postcard from Paris
-      %li
-        .image.pull-left
-        .caption.pull-left
-          %p Dawlatabadi's postcard from Paris
+      - resource.items.each do |item|
+        %li
+          .image.pull-left
+            = image_tag item.thumbnail
+          .caption.pull-left
+            %p
+              = link_to item.name, "#{WWQI_SITE}#{item.url}", :target => '_blank'
   = render 'partials/comments', resource: resource 

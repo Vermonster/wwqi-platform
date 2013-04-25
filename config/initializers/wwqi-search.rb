@@ -4,4 +4,5 @@ if !Rails.env.test?
   SEARCH_ENDPOINT = SEARCH_URL+'/'+SEARCH_INDEX
 end
 
+WWQI_SITE = ENV['WWQI_SITE']
 AJAX_STUB_MODE = ENV['LIVE_SEARCH'] ? ENV['LIVE_SEARCH'].inquiry.false? : !Rails.env.production?
