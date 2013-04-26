@@ -1,4 +1,4 @@
-== Welcome to WWQI-Platform
+== Welcome to WWQI-Platform!
 
 This is the repo for the platform site to link:http://www.qajarwomen.org
 
