@@ -21,7 +21,7 @@
     = f.simple_fields_for :uploads do |upload|
       = render 'upload_fields', f: upload
     .links
-      = link_to_add_association 'add upload', f, :uploads
+      = link_to_add_association 'add upload', f, :uploads, class: 'btn btn-inverse'
   .row-fluid
     %br
     %br
@@ -47,14 +47,14 @@
       = f.simple_fields_for :items do |item|
         = render 'item_fields', :f => item
       .links
-        = link_to_add_association '', f, :items, :class => 'icon-plus-sign'
+        = link_to_add_association 'add item', f, :items, :class => 'btn btn-inverse'
     #collaborators.span6
       %label Enter Name or Email Address of Recipients
       = f.error :collaborators
       = f.simple_fields_for :collaborators do |collaborator|
         = render 'collaborator_fields', :f => collaborator
       .links
-        = link_to_add_association '', f, :collaborators, :class => 'icon-plus-sign'
+        = link_to_add_association 'add collabator', f, :collaborators, :class => 'btn btn-inverse'
   .row-fluid
     %br
     %br
