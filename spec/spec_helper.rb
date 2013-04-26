@@ -6,17 +6,25 @@ require 'capybara/rspec'
 require 'capybara/poltergeist'
 require 'capybara-screenshot/rspec'
 require 'selenium/webdriver'
+require 'vcr'
 
 # For a stubborn spec, switch the driver to :chrome and put a binding.pry
 # before the failure. Once the pry console is hit, you can interact with
 # the Chrome window it's been driving, with everything in the proper state.
 # Even works for javascript heavy single-page apps!
 Capybara.javascript_driver = :poltergeist
+#Capybara.javascript_driver = :chrome
 
 Capybara.register_driver :chrome do |app|
   profile = Selenium::WebDriver::Chrome::Profile.new
   profile['extensions.password_manager_enabled'] = false
-  Capybara::Selenium::Driver.new(app, browser::chrome, profile::profile)
+  Capybara::Selenium::Driver.new(app, browser: :chrome, profile: profile)
+end
+
+VCR.configure do |c|
+  c.cassette_library_dir = 'support/vcr_cassettes'
+  c.hook_into :fakeweb
+  c.allow_http_connections_when_no_cassette = true
 end
 
 include Warden::Test::Helpers
