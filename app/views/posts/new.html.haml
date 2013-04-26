@@ -43,13 +43,14 @@
   .row-fluid
     #items.span6
       %label Enter the Item name or id
+      = f.error :items
       = f.simple_fields_for :items do |item|
         = render 'item_fields', :f => item
       .links
         = link_to_add_association '', f, :items, :class => 'icon-plus-sign'
     #collaborators.span6
       %label Enter Name or Email Address of Recipients
-      = f.error :collaborator
+      = f.error :collaborators
       = f.simple_fields_for :collaborators do |collaborator|
         = render 'collaborator_fields', :f => collaborator
       .links
@@ -61,6 +62,6 @@
   .row-fluid
     = f.button :submit, :class => 'span4 offset8', :label => 'Post Thread', :value => 'Submit Question'
 
-:javascript
-  $('#items').hide();
-  $('#collaborators').hide();
+:coffeescript
+  $('#items').hide() unless $('#items input:first').val()
+  $('#collaborators').hide() unless $('#collaborators input:first').val()
