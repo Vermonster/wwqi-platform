@@ -20,3 +20,12 @@ $ ->
 
       if (button.val() == hidden.val())
         button.addClass('active')
+
+  for pair in [['item_related', '#items'], ['private', '#collaborators']]
+    do (pair) ->
+      $(".btn-group[data-toggle-name='post[#{pair[0]}]'] button").on 'click', (e) ->
+        $items = $(pair[1])
+        if e.target.value == "true"
+          $items.show()
+        else
+          $items.hide()
