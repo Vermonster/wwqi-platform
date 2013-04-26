@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
   validate :collaborator_duplication
 
   accepts_nested_attributes_for :uploads, allow_destroy: true, reject_if: :all_blank
-  accepts_nested_attributes_for :items, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :items, :reject_if => :not_item_related?, :allow_destroy => true
   accepts_nested_attributes_for :collaborators, :reject_if => :all_blank, :allow_destroy => true
 
   default_scope order('created_at DESC')
@@ -28,19 +28,22 @@ class Post < ActiveRecord::Base
 
   private
 
+  def not_item_related?
+    !item_related
+  end
+
   def collaborator_duplication
     # a quick validtion method for checking a duplication of recipients with the
     # post
 
     # Get the number of the user_ids in the list that are uniquely identified.
-    num_of_unique = self.collaborators.map{ |i| i.user_id }.uniq.length
+    num_of_unique = collaborators.map(&:user_id).uniq.length
 
     # Compare to the length of the collaborators array against to num_of_unique.
     # If they are same, each collaborators are unique. If not, one or more
     # collaborators are added more than once. 
-    if self.collaborators.length != num_of_unique 
+    if collaborators.length != num_of_unique 
       errors.add(:collaborator, 'One or more recipients are added more than once.')
     end
   end
-
 end

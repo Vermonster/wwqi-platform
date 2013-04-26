@@ -35,6 +35,30 @@ describe Post do
         described_class.all.should == [c1, c3, c2]
       end
     end
+
+    describe "items" do
+      it "does not create items when item_related is false" do
+        attrs = attributes_for(klass, item_related: false).merge({
+          :items_attributes => [
+            attributes_for(:item)
+        ]})
+        post = described_class.new(attrs)
+        post.save
+
+        post.items.should be_empty
+      end
+
+      it "creates items when item_related is true" do
+        attrs = attributes_for(klass, item_related: true).merge({
+          :items_attributes => [
+            attributes_for(:item)
+        ]})
+        post = described_class.new(attrs)
+        post.save
+
+        post.items.should_not be_empty
+      end
+    end
   end
 
   describe Question do
