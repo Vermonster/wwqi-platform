@@ -2,7 +2,7 @@ $ ->
   options =
     source: (request, response) ->
       $.ajax
-        url: "<%= SEARCH_ENDPOINT %>/item/_search"
+        url: "<%= ENV['SEARCH_URL']+'/'+ENV['SEARCH_INDEX'] %>/item/_search"
         dataType: "json"
         type: 'get'
         data:
