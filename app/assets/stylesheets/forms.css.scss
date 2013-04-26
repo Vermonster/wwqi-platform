@@ -35,6 +35,13 @@ form#new_post, form#new_research {
     }
   }
 
+  .post_uploads_content, .research_uploads_content {
+    input.file {
+      line-height: 5px;
+      float: left;
+    }
+  }
+
   #items, #collaborators {
     .nested-fields {
       a.icon-minus-sign {
