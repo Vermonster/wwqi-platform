@@ -5,4 +5,5 @@ log/*
 .env.development
 .env.production
 .env.test
+chromedriver.log
 public/*
