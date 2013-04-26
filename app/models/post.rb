@@ -16,7 +16,7 @@ class Post < ActiveRecord::Base
 
   accepts_nested_attributes_for :uploads, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :items, :reject_if => :not_item_related?, :allow_destroy => true
-  accepts_nested_attributes_for :collaborators, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :collaborators, :reject_if => :not_private?, :allow_destroy => true
 
   default_scope order('created_at DESC')
   scope :questions_and_discussions, where("type = 'Question' or type = 'Discussion'")
@@ -30,6 +30,10 @@ class Post < ActiveRecord::Base
 
   def not_item_related?
     !item_related
+  end
+
+  def not_private?
+    !private?
   end
 
   def collaborator_duplication

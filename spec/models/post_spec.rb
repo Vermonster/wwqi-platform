@@ -38,25 +38,61 @@ describe Post do
 
     describe "items" do
       it "does not create items when item_related is false" do
+        user = create(:user)
         attrs = attributes_for(klass, item_related: false).merge({
           :items_attributes => [
             attributes_for(:item)
         ]})
         post = described_class.new(attrs)
+        post.creator_id = user.id
         post.save
 
         post.items.should be_empty
       end
 
       it "creates items when item_related is true" do
+        user = create(:user)
         attrs = attributes_for(klass, item_related: true).merge({
           :items_attributes => [
             attributes_for(:item)
         ]})
         post = described_class.new(attrs)
+        post.creator_id = user.id
         post.save
 
         post.items.should_not be_empty
+      end
+    end
+    
+    describe "collaborators" do
+      it "does not create collaborators when private is false" do
+        user = create(:user)
+        attrs = attributes_for(klass, private: false).merge({
+          :collaborators_attributes => [
+            attributes_for(:collaborator).merge({
+              :user_id => user.id
+            })
+        ]})
+        post = described_class.new(attrs)
+        post.creator_id = user.id
+        post.save
+
+        post.collaborators.should be_empty
+      end
+
+      it "creates collaborators when private is true" do
+        user = create(:user)
+        attrs = attributes_for(klass, private: true).merge({
+          :collaborators_attributes => [
+            attributes_for(:collaborator).merge({
+              :user_id => user.id
+            })
+        ]})
+        post = described_class.new(attrs)
+        post.creator_id = user.id
+        post.save
+
+        post.collaborators.should_not be_empty
       end
     end
   end
