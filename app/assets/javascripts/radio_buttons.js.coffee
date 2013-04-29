@@ -1,5 +1,8 @@
 # javacript for bootstraps radio buttons within simple form
 $ ->
+  $('#items').hide() unless $('#items input:first').val()
+  $('#collaborators').hide() unless $('#collaborators input:first').val()
+  
   $('div.btn-group[data-toggle-name]').each ->
     group = $(this)
     form = group.parents('form').eq(0)
@@ -21,11 +24,13 @@ $ ->
       if (button.val() == hidden.val())
         button.addClass('active')
 
-  for pair in [['item_related', '#items'], ['private', '#collaborators']]
-    do (pair) ->
-      $(".btn-group[data-toggle-name='post[#{pair[0]}]'] button").on 'click', (e) ->
-        $items = $(pair[1])
-        if e.target.value == "true"
-          $items.show()
-        else
-          $items.hide()
+  for page in ['post', 'research']
+    do (page) ->
+      for pair in [['item_related', '#items'], ['private', '#collaborators']]
+        do (pair) ->
+          $(".btn-group[data-toggle-name='#{page}[#{pair[0]}]'] button").on 'click', (e) ->
+            $items = $(pair[1])
+            if e.target.value == "true"
+              $items.show()
+            else
+              $items.hide()
