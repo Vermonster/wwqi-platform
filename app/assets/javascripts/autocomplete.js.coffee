@@ -10,7 +10,7 @@ $ ->
       noResults: ''
       results: ->
     open: (event, ui) ->
-      $("#collaborators .ui-autocomplete").append("<div id='invite_user_link'><a href='#'>Invite the person!</a></div>")
+      $("ul.ui-autocomplete").append("<li class='ui-menu-item' id='invite_user_link' role='presentation'><a href='#'>Invite the person!</a></li>")
     select: (event, ui) ->
       group = $(event.target).parents('.collaborator-group')
       group.find('input[id$="_user_id"]').val(ui.item.user_id)
