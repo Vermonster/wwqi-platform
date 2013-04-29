@@ -36,6 +36,9 @@ The url for wwqi-search's search api.
 SEARCH_INDEX:
 The name of the index used by wwqi-search.
 
+WWQI_SITE:
+The sister site (i.e., http://www.qajarwomen.org).
+
 == Remember to run specs before you commit!
 
 rspec spec
