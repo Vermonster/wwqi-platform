@@ -19,9 +19,9 @@
     = f.input :details, :input_html => { :class => 'span12 wysihtml5' }
   .row-fluid
     = f.simple_fields_for :uploads do |upload|
-      = render 'upload_fields', f: upload
+      = render 'partials/upload_fields', f: upload
     .links
-      = link_to_add_association 'add upload', f, :uploads, class: 'btn btn-inverse'
+      = link_to_add_association 'add upload', f, :uploads, class: 'btn btn-inverse', partial: 'partials/upload_fields'
   .row-fluid
     %br
     %br
@@ -45,16 +45,16 @@
       %label Enter the Item name or id
       = f.error :items
       = f.simple_fields_for :items do |item|
-        = render 'item_fields', :f => item
+        = render 'partials/item_fields', :f => item
       .links
-        = link_to_add_association 'add item', f, :items, :class => 'btn btn-inverse'
+        = link_to_add_association 'add item', f, :items, :class => 'btn btn-inverse', partial: 'partials/item_fields'
     #collaborators.span6
       %label Enter Name or Email Address of Recipients
       = f.error :collaborators
       = f.simple_fields_for :collaborators do |collaborator|
-        = render 'collaborator_fields', :f => collaborator
+        = render 'partials/collaborator_fields', :f => collaborator
       .links
-        = link_to_add_association 'add collabator', f, :collaborators, :class => 'btn btn-inverse'
+        = link_to_add_association 'add collabator', f, :collaborators, :class => 'btn btn-inverse', partial: 'partials/collaborator_fields'
   .row-fluid
     %br
     %br
