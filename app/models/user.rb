@@ -32,30 +32,4 @@ class User < ActiveRecord::Base
   def fullname
     "#{first_name} #{last_name}"
   end
-
-  def followed_questions_and_discussions
-    followed_posts.where("type = 'Question' or type = 'Discussion'") 
-  end
-
-  def followed_researches
-    followed_posts.where(type: 'Research')
-  end
-
-  # Retrun full name
-  def fullname
-    "#{first_name} #{last_name}"
-  end
-
-  def followed_questions_and_discussions
-    followed_posts.where("type = 'Question' or type = 'Discussion'") 
-  end
-
-  def followed_researches
-    followed_posts.where(type: 'Research')
-  end
-
-  # Retrun full name
-  def fullname
-    "#{first_name} #{last_name}"
-  end
 end
