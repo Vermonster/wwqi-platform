@@ -242,13 +242,13 @@
         border-bottom: 1px solid rgba(255, 255, 255, .15);        
         li {
           a {
+            padding: 15px;
             @media (max-width: 979px) and (min-width: 768px) {
               font-size: .8em;
             }
           }
           float: left;
           border-right: 1px solid rgba(255, 255, 255, .15);
-          padding: 15px 15px;
           &:first-child {
             border-left: 1px solid rgba(255, 255, 255, .15);
           }
