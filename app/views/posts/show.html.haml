@@ -14,14 +14,15 @@
     .item-uploads
       - resource.uploads.each do |u|
         = u[:content]
-  .side-box.span3.pull-right
-    %h3 This post is related to
-    %ul
-      - resource.items.each do |item|
-        %li
-          .image.pull-left
-            = image_tag item.thumbnail
-          .caption.pull-left
-            %p
-              = link_to item.name, "#{WWQI_SITE}#{item.url}", :target => '_blank'
-  = render 'partials/comments', resource: resource 
+    - unless resource.items.empty?
+      .side-box.span3.pull-right
+        %h3 This post is related to
+        %ul
+          - resource.items.each do |item|
+            %li
+              .image.pull-left
+                = image_tag item.thumbnail
+              .caption.pull-left
+                %p
+                  = link_to item.name, "#{WWQI_SITE}#{item.url}", :target => '_blank'
+= render 'partials/comments', resource: resource 
