@@ -1,3 +1,5 @@
+@import 'compass/css3/box-sizing';
+
 form#new_post, form#new_research {
   margin: 50px;
 
@@ -12,6 +14,7 @@ form#new_post, form#new_research {
   input.tags-input {
     padding-left: 10px;
     width: 700px;
+    @include box-sizing(border-box);
   }
 
   span.error {
