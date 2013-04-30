@@ -5,9 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name
-  # attr_accessible :title, :body
   
   validates :first_name, :last_name, :email, presence: true
   validates :password, confirmation: true
@@ -19,6 +17,7 @@ class User < ActiveRecord::Base
   has_many :contributions, foreign_key: :creator_id
   has_many :followings
   has_many :followed_posts, through: :followings, source: :followable, source_type: 'Post'
+  has_many :notifications
 
   def followed_questions_and_discussions
     followed_posts.where("type = 'Question' or type = 'Discussion'") 
@@ -26,6 +25,10 @@ class User < ActiveRecord::Base
 
   def followed_researches
     followed_posts.where(type: 'Research')
+  end
+
+  def unread_notifications
+    notifications.where(unread: true).decorate
   end
 
   # Retrun full name

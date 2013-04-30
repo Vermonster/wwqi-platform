@@ -60,20 +60,23 @@
                     = link_to 'Contributions', contributions_path
               - if user_signed_in?
                 #notifications-wrapper.pull-right
-                  = link_to 'Me', me_path, { :class => "pull-right" }
+                  = link_to current_user.first_name, me_path, { :class => "pull-right" }
                   .dropdown.pull-right 
                     %a.dropdown-toggle{:"data-toggle" => "dropdown", role: "button"}
                       #notifications.pull-right
                         .icon-notification
                         .notification-count
-                          %p 2
+                          %p= current_user.notifications.size
                     %ul.dropdown-menu{role: "menu", "aria-labeledby" => "dLabel"}
                       %li.header
                         %p Notifications
-                      %li 
-                        %p Alice commented on your question
-                      %li 
-                        %p John posted in your discussion
+                      - if current_user.unread_notifications.present?
+                        - current_user.unread_notifications.each do |n|
+                          %li 
+                            %p= n.link
+                      - else
+                        %li
+                          %p None
       #main-content
         .container
           = flash_messages

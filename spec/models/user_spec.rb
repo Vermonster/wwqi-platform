@@ -13,6 +13,7 @@ describe User do
   it { should have_many(:followings) }
   it { should have_many(:followed_posts).through(:followings) }
   it { should have_many(:contributions) }
+  it { should have_many(:notifications) }
   
   it "has a valid factory" do
     build(:user).should be_valid
@@ -44,6 +45,18 @@ describe User do
       create(:following, followable: research, user: user)
 
       user.followed_researches.should =~ [research]
+    end
+  end
+  
+  describe "notifications" do
+    let(:user) { create(:user) }
+    
+    it "can access its unread notifications" do
+      n1 = create(:notification, user: user)
+      n2 = create(:notification, user: user)
+      n3 = create(:notification, user: user, unread: false)
+
+      user.unread_notifications.should =~ [n1, n2]
     end
   end
 end

@@ -343,6 +343,12 @@
             &:last-child {
               border-bottom: none;
             }
+            p {
+              a {
+                color: black;
+                font-size: 14px;
+              }
+            }
           }
         }
       }

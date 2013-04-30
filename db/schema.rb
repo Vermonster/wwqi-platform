@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130425153809) do
+ActiveRecord::Schema.define(:version => 20130430154741) do
 
   create_table "collaborators", :force => true do |t|
     t.integer  "user_id"
@@ -60,6 +60,15 @@ ActiveRecord::Schema.define(:version => 20130425153809) do
   end
 
   add_index "items", ["post_id"], :name => "index_items_on_post_id"
+
+  create_table "notifications", :force => true do |t|
+    t.boolean  "unread",          :default => true
+    t.integer  "user_id"
+    t.integer  "notifiable_id"
+    t.string   "notifiable_type"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "title"
