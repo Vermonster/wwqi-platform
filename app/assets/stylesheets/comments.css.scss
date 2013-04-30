@@ -1,3 +1,19 @@
+.comments {
+  .comment {
+    float: left;
+    width: 600px;
+    margin: 5px 0px;
+    padding: 10px;
+    .item-content {
+      .item-created {
+        padding: 2px 4px;
+        background-color: gainsboro;
+        font-family: "proxima-nova", sans-serif;
+      }
+    }
+  }
+}
+
 .comment_details {
   iframe.wysihtml5-sandbox {
     width: 752px !important;

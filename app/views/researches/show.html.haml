@@ -7,10 +7,11 @@
     .item-title
       = resource.title
     .item-details
-      %p
-        = resource.details
-    .item-tags    
-      = "tags: #{resource.tag_list}"
+      .wysiwyg
+        != resource.details
+    .item-tags   
+      - unless resource.tag_list
+        = "tags: #{resource.tag_list}"
     .item-uploads
       - resource.uploads.each do |u|
         = u[:content]

@@ -748,8 +748,12 @@
           color: #505050;
           width: 100%;
         }
-        .item-details {
+        .item-details { 
           margin: .5em 0 1em;
+          p {
+            b { font-weight: bold; }
+            i { font-style: italic; }
+          }
         }
         .item-tags {
           @include proxima-bold;

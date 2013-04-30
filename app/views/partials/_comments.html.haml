@@ -2,13 +2,14 @@
 
 .comments.span12
   - resource.comments.each do |c|
-    .item-image.pull-left
-    .item-content.pull-left
-      .item-created.full-width
-        = "#{c.header} #{c.created_ago}"
-      .item-details
-        %p
-          != c.details
+    .comment
+      .item-image.pull-left
+      .item-content.pull-left
+        .item-created.full-width
+          = "#{c.header} #{c.created_ago}"
+        .item-details
+          .wysiwyg
+            != c.details
 .comment-box.span12
   .item-image.pull-left
   .item-content.pull-left

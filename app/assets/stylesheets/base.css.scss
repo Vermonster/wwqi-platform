@@ -61,3 +61,43 @@ p.bullet {
 ul {
   overflow: hidden;
 }
+
+.wysiwyg {
+  color: rgb(85, 85, 85);
+  font-family: 'Helvetica Neue', Helvetica, Artial, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 20px;
+  letter-spacing: normal;
+  text-align: start;
+  text-decoration: none;
+  text-indent: 0px;
+  text-rendering: auto;
+  word-break: normal;
+  word-wrap: break-word;
+  word-spacing: 0px;
+
+  b { font-weight: bold; }
+  i { font-style: italic; }
+  u { text-decoration: underline; }
+
+  ul, ol {
+    list-style: disc;
+    padding-left: 40px;
+    margin: 1em 0em 1em 0em;
+    li {
+      display: list-item;
+    }
+  }
+
+  ol {
+    list-style: decimal;
+  }
+
+  blockquote {
+    margin: 0 0 0 40px;
+    border: none;
+    padding: 0px;
+  }
+}
