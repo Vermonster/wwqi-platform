@@ -7,9 +7,7 @@ class CommentDecorator < Draper::Decorator
 
   def header_key
     case commentable
-    when Question
-      'replied'
-    when Discussion
+    when Question, Discussion, Research
       'replied'
     end
   end
