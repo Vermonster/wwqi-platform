@@ -33,7 +33,7 @@ describe 'comment creation' do
       current_path.should == post_path(question)
 
       within('.comments') do
-        page.should have_content("#{user.first_name} asked")
+        page.should have_content("#{user.first_name} replied")
         page.should have_content("squirrel")
       end
     end
