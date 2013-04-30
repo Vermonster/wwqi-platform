@@ -15,3 +15,14 @@ en:
   research:
     comment_label: 'Your reply'
     submit: 'Submit reply'
+
+  posts:
+    index:
+      post:
+        placeholder: 'Search Questions & Discussions'
+        new: 'Start A New Thread'
+        follow: 'Followed Threads'
+      research:
+        placeholder: 'Search Research in Progress'
+        new: 'Submit Your Research'
+        follow: 'Followed Research'

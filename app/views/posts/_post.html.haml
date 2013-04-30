@@ -1,0 +1,12 @@
+%li
+  .item-image.pull-left
+  .item-content
+    .item-header
+      = post.header
+    .item-title
+      = link_to post.title, resource_path(post)
+    .item-comments
+      %p= post.comments_size
+    %p.bullet &bull;
+    .item-created
+      %p= post.created_ago

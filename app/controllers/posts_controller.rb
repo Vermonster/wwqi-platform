@@ -3,7 +3,13 @@ class PostsController < ApplicationController
 
   before_filter :authenticate_user!, except: [:index, :show]
 
+  helper_method :resource_name
+
   private
+
+  def resource_name
+    @resource_name ||= resource_class.name.underscore
+  end
 
   def create_resource(object)
     object.creator = current_user

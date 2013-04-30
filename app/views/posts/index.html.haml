@@ -1,28 +1,16 @@
 #items-index.row
-  = form_tag posts_path, class: "navbar-search pull-left", id: 'post_search', method: :get do |f|
-    = search_field_tag :q, params[:q], placeholder: "Search Questions & Discussions", class: "search-query pull-left"
+  = form_tag collection_path, class: "navbar-search pull-left", id: 'post_search', method: :get do |f|
+    = search_field_tag :q, params[:q], placeholder: t(".#{resource_name}.placeholder"), class: "search-query pull-left"
     = submit_tag "Search", { class: "btn" }
+
   .btn.pull-right
-    = link_to 'Start A New Thread', new_post_path
+    = link_to t(".#{resource_name}.new"), new_resource_path
+
   %ul.thread-type.btn-group
     %li.btn{class: current_page?(action: 'index', followed: nil) && !current_page?(action: 'index', followed: 'true') && 'active'}
       = link_to 'Latest', collection_url
     - if user_signed_in?
       %li.btn{class: current_page?(action: 'index', followed: 'true') && 'active'}
-        = link_to 'Followed Threads', collection_url(followed: true)
-  %ul.items
-    - collection.each do |post|
-      %li
-        .item-image.pull-left
-        .item-content
-          .item-header
-            = post.header
-          .item-title
-            = link_to post.title, post_path(post)
-          .item-comments
-            %p 
-              = post.comments_size
-          %p.bullet &bull; 
-          .item-created
-            %p
-              = post.created_ago
+        = link_to t(".#{resource_name}.follow"), collection_url(followed: true)
+
+  %ul.items= render partial: 'post', collection: collection
