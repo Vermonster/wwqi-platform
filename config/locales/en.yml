@@ -2,6 +2,10 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  flash:
+    threads:
+      create:
+        notice: 'Thread was successfully created.'
   question:
     comment_label: 'Your answer'
     submit: 'Submit answer'

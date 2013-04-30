@@ -3,7 +3,7 @@ WwqiPlatform::Application.routes.draw do
 
   devise_for :users
 
-  resources :posts, path: "threads" do
+  resources :posts, controller: :threads, path: :threads do
     resources :comments
   end
   
