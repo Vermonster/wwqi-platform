@@ -64,15 +64,12 @@
                   .dropdown.pull-right
                     %a.dropdown-toggle.notification-count.pull-right{:"data-toggle" => "dropdown", role: "button"}= current_user.notifications.size
                     %ul.dropdown-menu{role: "menu", "aria-labeledby" => "dLabel"}
-                      %li.header
-                        %p Notifications
+                      %li.header Notifications
                       - if current_user.unread_notifications.present?
                         - current_user.unread_notifications.each do |n|
-                          %li
-                            %p= n.link
+                          %li= n.link
                       - else
-                        %li
-                          %p None
+                        %li None
       #main-content
         .container
           = flash_messages
