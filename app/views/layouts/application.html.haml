@@ -21,14 +21,14 @@
                 #logo-img
             #title.span5.pull-left
               = link_to root_path do
-                %h1 Women&rsquo;s Worlds 
+                %h1 Women&rsquo;s Worlds
                 %h2 in Qajar Iran
             #login-nav.pull-right
               %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
-                %span.bar  
-                %span.bar  
                 %span.bar
-              .nav-collapse.collapse.nav  
+                %span.bar
+                %span.bar
+              .nav-collapse.collapse.nav
                 %ul.pull-right
                   %li
                     = link_to 'http://www.qajarwomen.org/en/index.html' do
@@ -36,10 +36,10 @@
                   %li#bullet.hidden-phone.hidden-tablet
                     %h2 &#124;
                   - unless user_signed_in?
-                    %li 
+                    %li
                       = link_to new_user_registration_path do
                         %h2 Sign Up
-                    %li 
+                    %li
                       = link_to new_user_session_path do
                         %h2 Login
                   - else
@@ -61,18 +61,14 @@
               - if user_signed_in?
                 #notifications-wrapper.pull-right
                   = link_to current_user.first_name, me_path, { :class => "pull-right" }
-                  .dropdown.pull-right 
-                    %a.dropdown-toggle{:"data-toggle" => "dropdown", role: "button"}
-                      #notifications.pull-right
-                        .icon-notification
-                        .notification-count
-                          %p= current_user.notifications.size
+                  .dropdown.pull-right
+                    %a.dropdown-toggle.notification-count.pull-right{:"data-toggle" => "dropdown", role: "button"}= current_user.notifications.size
                     %ul.dropdown-menu{role: "menu", "aria-labeledby" => "dLabel"}
                       %li.header
                         %p Notifications
                       - if current_user.unread_notifications.present?
                         - current_user.unread_notifications.each do |n|
-                          %li 
+                          %li
                             %p= n.link
                       - else
                         %li
