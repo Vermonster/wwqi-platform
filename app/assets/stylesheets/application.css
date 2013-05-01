@@ -13,6 +13,8 @@
  *= require site
  *= require bootstrap-tags
  *= require bootstrap-wysihtml5
+ *= require jquery-ui
+ *= require jquery.ui.dialog
  *= require comments
  *= require flash
  *= require_tree .
