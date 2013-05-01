@@ -5,7 +5,6 @@ FactoryGirl.define do
     recipient_name { generate(:string) }
     recipient_email { generate(:email) }
     message { generate(:string) }
-    association :post
-    #association :inviter, factory: :user
+    association :post, factory: :question
   end
 end

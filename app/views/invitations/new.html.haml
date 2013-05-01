@@ -1,7 +1,0 @@
-= simple_form_for @invitation do |f|
-  = f.label "From: #{ current_user.fullname }"
-  = f.input :recipient_name, placeholder: 'Optional'
-  = f.input :recipient_email
-  = f.full_error :recipient_email
-  = f.input :message, placeholder: 'Optional'
-  = f.submit 'Send the invitation'

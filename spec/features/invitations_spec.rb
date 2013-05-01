@@ -1,73 +1,119 @@
 require 'spec_helper'
+include Warden::Test::Helpers
 
-feature "User invites" do
-
-  context 'as a logged in user' do
-    let(:test_user) { create :user }
-
+feature "Post creator(registered user)" do
+  describe "as a test user" do
     before :each do
-      sign_in(test_user)
+      @user = create(:user)
+      visit new_post_path
+      click_on 'Login'
+      expect(page).to have_content('SIGN IN')
+      fill_in 'Email', with: @user.email 
+      fill_in 'Password', with: @user.password
+      click_button 'Sign in'
+      visit new_post_path
     end
 
     after :each do
-      sign_out
+      click_on 'Logout'
     end
 
-    scenario 'using Invite someone else! button', js: true do
-      visit new_post_path
-      within('#collaborators') do
-        # Locate the plus icon and click it
-        find(:xpath, "div[@class='links']/a[@class='icon-plus-sign add_fields']").click
-        # Check there is a minus icon
-        expect(page).to have_xpath("div[@class='nested-fields row-fluid']/div[@class='links span2']/a[@class='icon-minus-sign remove_fields dynamic']")
-        expect(page).to have_xpath("div[@class='nested-fields row-fluid']/div[@class='span10']/div[@class='input string optional post_collaborators_term']")
-        
-        # Bring the autocomplete list
-        find(:xpath, "div[@class='nested-fields row-fluid']/div[@class='span10']/div[@class='input string optional post_collaborators_term']/input[@*]").set('e')
-        # find('.ui-menu-item a:contains("Invite")').click
-        # expect(page).to have_selector('.ui-menu-item')
+    it 'adds an invitee in the new post page', js: true do
+      expect(page).to have_content('LOGOUT')
+      expect(page).to have_content('Details')
+      fill_post('Test Title', 'This is a test post.')
+
+      # Skipping Autocomplete test due to the incompatibility with Poltergeist
+
+      # Open the invitaion form manually
+      page.execute_script('$("#add_invitation").modal("show")')
+      sleep 5
+
+      # Check the modal form has been opened
+      expect(page).to have_selector('.modal-backdrop')
+      test_email = 'abc@abc.com'
+      test_name = 'AB C'
+      test_message = 'This is a test invitation.'
+
+      # Fill the invitation form
+      fill_invitation(test_email, test_name, test_message)
+
+      click_button 'Invite'
+      sleep 5
+
+      # Check the all information has been transferred to the hidden nested
+      # fields
+      within('#invitation') do
+
+        #Check the nested fields are created
+        expect(page).to have_selector('.string.email.required')
+        expect(page).to have_selector('.input.hidden.post_invitations_recipient_name')
+        expect(page).to have_selector('.input.hidden.post_invitations_message')
+        # Check the information has been transferred correctly from the modal
+        # form
+        find('.input.hidden.post_invitations_recipient_name').find('input').value.should == test_name
+        find('.string.email.required').value.should == test_email
+        find('.input.hidden.post_invitations_message').find('input').value.should == test_message
       end
-      # expect(page).to have_content('Recipient email')
-      selector = "input[class^=\"string optional ui-autocomplete-input\"]"
-      page.execute_script("$(\'#{selector}\').val(\'c\');")
-      #sleep 3
-      expect(page).to have_content('Invite someone else!')
+
+      click_button 'Submit Question'
+      expect(page).to have_content('Thread was successfully created.')
     end
 
-    scenario 'in the invitation page' do
-      visit '/invitations/new'
-      expect(page).to have_content('Recipient email')
-      expect(page).to have_content('Recipient name')
-      expect(page).to have_content('Message')
-      expect(page).to have_content("From: #{ test_user.fullname }")
+    it 'closes the invitation form by clicking either Cancel button or X button', js: true do
+      # Open the invitation form
+      page.execute_script('$("#add_invitation").modal("show")')
+      sleep 5
+
+      # Make sure the invitaion form is opened
+      expect(page).to have_selector('.modal-backdrop')
+      expect(page).to have_button('Cancel')
+
+      # Close the form
+      click_button 'Cancel'
+      sleep 5
+
+      # Check the form is closed
+      expect(page).to_not have_selector('.modal-backdrop')
     end
 
-    scenario 'with invalid email' do
-      send_invitation('invalid_email', 'John Doe', 'I invite you.')
-      expect(page).to have_content('Wrong email format')
+    it 'adds a invitee without a recipient name and message', js: true do
+      fill_post('Test Title', 'This is a test.')
+      page.execute_script('$("#add_invitation").modal("show")')
+      sleep 5
+
+      fill_invitation('test@test.com', '', '')
+      click_button 'Invite'
+      sleep 5
+
+      click_button 'Submit Question'
+      expect(page).to have_content('Thread was successfully created.')
     end
 
-    scenario 'with blank email' do 
-      send_invitation('', 'Blank Email', 'It should not be sent.')
-      expect(page).to have_content('Recipient email can\'t be blank')
-    end
+    it 'adds with a wrong email address', js: true do
+      page.execute_script('$("#add_invitation").modal("show")')
+      sleep 5
 
-    scenario 'with all valid information' do 
-      send_invitation('test@example.com', 'Test User', 'This is a test invitation message.')
-      expect(page).to have_content('The invitation has been sent.')
-    end
+      fill_invitation('test@test', 'Wrong Email', 'This is a test for the emial validation.')
+      click_button 'Invite'
+      sleep 5
 
-    scenario 'with without message' do
-      send_invitation('test@example.com', 'Default Message', '')
-      expect(page).to have_content('The invitation has been sent.')
+      # Check the error message is showed up
+      expect(page).to have_content('Please check the email address')
+      click_button 'Cancel'
     end
   end
 
-  def send_invitation(email, name, message)
-    visit new_invitation_path
-    fill_in 'Recipient email', with: email
-    fill_in 'Recipient name', with: name
-    fill_in 'Message', with: message
-    click_button 'Send the invitation'
+  def fill_invitation(email, name, message)
+    within('#add_invitation') do
+      fill_in 'modal_recipient_name', with: name
+      fill_in 'modal_recipient_email', with: email
+      fill_in 'modal_message', with: message
+    end
+  end
+
+  def fill_post(title, detail)
+    fill_in 'post_title', with: title
+    fill_in 'Additional Details', with: detail
   end
 end
