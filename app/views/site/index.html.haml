@@ -21,7 +21,7 @@
       %h3 Feature 3
       %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 #login-main.row
-  .col1.span5.offset1
+  .col1.span4.offset2
     = simple_form_for "user", url: user_registration_path do |f|
       %h2 Sign Up
       %p Start using the research platform today.
@@ -31,7 +31,7 @@
       = f.input :password, input_html: { id: "sign_up_user_password" }
       = f.input :password_confirmation
       = f.button :submit, "Sign Up", { class: "btn" }
-  .col2.span5.offset1
+  .col2.span4.offset2
     = simple_form_for "user", url: user_session_path do |f|
       %h2 Log In
       %p Already a member? Log in below.
