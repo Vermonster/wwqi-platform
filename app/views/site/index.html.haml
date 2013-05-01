@@ -32,6 +32,7 @@
       = f.input :password_confirmation, input_html: { class: "text-input" }
       .terms
         %a#legal_terms{href: "#"} Please read and accept the terms and conditions.
+        = render "partials/terms_dialog"
         = f.input :terms, as: :boolean, label: false, wrapper_html: { class: "checkbox" }
         %p I accept
       = f.button :submit, "Sign Up", { class: "btn" }
