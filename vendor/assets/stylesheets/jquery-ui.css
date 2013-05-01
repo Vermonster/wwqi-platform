@@ -817,7 +817,7 @@ body .ui-tooltip {
 	color: #222222/*{fcContent}*/;
 }
 .ui-widget-header {
-	border: 1px solid #aaaaaa/*{borderColorHeader}*/;
+	/*border: 1px solid #aaaaaa[>{borderColorHeader}<];*/
 	background: #cccccc/*{bgColorHeader}*/ image-url(assets/ui-bg_highlight-soft_75_cccccc_1x100.png)/*{bgImgUrlHeader}*/ 50%/*{bgHeaderXPos}*/ 50%/*{bgHeaderYPos}*/ repeat-x/*{bgHeaderRepeat}*/;
 	color: #222222/*{fcHeader}*/;
 	font-weight: bold;
