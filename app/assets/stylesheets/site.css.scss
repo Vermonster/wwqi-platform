@@ -873,8 +873,25 @@
 
 #dialog {
   display: none;
+  padding: 1em 3em 3em;
   width: 400px;
   height: 500px;
   background: $lightgrey;
+  h3 {
+    margin-top: 2em;
+    margin-bottom: .5em;
+    color: $darkgrey;
+  }
+  p {
+    margin-bottom: .5em;
+    font-size: .9em;
+  }
+}
+
+.ui-widget {
   box-shadow: 0px 5px 20px rgba(0, 0, 0, .5);
+}
+
+.ui-widget-header {
+  background: $gold;
 }
