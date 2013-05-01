@@ -27,14 +27,18 @@
       %p Start using the research platform today.
       = f.input :first_name, wrapper_html: { class: "name" }
       = f.input :last_name, wrapper_html: { class: "name" }
-      = f.input :email, input_html: { id: "sign_up_user_email" }
-      = f.input :password, input_html: { id: "sign_up_user_password" }
-      = f.input :password_confirmation
+      = f.input :email, input_html: { id: "sign_up_user_email", class: "text-input" }
+      = f.input :password, input_html: { id: "sign_up_user_password", class: "text-input" }
+      = f.input :password_confirmation, input_html: { class: "text-input" }
+      .terms
+        %a{href: "#"} Please read and accept the terms and conditions.
+        = f.input :terms, as: :boolean, label: false, wrapper_html: { class: "checkbox" }
+        %p I accept
       = f.button :submit, "Sign Up", { class: "btn" }
   .col2.span4.offset2
     = simple_form_for "user", url: user_session_path do |f|
       %h2 Log In
       %p Already a member? Log in below.
-      = f.input :email
-      = f.input :password
+      = f.input :email, input_html: { class: "text-input" }
+      = f.input :password, input_html: { class: "text-input" }
       = f.button :submit, "Log In", { class: "btn" }

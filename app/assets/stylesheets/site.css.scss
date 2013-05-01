@@ -450,10 +450,30 @@
             }
           }
           input {
-            width: 93%;
             background: $medgrey;
             border: 1px solid grey;
             color: $lightgrey;
+          }
+          .text-input {
+            width: 93%;
+          }
+          .terms {
+            width: auto;
+            a {
+              font-size: .875em;
+              color: $lightgrey;
+              &:hover {
+                color: $gold;
+              }
+            }
+            p {
+              float: left;
+              margin-bottom: .25em;
+            }
+          }
+          .checkbox {
+            float: left;
+            padding-left: 10px;
           }
           .btn {
             display: block;
