@@ -5,7 +5,7 @@ class Invitation < ActiveRecord::Base
 
   delegate :title, :creator_fullname, to: :post, prefix: true
 
-  validates :post_id, presence: true
+  validates :post_id, presence: true, on: :update
   validates :recipient_email,
     presence: true,
      format: {

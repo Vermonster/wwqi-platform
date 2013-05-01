@@ -11,7 +11,6 @@
     .tags
     = f.input :tag_list
   .row-fluid
-    %br
     = f.input :title, :label_html =>  { id: 'title' }, :input_html => { :class => 'span12' }
   .row-fluid
     %br
@@ -55,8 +54,69 @@
       .links
         = link_to_add_association 'add collabator', f, :collaborators, :class => 'btn btn-inverse', partial: 'partials/collaborator_fields'
   .row-fluid
-    %br
-    %br
-    %br
+    #invitation.span6
+      = f.simple_fields_for :invitations do |invitation|
+        = render 'invitation_fields', :f => invitation
+      .links
+        = link_to_add_association 'Add Invitee', f, :invitations, style: "visibility: hidden"
+  %br
+  %br
+  %br
   .row-fluid
     = f.button :submit, :class => 'span4 offset4', :label => 'Post Thread', :value => 'Submit Question'
+
+#add_invitation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "NewInvitationLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
+    %h3#NewInvitationLabel Invitation
+  .modal-body
+    %form
+      %fieldset
+        %label{for: "recipient_name"} Recipient Name
+        %input#modal_recipient_name
+        %label{for: "recipient_email"} Recipient Email
+        %input#modal_recipient_email{type: 'email', required: ''}
+        %label{for: "message"} Message
+        %textarea#modal_message{placeholder: 'Please type your messge...'}
+  .modal-footer
+    %button.btn#create_invitation Invite 
+    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
+
+:coffeescript
+  $(->
+    $('.post_tag_list').hide()
+
+    $('#tag-list').tags
+      promptText: 'For each tag, type in a name and press enter.'
+
+    $('#tag-list').on 'keypress', (e) ->
+      if (e.keyCode is 13)
+        tags = $('#tag-list').tags().getTags()
+        $('#post_tag_list').val(tags.join(','))
+        false
+    $('#create_invitation').button().click ->
+      # Check email is valid first
+      regex = /^([a-zA-Z0-9_\.\-\+])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+      if (regex.test($('#modal_recipient_email').val()))
+      # when the email is valid
+        $('a[data-association="invitation"]').trigger('click')
+        names = $('input[id][name*="recipient_name"]') if $('#modal_recipient_name').val() isnt ""
+        messages = $('input[id][name*="message"]') if $('#modal_message').val() isnt ""
+        emails = $('input[id][name*="recipient_email"]')
+
+        empty = i for em, i in emails when $(em).val() is ""
+
+        $(names[empty]).val($('input[id="modal_recipient_name"]').val()) if names?
+        $(messages[empty]).val($('textarea[id="modal_message"]').val()) if messages?
+        $(emails[empty]).val($('input[id="modal_recipient_email"]').val())
+        $('input[id="modal_recipient_name"]').val("")
+        $('input[id="modal_recipient_email"]').val("")
+        $('textarea[id="modal_message"]').val("")
+        $('#add_invitation').modal('hide')
+      else
+      # when the email is NOT valid
+        $('#modal_recipient_email').\
+        after('<span class="help-inline">Please check the email address</span>').\
+        wrap('<div class="control" />').\
+        wrap('<div class="control-group error" />')
+  )

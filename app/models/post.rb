@@ -8,7 +8,8 @@ class Post < ActiveRecord::Base
   has_many :followers, through: :followings, class_name: :User
   has_many :items, dependent: :destroy
   has_many :collaborators, dependent: :destroy
-  attr_accessible :title, :details, :item_related, :private, :creator_id, :type, :tag_list, :uploads_attributes, :items_attributes, :collaborators_attributes
+  has_many :invitations, dependent: :destroy
+  attr_accessible :title, :details, :item_related, :private, :creator_id, :type, :tag_list, :uploads_attributes, :items_attributes, :collaborators_attributes, :invitations_attributes
   delegate :fullname, to: :creator, prefix: true
 
   validates :title, :details, :creator_id, presence: true
@@ -18,6 +19,7 @@ class Post < ActiveRecord::Base
   accepts_nested_attributes_for :uploads, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :items, :reject_if => :not_item_related?, :allow_destroy => true
   accepts_nested_attributes_for :collaborators, :reject_if => :not_private?, :allow_destroy => true
+  accepts_nested_attributes_for :invitations, reject_if: :all_blank, allow_destroy: true
 
   default_scope order('created_at DESC')
   scope :questions_and_discussions, where("type = 'Question' or type = 'Discussion'")

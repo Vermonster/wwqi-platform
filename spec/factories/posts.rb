@@ -5,14 +5,13 @@ FactoryGirl.define do
     title { generate(:string) }
     details { generate(:string) }
     creator
-  
-    trait :with_items do
+    factory :post_with_invitations do
       ignore do
-        items_count 3
+        number_of_invitations 3
       end
 
-      after(:build) do |post, evaluator|
-        build_list(:item, evaluator.items_count, post_id: post)
+      after :create do |post, evaluator|
+        FactoryGirl.create_list :invitation, evaluator.number_of_invitations, post: post
       end
     end
   end

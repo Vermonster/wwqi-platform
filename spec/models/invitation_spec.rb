@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe Invitation do
   it { should belong_to(:post) }
-  it { should validate_presence_of :post_id }
   it { should validate_presence_of :recipient_email}
 
   it "has a valid factory" do 
@@ -11,7 +10,7 @@ describe Invitation do
 
   context 'when it sends an invitation email' do
     let(:new_invitation) { FactoryGirl.build(:invitation) }
-    let(:email) { InvitationMailer.invitation_email(new_invitation).deliver }
+    let(:email) { InvitationMailer.new_invitation(new_invitation).deliver }
 
     it 'has a recipient email address' do
       email.to.should == [new_invitation.recipient_email]
