@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(:version => 20130502151345) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "invitations", :force => true do |t|
+    t.string   "recipient_name"
+    t.string   "recipient_email"
+    t.text     "message"
+    t.integer  "post_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "items", :force => true do |t|
     t.string   "url"
     t.integer  "post_id"
@@ -80,13 +89,6 @@ ActiveRecord::Schema.define(:version => 20130502151345) do
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.integer  "comments_count", :default => 0
-  end
-
-  create_table "related_items", :force => true do |t|
-    t.integer  "item_id"
-    t.integer  "post_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "taggings", :force => true do |t|
