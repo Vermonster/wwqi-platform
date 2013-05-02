@@ -869,7 +869,8 @@
   .language-select {
     text-align: right;
     cursor: pointer;
-    & a:hover {
+    font-family: $fontproxima;
+    & a:hover, :hover {
       color: $gold;
     }
     .select-english {
