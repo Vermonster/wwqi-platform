@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(:version => 20130430154741) do
   create_table "contributions", :force => true do |t|
     t.string   "details"
     t.string   "type"
-    t.integer  "item_id"
+    t.string   "item_id"
     t.integer  "creator_id"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
