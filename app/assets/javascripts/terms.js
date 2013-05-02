@@ -13,26 +13,27 @@ $(document).ready(function(){
 
 function initializeTermsDialog() {
   var $dialog = $("#dialog");
+  var $close = $("#close-dialog");
   var $link = $("#legal_terms").one('click', function() {
     $dialog.dialog({
-        open: function(event, ui) { $(".ui-dialog-titlebar-close").hide(); },
-        closeOnEscape: false,
+        //open: function(event, ui) { $(".ui-dialog-titlebar-close").show(); },
+        closeOnEscape: true,
         title: "Terms",
         width: 600,
         height: 500,
         draggable: false,
         resizable: false,
-        modal: true
+        modal: true,
       });
-    $dialog.bind('dialogbeforeclose', false);
     $link.click(function() {
       $dialog.dialog('open');
 
       return false;
     });
+    $close.click(function() {
+      $dialog.dialog('close');
+    });
 
     return false;
   });
 }
-    
-
