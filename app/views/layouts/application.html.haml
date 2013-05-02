@@ -60,7 +60,7 @@
                     = link_to 'Contributions', contributions_path
               - if user_signed_in?
                 #notifications-wrapper.pull-right
-                  = link_to current_user.first_name, me_path, { :class => "pull-right" }
+                  = link_to 'My Profile', me_path, { :class => "pull-right" }
                   .dropdown.pull-right
                     %a.dropdown-toggle{:"data-toggle" => "dropdown", role: "button"}
                       #notifications.pull-right
