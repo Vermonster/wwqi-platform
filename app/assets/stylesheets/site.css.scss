@@ -457,9 +457,11 @@
           }
           .terms {
             width: auto;
+            overflow: hidden;
             a {
               font-size: .875em;
               color: $lightgrey;
+              display: block;
               &:hover {
                 color: $gold;
               }
