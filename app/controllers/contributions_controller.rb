@@ -15,8 +15,10 @@ class ContributionsController < ApplicationController
     if @contribution.save
       redirect_to contribution_path(@contribution), 
         notice: "Your contribution was successfully submitted."
+      return
     else
       render :new
+      return
     end
   end
 
