@@ -913,7 +913,7 @@
 }
 
 .ui-widget-header {
-  background: $darkgrey;
+  background: $darkgrey!important;
   border: none;
   .ui-dialog-title {
     color: $lightgrey;
