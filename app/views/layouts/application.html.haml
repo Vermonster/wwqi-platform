@@ -62,14 +62,21 @@
                 #notifications-wrapper.pull-right
                   = link_to current_user.first_name, me_path, { :class => "pull-right" }
                   .dropdown.pull-right
-                    %a.dropdown-toggle.notification-count.pull-right{:"data-toggle" => "dropdown", role: "button"}= current_user.notifications.size
+                    %a.dropdown-toggle{:"data-toggle" => "dropdown", role: "button"}
+                      #notifications.pull-right
+                        .icon-notification
+                        .notification-count
+                          %p= current_user.notifications.size
                     %ul.dropdown-menu{role: "menu", "aria-labeledby" => "dLabel"}
-                      %li.header Notifications
+                      %li.header
+                        %p Notifications
                       - if current_user.unread_notifications.present?
                         - current_user.unread_notifications.each do |n|
-                          %li= n.link
+                          %li
+                            %p= n.link
                       - else
-                        %li None
+                        %li 
+                          %p None
       #main-content
         .container
           = flash_messages
