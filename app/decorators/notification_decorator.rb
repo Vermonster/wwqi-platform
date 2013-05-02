@@ -2,7 +2,7 @@ class NotificationDecorator < Draper::Decorator
   delegate_all
 
   def link
-    h.link_to message, target_path
+    h.link_to message, h.user_notification_path(h.current_user, model)
   end
   
   def message
@@ -21,15 +21,6 @@ class NotificationDecorator < Draper::Decorator
       'posted to'
     when Research
       'commented on'
-    end
-  end
-
-  def target_path
-    case target
-    when Question, Discussion
-      h.post_path(target)
-    when Research
-      h.research_path(target)
     end
   end
 end
