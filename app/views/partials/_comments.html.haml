@@ -3,6 +3,7 @@
 .comments.span12
   - resource.comments.each do |c|
     .comment
+      %a{href: "#c#{c.id}"}
       .item-image.pull-left
       .item-content.pull-left
         .item-created.full-width

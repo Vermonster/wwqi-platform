@@ -13,9 +13,9 @@ class NotificationsController < ApplicationController
   def target_path(target)
     case target
     when Question, Discussion
-      post_path(target)
+      post_path(target, anchor: "c#{target.id}")
     when Research
-      research_path(target)
+      research_path(target, anchor: "c#{target.id}" )
     end
   end
 end

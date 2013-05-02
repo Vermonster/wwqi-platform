@@ -17,8 +17,10 @@
 //= require bootstrap-tags
 //= require cocoon
 //= require bootstrap-wysihtml5
+//= require jquery.scrollTo.min
 //= require autocomplete
 //= require item_search
 //= require radio_buttons
 //= require tags
 //= require wysiwyg
+//= require anchor_jump
