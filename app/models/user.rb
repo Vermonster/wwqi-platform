@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :terms
+  attr_accessor :terms
   
   validates :first_name, :last_name, :email, presence: true
   validates :password, confirmation: true
