@@ -49,6 +49,27 @@ ActiveRecord::Schema.define(:version => 20130430154741) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "invitations", :force => true do |t|
+    t.string   "recipient_name"
+    t.string   "recipient_email"
+    t.text     "message"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "post_type"
+    t.integer  "post_id"
+  end
+
+  add_index "invitations", ["post_id"], :name => "index_invitations_on_post_id"
+
+  create_table "item_urls", :force => true do |t|
+    t.string   "url"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "item_urls", ["post_id"], :name => "index_item_urls_on_post_id"
+
   create_table "items", :force => true do |t|
     t.string   "url"
     t.integer  "post_id"

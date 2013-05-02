@@ -1,0 +1,13 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %body
+      %h1
+        This is an invitation from Qaja Women.
+      %p
+        You've been invited by #{@invitation.post_creator_fullname} as a collaborator of #{ @invitation.post_title} in Qajar Women.
+      - if @invitation.message
+        = @invitation.message
+      %p
+        Please visit and sign up at 
+        = link_to 'Qajar Women', 'http://www.example.com/signup'

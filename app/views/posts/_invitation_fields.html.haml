@@ -1,0 +1,8 @@
+.nested-fields.row-fluid
+  .span10
+    = f.input :recipient_name, as: :hidden
+    = f.input :recipient_email, read_only: true
+    = f.input :message, as: :hidden
+  .links.span2
+    = link_to_remove_association 'Remove', f, style: "visibility: hidden"
+
