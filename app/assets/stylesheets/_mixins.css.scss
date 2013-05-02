@@ -32,6 +32,22 @@
   width: 100%;
 }
 
+@mixin button {
+  display: block;
+  float: right;
+  margin-top: 1em;
+  max-width: 7em;
+  background: $gold;
+  font-family: $fontproxima;
+  border: none;
+  text-shadow: none;
+  font-weight: 500;
+  font-size: .9em;
+  &:hover {
+    background: #a08222;
+  }
+}
+
 /*@mixin item-image {*/
   /*background-size: contain;*/
   /*height: 30px;*/

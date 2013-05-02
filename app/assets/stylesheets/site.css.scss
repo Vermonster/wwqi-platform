@@ -475,17 +475,7 @@
             padding-left: 10px;
           }
           .btn {
-            display: block;
-            margin-top: 1em;
-            width: 28%;
-            margin-left: 68.75%;
-            background: $gold;
-            border: none;
-            text-shadow: none;
-            font-weight: 600;
-            &:hover {
-              background: #a08222;
-            }
+            @include button;
           }
         }
       }
