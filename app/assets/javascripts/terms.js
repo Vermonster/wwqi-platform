@@ -1,8 +1,14 @@
 $(document).ready(function(){
 
   initializeTermsDialog();
-  //$('#legal_terms').click(function() {
-    //$('#dialog').show();
+
+  $('.language-select').click(function() {
+    $('.terms-farsi').toggle();
+    $('.terms-english').toggle();
+    $('.select-farsi').toggle();
+    $('.select-english').toggle();
+  });
+
 });
 
 function initializeTermsDialog() {
