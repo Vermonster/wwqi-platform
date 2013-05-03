@@ -12,9 +12,14 @@
     .item-tags
       - unless resource.tag_list.empty?
         = "tags: #{resource.tag_list}"
-    .item-uploads
-      - resource.uploads.each do |u|
-        = u[:content]
+
+    %h4 Attachments
+    %ul.item-uploads
+      - resource.uploads.each do |upload|
+        %li.item-upload.icon-2x
+          %i.icon-file-alt
+          = link_to upload[:content], upload.content_url
+
   - unless resource.items.empty?
     .side-box.span3.pull-right
       %h3 This post is related to
