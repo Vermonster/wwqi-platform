@@ -906,18 +906,30 @@
     @include button;
   }
 }
-
 .ui-widget {
   box-shadow: 0px 5px 20px rgba(0, 0, 0, .5);
   background: $darkgrey;
 }
-
 .ui-widget-header {
   background: $darkgrey!important;
   border: none;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .25);
+  z-index: 999;
   .ui-dialog-title {
     color: $lightgrey;
     font-family: $fontproxima;
     font-weight: 400;
   }
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+  border-bottom-left-radius: 0px!important/*{cornerRadius}*/;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+  border-bottom-right-radius: 0px!important/*{cornerRadius}*/;
 }
