@@ -875,6 +875,8 @@
   padding: 1em 3em 3em;
   background: $lightgrey;
   .language-select {
+    float: right;
+    width: 4em;
     text-align: right;
     cursor: pointer;
     font-family: $fontproxima;
@@ -916,6 +918,9 @@
   .terms-farsi {
     display: none;
     text-align: right;
+  }
+  .terms-english, .terms-farsi {
+    float: left;
   }
   .btn {
     @include button;
