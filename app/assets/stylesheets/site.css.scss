@@ -885,6 +885,13 @@
       display: none;
     }
   }
+  .agree {
+    margin: 1.5em 0 1em;
+    padding: 1.5em 0 1em;
+    border-bottom: 1px dotted $darkgrey;
+    border-top: 1px dotted $darkgrey;
+    font-size: .75em;
+  }
   h3 {
     margin-top: 2em;
     margin-bottom: .5em;
