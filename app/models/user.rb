@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true
   validates :password, presence: true, on: :create
   validates :email, uniqueness: true
+  validates :terms, acceptance: true
 
   has_many :posts, foreign_key: :creator_id
   has_many :comments
