@@ -830,3 +830,11 @@
 #footer {
   background-color: $lightgrey;
 }
+
+.tag-list {
+  .tags {
+    .tag {
+      i { color: #fff; }
+    }
+  }
+}

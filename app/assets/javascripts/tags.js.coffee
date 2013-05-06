@@ -5,6 +5,7 @@ $ ->
 
       $('#tag-list').tags
         promptText: 'For each tag, type in a name and press enter.'
+        tagClass: 'btn-danger'
 
       $('#tag-list').on 'keypress', (e) ->
         if (e.keyCode is 13)
