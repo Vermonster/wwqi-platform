@@ -101,3 +101,8 @@ ul {
     padding: 0px;
   }
 }
+
+/*** override bootstrap's negative margin ***/
+.row {
+  margin-left: 0;
+}
