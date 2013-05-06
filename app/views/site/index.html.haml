@@ -3,25 +3,6 @@
   %p Welcome to WWQI Research Platform. This space aims to encourage interactive use of the WWQI digital archive, put students and scholars in collaborative conversations, and generate innovative scholarship on the cultural history of the Qajar period focused on lives of women and issues of gender and sexuality.
   %p Please note that by creating a Username and Password, you are agreeing to the points spelled out in our User Policy. Please read the User Policy and confirm your acceptance before proceeding. Thank you. 
   %a View 
-#features.row
-  .col1.span4
-    .feature-image.hidden-phone
-      #img1
-    .feature-copy
-      %h3 Feature 1
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  .col2.span4
-    .feature-image.hidden-phone
-      #img2
-    .feature-copy
-      %h3 Feature 2
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  .col3.span4
-    .feature-image.hidden-phone
-      #img3
-    .feature-copy
-      %h3 Feature 3
-      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
 #login-main.row
   .col1.span4.offset2
     = simple_form_for "user", url: user_registration_path do |f|
@@ -45,3 +26,22 @@
       = f.input :email, input_html: { class: "text-input" }
       = f.input :password, input_html: { class: "text-input" }
       = f.button :submit, "Log In", { class: "btn" }
+#features.row
+  .col1.span4
+    .feature-image.hidden-phone
+      #img1
+    .feature-copy
+      %h3 Feature 1
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  .col2.span4
+    .feature-image.hidden-phone
+      #img2
+    .feature-copy
+      %h3 Feature 2
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  .col3.span4
+    .feature-image.hidden-phone
+      #img3
+    .feature-copy
+      %h3 Feature 3
+      %p Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
