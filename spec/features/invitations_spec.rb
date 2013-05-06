@@ -20,14 +20,19 @@ feature "Post creator(registered user)" do
 
     it 'adds an invitee in the new post page', js: true do
       expect(page).to have_content('LOGOUT')
-      expect(page).to have_content('Details')
-      fill_post('Test Title', 'This is a test post.')
+      expect(page).to have_content('Additional Details')
+      find(:xpath, '//input[@id="post_title"]').visible?
+      find(:xpath, '//textarea[@class="text required span12 wysihtml5"').visible?
+      # within(".input.text.required.post_details") do
+      #   find(:xpath, '//textarea[@id="post_details"]').visible?
+      # end
 
+      # fill_post('Test Title', 'This is a test post.')
       # Skipping Autocomplete test due to the incompatibility with Poltergeist
 
       # Open the invitaion form manually
-      page.execute_script('$("#add_invitation").modal("show")')
-      sleep 5
+      # page.execute_script('$("#add_invitation").modal("show")')
+      # sleep 5
 
       # Check the modal form has been opened
       expect(page).to have_selector('.modal-backdrop')
@@ -114,6 +119,12 @@ feature "Post creator(registered user)" do
 
   def fill_post(title, detail)
     fill_in 'post_title', with: title
-    fill_in 'Additional Details', with: detail
+    # Need to use xpath to locate the hidden text area
+    # fill_in 'post_details', with: detail
+    find('post_title').visible?
+    # within(".input.text.required.post_details") do
+    #   find_xpath('#id="post_details"').set(detail)
+    #   find(:xpath, './[@id="post_details"]').value.should == detail
+    # end
   end
 end

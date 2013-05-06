@@ -24,3 +24,4 @@
 //= require tags
 //= require wysiwyg
 //= require anchor_jump
+//= require create_invitation

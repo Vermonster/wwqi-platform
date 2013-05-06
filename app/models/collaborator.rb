@@ -3,7 +3,7 @@ class Collaborator < ActiveRecord::Base
   belongs_to :user
   attr_accessible :user_id, :post_id, :term # term doesn't exist in database
 
-  validates :user_id, presence: true
+  validates :user_id, presence: true, on: :update
   validates :post_id, presence: true, on: :update
 
   def term
