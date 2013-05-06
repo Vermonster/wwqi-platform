@@ -1,0 +1,13 @@
+%h2 #{current_user.first_name} #{current_user.last_name}
+
+%ul.thread-type.btn-group
+  %li.btn.pull-left{class: current_page?(action: 'show', type: nil) && !current_page?(action: 'show', type: 'threads') && !current_page?(action: 'show', type: 'researches') && !current_page?(action: 'show', type: 'contributions') && 'active'}
+    = link_to 'Latest', my_profile_path
+  %li.btn.pull-left{class: current_page?(action: 'show', type: 'threads') && 'active'}
+    = link_to 'My Questions and Discussions', my_profile_path(type: "threads")
+  %li.btn.pull-left{class: current_page?(action: 'show', type: 'researches') && 'active'}
+    = link_to 'My Research-in-Progress', my_profile_path(type: "researches")
+  %li.btn.pull-left{class: current_page?(action: 'show', type: 'contributions') && 'active'}
+    = link_to 'My Contributions', my_profile_path(type: "contributions")
+  %li.btn.pull-left{class: current_page?(action: 'notifications') && 'active'}
+    = link_to 'My Notifications', my_notifications_path

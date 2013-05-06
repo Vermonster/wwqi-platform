@@ -1,0 +1,9 @@
+#items-index.row
+  = render 'profile_header'
+
+  #notifications
+    %ul.items
+      - @notifications.each do |n|
+        %li{:class => n.unread? && 'unread'}
+          %i.icon-comment
+          = n.link

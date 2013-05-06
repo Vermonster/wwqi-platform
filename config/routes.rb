@@ -21,7 +21,8 @@ WwqiPlatform::Application.routes.draw do
   
   resources :corrections
   
-  match "/me" => "profile#show"
+  match "/me" => "profile#show", :as => 'my_profile'
+  match "/me/notifications" => "profile#notifications", :as => 'my_notifications'
 
   root :to => 'site#index'
 end

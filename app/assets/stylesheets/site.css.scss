@@ -838,3 +838,19 @@
     }
   }
 }
+#notifications {
+  ul.items {
+    li {
+      color: black;
+      i.icon-comment { 
+        @include flip;
+      }
+      &.unread {
+        color: $gold;
+        a {
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

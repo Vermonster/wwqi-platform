@@ -14,5 +14,8 @@ class ProfileController < ApplicationController
                       latest.reverse!
                  end
   end
-  
+
+  def notifications
+    @notifications = current_user.notifications.decorate
+  end
 end
