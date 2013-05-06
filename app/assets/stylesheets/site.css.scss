@@ -376,10 +376,8 @@
     background: #FFF;
     @include box-shadow(0 0 6px rgba(0, 0, 0, .25));
     overflow: hidden;
-    /*margin: 3em 3% .5em;*/
-    padding-top: .25em;
     .intro {
-      margin: 2em 2% .75em 2%;
+      padding: 2em 2% .75em 2%;
     }
     #features {
       padding-top: 15px;
@@ -450,7 +448,7 @@
           input {
             background: $medgrey;
             border: 1px solid grey;
-            color: $lightgrey;
+            color: #000;
             &:focus {
               background: $lt-gold;
               box-shadow: none;
@@ -494,6 +492,7 @@
       margin: 0;
       padding-bottom: 2em;
       .intro {
+        margin: 0 2em 2em;
         h2 {
           margin-top: 0;
           font-weight: 600;
