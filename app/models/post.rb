@@ -15,6 +15,7 @@ class Post < ActiveRecord::Base
   validates :title, :details, :creator_id, presence: true
   validate :collaborator_duplication
   validate :item_duplication
+  before_validation :mark_empty_collaborator_for_removal
 
   accepts_nested_attributes_for :uploads, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :items, :reject_if => :not_item_related?, :allow_destroy => true
@@ -59,6 +60,12 @@ class Post < ActiveRecord::Base
 
     if items.length != unique
       errors.add(:items, 'You have duplicate items listed.')
+    end
+  end
+
+  def mark_empty_collaborator_for_removal
+    collaborators.each do |c|
+      c.mark_for_destruction if c.user_id.nil?
     end
   end
 end

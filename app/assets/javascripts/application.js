@@ -22,3 +22,4 @@
 //= require radio_buttons
 //= require tags
 //= require wysiwyg
+//= require create_invitation
