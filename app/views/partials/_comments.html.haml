@@ -5,6 +5,7 @@
     .comment
       %a{href: "#c#{c.id}"}
       .item-image.pull-left
+        =image_tag avatar_url(c.user)
       .item-content.pull-left
         .item-created.full-width
           = "#{c.header} #{c.created_ago}"
@@ -13,6 +14,7 @@
             != c.details
 .comment-box.span12
   .item-image.pull-left
+    =image_tag avatar_url(current_user)
   .item-content.pull-left
     - if user_signed_in?
       = simple_form_for Comment.new, url: post_comments_path(resource) do |f|
