@@ -451,6 +451,11 @@
             background: $medgrey;
             border: 1px solid grey;
             color: $lightgrey;
+            &:focus {
+              background: $lt-gold;
+              box-shadow: none;
+              color: #000;
+            }
           }
           .text-input {
             width: 93%;
