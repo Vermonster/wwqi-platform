@@ -5,13 +5,6 @@ class PostsController < ApplicationController
 
   helper_method :resource_name
 
-  def new
-    @post = Post.new
-    @post.items.build
-    @post.collaborators.build
-    new!
-  end
-
   def show
     @post = "#{resource.type}Decorator".constantize.decorate(resource)
     show!
@@ -21,6 +14,13 @@ class PostsController < ApplicationController
 
   def resource_name
     @resource_name ||= resource_class.name.underscore
+  end
+
+  def build_resource
+    @post = Post.new
+    @post.items.build
+    @post.collaborators.build
+    set_resource_ivar(@post)
   end
 
   def create_resource(object)
