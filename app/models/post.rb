@@ -27,8 +27,6 @@ class Post < ActiveRecord::Base
   pg_search_scope :search_text, against: [:title, :details],
     associated_against: { tags: [:name] }
 
-  private
-
   def not_item_related?
     !item_related
   end
@@ -36,6 +34,8 @@ class Post < ActiveRecord::Base
   def not_private?
     !private?
   end
+  
+  private
 
   def collaborator_duplication
     # a quick validtion method for checking a duplication of recipients with the

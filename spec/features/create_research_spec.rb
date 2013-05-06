@@ -38,7 +38,7 @@ describe "research creation" do
         Research.count.should == 1
         research = Research.last
         current_path.should == research_path(research)
-        page.should have_content('Research was successfully created.') 
+        page.should have_content('Research was successfully posted.') 
         page.should have_content('a tag')
         page.should have_content('a title')
         page.should have_content('additional details')

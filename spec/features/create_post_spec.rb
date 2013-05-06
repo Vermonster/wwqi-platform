@@ -33,7 +33,7 @@ describe "post creation" do
         Question.count.should == 1
         question = Question.last
         current_path.should == post_path(question)
-        page.should have_content('Thread was successfully created.') 
+        page.should have_content('Thread was successfully posted.') 
         page.should have_content('a tag')
         page.should have_content('a title')
         page.should have_content('additional details')
@@ -55,7 +55,7 @@ describe "post creation" do
         Discussion.count.should == 1
         discussion = Discussion.last
         current_path.should == post_path(discussion)
-        page.should have_content('Thread was successfully created.') 
+        page.should have_content('Thread was successfully posted.') 
         page.should have_content('a tag')
         page.should have_content('a title')
         page.should have_content('additional details')

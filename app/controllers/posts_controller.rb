@@ -10,6 +10,17 @@ class PostsController < ApplicationController
     show!
   end
 
+  def create
+    @post = Post.new(params[:post])
+    @post.creator = current_user
+
+    if @post.save
+      redirect_to post_path(@post), notice: "Thread was successfully posted."
+    else
+      render :new
+    end
+  end
+    
   private
 
   def resource_name
@@ -21,11 +32,6 @@ class PostsController < ApplicationController
     @post.items.build
     @post.collaborators.build
     set_resource_ivar(@post)
-  end
-
-  def create_resource(object)
-    object.creator = current_user
-    object.save
   end
 
   def resource
