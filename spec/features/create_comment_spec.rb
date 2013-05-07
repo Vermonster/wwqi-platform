@@ -5,8 +5,7 @@ describe 'comment creation' do
     let!(:question) { create(:question) }
     
     it 'only allows a signed in user to create a new post' do
-      visit posts_path
-      click_on question.title
+      visit post_path(question)
       page.should have_content("You have to login to comment.")
     end
   end

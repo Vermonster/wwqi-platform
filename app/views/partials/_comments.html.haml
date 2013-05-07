@@ -13,12 +13,13 @@
           .wysiwyg
             != c.details
 .comment-box.span12
-  .item-image.pull-left
-    =image_tag avatar_url(current_user)
-  .item-content.pull-left
-    - if user_signed_in?
+  - if user_signed_in?
+    .item-image.pull-left
+      = image_tag avatar_url(current_user)
+    .item-content.pull-left
       = simple_form_for Comment.new, url: post_comments_path(resource) do |f|
         = f.input :details, label: t("#{klass_name}.comment_label"), input_html: { class: 'wysihtml5' }
         = f.submit t("#{klass_name}.submit"), { class: "btn pull-right" }
-    - else
+  - else
+    .black-box
       %p You have to login to comment. Login #{link_to 'here', new_user_session_path}.
