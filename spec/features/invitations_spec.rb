@@ -22,17 +22,10 @@ feature "Post creator(registered user)" do
       expect(page).to have_content('LOGOUT')
       expect(page).to have_content('Additional Details')
       find(:xpath, '//input[@id="post_title"]').visible?
-      find(:xpath, '//textarea[@class="text required span12 wysihtml5"').visible?
-      # within(".input.text.required.post_details") do
-      #   find(:xpath, '//textarea[@id="post_details"]').visible?
-      # end
 
-      # fill_post('Test Title', 'This is a test post.')
-      # Skipping Autocomplete test due to the incompatibility with Poltergeist
+      fill_post('Queen', 'another one bites the dust')
 
-      # Open the invitaion form manually
-      # page.execute_script('$("#add_invitation").modal("show")')
-      # sleep 5
+      page.execute_script('$("#add_invitation").modal("show")')
 
       # Check the modal form has been opened
       expect(page).to have_selector('.modal-backdrop')
@@ -43,26 +36,25 @@ feature "Post creator(registered user)" do
       # Fill the invitation form
       fill_invitation(test_email, test_name, test_message)
 
-      click_button 'Invite'
+      page.execute_script("$('#create_invitation').click()")
       sleep 5
 
       # Check the all information has been transferred to the hidden nested
       # fields
       within('#invitation') do
-
         #Check the nested fields are created
-        expect(page).to have_selector('.string.email.required')
-        expect(page).to have_selector('.input.hidden.post_invitations_recipient_name')
-        expect(page).to have_selector('.input.hidden.post_invitations_message')
+        expect(page).to have_selector('.input.hidden.post_invitations_recipient_name', visible: false)
+        expect(page).to have_selector('.input.email.post_invitations_recipient_email')
+        expect(page).to have_selector('.input.hidden.post_invitations_message', visible: false)
         # Check the information has been transferred correctly from the modal
         # form
-        find('.input.hidden.post_invitations_recipient_name').find('input').value.should == test_name
-        find('.string.email.required').value.should == test_email
-        find('.input.hidden.post_invitations_message').find('input').value.should == test_message
+        find('.input.hidden.post_invitations_recipient_name input', visible: false).value.should == test_name
+        find('.input.email.post_invitations_recipient_email input').value.should == test_email
+        find('.input.hidden.post_invitations_message input', visible: false).value.should == test_message
       end
 
       click_button 'Submit Question'
-      expect(page).to have_content('Thread was successfully created.')
+      expect(page).to have_content('Thread was successfully posted.')
     end
 
     it 'closes the invitation form by clicking either Cancel button or X button', js: true do
@@ -92,7 +84,7 @@ feature "Post creator(registered user)" do
       sleep 5
 
       click_button 'Submit Question'
-      expect(page).to have_content('Thread was successfully created.')
+      expect(page).to have_content('Thread was successfully posted.')
     end
 
     it 'adds with a wrong email address', js: true do
@@ -100,7 +92,7 @@ feature "Post creator(registered user)" do
       sleep 5
 
       fill_invitation('test@test', 'Wrong Email', 'This is a test for the emial validation.')
-      click_button 'Invite'
+      page.execute_script("$('#create_invitation').click()")
       sleep 5
 
       # Check the error message is showed up
@@ -118,13 +110,8 @@ feature "Post creator(registered user)" do
   end
 
   def fill_post(title, detail)
+    find('#post_title').visible?
     fill_in 'post_title', with: title
-    # Need to use xpath to locate the hidden text area
-    # fill_in 'post_details', with: detail
-    find('post_title').visible?
-    # within(".input.text.required.post_details") do
-    #   find_xpath('#id="post_details"').set(detail)
-    #   find(:xpath, './[@id="post_details"]').value.should == detail
-    # end
+    page.execute_script("editor.setValue('#{detail}')")
   end
 end
