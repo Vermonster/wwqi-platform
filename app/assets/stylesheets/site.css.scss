@@ -782,7 +782,13 @@
         }
         .item-tags {
           @include proxima-bold;
-          font-size: .75em;
+          font-size: .9em;
+          color: #696969;
+        }
+        .item-attachments {
+          @include proxima-bold;
+          margin-top: 8px;
+          font-size: .9em;
           color: #696969;
         }
         textarea {
