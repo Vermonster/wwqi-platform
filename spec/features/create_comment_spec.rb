@@ -19,9 +19,7 @@ describe 'comment creation' do
     after(:each) { sign_out }
     
     it 'creates a new comment and redirects back to the parent page' do
-      visit '/'
-      visit posts_path
-      click_on question.title
+      visit post_path(question)
       
       within('.comment-box') do
         fill_in 'comment_details', with: 'squirrel'
