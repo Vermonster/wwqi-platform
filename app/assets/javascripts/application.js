@@ -26,3 +26,4 @@
 //= require anchor_jump
 //= require create_invitation
 //= require terms
+//= require intro

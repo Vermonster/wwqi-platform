@@ -1,7 +1,17 @@
 .row
-  .intro.span10
-    %h2 Welcome
-    %p Welcome to WWQI Research Platform. This space aims to encourage interactive use of the WWQI digital archive, put students and scholars in collaborative conversations, and generate innovative scholarship on the cultural history of the Qajar period focused on lives of women and issues of gender and sexuality.
+  .intro.span9.offset1
+    .intro-header
+      .language-select-intro
+        .select-farsi
+          %p فارسی
+        .select-english
+          %p English
+    .intro-english
+      %h2 Welcome
+      %p Welcome to WWQI Research Platform. This space aims to encourage interactive use of the WWQI digital archive, put students and scholars in collaborative conversations, and generate innovative scholarship on the cultural history of the Qajar period focused on lives of women and issues of gender and sexuality.
+    .intro-farsi
+      %h2 پژوهشگاه
+      %p به پژوهشگاه «دنیای زنان در عصر قاجار» خوش آمدید.  هدف این پژوهشگاه ایجاد فضایی برای گفتگو و تبادل فکری میان دانشجویان و پژوهشگرانی است که علاقه دارند با استفاده از منابع دیجیتال این آرشیو پژوهشهای خلاق در زمینه تاریخ فرهنگی دوره قاجار را، با تمرکز بر زندگی زنان و مقولات جنس‌گونگی و جنسیت، گسترش دهند.
 #login-main.row
   .col1.span4.offset2
     = simple_form_for "user", url: user_registration_path do |f|
