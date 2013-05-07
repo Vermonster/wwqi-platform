@@ -679,6 +679,25 @@
               }
             }
           }
+          .item-follow-btn {
+            float: right;
+            margin-top: 20px;
+            .btn {
+              display: none;
+              font-weight: bold;
+              background: #3a87ad;
+              &.followed {
+                background: #696969; 
+              }
+            }
+          }
+          &:hover {
+            .item-follow-btn {
+              .btn {
+                display: block;
+              }
+            }
+          }
         }
       }
       .intro {

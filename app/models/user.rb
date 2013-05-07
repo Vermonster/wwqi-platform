@@ -38,4 +38,8 @@ class User < ActiveRecord::Base
   def fullname
     "#{first_name} #{last_name}"
   end
+
+  def following?(object)
+    followings.where(followable_id: object.id).first
+  end
 end

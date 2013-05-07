@@ -11,3 +11,7 @@
     %p.bullet &bull;
     .item-created
       %p= post.created_ago
+  - if user_signed_in?
+    .item-follow-btn
+      - following = current_user.following?(post)
+      = link_to following ? 'Unfollow' : 'Follow', '#', :class => ['btn', 'btn-primary', following && 'followed'], :data => {:followable_id => post.id, :followable_type => post.model.class.to_s.downcase, :follow_id => following.try(:id)}

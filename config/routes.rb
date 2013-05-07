@@ -9,10 +9,12 @@ WwqiPlatform::Application.routes.draw do
 
   resources :posts, controller: :threads, path: :threads do
     resources :comments
+    resources :followings
   end
   
   resources :researches do
     resources :comments
+    resources :followings
   end
 
   resources :contributions do
