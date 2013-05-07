@@ -1,11 +1,4 @@
-#devise_form
-  %h2 Sign up
-  = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-    = f.error_notification
-    .form-inputs
-      = f.input :email, :required => true, :autofocus => true
-      = f.input :password, :required => true
-      = f.input :password_confirmation, :required => true
-    .form-actions
-      = f.button :submit, "Sign up"
-  = render "devise/shared/links"
+#login-main.row
+  .col1.span4.offset2
+    = render '/partials/user_registration'
+= render "devise/shared/links"
