@@ -1,0 +1,6 @@
+= simple_form_for "user", url: user_session_path do |f|
+  %h2 Log In
+  %p Already a member? Log in below.
+  = f.input :email, input_html: { class: "text-input" }
+  = f.input :password, input_html: { class: "text-input" }
+  = f.button :submit, "Log In", { class: "btn" }

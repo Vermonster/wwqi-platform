@@ -14,6 +14,7 @@ describe "authentication" do
         fill_in 'sign_up_user_email', with: 'veronica_mars@gmail.com'
         fill_in 'sign_up_user_password', with: 'apples'
         fill_in 'user_password_confirmation', with: 'apples'
+        check 'user_terms'
         click_on 'Sign Up'
       end
 
