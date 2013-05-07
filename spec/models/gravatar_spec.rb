@@ -7,9 +7,8 @@ describe 'User Avatar' do
 
     gravatar_id = Digest::MD5::hexdigest(avatar_user.email).downcase
 
-    gravatar_url = "http://gravatar.com/avatar/#{gravatar_id}.png"
+    gravatar_url = "http://gravatar.com/avatar/#{gravatar_id}.png?d=mm"
 
     avatar_url(avatar_user).should == gravatar_url
-
   end
 end
