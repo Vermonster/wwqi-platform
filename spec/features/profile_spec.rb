@@ -26,7 +26,7 @@ describe "user profile" do
   
   describe "latest" do
     it "shows most recent posts and contributions" do
-      visit me_path
+      visit my_profile_path
       page.should have_content(question.title)
       page.should have_content(discussion.title)
       page.should have_content(research.title)
@@ -36,7 +36,7 @@ describe "user profile" do
   
   describe "threads" do
     it "shows only questions and discussions" do
-      visit me_path(type: "threads")
+      visit my_profile_path(type: "threads")
       page.should have_content(question.title)
       page.should have_content(discussion.title)
       page.should_not have_content(research.title)
@@ -46,7 +46,7 @@ describe "user profile" do
   
   describe "researches" do
     it "shows only research" do
-      visit me_path(type: "researches")
+      visit my_profile_path(type: "researches")
       page.should_not have_content(question.title)
       page.should_not have_content(discussion.title)
       page.should have_content(research.title)
@@ -56,7 +56,7 @@ describe "user profile" do
   
   describe "contributions" do
     it "shows only contributions" do
-      visit me_path(type: "contributions")
+      visit my_profile_path(type: "contributions")
       page.should_not have_content(question.title)
       page.should_not have_content(discussion.title)
       page.should_not have_content(research.title)

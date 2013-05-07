@@ -20,7 +20,7 @@ describe "authentication" do
       User.count.should == 1
       User.where(first_name: 'Veronica').first.should_not be_nil
       page.should have_content('You have signed up successfully.')
-      current_path.should == me_path
+      current_path.should == my_profile_path
     end
   end
 end
