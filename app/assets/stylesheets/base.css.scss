@@ -3,6 +3,7 @@
 @import "compass/reset.scss";
 @import "compass/layout.scss";
 @import "variables";
+@import "mixins";
  
 @include sticky-footer(142px, "#root", "#root_footer", "#footer");
 
@@ -60,6 +61,13 @@ p.bullet {
 
 ul {
   overflow: hidden;
+}
+
+.horiz-line {
+  height: 1px;
+  width: auto;
+  margin: 20px 0;
+  @include transparent-gradient;
 }
 
 .wysiwyg {
