@@ -56,5 +56,4 @@ group :test do
   gem 'nokogiri'
   gem 'poltergeist'
   gem 'vcr'
-  gem 'fakeweb'
 end
