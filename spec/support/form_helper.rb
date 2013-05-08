@@ -17,5 +17,5 @@ def sign_in_with(email, password)
     fill_in 'user_password', with: password
     click_on 'Sign In'
   end
-  page.should have_content('Successfully signed in.')
+  page.should have_content('Signed in successfully.')
 end

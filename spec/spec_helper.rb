@@ -65,5 +65,6 @@ RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
   config.include Warden::Test::Helpers
+  config.include WaitSteps
   config.color_enabled = true
 end
