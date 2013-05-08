@@ -513,67 +513,6 @@
         }
       }
     }
-    #testimonials {
-      margin: 0;
-      padding-bottom: 2em;
-      .intro {
-        margin: 0 2em 2em;
-        h2 {
-          margin-top: 0;
-          font-weight: 600;
-        }
-        p {
-          margin-top: -7px;
-        }
-      }
-      .cols {
-        text-align: center;
-        .col1, .col2 {
-          margin-left: 0;
-          &:first-child {
-            padding-right: 2em;
-            margin-left: -3em;
-          }
-          &:last-child {
-            padding-left: 2em;
-          }
-          .testimonial-block {
-            position: relative;
-            margin: 20px 0 15px;
-            padding: 2em 2em 1.5em;
-            background-color: $lightgrey;
-            border-radius: 20px;
-            &:after {
-              content: "";
-              position: absolute;
-              bottom: -20px;
-              @include quote-triangle;
-              width: 20px;
-              height: 20px;
-            }
-          }
-        }
-        .testimonial-image {
-          background: image-url("placeholder.png") no-repeat;
-          width: 60px;
-          height: 60px;
-          margin-top: .5em;
-          background-size: contain;
-          float: left;
-        }
-        .testimonial-info {
-          float: left;
-          margin-left: .5em;
-          text-align: left;
-          h4 {
-            color: #000;
-            font-size: 1em;
-            font-weight: 600;
-            margin: 15px 0 10px;
-          }
-        }
-      }
-    }
     #items-index {
       margin: 2.5em;
       form {
