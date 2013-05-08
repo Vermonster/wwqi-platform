@@ -22,7 +22,7 @@ class ResearchesController < PostsController
   end
  
   def scoped_collection
-    end_of_association
+    end_of_association_chain
   end
 
   def scoped_followings
