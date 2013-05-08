@@ -6,7 +6,7 @@ describe 'comment creation' do
     
     it 'only allows a signed in user to create a new post' do
       visit post_path(question)
-      page.should have_content("You have to login to comment.")
+      page.should have_content("You have to sign in to comment.")
     end
   end
 

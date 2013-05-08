@@ -12,10 +12,10 @@ end
 
 def sign_in_with(email, password)
   visit '/'
-  within('#login-main') do
+  within('#sign-in-main') do
     fill_in 'user_email', with: email
     fill_in 'user_password', with: password
-    click_on 'Log In'
+    click_on 'Sign In'
   end
   page.should have_content('Successfully signed in.')
 end

@@ -23,7 +23,7 @@
               = link_to root_path do
                 %h1 Women&rsquo;s Worlds
                 %h2 in Qajar Iran
-            #login-nav.pull-right
+            #sign-in-nav.pull-right
               %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
                 %span.bar
                 %span.bar
@@ -38,14 +38,14 @@
                   - unless user_signed_in?
                     %li
                       = link_to new_user_registration_path do
-                        %h2 Sign Up
+                        %h2 Sign up
                     %li
                       = link_to new_user_session_path do
-                        %h2 Login
+                        %h2 Sign in
                   - else
                     %li
                       = link_to destroy_user_session_path, method: :delete do
-                        %h2 Logout
+                        %h2 Sign out
       #main-nav-wrapper
         .container
           .row

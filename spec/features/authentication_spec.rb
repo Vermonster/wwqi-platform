@@ -12,24 +12,24 @@ describe "authentication" do
 
     it "lets me sign in" do
       visit '/'
-      within('#login-main') do
+      within('#sign-in-main') do
         fill_in 'user_email', with: 'veronica_mars@gmail.com'
         fill_in 'user_password', with: 'password'
-        click_on 'Log In'
+        click_on 'Sign In'
       end
       page.should have_content('Signed in successfully.')
     end
 
     it "lets me sign in" do
       visit '/'
-      within('#login-main') do
+      within('#sign-in-main') do
         fill_in 'user_email', with: 'veronica_mars@gmail.com'
-        click_on 'Log In'
+        click_on 'Sign In'
       end
       page.should have_content('Invalid email or password.')
-      within('#login-main') do
+      within('#sign-in-main') do
         fill_in 'user_password', with: 'password'
-        click_on 'Log In'
+        click_on 'Sign In'
       end
     end
   end
@@ -37,7 +37,7 @@ describe "authentication" do
   describe "signing up" do
     it "lets me sign up" do
       visit '/'
-      within('#login-main') do
+      within('#sign-in-main') do
         fill_in 'user_first_name', with: 'Veronica'
         fill_in 'user_last_name', with: 'Mars'
         fill_in 'sign_up_user_email', with: 'veronica_mars@gmail.com'
@@ -55,7 +55,7 @@ describe "authentication" do
 
     it 'requires accepting the terms' do
       visit '/'
-      within('#login-main') do
+      within('#sign-in-main') do
         fill_in 'user_first_name', with: 'Veronica'
         fill_in 'user_last_name', with: 'Mars'
         fill_in 'sign_up_user_email', with: 'veronica_mars@gmail.com'
@@ -68,7 +68,7 @@ describe "authentication" do
       within('.user_terms') do
         page.should have_content('must be accepted')
       end
-      within('#login-main') do
+      within('#sign-in-main') do
         fill_in 'sign_up_user_password', with: 'apples'
         fill_in 'user_password_confirmation', with: 'apples'
         check 'user_terms'
