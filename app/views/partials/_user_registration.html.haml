@@ -9,8 +9,9 @@
   .horiz-line
   .terms
     %a#legal_terms{href: "#"} Please read and accept the terms and conditions.
+    %span.icon-chevron-right
     = render "partials/terms_dialog"
-    = f.input :terms, as: :boolean, label: false, wrapper_html: { class: "checkbox" }
-    %p I accept
+    .checkbox
+      = f.input :terms, as: :boolean, label: "I accept"
   .horiz-line
   = f.button :submit, "Sign Up", { class: "btn" }

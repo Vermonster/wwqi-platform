@@ -260,6 +260,8 @@
           &:hover {
             background: #000;
             cursor: pointer;
+            @include transition-property(background);
+            @include transition-duration(.5s);
             a {
               color: $lightgrey;
             }
@@ -434,7 +436,7 @@
     #sign-in-main {
       margin: 0;
       padding: 28px 0;
-      background: $darkgrey;
+      background: $lightgrey;
       .col1, .col2 {
         &.col1 {
           margin-left: 15%;
@@ -444,7 +446,7 @@
         }
         form {
           h2 {
-            color: $lightgrey;
+            color: $gold;
             font-weight: 300;
             font-size: 1.75em;
             margin-bottom: -.125em;
@@ -459,7 +461,7 @@
             text-align: center;
           }
           label {
-            font-size: .875em;
+            font-size: .75em;
             font-weight: 300;
             color: $medgrey;
           }
@@ -471,13 +473,15 @@
             }
           }
           input {
-            background: $medgrey;
-            border: 1px solid grey;
+            background: #f7f7f7;
+            border: 1px solid rgba(0, 0, 0, .125);
             color: #000;
             &:focus {
-              background: $lt-gold;
+              background: #FFF;
               box-shadow: none;
               color: #000;
+              @include transition-property(background);
+              @include transition-duration(.2s);
             }
           }
           .text-input {
@@ -487,12 +491,20 @@
             width: auto;
             overflow: hidden;
             padding: 0 50px 0 0;
+            .icon-chevron-right {
+              float: right;
+              font-size: .75em;
+              color: $medgrey;
+              margin-top: .375em;
+            }
             a {
+              float: left;
               font-size: .875em;
-              color: $lightgrey;
+              color: $gold;
               display: block;
+              margin-bottom: .5em;
               &:hover {
-                color: $gold;
+                color: $darkgold;
               }
             }
             p {
@@ -501,7 +513,8 @@
             }
             .checkbox {
               float: left;
-              padding-left: 10px;
+              width: 100%;
+              padding-left: 11px;
             }
           }
           .btn {
