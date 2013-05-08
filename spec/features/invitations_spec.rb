@@ -10,7 +10,7 @@ feature "Post creator(registered user)" do
       expect(page).to have_content('SIGN IN')
       fill_in 'Email', with: @user.email 
       fill_in 'Password', with: @user.password
-      click_button 'Sign in'
+      click_button 'Sign In'
       visit new_post_path
     end
 
@@ -19,7 +19,7 @@ feature "Post creator(registered user)" do
     end
 
     it 'adds an invitee in the new post page', js: true do
-      expect(page).to have_content('LOGOUT')
+      expect(page).to have_content('SIGN OUT')
       expect(page).to have_content('Additional Details')
       find(:xpath, '//input[@id="post_title"]').visible?
 
