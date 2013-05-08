@@ -20,4 +20,12 @@ class ResearchesController < PostsController
     @research.collaborators.build
     set_resource_ivar(@research)
   end
+ 
+  def scoped_collection
+    end_of_association
+  end
+
+  def scoped_followings
+    current_user.followed_researches
+  end
 end

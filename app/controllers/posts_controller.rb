@@ -38,12 +38,20 @@ class PostsController < ApplicationController
     super.decorate
   end
 
+  def scoped_collection
+    end_of_association_chain.questions_and_discussions
+  end
+
+  def scoped_followings
+    current_user.followed_questions_and_discussions
+  end
+
   def collection
     get_collection_ivar || begin
       posts = if params[:followed] && current_user
-                current_user.followed_researches
+                scoped_followings
               else
-                end_of_association_chain
+                scoped_collection
               end
 
       if params[:q].present?
