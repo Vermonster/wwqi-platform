@@ -2,7 +2,7 @@ class CommentDecorator < Draper::Decorator
   delegate_all
 
   def header
-    "#{user.first_name} #{header_key}"
+    "#{user.fullname} #{header_key}"
   end
 
   def header_key

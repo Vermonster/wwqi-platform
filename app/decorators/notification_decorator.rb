@@ -6,7 +6,11 @@ class NotificationDecorator < Draper::Decorator
   end
   
   def message
-    "#{notifiable.user.first_name} #{action} \"#{target.title}\""
+    "#{user.fullname} #{action} \"#{target.title}\""
+  end
+
+  def user
+    notifiable.user
   end
 
   def target
