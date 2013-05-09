@@ -876,13 +876,12 @@
     }
     .black-box {
       padding: 10px;
-      width: 300px;
       p {
-        color: #fff;
-      }
-      background-color: #000;
-      a {
-        color: red;
+        font-style: italic; 
+        color: #000;
+        a {
+          color: red;
+        }
       }
     }
   }
