@@ -6,7 +6,7 @@
   @include background-image(linear-gradient(left top,  #eeeeee 0%,#eeeeee 50%,#ffffff 51%,#ffffff 100%));
 }
 
-@mixin transparent-gradient {
+@mixin transparent-gradient-horiz {
   // needs latest Compass, add '@import "compass"' to your scss
   @include filter-gradient(#d6d6d6, #d6d6d6, horizontal); // IE6-9
   @include background-image(linear-gradient(left,  rgba(214,214,214,0) 0%,rgba(214,214,214,1) 25%,rgba(214,214,214,1) 50%,rgba(214,214,214,1) 51%,rgba(214,214,214,1) 79%,rgba(214,214,214,0) 100%));
