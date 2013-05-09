@@ -67,7 +67,7 @@ ul {
   height: 1px;
   width: auto;
   margin: 20px 0;
-  @include transparent-gradient;
+  @include transparent-gradient-horiz;
 }
 
 .wysiwyg {
