@@ -34,7 +34,6 @@
         -#%h3 Feature 3
         -#%p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 #sign-in-main.row
-  .col1.span4.offset2
+  .forms
     = render '/partials/user_registration', :resource => User.new
-  .col2.span4.offset2
     = render '/partials/user_session'
