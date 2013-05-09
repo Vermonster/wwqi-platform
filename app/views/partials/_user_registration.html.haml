@@ -12,6 +12,11 @@
     %span.icon-chevron-right
     = render "partials/terms_dialog"
     .checkbox
-      = f.input :terms, as: :boolean, label: "I accept"
+      = f.check_box :terms
+      = f.label :terms do
+        I accept
+        %span
+      - if resource.errors[:terms].any?
+        %span.error= resource.errors[:terms].to_sentence
   .horiz-line
   = f.button :submit, "Sign Up", { class: "btn" }
