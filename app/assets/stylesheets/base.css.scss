@@ -122,3 +122,21 @@ ul {
 .row {
   margin-left: 0;
 }
+
+span.error {
+  font-family: $fontproxima;
+  font-size: .75em;
+  color: $red;
+  margin: .5em 0 1.5em;
+  display: block;
+  &:first-letter {
+    text-transform: uppercase;
+  }
+}
+input[type='text'], input[type='email'], input[type='password'] {
+  margin-bottom: 0;
+}
+
+label {
+  margin-top: 1.5em;
+}
