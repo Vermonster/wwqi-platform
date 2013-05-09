@@ -70,6 +70,14 @@ ul {
   @include transparent-gradient-horiz;
 }
 
+.vert-line {
+  width: 1px;
+  height: 530px;
+  margin: 10% 0;
+  float:left;
+  @include transparent-gradient-vert;
+}
+
 .wysiwyg {
   color: rgb(85, 85, 85);
   font-family: 'Helvetica Neue', Helvetica, Artial, sans-serif;
