@@ -71,7 +71,6 @@
     }
   }
   #sign-in-nav {
-    /*overflow: hidden;*/
     margin-top: 1.15em;
     position: relative;
     @media (max-width: 979px) and (min-width: 768px) {
@@ -120,7 +119,6 @@
         li {
           padding: .5em 1em 0 0;
           width: 100%;
-          /*height: 20px;*/
           text-align: right;
           a { line-height: .5em; }
           @media (min-width: 768px) {
