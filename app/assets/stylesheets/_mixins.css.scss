@@ -12,6 +12,11 @@
   @include background-image(linear-gradient(left,  rgba(214,214,214,0) 0%,rgba(214,214,214,1) 25%,rgba(214,214,214,1) 50%,rgba(214,214,214,1) 51%,rgba(214,214,214,1) 79%,rgba(214,214,214,0) 100%));
 }
 
+@mixin transparent-gradient-vert {
+// needs latest Compass, add '@import "compass"' to your scss
+  @include filter-gradient(#d6d6d6, #d6d6d6, vertical); // IE6-9
+  @include background-image(linear-gradient(top,  rgba(214,214,214,0) 0%,rgba(214,214,214,1) 21%,rgba(214,214,214,1) 46%,rgba(214,214,214,1) 76%,rgba(214,214,214,0) 100%));
+}
 
 @mixin item-header {
   font-size: .75em;
