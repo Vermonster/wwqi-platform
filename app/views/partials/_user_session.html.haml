@@ -1,6 +1,8 @@
-= simple_form_for "user", url: user_session_path do |f|
-  %h2 Sign In
-  %p Already a member? Sign in below.
-  = f.input :email, input_html: { class: "text-input" }
-  = f.input :password, input_html: { class: "text-input" }
-  = f.button :submit, "Sign In", { class: "btn" }
+.sign-in
+  = simple_form_for "user", url: user_session_path do |f|
+    %h2 Sign In
+    %p Already a member? Sign in below.
+    .horiz-line
+    = f.input :email, input_html: { class: "text-input" }
+    = f.input :password, input_html: { class: "text-input" }
+    = f.button :submit, "Sign In", { class: "btn" }
