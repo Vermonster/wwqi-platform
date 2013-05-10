@@ -4,9 +4,9 @@ $ ->
 
     $this = $(this)
     is_followed = $this.hasClass('followed')
-    followable_type = $this.data('followable-type')
-    followable_id = $this.data('followable-id')
-    follow_id = $this.data('follow-id')
+    followable_type = $this.attr('data-followable-type')
+    followable_id = $this.attr('data-followable-id')
+    follow_id = $this.attr('data-follow-id')
 
     controller = switch followable_type
       when 'question', 'discussion' then 'threads'
@@ -24,6 +24,8 @@ $ ->
         if is_followed
           $this.text('Follow')
           $this.removeClass('followed')
+          $this.removeAttr('data-follow-id')
         else
           $this.text('Unfollow')
           $this.addClass('followed')
+          $this.attr('data-follow-id', data.id)

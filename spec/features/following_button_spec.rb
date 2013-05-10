@@ -36,7 +36,6 @@ feature "follow button", js: true do
       create(:following, user: user, followable: question)
       
       visit posts_path
-      page.find('ul.items li').hover
       find_link('Unfollow').should be_visible
       click_on 'Unfollow'
       expect { user.reload.followings.empty? }.to become_true

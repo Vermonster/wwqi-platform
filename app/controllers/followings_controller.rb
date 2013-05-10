@@ -1,5 +1,5 @@
 class FollowingsController < ApplicationController
-  respond_to :js
+  respond_to :json
   inherit_resources
   belongs_to :post, :research, :polymorphic => true
 
