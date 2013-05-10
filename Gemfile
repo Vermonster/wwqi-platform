@@ -41,6 +41,9 @@ end
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
+ gem 'activeadmin'
+ gem "meta_search",    '>= 1.1.0.pre'
+
 group :test, :development do
   gem 'pry-rails'
 end
