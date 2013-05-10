@@ -687,7 +687,8 @@
               font-weight: bold;
               background: #3a87ad;
               &.followed {
-                background: #696969; 
+                background: #696969;
+                display: block;
               }
             }
           }
