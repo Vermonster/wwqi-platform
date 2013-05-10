@@ -18,7 +18,7 @@ h2 {
   color: $medgrey;
   letter-spacing: 1px;
   line-height: 1.5em;
-  font-family: "proxima-nova",sans-serif;
+  font-family: $fontproxima;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -27,14 +27,14 @@ h3 {
   font-size: 1em;
   margin-bottom: .25em;
   color: $medgrey;
-  font-family: "proxima-nova",sans-serif;
+  font-family: $fontproxima;
   font-weight: 700;
 }
 
 h4 {
   font-size: 1em;
   color: $darkgrey;
-  font-family: "proxima-nova", sans-serif;
+  font-family: $fontproxima;
 }
 
 p, label, a {
@@ -42,7 +42,7 @@ p, label, a {
   color: #696969;
   line-height: 1.5em;
   font-weight: 400;
-  font-family: "proxima-nova", sans-serif;
+  font-family: $fontproxima;
 }
 
 a:hover {
