@@ -9,6 +9,16 @@ $(document).ready(function(){
     $('.select-english').toggle();
   });
 
+  $('#legal_terms').mouseenter(
+    function() {
+      $('.icon-chevron-right').css('color', '#8a6f17');
+  });
+
+  $('#legal_terms').mouseleave(
+    function() {
+      $('.icon-chevron-right').css('color', '#a08222');
+  });
+
 });
 
 function initializeTermsDialog() {
