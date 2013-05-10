@@ -485,11 +485,15 @@
               width: auto;
               overflow: hidden;
               margin-top: 1.5em;
+              #legal_terms {
+                width: 93%;
+              }
               .icon-chevron-right {
                 float: right;
                 font-size: .75em;
                 color: $gold;
-                margin-top: .375em;
+                margin-top: .45em;
+                width: 3%;
               }
               a {
                 float: left;
