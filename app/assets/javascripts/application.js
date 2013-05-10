@@ -27,5 +27,3 @@
 //= require create_invitation
 //= require terms
 //= require intro
-//= require registration
-//= require sessions
