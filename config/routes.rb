@@ -1,7 +1,7 @@
 WwqiPlatform::Application.routes.draw do
   get "autocomplete/users"
 
-  devise_for :users
+  devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
 
   resources :users do
     resources :notifications
