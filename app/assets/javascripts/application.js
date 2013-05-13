@@ -28,3 +28,5 @@
 //= require terms
 //= require intro
 //= require followings
+//= require sessions
+//= require registration
