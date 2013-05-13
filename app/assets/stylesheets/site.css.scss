@@ -1,5 +1,6 @@
 @import "mixins";
 @import "variables";
+@import "fonts";
 
 #header-wrapper {
   background-color: #000;
@@ -306,7 +307,8 @@
         #notifications {
           cursor: pointer;
           .icon-notification {
-            margin-right: 5px;
+            font-family: "fontello";
+            content: "\6e";
             font-size: 1.75em;
             color: $gold;
             @include flip;
@@ -317,7 +319,7 @@
             text-align: center;
             position: absolute;
             p {
-              margin: 2px -32px 0 0;
+              margin: 2px -35px 0 0;
               color: $darkgrey;
               font-weight: 700;
             }
