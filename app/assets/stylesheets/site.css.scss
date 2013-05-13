@@ -499,27 +499,33 @@
               margin-top: 1.5em;
               padding-right: 1%;
               #legal_terms {
-                width: 93%;
-              }
-              .icon-chevron-right {
-                float: right;
-                font-size: .75em;
-                color: $gold;
-                margin-top: .45em;
-                width: 3%;
-              }
-              a {
-                float: left;
-                font-size: .875em;
-                color: $gold;
-                display: block;
-                &:hover {
-                  color: $darkgold;
+                overflow: hidden;
+                width: 100%;
+                .icon-right-open-mini {
+                  float: right;
+                  font-size: 1.5em;
+                  color: $gold;
+                  margin-top: .15em;
+                  width: 3%;
+                  margin-right: 1%;
+                  &:before {
+                    content: '\e762';
+                    font-family: 'fontello';
+                  }
                 }
-              }
-              p {
-                float: left;
-                margin-bottom: .25em;
+                a {
+                  float: left;
+                  font-size: .875em;
+                  color: $gold;
+                  display: block;
+                  &:hover {
+                    color: $darkgold;
+                  }
+                }
+                p {
+                  float: left;
+                  margin-bottom: .25em;
+                }
               }
               .checkbox {
                 float: left;
@@ -744,13 +750,10 @@
               & a:hover {
                 color: $lightgrey;
               }
-              .icon-plus-sign {
-                content: '\2795';
+              .icon-plus-circle:before {
+                font-family: 'fontello';
+                content: '\e801';
                 margin-right: .5em;
-                .icon-left {
-                  content: '\2b05';
-                  margin-right: .5em;
-                }
                 &:hover {
                   color: $lightgrey;
                 }
@@ -884,9 +887,10 @@
 #notifications {
   ul.items {
     li {
-      color: black;
-      i.icon-comment { 
+      .icon-notification:before { 
         @include flip;
+        font-family: 'fontello';
+        content: '\e106';
       }
       &.unread {
         color: $gold;

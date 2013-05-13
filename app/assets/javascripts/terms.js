@@ -11,12 +11,17 @@ $(document).ready(function(){
 
   $('#legal_terms').mouseenter(
     function() {
-      $('.icon-chevron-right').css('color', '#8a6f17');
+      $('.icon-right-open-mini').css('color', '#8a6f17');
   });
 
   $('#legal_terms').mouseleave(
     function() {
-      $('.icon-chevron-right').css('color', '#a08222');
+      $('.icon-right-open-mini').css('color', '#a08222');
+  });
+
+  $('.icon-right-open-mini').hover(
+    function() {
+    $('.icon-right-open-mini').css('cursor', 'pointer');
   });
 
 });
