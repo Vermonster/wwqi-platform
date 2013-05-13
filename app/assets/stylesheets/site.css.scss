@@ -436,12 +436,12 @@
       background: $lightgrey;
       .forms {
         margin: 0 auto;
-        width: 85%;
         overflow: hidden;
+        padding: 0 12%;
         .registration, .sign-in {
           float: left;
-          padding: 50px 9.25%;
-          width: 31%;
+          padding: 50px 6%;
+          width: 38%;
           form {
             h2 {
               color: $gold;
@@ -456,9 +456,6 @@
               margin-bottom: 2em;
               color: $medgrey;
               text-align: center;
-            }
-            .horiz-line {
-              width: 310px;
             }
             label {
               font-size: .75em;
@@ -479,12 +476,13 @@
               }
             }
             .text-input {
-              width: 300px;
+              width: 96%; 
             }
             .terms {
               width: auto;
               overflow: hidden;
               margin-top: 1.5em;
+              padding-right: 1%;
               #legal_terms {
                 width: 93%;
               }
