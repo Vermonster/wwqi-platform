@@ -932,6 +932,7 @@
   }
   .btn {
     @include button;
+    border: none;
   }
 }
 .ui-widget {
