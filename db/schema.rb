@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130502151345) do
+ActiveRecord::Schema.define(:version => 20130510174131) do
 
   create_table "collaborators", :force => true do |t|
     t.integer  "user_id"
@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(:version => 20130502151345) do
     t.string   "recipient_name"
     t.string   "recipient_email"
     t.text     "message"
-    t.integer  "post_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -66,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20130502151345) do
     t.string   "name"
     t.string   "thumbnail"
     t.string   "accession_no"
+    t.integer  "comment_id"
   end
 
   add_index "items", ["post_id"], :name => "index_items_on_post_id"

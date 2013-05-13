@@ -8,6 +8,7 @@ describe Comment do
   it { should belong_to(:commentable) }
   it { should have_many(:uploads) }
   it { should have_many(:notifications) }
+  it { should have_many(:items) }
 
   it "has a valid factory" do
     build(:comment).should be_valid

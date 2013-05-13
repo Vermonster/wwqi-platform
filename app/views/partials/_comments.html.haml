@@ -12,6 +12,14 @@
         .item-details
           .wysiwyg
             != c.details
+        .item-bottom
+        - unless c.items.empty?
+          %ul.thumbnails
+            - c.items.each do |i|
+              %li.span3
+                .thumbnail
+                  = image_tag i.thumbnail, size: "150x150", "data-src" => "holder.js/150x150"
+                  %p.text-center= i.name
 .comment-box.span12
   - if user_signed_in?
     .item-image.pull-left
