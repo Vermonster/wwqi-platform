@@ -239,30 +239,26 @@
         overflow: hidden;
         border-bottom: 1px solid rgba(255, 255, 255, .15);
         li {
-          a {
-            padding: 15px;
-            @media (max-width: 979px) and (min-width: 768px) {
-              font-size: .8em;
-            }
-          }
           float: left;
           border-right: 1px solid rgba(255, 255, 255, .15);
           &:first-child {
             border-left: 1px solid rgba(255, 255, 255, .15);
-          }
-          a {
-            color: #FFF;
-            &:hover {
-              background: none;
-            }
           }
           &:hover {
             background: #000;
             cursor: pointer;
             @include transition-property(background);
             @include transition-duration(.5s);
-            a {
+          }
+          a {
+            color: #FFF;
+            padding: 15px;
+            &:hover {
+              background: none;
               color: $lightgrey;
+            }
+            @media (max-width: 979px) and (min-width: 768px) {
+              font-size: .8em;
             }
           }
           @media (max-width: 480px) {
