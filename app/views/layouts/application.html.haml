@@ -54,7 +54,7 @@
                 %ul.nav
                   = nav_link 'Questions & Discussions', posts_path, 'threads'
                   = nav_link 'Research-in-Progress', researches_path, 'researches'
-                  = nav_link 'Contributions', contributions_path, 'contributions'
+                  = nav_link 'Contributions', contributions_path, ['contributions', 'corrections']
               - if user_signed_in?
                 #notifications-wrapper.pull-right
                   = link_to 'My Profile', my_profile_path, { :class => "pull-right" }

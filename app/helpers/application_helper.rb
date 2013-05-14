@@ -40,7 +40,12 @@ module ApplicationHelper
   end
 
   def nav_link(text, path, controller_name)
-    active = params['controller'] == controller_name
+    case controller_name
+    when String
+      active = params['controller'] == controller_name
+    when Array
+      active = controller_name.include? params['controller']
+    end
     capture_haml do
       haml_tag :li, class: (active ? 'active' : nil) do
         haml_concat link_to(text, path)
