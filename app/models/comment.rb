@@ -1,12 +1,11 @@
 class Comment < ActiveRecord::Base
   attr_accessible :details, :user_id, :commentable_id, :items_attributes
-  # attr_accessor :items
 
   belongs_to :user
   belongs_to :commentable, polymorphic: true, counter_cache: true
   has_many :uploads, as: :uploadable
   has_many :notifications, as: :notifiable
-  has_many :items, dependent: :destroy
+  has_many :items, as: :itemable
   accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
 
   validates :details, :commentable_id, :user_id, presence: true
@@ -19,13 +18,10 @@ class Comment < ActiveRecord::Base
 
   # Create items based on the urls in a commnet text
   def search_and_add_items
-    words = self.details.split(' ')
     temp_items = Array.new
-    words.each do |w|
-      if w.include? "qajarwomen.org" and w.include? "/items/"
-        accession_num = w.match(/([^\/]+)(?=\.html)/)
-        temp_items.push(Item.new(collect_item_info(accession_num[1]))) unless accession_num[1].nil?
-      end
+    accession_numbers = self.details.scan(/\/\/[\w]+[.]qajarwomen.org\/[^\/]+\/items\/(\w+).html/).uniq.flatten
+    accession_numbers.each do |num|
+      temp_items.push(Item.new(collect_item_info(num)))
     end
     self.items = temp_items
   end

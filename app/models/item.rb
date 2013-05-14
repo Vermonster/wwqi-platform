@@ -1,9 +1,8 @@
 class Item < ActiveRecord::Base
-  belongs_to :post
-  belongs_to :comment
-  attr_accessible :url, :name, :thumbnail, :accession_no, :search
+  belongs_to :itemable, polymorphic: true
+  attr_accessible :url, :name, :thumbnail, :accession_no, :search, :itemable_id
   attr_accessor :search
 
   validates :url, :name, :thumbnail, :accession_no, presence: true
-  validates :post_id, presence: { if: (:comment_id.blank?) }, on: :update
+  validates :itemable_id, presence: true, on: :update
 end
