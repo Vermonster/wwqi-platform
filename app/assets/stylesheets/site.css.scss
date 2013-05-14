@@ -273,6 +273,9 @@
             font-size: .85em;
           }
         }
+        li.active {
+          background: #000;
+        }
       }
       @media (max-width: 767px) {
         margin-left: 17%;

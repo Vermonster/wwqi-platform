@@ -38,4 +38,13 @@ module ApplicationHelper
     gravatar_id = Digest::MD5::hexdigest(user.email).downcase
     "http://gravatar.com/avatar/#{gravatar_id}.png?d=mm"
   end
+
+  def nav_link(text, path, controller_name)
+    active = params['controller'] == controller_name
+    capture_haml do
+      haml_tag :li, class: (active ? 'active' : nil) do
+        haml_concat link_to(text, path)
+      end
+    end
+  end
 end
