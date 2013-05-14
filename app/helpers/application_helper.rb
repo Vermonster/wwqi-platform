@@ -46,10 +46,20 @@ module ApplicationHelper
     when Array
       active = controller_name.include? params['controller']
     end
+
     capture_haml do
       haml_tag :li, class: (active ? 'active' : nil) do
         haml_concat link_to(text, path)
       end
+    end
+  end
+
+  def choose_edit_path(resource)
+    case resource
+    when Question, Discussion
+      edit_post_path(resource)
+    when Research
+      edit_research_path(resource)
     end
   end
 end

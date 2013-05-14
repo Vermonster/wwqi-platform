@@ -1,6 +1,6 @@
 @import 'compass/css3/box-sizing';
 
-form#new_post, form#new_research {
+form#new_post, form#new_research, form.edit_post, form.edit_research {
   margin: 50px;
 
   label {

@@ -658,7 +658,7 @@
               }
             }
           }
-          .item-follow-btn {
+          .item-follow-btn, .item-edit-btn {
             float: right;
             margin-top: 20px;
             .btn {
@@ -672,7 +672,7 @@
             }
           }
           &:hover {
-            .item-follow-btn {
+            .item-follow-btn, .item-edit-btn {
               .btn {
                 display: block;
               }
