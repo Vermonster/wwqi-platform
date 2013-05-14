@@ -382,7 +382,7 @@
     @include box-shadow(0 0 6px rgba(0, 0, 0, .25));
     overflow: hidden;
     .intro {
-      padding: 1em 2% 2em 2%;
+      padding: 1em 2% 1em 0;
       .intro-header {
         overflow: hidden;
         .language-select-intro {
@@ -567,7 +567,7 @@
       }
     }
     #items-index {
-      margin: 2.5em;
+      margin: 2.5em 3% 2.5em;
       form {
         display: block;
         width: 75%;
@@ -694,7 +694,6 @@
         }
       }
       .intro {
-        margin-bottom: 2em;
         p {
           margin-bottom: 1.75em;
         }
@@ -708,7 +707,7 @@
           @include border-radius(5px);
           border: 2px solid #CCC;
           padding: 2em;
-          margin: 3em 0 0;
+          margin: 1em 0 0;
           h4 {
             font-weight: 600;
             margin-bottom: .5em;
@@ -775,7 +774,7 @@
     }
     .show {
       overflow: hidden;
-      margin: 2em 0 2em 2em;
+      margin: 2em 3% 2em;
       .item-show, .comments, .comment-box {
         margin:0;
         &.comments {
