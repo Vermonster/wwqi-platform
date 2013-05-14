@@ -1,7 +1,10 @@
-= simple_form_for resource do |f|
-  = f.hidden_field :type, value: 'Correction'
-  %p
-    = f.label('Item ID:')
-    = f.text_field :item_id
-  = f.input :details, label: 'Correction:'
-  = f.submit 'Submit Correction'
+.row.intro
+  #items-index
+    %h2 Submit a correction
+    = simple_form_for resource do |f|
+      = f.hidden_field :type, value: 'Correction'
+      %p
+        = f.label('Item record number')
+        = f.text_field :item_id
+      = f.input :details, label: 'Correction'
+      = f.submit 'Submit Correction', class: 'btn', id: 'correction-btn'
