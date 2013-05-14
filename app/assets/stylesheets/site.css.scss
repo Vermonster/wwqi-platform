@@ -573,10 +573,17 @@
         width: 75%;
         margin: 0 0 2.5em;
         input {
-          width: 95%;
+          width: 65%;
         }
         .btn {
-          display: none;
+          max-width: 163px;
+          margin: 0 .5em;
+          height: 30px;
+          float: left;
+          color: #FFF;
+          text-shadow: none;
+          border-radius-bottom-left: 0;
+          border-radius-top-left: 0;
           p {
             margin-bottom: 0;
           }
