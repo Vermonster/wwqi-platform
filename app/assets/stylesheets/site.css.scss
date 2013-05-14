@@ -335,24 +335,24 @@
           color: #A8A8A8;
           font-size: .75em;
           width: 200px;
-          li.header {
-            border-bottom: 1px solid #a8a8a8;
+          li {
+            border-bottom: 1px dotted #a8a8a8;
+            margin: .5em 0;
+            padding: .5em 0 .65em;
             p {
-              font-weight: 700;
+              a {
+                color: black;
+                font-size: 14px;
+              }
             }
-          }
-        }
-        li {
-          border-bottom: 1px dotted #a8a8a8;
-          margin: .5em 0;
-          padding: .5em 0 .65em;
-          &:last-child {
-            border-bottom: none;
-          }
-          p {
-            a {
-              color: black;
-              font-size: 14px;
+            &:first-child {
+              border-bottom: 1px solid #a8a8a8;
+              p {
+                font-weight: 700;
+              }
+            }
+            &:last-child {
+              border-bottom: none;
             }
           }
         }

@@ -68,7 +68,7 @@
                         .notification-count
                           %p= current_user.unread_notifications.size
                     %ul.dropdown-menu{role: "menu", "aria-labeledby" => "dLabel"}
-                      %li.header
+                      %li
                         %p Notifications
                       - if current_user.unread_notifications.present?
                         - current_user.unread_notifications.each do |n|
@@ -76,7 +76,7 @@
                             %p= n.link
                       - else
                         %li 
-                          %p None
+                          %p You have no notifications
       #main-content
         .container
           = flash_messages
