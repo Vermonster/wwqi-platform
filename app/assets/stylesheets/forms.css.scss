@@ -51,9 +51,24 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
         vertical-align: -12px; 
       }
     }
+    .links {
+      a.add_fields {
+        margin-top: 5px;
+      }
+    }
   }
 
   #collaborators {
     float: right;
+  }
+
+  .item-group {
+    width: 350px;
+    .item-image {
+      margin-right: 5px;
+      img {
+        height: 45px;
+      }
+    }
   }
 }

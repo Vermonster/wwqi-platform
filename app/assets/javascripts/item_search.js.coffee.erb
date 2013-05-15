@@ -16,6 +16,8 @@ $ ->
             accession_no: item._source.accession_num))
     select: (event, ui) ->
       group = $(event.target).parents('.item-group')
+  
+      group.find('img').attr('src', ui.item.thumbnail)
       group.find('input[id$="_url"]').val(ui.item.url)
       group.find('input[id$="_thumbnail"]').val(ui.item.thumbnail)
       group.find('input[id$="_accession_no"]').val(ui.item.accession_no)
