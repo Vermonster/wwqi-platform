@@ -758,8 +758,21 @@
           }
         }
       }
-      #correction-btn {
-        margin: 2em 0;
+      #new-correction {
+        form {
+          input {
+            @include text-input;
+          }
+          .field_with_errors {
+            input {
+              @include error-text-input;
+            }
+          }
+          #correction-btn {
+            margin: 2em 0;
+            @include action-button;
+          }
+        }
       }
     }
     .show {
