@@ -26,16 +26,21 @@ en:
     labels:
       post:
         type: 'Thread Type'
-        tag_list: 'Tags (Use tags to describe the people, places, or subjects related to this thread.)'
+        tag_list: 'Tags'
         title: 'Your Concise Question'
         details: 'Additional Details'
         item_related: 'Is this related to specific WWQI items?'
         private: 'Who do you want to ask?'
       research:
-        tag_list: 'Tags (Use tags to describe the people, places, or subjects related to this thread.)'
+        tag_list: 'Tags'
         title: 'Your Research Title'
         details: 'Additional Details'
         item_related: 'Is this related to specific WWQI items?'
         private: 'Who do you want to ask?'
       item:
         search: 'Enter the item name or id'
+    hints:
+      post:
+        tag_list: 'Use tags to describe the people, places, or subjects related to this thread.'
+      research:
+        tag_list: 'Use tags to describe the people, places, or subjects related to this thread.'
