@@ -1,19 +1,37 @@
 @import 'compass/css3/box-sizing';
+@import 'mixins';
+@import 'variables';
 
 form#new_post, form#new_research, form.edit_post, form.edit_research {
-  margin: 50px;
+  margin: 0 3% 3%;
 
   label {
     font-weight: bold;
+    width: 100%;
+  }
+
+  input, textarea {
+    @include text-input;
+    width: 65%;
+  }
+
+  textarea, iframe {
+    min-height: 200px;
+    width: 60%;
+    padding: 10px;
+    @include text-input;
+  }
+
+  iframe.wysihtml5-sandbox {
+    padding: 20px;
   }
 
   input, textarea, .btn-group {
-    margin-top: 3px;
+    display: block;
   }
 
-  input.tags-input {
+  input.tags-input, input#research_title {
     padding-left: 10px;
-    width: 700px;
     @include box-sizing(border-box);
   }
 
@@ -22,12 +40,12 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
     font-weight: bold;
     background-color: #C5112C;
     padding: 0px 3px;
-    font-family: "proxima-nova", sans-serif;
+    font-family: $fontproxima;
   }
 
   span.ui-helper-hidden-accessible {
     font-weight: bold;
-    font-family: "proxima-nova", sans-serif;
+    font-family: $fontproxima;
   }
 
   .tag-list {
@@ -38,6 +56,16 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
     }
   }
 
+  #tag-list {
+    width: 100%;
+  }
+  
+  .hint {
+    font-family: $fontproxima;
+    font-size: .8em;
+    color: $medgrey;
+  }
+
   .post_uploads_content, .research_uploads_content {
     input.file {
       line-height: 5px;
@@ -45,21 +73,46 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
     }
   }
 
-  #items, #collaborators {
+  #collaborators, #items {
+    margin: 1em 0;
     .nested-fields {
       a.icon-minus-sign {
         vertical-align: -12px; 
       }
     }
+<<<<<<< HEAD
     .links {
       a.add_fields {
         margin-top: 5px;
+=======
+    .btn-group {
+      margin-top: 2em;
+    }
+    .expand {
+      p {
+        font-size: .8em;
+      }
+      input {
+        margin-bottom: 1em;
+      }
+    }
+    .links {
+      margin-top: .25em;
+      padding: .5em;
+      a {
+        font-size: .8em;
+      }
+      .icon-plus-circle:before {
+        font-family: 'fontello';
+        color: $medgrey;
+        content: '\e801';
+>>>>>>> WIP style research submit page
       }
     }
   }
-
-  #collaborators {
+  #research-submit-button {
     float: right;
+    padding: 1em 2em;
   }
 
   .item-group {
