@@ -91,6 +91,13 @@ ActiveRecord::Schema.define(:version => 20130502151345) do
     t.integer  "comments_count", :default => 0
   end
 
+  create_table "related_items", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
