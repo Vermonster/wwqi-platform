@@ -627,11 +627,9 @@
       overflow: auto;
       &:last-child {
         border-bottom: none;
-        /*margin-bottom: 25px;*/
       }
       .item-image {
         float: left;
-        //background: image-url("placeholder.png") no-repeat;
         background-size: contain;
         height: 60px;
         width: 7.25%;
@@ -654,70 +652,30 @@
             line-height: 1.25em;
           }
         }
+        .item-created, .item-comments, p {
+          @include item-created;
+          &:first-child {
+            margin-right: 0;
+          }
+        }
       }
-    }
-    ul.items {
-      margin: 1em 0 0;
-      overflow: hidden;
-      list-style: none;
-      li {
-        padding: 1em 0;
-        border-bottom: 1px #a8a8a8 dotted;
-        overflow: auto;
-        &:last-child {
-          border-bottom: none;
-          /*margin-bottom: 25px;*/
-        }
-        .item-image {
-          float: left;
-          //background: image-url("placeholder.png") no-repeat;
-          background-size: contain;
-          height: 60px;
-          width: 7.25%;
-          margin-right: 2%;
-        }
-        .item-content {
-          float: left;
-          .item-header {
-            @include item-header;
-            font-size: .75em;
-            font-family: "proxima-nova",sans-serif;
-            font-weight: 600;
-            color: #b29628;
-          }
-          .item-title {
-            @include item-title;
-            color: #505050;
-            width: 100%;
-            a {
-              line-height: 1.25em;
-            }
-          }
-          .item-created, .item-comments, p {
-            @include item-created;
-            &:first-child {
-              margin-right: 0;
-            }
+      .item-follow-btn, .item-edit-btn {
+        float: right;
+        margin-top: 20px;
+        .btn {
+          display: none;
+          font-weight: bold;
+          background: #3a87ad;
+          &.followed {
+            background: #696969;
+            display: block;
           }
         }
+      }
+      &:hover {
         .item-follow-btn, .item-edit-btn {
-          float: right;
-          margin-top: 20px;
           .btn {
-            display: none;
-            font-weight: bold;
-            background: #3a87ad;
-            &.followed {
-              background: #696969;
-              display: block;
-            }
-          }
-        }
-        &:hover {
-          .item-follow-btn, .item-edit-btn {
-            .btn {
-              display: block;
-            }
+            display: block;
           }
         }
       }
