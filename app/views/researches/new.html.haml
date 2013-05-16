@@ -3,47 +3,51 @@
 
 = simple_form_for resource do |f|
 
-  #tag-list.tag-list
-    %label= t('simple_form.labels.research.tag_list')
-    .tags
-      = f.input :tag_list
-    %span.hint= t('simple_form.hints.research.tag_list')
-  = f.input :title
+  .col-1.pull-left
+    = f.input :title
 
-  = f.input :details, :input_html => { :class => 'wysihtml5' }
+    = f.input :details, :input_html => { :class => 'wysihtml5' }
 
-  = f.simple_fields_for :uploads do |upload|
-    = render 'partials/upload_fields', f: upload
-  .links
-    = link_to_add_association 'Upload a file', f, :uploads, class: 'btn btn-inverse', partial: 'partials/upload_fields'
+    = f.simple_fields_for :uploads do |upload|
+      = render 'partials/upload_fields', f: upload
+  .col-2.pull-left
+    .related-items
+      %label.no-top-margin Is this related to specific WWQI items?
+      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[item_related]"}
+        %button.btn{"data-toggle" => "button", :value => "true"} Yes
+        %button.btn{"data-toggle" => "button", :value => "false"} No
+      = f.input :item_related, as: :hidden
+      #items
+        .expand
+          %p Enter the item name or record number:
+          = f.simple_fields_for :items do |item|
+            = render 'partials/item_fields', :f => item
+          .links-add
+            .icon-plus-circle
+            = link_to_add_association 'Add Item', f, :items, partial: 'partials/item_fields'
 
-  .related-items
-    %label Is this related to specific WWQI items?
-    .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[item_related]"}
-      %button.btn{"data-toggle" => "button", :value => "true"} Yes
-      %button.btn{"data-toggle" => "button", :value => "false"} No
-    = f.input :item_related, as: :hidden
-    #items
-      .expand
-        %p Enter the item name or record number:
-        = f.simple_fields_for :items do |item|
-          = render 'partials/item_fields', :f => item
-      .links
-        %span.icon-plus-circle
-        = link_to_add_association 'Add Item', f, :items, partial: 'partials/item_fields'
-
-  .invite-collaborators
-    %label Invite Collaborators
-    .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[private]"}
-      %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
-      %button.btn{"data-toggle" => "button", :value => "false"} Everyone
-    = f.input :private, as: :hidden
-    #collaborators
-      %p Enter Name or Email Address of Recipients
-      = f.error :collaborator
-      = f.simple_fields_for :collaborators do |collaborator|
-        = render 'partials/collaborator_fields', :f => collaborator
-      .links
-        %span.icon-plus-circle
-        = link_to_add_association 'Add collaborator', f, :collaborators, partial: 'partials/collaborator_fields'
-  = f.button :submit, :label => 'Post Research', :value => 'Submit Research', id: 'research-submit-button'
+    .invite-collaborators
+      %label Invite Collaborators
+      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[private]"}
+        %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
+        %button.btn{"data-toggle" => "button", :value => "false"} Everyone
+      = f.input :private, as: :hidden
+      #collaborators
+        .expand
+          %p Enter Name or Email Address of Recipients
+          = f.error :collaborator
+          = f.simple_fields_for :collaborators do |collaborator|
+            = render 'partials/collaborator_fields', :f => collaborator
+          .links-add
+            .icon-plus-circle
+            = link_to_add_association 'Add Collaborator', f, :collaborators, partial: 'partials/collaborator_fields'
+    #tag-list.tag-list
+      %label= t('simple_form.labels.research.tag_list')
+      .tags
+        = f.input :tag_list
+      %span.hint= t('simple_form.hints.research.tag_list')
+    .links
+      %label Additional Documents
+      = link_to_add_association 'Upload a file', f, :uploads, class: 'btn', partial: 'partials/upload_fields'
+  .research-submit-button
+    = f.button :submit, :label => 'Post Research', :value => 'Submit Research', id: 'research-submit-button'
