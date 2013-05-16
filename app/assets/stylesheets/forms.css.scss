@@ -32,6 +32,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
 
   input.tags-input, input#research_title {
     padding-left: 10px;
+    width: 67%;
     @include box-sizing(border-box);
   }
 
@@ -74,7 +75,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
   }
 
   .related-items, .invite-collaborators, .tag-list {
-    border-bottom: 1px white solid;
+    border-bottom: 1px $medgrey dotted;
     padding-bottom: 1.5em;
     label {
       margin: 1em 0 .25em;
@@ -144,17 +145,18 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
   .col-1 {
     width: 59%;
     margin-right: 10%;
-    .research_title {
-      label {
-        margin-top: 0;
-      }
-    }
   }
+
   .col-2 {
     width: 25%;
     padding: 1% 3% 3%;
     background: $lightgrey;
     border-radius: 4px;
+  }
+
+  input#research-tags-list {
+    width: 100%;
+    margin-top: 1em;
   }
 
   .item-group, .collaborator-group {
@@ -166,6 +168,14 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
       img {
         height: 45px;
       }
+    }
+  }
+
+  .nested-fields {
+    input {
+      background: none;
+      border: none;
+      padding: 0;
     }
   }
 }
