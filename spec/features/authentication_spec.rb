@@ -65,7 +65,7 @@ describe "authentication" do
       end
 
       User.count.should == 0
-      within('.user_terms') do
+      within('.terms') do
         page.should have_content('must be accepted')
       end
       within('#sign-in-main') do
