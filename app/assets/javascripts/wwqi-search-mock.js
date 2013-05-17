@@ -77,9 +77,10 @@ wwqiMockSearchResponses.noResults = {
 };
 
 $.mockjax({
-  url: /^http:\/\/api\.searchbox\.io\/api-key\/.*\/item\/_search\?q=(.*)$/,
+  url: /\/api\.searchbox\.io\/.*\/_search\?q=(.*)/i,
   urlParams: ['query'],
   response: function(settings) {
+    console.log('search hit');
     q = settings.urlParams.query;
     this.responseText = wwqiMockSearchResponses[q] || wwqiMockSearchResponses.noResults;
   }
