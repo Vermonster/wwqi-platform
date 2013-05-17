@@ -1,4 +1,4 @@
-= simple_form_for resource do |f|
+= simple_form_for @post do |f|
   .row-fluid
     .span3
       %label Thread Type
@@ -26,13 +26,13 @@
   .row-fluid
     .span6
       %label Is this related to specific WWQI items?
-      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name"=> "post[item_related]"}
+      .btn-group.items{"data-toggle" => "buttons-radio", "data-toggle-name"=> "post[item_related]"}
         %button.btn{"data-toggle" => "button", :value => "true"} Yes
         %button.btn{"data-toggle" => "button", :value => "false"} No
       = f.input :item_related, as: :hidden
     .span6
       %label Who do you want to ask?
-      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[private]"}
+      .btn-group.collaborators{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[private]"}
         %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
         %button.btn{"data-toggle" => "button", :value => "false"} Everyone
       = f.input :private, as: :hidden
@@ -40,7 +40,7 @@
     %br
   .row-fluid
     #items.span6
-      %label Enter the Item name or id
+      %label Search by name or id, then select from the list.
       = f.error :items
       = f.simple_fields_for :items do |item|
         = render 'partials/item_fields', :f => item

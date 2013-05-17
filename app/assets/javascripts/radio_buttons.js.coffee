@@ -1,8 +1,5 @@
 # javacript for bootstraps radio buttons within simple form
 $ ->
-  $('#items').hide() unless $('#items input:first').val()
-  $('#collaborators').hide() unless $('#collaborators input:first').val()
-  
   $('div.btn-group[data-toggle-name]').each ->
     group = $(this)
     form = group.parents('form').eq(0)
@@ -24,13 +21,23 @@ $ ->
       if (button.val() == hidden.val())
         button.addClass('active')
 
-  for page in ['post', 'research']
-    do (page) ->
-      for pair in [['item_related', '#items'], ['private', '#collaborators']]
-        do (pair) ->
-          $(".btn-group[data-toggle-name='#{page}[#{pair[0]}]'] button").on 'click', (e) ->
-            $items = $(pair[1])
-            if e.target.value == "true"
-              $items.show()
-            else
-              $items.hide()
+  for grp in ['items', 'collaborators']
+    do (grp) ->
+      $div = $("##{grp}")
+      
+      $(".btn-group.#{grp} button").on 'click', (e) ->
+        if e.target.value is "true"
+          $div.show()
+        else
+          $div.hide()
+
+      if $(".btn-group.#{grp} button[value='true']").hasClass('active')
+        $div.show()
+      else
+        $div.hide()
+
+  # re-populate images after page refresh
+  $('.item-group .item-image img').each (i, img) ->
+    $img = $(img)
+    thumbnail_src = $img.parent().siblings('[class$=_items_thumbnail]').find('input').val()
+    $img.attr('src', thumbnail_src) unless thumbnail_src == ""
