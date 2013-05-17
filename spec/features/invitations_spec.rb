@@ -1,5 +1,4 @@
 require 'spec_helper'
-include Warden::Test::Helpers
 
 feature "Post creator(registered user)" do
   describe "as a test user" do
