@@ -1,0 +1,11 @@
+.comment-box.span12
+  -if user_signed_in?
+    .item-image.pull-left
+      = image_tag avatar_url(current_user)
+    .item-content.pull-left
+      = simple_form_for @comment, url: post_comment_path(params[:post_id], @comment) do |f|
+        = f.input :details, input_html: { class: "wysihtml5" }
+        = f.submit
+  - else
+    .black-box
+      %p You have to sign in to comment. Sign in #{link_to 'here', new_user_session_path}

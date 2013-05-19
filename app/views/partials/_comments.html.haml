@@ -1,15 +1,15 @@
 - klass_name = resource.model.class.to_s.downcase
-
 .comments.span12
   - resource.comments.each do |c|
     .comment
       %a{href: "#c#{c.id}"}
       .item-image.pull-left
-        =image_tag avatar_url(c.user)
+        = image_tag avatar_url(c.user)
       .item-content.pull-left
         .item-created.full-width
           = "#{c.header} #{c.created_ago}"
         .item-details
+          = link_to "Edit", edit_post_comment_path(resource, c)
           .wysiwyg
             != c.details
         .item-bottom
@@ -30,4 +30,4 @@
         = f.submit t("#{klass_name}.submit"), { class: "btn pull-right" }
   - else
     .black-box
-      %p You have to sign in to comment. Sign in #{link_to 'here', new_user_session_path}.
+      %p You have to sign in to comment. Sign in #{link_to 'here', new_user_session_path}
