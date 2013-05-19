@@ -13,4 +13,18 @@ class CommentsController < ApplicationController
       failure.html { redirect_to parent_path(parent) }
     end
   end
+
+  def edit
+    @comment = Comment.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+    if @comment.update_attributes(params[:comment])
+      redirect_to parent_path(parent), notice: "Updated successfully"
+    else
+      render :edit
+    end
+  end
 end
