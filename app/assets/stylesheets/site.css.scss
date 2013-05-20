@@ -378,6 +378,7 @@
 #main-content {
   background: image-url("textured_paper.png");
   .content {
+    padding: 3%;
     background: #FFF;
     @include box-shadow(0 0 6px rgba(0, 0, 0, .25));
     overflow: hidden;
@@ -550,7 +551,7 @@
 }
 
 .items-index {
-  margin: 2.5em 3% 2.5em;
+  margin-bottom: 2em;
   form {
     display: block;
     width: 75%;
@@ -791,7 +792,6 @@
 
 .show {
   overflow: hidden;
-  margin: 2em 3% 2em;
   .item-show, .comments, .comment-box {
     margin:0;
     &.comments {
