@@ -10,8 +10,6 @@ class ProfileController < ApplicationController
                 current_user.contributions.decorate(with: nil)
               else
                 latest = current_user.posts.decorate + current_user.contributions.decorate(with: nil)
-                latest.sort_by { |result| result.created_at }
-                latest.reverse!
               end
   end
 
