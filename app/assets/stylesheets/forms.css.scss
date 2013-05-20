@@ -2,6 +2,10 @@
 @import 'mixins';
 @import 'variables';
 
+form {
+  overflow: hidden;
+}
+
 form#new_post, form#new_research, form.edit_post, form.edit_research {
   margin: 0 3% 3%;
 
