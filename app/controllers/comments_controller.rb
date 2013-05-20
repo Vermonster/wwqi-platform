@@ -24,12 +24,10 @@ class CommentsController < ApplicationController
     if @comment.update_attributes(params[:comment])
       respond_with @comment do |format|
         format.html { redirect_to parent_path(parent), notice: "Updated successfully" }
-        format.json { head :no_content }
       end
     else
       respond_with @comment do |format|
         format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
       end
     end
   end
