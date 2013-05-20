@@ -2,6 +2,17 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  contributions:
+    transcription:
+      intro: 'Do you have experience transcribing from Persian to English? If so, help us
+      transcribe documents from our archives. Here are some suggested items that need a transcription:'
+    translation:
+      intro: 'Do you have experience translating from Persian to English? If so, help us
+      translate documents from our archives. Here are some suggested items that need a translation:' 
+    biography: 
+      intro: 'Did you notice an item missing a biography? If so, help us by writing a
+      biography for our archives. Here are some suggested items that need a biography:'
+  
   flash:
     threads:
       create:
