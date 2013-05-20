@@ -35,8 +35,12 @@ module ApplicationHelper
   end
   
   def avatar_url(user)
-    gravatar_id = Digest::MD5::hexdigest(user.email).downcase
-    "http://gravatar.com/avatar/#{gravatar_id}.png?d=mm"
+    if user.nil?
+      "flag.png"
+    else
+      gravatar_id = Digest::MD5::hexdigest(user.email).downcase
+      "http://gravatar.com/avatar/#{gravatar_id}.png?d=mm"
+    end
   end
 
   def nav_link(text, path, controller_name)
