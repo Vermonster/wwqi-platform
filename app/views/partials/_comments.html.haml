@@ -9,17 +9,16 @@
         .item-created.full-width
           = "#{c.header} #{c.created_ago}"
         .item-details
-          = link_to "Edit", edit_post_comment_path(resource, c)
           .wysiwyg      
             != c.details
         .item-bottom
-        - unless c.items.empty?
-          %ul.thumbnails
-            - c.items.each do |i|
-              %li.span1
-                .thumbnail{ title: "#{i.name}" }
-                  = image_tag i.thumbnail, size: "50x50", "data-src" => "holder.js/50x50"
-                  -# %p.text-center= i.name
+          - unless c.items.empty?
+            %ul.thumbnails
+              - c.items.each do |i|
+                %li.span1
+                  .thumbnail{ title: "#{i.name}" }
+                    = image_tag i.thumbnail, size: "50x50", "data-src" => "holder.js/50x50"
+          = link_to "Edit", edit_post_comment_path(resource, c), {class: 'btn btn-inverse'} if current_user == c.user
 .comment-box.span12
   - if user_signed_in?
     .item-image.pull-left
