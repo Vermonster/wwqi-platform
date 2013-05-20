@@ -185,11 +185,26 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
   .nested-fields {
     position: relative;
     input.upload {
-      visibility: hidden;
+      display: none;
     }
-    .dummyfile input[type="text"] {
-      width: 100px;
+    .dummyfile {
       display: inline;
+      float: left;
+      .fileselectbutton, .filename {
+        float: left;
+      }
+      .filename {
+        width: 45%;
+        margin-left: 3%;
+        background: none;
+        border: none;
+        box-shadow: none;
+      }
+    }
+    .links {
+      .icon-minus-sign {
+        float: right;
+      }
     }
   }
 }
