@@ -9,7 +9,7 @@ gem 'pg'
 gem 'json'
 gem "haml", "~> 4.0.0"
 gem "thin", "~> 1.5.0"
-gem "devise", "~> 2.2.3"
+gem "devise", "~> 2.2.4"
 gem 'simple_form'
 gem 'acts-as-taggable-on'
 gem 'fog'

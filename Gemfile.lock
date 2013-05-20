@@ -262,7 +262,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   compass-rails
   database_cleaner (= 0.6.7)
-  devise (~> 2.2.3)
+  devise (~> 2.2.4)
   draper!
   factory_girl_rails
   fakeweb
