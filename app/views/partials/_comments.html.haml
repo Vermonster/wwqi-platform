@@ -10,7 +10,7 @@
           = "#{c.header} #{c.created_ago}"
         .item-details
           = link_to "Edit", edit_post_comment_path(resource, c)
-          .wysiwyg
+          .wysiwyg      
             != c.details
         .item-bottom
         - unless c.items.empty?
