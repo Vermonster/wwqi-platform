@@ -183,10 +183,13 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
   }
 
   .nested-fields {
-    input {
-      background: none;
-      border: none;
-      padding: 0;
+    position: relative;
+    input.upload {
+      visibility: hidden;
+    }
+    .dummyfile input[type="text"] {
+      width: 100px;
+      display: inline;
     }
   }
 }

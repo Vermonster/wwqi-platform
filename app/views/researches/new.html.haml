@@ -8,8 +8,6 @@
 
     = f.input :details, :input_html => { :class => 'wysihtml5' }
 
-    = f.simple_fields_for :uploads do |upload|
-      = render 'partials/upload_fields', f: upload
   .col-2.pull-left
     .related-items
       %label.no-top-margin Is this related to specific WWQI items?
@@ -46,8 +44,11 @@
       .tags
         = f.input :tag_list, wrapper_html: { id: 'research-tags-list' }
       %span.hint= t('simple_form.hints.research.tag_list')
-    %label Additional Documents
-    .links
-      = link_to_add_association 'Add file', f, :uploads, class: 'btn', partial: 'partials/upload_fields'
+    .file-upload
+      %label Additional Documents
+      = f.simple_fields_for :uploads do |upload|
+        = render 'partials/upload_fields', f: upload
+      .links
+        = link_to_add_association 'Add file', f, :uploads, class: 'btn', partial: 'partials/upload_fields'
   .research-submit-button
     = f.button :submit, :label => 'Post Research', :value => 'Submit Research', id: 'research-submit-button'
