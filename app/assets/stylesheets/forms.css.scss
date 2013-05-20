@@ -142,8 +142,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
   }
     
   .research-submit-button {
-    padding: 1em 2em;
-    width: 97%;
+    padding: 1em 0 1em 2em;
     overflow: hidden;
     #research-submit-button {
       @include button;
