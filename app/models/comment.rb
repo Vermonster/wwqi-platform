@@ -9,9 +9,9 @@ class Comment < ActiveRecord::Base
   accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
 
   validates :details, :commentable_id, :user_id, presence: true
-  validate :missing_items
+  # validate :missing_items
 
-  before_validation :search_and_add_items
+  before_save :search_and_add_items
 
   def commentable_creator
     commentable.try(:creator) || commentable.user
