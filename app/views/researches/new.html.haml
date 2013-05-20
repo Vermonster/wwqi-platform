@@ -48,6 +48,6 @@
       %span.hint= t('simple_form.hints.research.tag_list')
     %label Additional Documents
     .links
-      = link_to_add_association 'Upload a file', f, :uploads, class: 'btn', partial: 'partials/upload_fields'
+      = link_to_add_association 'Add file', f, :uploads, class: 'btn', partial: 'partials/upload_fields'
   .research-submit-button
     = f.button :submit, :label => 'Post Research', :value => 'Submit Research', id: 'research-submit-button'
