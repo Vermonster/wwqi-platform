@@ -30,10 +30,15 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
     display: block;
   }
 
-  input.tags-input, input#research_title {
+  input.tags-input {
     padding-left: 10px;
     width: 67%;
     @include box-sizing(border-box);
+  }
+
+  input#research_title {
+    width: 90%;
+    margin-bottom: 2em;
   }
 
   span.error {
@@ -145,6 +150,9 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
   .col-1 {
     width: 59%;
     margin-right: 10%;
+    label:first-of-type {
+      margin-top: 0;
+    }
   }
 
   .col-2 {
