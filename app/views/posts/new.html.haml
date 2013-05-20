@@ -1,7 +1,10 @@
+.items-index#new-thread
+
 = simple_form_for @post do |f|
-  .row-fluid
-    .span3
-      %label Thread Type
+
+  .col-1.pull-left
+  .col-2.pull-left
+    %label Thread Type
       .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[type]"} 
         %button.btn.active{"data-toggle" => "button", :value => "Question"} Question
         %button.btn{"data-toggle" => "button", :value => "Discussion"} Discussion
@@ -77,7 +80,7 @@
         %label{for: "recipient_email"} Recipient Email
         %input#modal_recipient_email{type: 'email', required: ''}
         %label{for: "message"} Message
-        %textarea#modal_message{placeholder: 'Please type your message...'}
+        %textarea#modal_message{placeholder: 'Please type your messa`ge...'}
   .modal-footer
     %button.btn#create_invitation Invite 
     %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
