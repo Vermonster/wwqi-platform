@@ -1,12 +1,13 @@
 $ ->
   renderFunc = (ul, item) ->
     $('<li>')
-      .append("<a>#{item.label}<br><span class='email'>#{item.user_email}</span></a>")
+      .append("<a>#{item.label}<br>#{item.user_email}</a>")
       .appendTo(ul)
 
   options =
     source: '/autocomplete/users'
-    messages: 
+    minLength: 0
+    messages:
       noResults: ''
       results: ->
     open: (event, ui) ->
@@ -18,9 +19,12 @@ $ ->
       else
         group.find('input[id$="_term"]').val("")
 
-  $('input[id$="_term"]').autocomplete(options)
-    .data("autocomplete")?._renderItem = renderFunc
+  $('input[id$="_term"]')
+    .autocomplete(options)
+    .data("ui-autocomplete")?._renderItem = renderFunc
 
   $('#collaborators').on('cocoon:after-insert', (e, insertedItem) ->
-    $(insertedItem).find('input[id$="_term"]').autocomplete(options).data("autocomplete")._renderItem = renderFunc)
-
+    $(insertedItem)
+      .find('input[id$="_term"]')
+      .autocomplete(options)
+      .data("ui-autocomplete")._renderItem = renderFunc)
