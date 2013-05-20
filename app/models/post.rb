@@ -37,6 +37,14 @@ class Post < ActiveRecord::Base
   def not_private?
     !private?
   end
+
+  def can_see?(user)
+    if user.nil?
+      not_private?
+    else
+      not_private? || user == creator || collaborators.where(user_id: user.id).exists? 
+    end
+  end
   
   private
 

@@ -58,7 +58,12 @@ class PostsController < ApplicationController
         posts = posts.search_text(params[:q])
       end
 
-      set_collection_ivar(posts.decorate)
+      
+      decorated_posts = posts.decorate.select do |post|
+        post.can_see?(current_user)
+      end
+      
+      set_collection_ivar(decorated_posts)
     end
   end
 end
