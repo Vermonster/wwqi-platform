@@ -20,7 +20,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
 
   textarea, iframe {
     min-height: 200px;
-    width: 90%;
+    width: 100%;
     padding: 10px;
     @include text-input;
   }
@@ -40,7 +40,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
   }
 
   input#research_title {
-    width: 90%;
+    width: 100%;
     margin-bottom: 2em;
   }
 
