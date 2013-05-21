@@ -9,13 +9,14 @@
     = f.input :details, :input_html => { :class => 'wysihtml5' }
 
   .col-2.pull-left
+
     .related-items
       %label Is this related to specific WWQI items?
       .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[item_related]"}
         %button.btn{"data-toggle" => "button", :value => "true"} Yes
         %button.btn{"data-toggle" => "button", :value => "false"} No
       = f.input :item_related, as: :hidden
-      #items
+      .items
         .expand
           %p Enter the item name or record number:
           = f.simple_fields_for :items do |item|
@@ -30,20 +31,22 @@
         %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
         %button.btn{"data-toggle" => "button", :value => "false"} Everyone
       = f.input :private, as: :hidden
-      #collaborators
+      .collaborators
         .expand
           %p Enter Name or Email Address of Recipients
-          = f.error :collaborator
+          = f.error :collaborators
           = f.simple_fields_for :collaborators do |collaborator|
             = render 'partials/collaborator_fields', :f => collaborator
           .links-add
             .icon-plus-circle
             = link_to_add_association 'Add Collaborator', f, :collaborators, partial: 'partials/collaborator_fields'
-    #tag-list.tag-list
+
+    .tag-list
       %label= t('simple_form.labels.research.tag_list')
       .tags
         = f.input :tag_list, wrapper_html: { id: 'research-tags-list' }
       %span.hint= t('simple_form.hints.research.tag_list')
+
     .file-upload
       %label Additional Documents
       = f.simple_fields_for :uploads do |upload|
@@ -51,5 +54,6 @@
       .links-add
         .icon-plus-circle
         = link_to_add_association 'Add file', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
-  .corner-submit-button
-    = f.button :submit, :label => 'Post Research', :value => 'Submit Research', id: 'research-submit-button'
+
+  .submit-button
+    = f.button :submit, :label => 'Post Research', :value => 'Submit Research', id: 'research-submit-button', class: 'submit-button'
