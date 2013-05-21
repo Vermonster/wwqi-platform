@@ -1,86 +1,92 @@
 .items-index#new-thread
+  %h2 Start a New Thread
 
 = simple_form_for @post do |f|
 
   .col-1.pull-left
-  .col-2.pull-left
+
     %label Thread Type
-      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[type]"} 
-        %button.btn.active{"data-toggle" => "button", :value => "Question"} Question
-        %button.btn{"data-toggle" => "button", :value => "Discussion"} Discussion
-      = f.input :type, as: :hidden, input_html: { value: 'Question' }
-  %label= t('simple_form.labels.post.tag_list')
-  #tag-list.tag-list
-    .tags
-    = f.input :tag_list
-  .row-fluid
+
+    .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[type]"}
+      %button.btn.active{"data-toggle" => "button", :value => "Question"} Question
+      %button.btn{"data-toggle" => "button", :value => "Discussion"} Discussion
+
+    = f.input :type, as: :hidden, input_html: { value: 'Question' }
+
     = f.input :title, :label_html =>  { id: 'title' }, :input_html => { :class => 'span12' }
-  .row-fluid
-    %br
+
     = f.input :details, :input_html => { :class => 'span12 wysihtml5' }
-  .row-fluid
-    = f.simple_fields_for :uploads do |upload|
-      = render 'partials/upload_fields', f: upload
-    .links
-      = link_to_add_association 'add upload', f, :uploads, class: 'btn btn-inverse', partial: 'partials/upload_fields'
-  .row-fluid
-    %br
-    %br
-  .row-fluid
-    .span6
+
+  .col-2.pull-left
+
+    .related-items
       %label Is this related to specific WWQI items?
       .btn-group.items{"data-toggle" => "buttons-radio", "data-toggle-name"=> "post[item_related]"}
         %button.btn{"data-toggle" => "button", :value => "true"} Yes
         %button.btn{"data-toggle" => "button", :value => "false"} No
       = f.input :item_related, as: :hidden
-    .span6
-      %label Who do you want to ask?
+      .items
+        .expand
+          %p Search by name or id, then select from the list.
+          = f.error :items
+          = f.simple_fields_for :items do |item|
+            = render 'partials/item_fields', :f => item
+          .links-add
+            .icon-plus-circle
+            = link_to_add_association 'Add Item', f, :items, partial: 'partials/item_fields'
+
+    .tag-list
+      %label= t('simple_form.labels.post.tag_list')
+      .tags
+        = f.input :tag_list, wrapper_html: { id: 'thread-tags-list' }
+      %span.hint= t('simple_form.hints.research.tag_list')
+
+    .invite-collaborators
+      %label Invite Collaborators
       .btn-group.collaborators{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[private]"}
         %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
         %button.btn{"data-toggle" => "button", :value => "false"} Everyone
       = f.input :private, as: :hidden
-  .row-fluid
-    %br
-  .row-fluid
-    #items.span6
-      %label Search by name or id, then select from the list.
-      = f.error :items
-      = f.simple_fields_for :items do |item|
-        = render 'partials/item_fields', :f => item
-      .links
-        = link_to_add_association 'add item', f, :items, :class => 'btn btn-inverse', partial: 'partials/item_fields'
-    #collaborators.span6
-      %label Enter Name or Email Address of Recipients
-      = f.error :collaborators
-      = f.simple_fields_for :collaborators do |collaborator|
-        = render 'partials/collaborator_fields', :f => collaborator
-      .links
-        = link_to_add_association 'add collabator', f, :collaborators, :class => 'btn btn-inverse', partial: 'partials/collaborator_fields'
-  .row-fluid
+      .collaborators
+        .expand
+          %p Enter Name or Email Address of Recipients
+          = f.error :collaborators
+          = f.simple_fields_for :collaborators do |collaborator|
+            = render 'partials/collaborator_fields', :f => collaborator
+          .links-add
+            .icon-plus-circle
+            = link_to_add_association 'Add Collabator', f, :collaborators, partial: 'partials/collaborator_fields'
+
+    .file-upload
+      %label Additional Documents
+      = f.simple_fields_for :uploads do |upload|
+        = render 'partials/upload_fields', f: upload
+      .links-add
+        .icon-plus-circle
+        = link_to_add_association 'add upload', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
+
     #invitation.span6
       = f.simple_fields_for :invitations do |invitation|
         = render 'invitation_fields', :f => invitation
       .links
         = link_to_add_association 'Add Invitee', f, :invitations, style: "visibility: hidden"
-  %br
-  %br
-  %br
-  .row-fluid
-    = f.button :submit, :class => 'span4 offset4', :label => 'Post Thread', :value => 'Submit Question'
 
-#add_invitation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "NewInvitationLabel", :role => "dialog", :tabindex => "-1"}
-  .modal-header
-    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
-    %h3#NewInvitationLabel Invitation
-  .modal-body
-    %form
-      %fieldset
-        %label{for: "recipient_name"} Recipient Name
-        %input#modal_recipient_name
-        %label{for: "recipient_email"} Recipient Email
-        %input#modal_recipient_email{type: 'email', required: ''}
-        %label{for: "message"} Message
-        %textarea#modal_message{placeholder: 'Please type your messa`ge...'}
-  .modal-footer
-    %button.btn#create_invitation Invite 
-    %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
+  .submit-button
+    = f.button :submit, :class => 'span4 offset4', :label => 'Post Thread', :value => 'Submit', id:'thread-submit-button'
+
+  #add_invitation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "NewInvitationLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
+      %h3#NewInvitationLabel Invitation
+    .modal-body
+      %form
+        %fieldset
+          %label{for: "recipient_name"} Recipient Name
+          %input#modal_recipient_name
+          %label{for: "recipient_email"} Recipient Email
+          %input#modal_recipient_email{type: 'email', required: ''}
+          %label{for: "message"} Message
+          %textarea#modal_message{placeholder: 'Please type your messa`ge...'}
+    .modal-footer
+      %button.btn#create_invitation Invite
+      %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel

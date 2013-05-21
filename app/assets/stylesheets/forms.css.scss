@@ -89,7 +89,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research,
     }
   }
 
-  #collaborators, #items, #files {
+  .collaborators, .items, #files {
     overflow: hidden;
     margin: 1.5em 0 0;
    
@@ -161,10 +161,10 @@ form#new_post, form#new_research, form.edit_post, form.edit_research,
     margin-top: .75em;
   }
 
-  .corner-submit-button {
+  .submit-button {
     padding: 1em 0 1em 2em;
     overflow: hidden;
-    #research-submit-button, #correction-btn {
+    #research-submit-button, #thread-submit-button, #correction-btn {
       @include button;
       width: auto;
     }
