@@ -218,9 +218,14 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
       .filename {
         width: 45%;
         margin-left: 3%;
+        overflow: hidden;
+        text-overflow: ellipsis;
         background: none;
         border: none;
         box-shadow: none;
+        a {
+          white-space: nowrap;
+        }
       }
     }
     .links {
