@@ -17,7 +17,13 @@ ActiveAdmin.register Correction do
   index do
     selectable_column
     column :id
-    column :creator_id
+    column "Creator Name" do |r|
+      if r.creator_id && r.creator_id != 0
+        User.where("id = ?", r.creator_id).first.fullname
+      else
+        "Anonymous"
+      end
+    end
     column :item_id
     column :details
     column :created_at
@@ -25,6 +31,6 @@ ActiveAdmin.register Correction do
   end
   
   filter :item_id
-  filter :creator_id
+  filter :user_fullname, :as => :string, :label => "Creator"
   
 end

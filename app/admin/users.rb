@@ -1,6 +1,4 @@
 ActiveAdmin.register User do
-
-  decorate_with UserDecorator
   
   menu :priority => 2
 

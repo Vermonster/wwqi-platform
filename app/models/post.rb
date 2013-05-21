@@ -25,6 +25,12 @@ class Post < ActiveRecord::Base
   default_scope order('created_at DESC')
   scope :questions_and_discussions, where("type = 'Question' or type = 'Discussion'")
   scope :researches, where("type = 'Research'")
+  
+  search_methods :user_fullname_contains
+    
+  scope :user_fullname_contains, lambda { |str|
+    User.joins(:creator).where("LOWER(first_name) = LOWER(?) OR LOWER(last_name) = LOWER(?)", str, str)
+  }
 
   include PgSearch
   pg_search_scope :search_text, against: [:title, :details],

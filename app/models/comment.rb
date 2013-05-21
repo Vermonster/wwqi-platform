@@ -11,12 +11,18 @@ class Comment < ActiveRecord::Base
   validates :details, :commentable_id, :user_id, presence: true
 
   before_save :search_and_add_items
+  
+  search_methods :user_fullname_contains
+  
+  scope :user_fullname_contains, lambda { |str|
+    User.joins(:user).where("LOWER(first_name) = LOWER(?) OR LOWER(last_name) = LOWER(?)", str, str)
+  }
 
   def commentable_creator
     commentable.try(:creator) || commentable.user
   end
 
-  # Create items based on the urls in a commnet text
+  # Create items based on the urls in a comment text
   def search_and_add_items
     temp_items = Array.new
     accession_numbers = self.details.scan(/\/\/[\w]+[.]qajarwomen.org\/[^\/]+\/items\/(\w+).html/).uniq.flatten

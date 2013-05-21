@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :terms
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :terms, :fullname
   attr_accessor :terms
   
   validates :first_name, :last_name, :email, presence: true
@@ -34,7 +34,7 @@ class User < ActiveRecord::Base
     notifications.where(unread: true).decorate
   end
 
-  # Retrun full name
+  # Return full name
   def fullname
     "#{first_name} #{last_name}"
   end
