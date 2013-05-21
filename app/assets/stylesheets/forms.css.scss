@@ -208,8 +208,12 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
     .dummyfile {
       display: inline;
       float: left;
+      width: 80%;
       .fileselectbutton, .filename {
         float: left;
+      }
+      .fileselectbutton {
+        margin-top: .75em;
       }
       .filename {
         width: 45%;
@@ -222,6 +226,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
     .links {
       .icon-minus-sign {
         float: right;
+        margin-top: 1em;
       }
     }
   }
