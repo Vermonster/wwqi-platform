@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514193654) do
+ActiveRecord::Schema.define(:version => 20130521141157) do
 
   create_table "collaborators", :force => true do |t|
     t.integer  "user_id"
@@ -53,26 +53,13 @@ ActiveRecord::Schema.define(:version => 20130514193654) do
     t.string   "recipient_name"
     t.string   "recipient_email"
     t.text     "message"
+    t.integer  "post_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
-    t.string   "post_type"
-    t.integer  "post_id"
   end
-
-  add_index "invitations", ["post_id"], :name => "index_invitations_on_post_id"
-
-  create_table "item_urls", :force => true do |t|
-    t.string   "url"
-    t.integer  "post_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "item_urls", ["post_id"], :name => "index_item_urls_on_post_id"
 
   create_table "items", :force => true do |t|
     t.string   "url"
-    t.integer  "post_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.string   "name"
@@ -81,8 +68,6 @@ ActiveRecord::Schema.define(:version => 20130514193654) do
     t.integer  "itemable_id"
     t.string   "itemable_type"
   end
-
-  add_index "items", ["post_id"], :name => "index_items_on_post_id"
 
   create_table "notifications", :force => true do |t|
     t.boolean  "unread",          :default => true
@@ -103,13 +88,6 @@ ActiveRecord::Schema.define(:version => 20130514193654) do
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
     t.integer  "comments_count", :default => 0
-  end
-
-  create_table "related_items", :force => true do |t|
-    t.integer  "item_id"
-    t.integer  "post_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "taggings", :force => true do |t|
