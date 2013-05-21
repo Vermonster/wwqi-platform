@@ -11,5 +11,11 @@ class Contribution < ActiveRecord::Base
 
   accepts_nested_attributes_for :uploads, :item
   
+  search_methods :user_fullname_contains
+  
+  scope :user_fullname_contains, lambda { |str|
+    User.joins(:creator).where("LOWER(first_name) = LOWER(?) OR LOWER(last_name) = LOWER(?)", str, str)
+  }
+  
   default_scope order('created_at DESC')
 end
