@@ -140,3 +140,12 @@ input[type='text'], input[type='email'], input[type='password'] {
 label {
   margin-top: 1.5em;
 }
+
+.icon-plus-circle:before {
+  font-family: 'fontello';
+  color: $medgrey;
+  content: '\e801';
+  &:hover {
+    color: $gold;
+  }
+}

@@ -48,7 +48,8 @@
       %label Additional Documents
       = f.simple_fields_for :uploads do |upload|
         = render 'partials/upload_fields', f: upload
-      .links
-        = link_to_add_association 'Add file', f, :uploads, class: 'btn', partial: 'partials/upload_fields'
+      .links-add
+        .icon-plus-circle
+        = link_to_add_association 'Add file', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
   .research-submit-button
     = f.button :submit, :label => 'Post Research', :value => 'Submit Research', id: 'research-submit-button'

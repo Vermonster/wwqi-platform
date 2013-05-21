@@ -92,7 +92,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
     }
   }
 
-  #collaborators, #items {
+  #collaborators, #items, #files {
     overflow: hidden;
     margin: 2em 0 0;
     
@@ -112,13 +112,13 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
         display: none;
       }
     }
-    
+
     .links-add, .links-remove {
       a {
         font-size: .8em;
         margin-left: .25em;
       }
-      
+
       .icon-plus-circle:before {
         font-family: 'fontello';
         color: $medgrey;
@@ -140,7 +140,25 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
       float: right;
     }
   }
-    
+
+  .file-upload {
+    .links-add {
+      margin-top: .25em;
+      a.add-file {
+        font-size: .8em;
+        margin-left: .25em;
+        &:hover {
+          color: $gold;
+        }
+      }
+    }
+  }
+
+
+  .add-file {
+    margin-top: .75em;
+  }
+
   .research-submit-button {
     padding: 1em 0 1em 2em;
     overflow: hidden;
