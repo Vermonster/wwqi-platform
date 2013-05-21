@@ -6,12 +6,14 @@ ActiveAdmin.register Research do
     selectable_column
     column :type
     column :title
-    column :creator_id
+    column "Creator Name" do |r|
+      User.where("id = ?", r.creator_id).first.fullname
+    end
     column :created_at
     default_actions
   end
   
   filter :title
-  filter :creator_id
+  filter :user_fullname, :as => :string, :label => "Creator"
   
 end
