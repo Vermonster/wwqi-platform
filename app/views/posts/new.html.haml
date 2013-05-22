@@ -63,7 +63,7 @@
         = render 'partials/upload_fields', f: upload
       .links-add
         .icon-plus-circle
-        = link_to_add_association 'add upload', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
+        = link_to_add_association ' Add Upload', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
 
     #invitation.span6
       = f.simple_fields_for :invitations do |invitation|
