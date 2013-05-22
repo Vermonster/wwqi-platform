@@ -55,7 +55,7 @@ ActiveAdmin.setup do |config|
   #
   # This setting changes the method which Active Admin calls
   # within the controller.
-  config.authentication_method = :authenticate_admin_user!
+  config.authentication_method = :authenticate_admin
 
 
   # == Current User
@@ -93,6 +93,15 @@ ActiveAdmin.setup do |config|
   #
   # Default:
   # config.root_to = 'dashboard#index'
+  #config.root_to = 'site#index'
+  
+  config.namespace :admin do |admin|
+    admin.root_to = if :current_admin_user
+                      'dashboard#index'
+                    else 
+                      'site#index'
+                    end
+  end
 
   # == Admin Comments
   #
