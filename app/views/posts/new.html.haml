@@ -25,7 +25,7 @@
         %button.btn{"data-toggle" => "button", :value => "true"} Yes
         %button.btn{"data-toggle" => "button", :value => "false"} No
       = f.input :item_related, as: :hidden
-      .items
+      #items
         .expand
           %p Search by name or id, then select from the list.
           = f.error :items
@@ -47,7 +47,7 @@
         %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
         %button.btn{"data-toggle" => "button", :value => "false"} Everyone
       = f.input :private, as: :hidden
-      .collaborators
+      #collaborators
         .expand
           %p Enter Name or Email Address of Recipients
           = f.error :collaborators
