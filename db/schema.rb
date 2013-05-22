@@ -139,6 +139,13 @@ ActiveRecord::Schema.define(:version => 20130521202442) do
 
   add_index "posts", ["creator_id"], :name => "index_posts_on_creator_id"
 
+  create_table "related_items", :force => true do |t|
+    t.integer  "item_id"
+    t.integer  "post_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "taggings", :force => true do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
