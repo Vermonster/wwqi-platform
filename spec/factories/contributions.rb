@@ -4,5 +4,9 @@ FactoryGirl.define do
   factory :contribution do
     details { generate(:string) }
     creator
+
+    after(:create) do |contribution, evaluator|
+      create(:item, itemable: contribution)
+    end
   end
 end
