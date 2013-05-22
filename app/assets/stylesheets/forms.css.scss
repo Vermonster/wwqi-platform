@@ -147,11 +147,14 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
   }
 
   .submit-button {
-    padding: 1em 0 1em 2em;
+    padding: 1em 0 1em 1em;
     overflow: hidden;
     #research-submit-button, #thread-submit-button, #correction-btn {
       @include button;
+      padding: .75em 2em;
       width: auto;
+      height: auto;
+      line-height: 1em;
     }
   }
 

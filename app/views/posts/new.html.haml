@@ -72,7 +72,7 @@
         = link_to_add_association 'Add Invitee', f, :invitations, style: "visibility: hidden"
 
   .submit-button
-    = f.button :submit, :class => 'span4 offset4', :label => 'Post Thread', :value => 'Submit', id:'thread-submit-button'
+    = f.button :submit, :label => 'Post Thread', :value => 'Submit', id:'thread-submit-button', class: 'submit-button'
 
   #add_invitation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "NewInvitationLabel", :role => "dialog", :tabindex => "-1"}
     .modal-header
