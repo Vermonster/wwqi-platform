@@ -12,7 +12,7 @@
 
     .related-items
       %label Is this related to specific WWQI items?
-      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[item_related]"}
+      .btn-group.items{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[item_related]"}
         %button.btn{"data-toggle" => "button", :value => "true"} Yes
         %button.btn{"data-toggle" => "button", :value => "false"} No
       = f.input :item_related, as: :hidden
@@ -27,7 +27,7 @@
 
     .invite-collaborators
       %label Invite Collaborators
-      .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[private]"}
+      .btn-group.collaborators{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[private]"}
         %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
         %button.btn{"data-toggle" => "button", :value => "false"} Everyone
       = f.input :private, as: :hidden
