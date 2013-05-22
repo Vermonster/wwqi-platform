@@ -36,7 +36,8 @@ form#new_post, form#new_research, form.edit_post, form.edit_research,
 
   input.tags-input {
     padding-left: 10px;
-    width: 67%;
+    width: 100%;
+    margin-top: .25em;
     @include box-sizing(border-box);
   }
 
@@ -61,8 +62,14 @@ form#new_post, form#new_research, form.edit_post, form.edit_research,
   .tag-list {
     width: 100%;
     .tags {
+      margin-bottom: .5em;
+      overflow: hidden;
+      height: auto;
       .tag {
-        margin-top: 10px;
+        margin-left: .25em;
+        &:first-child {
+          margin-left: 0;
+        }
       }
     }
   }
