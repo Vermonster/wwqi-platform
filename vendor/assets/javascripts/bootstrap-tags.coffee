@@ -256,7 +256,7 @@ jQuery ->
           $('span', tag).mouseout ->
             tag.popover('hide')
         tagList.append tag
-      @adjustInputPosition()
+      #@adjustInputPosition()
 
     # toggles remove button opacity for a tag when moused over or out
     @toggleCloseColor = (e) ->
