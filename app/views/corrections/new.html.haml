@@ -1,7 +1,17 @@
 .items-index
   #new-correction
     %h2 Submit a correction
-    = simple_form_for resource do |f|
-      = f.input :item_id, label: 'Item record number'
-      = f.input :details, label: 'Correction'
-      = f.submit 'Submit Correction', class: 'btn', id: 'correction-btn'
+    #items.visible
+      = simple_form_for resource do |f|
+        = simple_fields_for :item do |item|
+          .item-group
+            .input
+              .item-image.pull-left
+                = image_tag 'flag.png'
+              = item.input :search, label: 'Select an item', placeholder: 'e.g. tin or 1266A16', input_html: { style: 'width:20em', style: 'margin-right:0.5em' } 
+            = item.input :url, :as => :hidden
+            = item.input :thumbnail, :as => :hidden
+            = item.input :accession_no, :as => :hidden
+            = item.input :name, :as => :hidden
+        = f.input :details, label: 'Correction'
+        = f.submit 'Submit Correction', class: 'btn', id: 'correction-btn'

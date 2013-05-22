@@ -6,7 +6,8 @@ form {
   overflow: hidden;
 }
 
-form#new_post, form#new_research, form.edit_post, form.edit_research {
+form#new_post, form#new_research, form.edit_post, form.edit_research,
+  form#new_correction {
 
   label {
     font-weight: bold;
@@ -94,7 +95,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
   #collaborators, #items, #files {
     overflow: hidden;
     margin: 1.5em 0 0;
-    
+   
     .btn-group {
       margin-top: 2em;
     }
@@ -257,5 +258,23 @@ form#new_post, form#new_research, form.edit_post, form.edit_research {
         }
       }
     }
+  }
+}
+
+form#new_correction {
+  .item-group {
+    float: none;
+
+    .item-image.pull-left {
+      height: 100%;
+      img {
+        margin-top: 100%; 
+      }
+    }
+  }
+
+  .text.correction_details {
+    clear: left;
+    max-width: 90%;
   }
 }
