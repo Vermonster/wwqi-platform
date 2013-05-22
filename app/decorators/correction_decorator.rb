@@ -8,6 +8,6 @@ class CorrectionDecorator < ContributionDecorator
   end
   
   def title
-    item_id
+    item.name
   end
 end

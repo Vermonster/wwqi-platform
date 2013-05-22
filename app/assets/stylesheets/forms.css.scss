@@ -164,10 +164,10 @@ form#new_post, form#new_research, form.edit_post, form.edit_research,
     margin-top: .75em;
   }
 
-  .research-submit-button {
+  .corner-submit-button {
     padding: 1em 0 1em 2em;
     overflow: hidden;
-    #research-submit-button {
+    #research-submit-button, #correction-btn {
       @include button;
       width: auto;
     }
@@ -275,6 +275,6 @@ form#new_correction {
 
   .text.correction_details {
     clear: left;
-    max-width: 90%;
+    max-width: 70%;
   }
 }

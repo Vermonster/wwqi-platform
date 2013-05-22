@@ -1,38 +1,25 @@
 class CorrectionsController < ContributionsController
   inherit_resources
-  before_filter :authenticate_user!, except: [:index, :new, :create]
+  skip_before_filter :authenticate_user!
+  defaults resource_class: Correction
 
-  def index
-
-  end
-  
-  def new
-    @correction = Correction.new
-    new!
-  end
-  
   def create
-    @correction = current_user ? Correction.new(params[:correction].merge(creator_id: current_user.id)) : Correction.new(params[:correction])
-    
+    @correction = Correction.new(params[:correction])
+    @correction.creator = current_user
+
     if @correction.save
-      if current_user
-        redirect_to contribution_path(@correction), 
-          notice: "Your correction was successfully submitted."
-        return
-      else
-        redirect_to contributions_path,
-          notice: "Your correction was successfully submitted."
-        return
-      end
+      redirect_to contributions_path,
+        notice: "Your correction was successfully submitted."
     else
-      render :new, notice: "Correction submission was not successful."
-      return
+      render :new, alert: "Submission was not successful."
     end
   end
-  
-  def show
-    @correction = "#{resource.type}Decorator".constantize.decorate(resource)
-    show!
+
+  private
+
+  def build_resource
+    @correction = Correction.new
+    @correction.build_item
+    set_resource_ivar(@correction)
   end
-  
 end
