@@ -45,14 +45,6 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     margin-bottom: 2em;
   }
 
-  span.error {
-    color: #fff;
-    font-weight: bold;
-    background-color: #C5112C;
-    padding: 0px 3px;
-    font-family: $fontproxima;
-  }
-
   span.ui-helper-hidden-accessible {
     font-weight: bold;
     font-family: $fontproxima;
@@ -173,6 +165,11 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     label {
       margin-top: 0;
     }
+    .field_with_errors {
+      input, textarea {
+        @include error-text-input;
+      }
+    }
   }
 
   .col-2 {
@@ -194,7 +191,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     .input {
       overflow: hidden;
       float: left;
-      input {
+      input, textarea {
         float: left;
       }
       .item-image {
