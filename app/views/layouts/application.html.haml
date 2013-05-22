@@ -35,6 +35,12 @@
                       %h2 WWQI Archive
                   %li#bullet.hidden-phone.hidden-tablet
                     %h2 &#124;
+                  - if current_user && current_user.is_admin?
+                    %li
+                      = link_to admin_root_path do
+                        %h2 Admin Panel
+                    %li#bullet.hidden-phone.hidden-tablet
+                      %h2 &#124;
                   - unless user_signed_in?
                     %li
                       = link_to new_user_registration_path do
