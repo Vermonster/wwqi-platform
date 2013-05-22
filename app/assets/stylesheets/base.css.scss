@@ -141,12 +141,22 @@ label {
   margin-top: 1.5em;
 }
 
-.icon-plus-circle:before {
+.icon-plus-circle:before, {
   font-family: 'fontello';
-  color: $medgrey;
   content: '\e801';
+}
+
+.icon-minus-circle:before {
+  font-family: 'fontello';
+  content: '\2796';
+}
+
+.icon-plus-circle, .icon-minus-circle {
+  color: $gold;
+  font-size: .9em;
   &:hover {
-    color: $gold;
+    color: $darkgold;
+    cursor: pointer;
   }
 }
 

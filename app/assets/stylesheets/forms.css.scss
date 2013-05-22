@@ -114,20 +114,6 @@ form#new_post, form#new_research, form.edit_post, form.edit_research,
       a {
         font-size: .8em;
         margin-left: .25em;
-        color: $medgrey;
-        &:hover {
-          color: $gold;
-        }
-      }
-
-      .icon-plus-circle:before {
-        font-family: 'fontello';
-        color: $medgrey;
-        content: '\e801';
-      }
-      
-      .icon-minus-circle, .icon-plus-circle {
-        color: $medgrey;
         &:hover {
           color: $gold;
         }
@@ -137,9 +123,6 @@ form#new_post, form#new_research, form.edit_post, form.edit_research,
     .links-remove {
       margin: .75em 0 0 0;
       float: right;
-      .icon-minus-circle {
-        font-size: .8em;
-      }
     }
   }
 
@@ -149,16 +132,12 @@ form#new_post, form#new_research, form.edit_post, form.edit_research,
       a.add-file {
         font-size: .8em;
         margin-left: .25em;
+        margin-top: .75em;
         &:hover {
           color: $gold;
         }
       }
     }
-  }
-
-
-  .add-file {
-    margin-top: .75em;
   }
 
   .submit-button {
@@ -244,15 +223,6 @@ form#new_post, form#new_research, form.edit_post, form.edit_research,
       overflow: hidden;
       .icon-minus-circle {
         float: right;
-        color: $medgrey;
-        font-size: .8em;
-        &:hover {
-          color: $gold;
-        }
-        &:before {
-          font-family: 'fontello';
-          content: '\2796';
-        }
       }
     }
   }
