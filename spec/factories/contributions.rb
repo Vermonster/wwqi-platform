@@ -3,7 +3,6 @@
 FactoryGirl.define do
   factory :contribution do
     details { generate(:string) }
-    item
     creator
   end
 end

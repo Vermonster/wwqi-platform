@@ -4,12 +4,11 @@ describe Contribution do
   it { should have_db_column(:type) }
   it { should validate_presence_of(:details) }
   it { should validate_presence_of(:creator_id) }
-  it { should validate_presence_of(:item_id) }
   it { should belong_to(:creator).class_name(:User) }
   it { should have_many(:uploads).dependent(:destroy) }
   it { should accept_nested_attributes_for(:uploads) }
   it { should have_many(:comments).dependent(:destroy) }
-  it { should belong_to(:item) }
+  it { should have_one(:item).dependent(:destroy) }
 
   shared_examples "a contribution" do
     let(:klass) { described_class.to_s.downcase.intern }
