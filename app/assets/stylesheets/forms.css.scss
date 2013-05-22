@@ -112,7 +112,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research,
 
     .links-add, .links-remove {
       a {
-        font-size: .8em;
+        font-size: .9em;
         margin-left: .25em;
         &:hover {
           color: $gold;
@@ -130,9 +130,9 @@ form#new_post, form#new_research, form.edit_post, form.edit_research,
     .links-add {
       margin-top: .5em;
       a.add-file {
-        font-size: .8em;
         margin-left: .25em;
         margin-top: .75em;
+        font-size: .9em;
         &:hover {
           color: $gold;
         }
