@@ -80,4 +80,31 @@ describe "authentication" do
       current_path.should == my_profile_path
     end
   end
+  
+  describe "signing in as an admin" do
+    let!(:user) do
+      create(:user, email: 'veronica_mars@gmail.com', is_admin: true)
+    end
+    
+    before do
+      sign_in(user)
+      visit '/admin'
+    end
+  
+    it "lets me visit the admin pages" do
+      page.should have_content('Dashboard')
+    end
+    
+    it "redirects to profile page on logout" do
+      click_on 'Logout'
+      current_path.should == '/me'
+    end
+  end
+  
+  describe "visiting pages without signing in" do
+    it "redirects if there is no current user" do
+      visit '/admin'
+      current_path.should == '/'
+    end
+  end
 end
