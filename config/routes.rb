@@ -3,7 +3,6 @@ WwqiPlatform::Application.routes.draw do
   get "autocomplete/users"
 
   devise_for :users, controllers: { registrations: 'registrations', sessions: 'sessions' }
-  ActiveAdmin.routes(self)
 
   resources :users do
     resources :notifications
@@ -25,8 +24,11 @@ WwqiPlatform::Application.routes.draw do
   
   resources :corrections
   
+  match "/admin" => "admin/dashboard#index"
   match "/me" => "profile#show", :as => 'my_profile'
   match "/me/notifications" => "profile#notifications", :as => 'my_notifications'
 
   root :to => 'site#index'
+  
+  ActiveAdmin.routes(self)
 end
