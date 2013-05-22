@@ -13,9 +13,9 @@
 
     = f.input :type, as: :hidden, input_html: { value: 'Question' }
 
-    = f.input :title, :label_html =>  { id: 'title' }, :input_html => { :class => 'span12' }
+    = f.input :title, :label_html =>  { id: 'title' }
 
-    = f.input :details, :input_html => { :class => 'span12 wysihtml5' }
+    = f.input :details, :input_html => { :class => 'wysihtml5' }
 
   .col-2.pull-left
 
@@ -63,7 +63,7 @@
         = render 'partials/upload_fields', f: upload
       .links-add
         .icon-plus-circle
-        = link_to_add_association 'Add Upload', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
+        = link_to_add_association 'Add Upload', f, :uploads, partial: 'partials/upload_fields'
 
     #invitation.span6
       = f.simple_fields_for :invitations do |invitation|
