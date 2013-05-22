@@ -3,8 +3,8 @@ $ ->
     do (page) ->
       $(".#{page}_tag_list").hide()
 
-        promptText: 'For each tag, type in a name and press enter.'
       $('.tag-list').tags
+        #promptText: 'For each tag, type in a name and press enter.'
         tagClass: 'btn-inverse'
 
       $('.tag-list').on 'keypress', (e) ->
