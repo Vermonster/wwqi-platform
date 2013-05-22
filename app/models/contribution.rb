@@ -8,7 +8,7 @@ class Contribution < ActiveRecord::Base
 
   validates :details, presence: true
   validates :creator_id, :presence => true, :unless => Proc.new {|contribution| contribution.type == "Correction"}
-
+  
   accepts_nested_attributes_for :uploads, :item
   
   search_methods :user_fullname_contains
