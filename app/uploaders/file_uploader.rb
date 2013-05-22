@@ -20,12 +20,6 @@ class FileUploader < CarrierWave::Uploader::Base
     "#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
   end
 
-  # before :cache, :check_file_size
-
-  def check_file_size(new_file)
-    raise Exception.new("#{new_file.original_filename} is over 2MB") if new_file.size > 2.megabytes
-  end
-
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
