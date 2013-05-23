@@ -26,15 +26,16 @@ $ ->
       $div = $("##{grp}")
       
       $(".btn-group.#{grp} button").on 'click', (e) ->
-        if e.target.value is "true"
+        if e.target.value is "false"
           $div.addClass('hidden')
         else
           $div.removeClass('hidden')
 
       if $(".btn-group.#{grp} button[value='true']").hasClass('active')
-        $div.addClass('hidden')
-      else
         $div.removeClass('hidden')
+      else
+        $div.addClass('hidden')
+
 
   # re-populate images after page refresh
   $('.item-group .item-image img').each (i, img) ->
