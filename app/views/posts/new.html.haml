@@ -15,7 +15,7 @@
   .row-fluid
     %br
     = f.input :details, :input_html => { :class => 'span12 wysihtml5' }
-  .row-fluid
+  .file-upload.row-fluid
     = f.simple_fields_for :uploads do |upload|
       = render 'partials/upload_fields', f: upload
     .links
