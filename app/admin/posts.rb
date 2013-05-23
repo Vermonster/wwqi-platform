@@ -1,13 +1,13 @@
 ActiveAdmin.register Post do
   
-  menu :priority => 3
+  menu :priority => 3, :label => 'Threads'
   
   index do
     selectable_column
     column :type
     column :title
-    column "Creator Name" do |r|
-      User.where("id = ?", r.creator_id).first.fullname
+    column "Created By" do |p|
+      p.creator.fullname
     end
     column :created_at
     default_actions
@@ -15,5 +15,4 @@ ActiveAdmin.register Post do
   
   filter :title
   filter :user_fullname, :as => :string, :label => "Creator"
-
 end

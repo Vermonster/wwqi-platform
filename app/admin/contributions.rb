@@ -1,6 +1,7 @@
 ActiveAdmin.register Contribution do
 
   menu :priority => 5
+  decorate_with ContributionDecorator
   
   index do
     selectable_column
@@ -12,12 +13,12 @@ ActiveAdmin.register Contribution do
         "Anonymous"
       end
     end
-    column :item_id
+    column :title
     column :details
     column :created_at
     default_actions
   end
   
-  filter :item_id
+  filter :title
   filter :user_fullname, :as => :string, :label => "Creator"
 end

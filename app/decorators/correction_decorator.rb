@@ -6,8 +6,4 @@ class CorrectionDecorator < ContributionDecorator
        "Anonymous contributed a correction for"
     end
   end
-  
-  def title
-    item.name
-  end
 end
