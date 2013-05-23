@@ -438,7 +438,7 @@
       /*}*/
     /*}*/
     #sign-in-main {
-      margin: 0;
+      margin: 2% -4% -4%;
       background: $lightgrey;
       .forms {
         margin: 0 auto;
@@ -449,6 +449,7 @@
           padding: 50px 6%;
           width: 38%;
           form {
+            overflow: visible;
             h2 {
               color: $gold;
               font-weight: 300;
@@ -469,7 +470,7 @@
               color: $medgrey;
             }
             input, .text-input {
-              width: 96%;
+              width: 87%;
               @include text-input;
             }
             .field_with_errors {
