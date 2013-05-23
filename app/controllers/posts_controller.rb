@@ -11,12 +11,36 @@ class PostsController < ApplicationController
   end
 
   def create
+    # Check the upload files if there is an oversized file.
+    # If there is, it removes it from the param and store the 
+    # name of the file at the array
+    unless params.empty? && params[:post][:uploads_attributes].empty?
+      big_size_files = Array.new
+      params[:post][:uploads_attributes].each do |key, upload|
+        if upload[:content].size > 2.megabytes
+          big_size_files.push upload[:content].original_filename
+          params[:post][:uploads_attributes].delete key
+        end
+      end
+    end
+
     @post = Post.new(params[:post])
     @post.creator = current_user
 
-    if @post.save
-      redirect_to post_path(@post), notice: "Thread was successfully posted."
+    # If the array has a item, it redirects to the new page with a 
+    # notice telling there is one or more oversized file.
+    # Oterwise, it validates parameters and saves.
+    if big_size_files.empty?
+      if @post.save
+        redirect_to post_path(@post), notice: "Thread was successfully posted."
+      else
+        render :new
+      end
     else
+      flash[:alert] = "The following files are over 2MB: "
+      big_size_files.each do |name|
+        flash[:alert] << " [#{name}] "
+      end
       render :new
     end
   end
