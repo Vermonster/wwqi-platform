@@ -1,3 +1,4 @@
+@import 'variables';
 .comments {
   .comment {
     float: left;
@@ -5,9 +6,10 @@
     margin: 5px 0px;
     padding: 10px;
     .item-content {
+      width: 93%;
       .item-created {
-        padding: 2px 4px;
-        background-color: gainsboro;
+        padding-bottom: 1em;
+        color: $gold;
         font-family: "proxima-nova", sans-serif;
       }
     }
