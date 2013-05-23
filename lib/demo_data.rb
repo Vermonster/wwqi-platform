@@ -27,6 +27,12 @@ module DemoData
                        first_name: 'Steve',
                        last_name: 'Nash',
                        email: 'user3@example.com')
+
+    FactoryGirl.create(:user
+                       first_name: 'Ryan',
+                       last_name: 'Seacrest',
+                       email: 'admin@example.com',
+                       is_admin: true)
   end
 
   def self.load_content
