@@ -1,6 +1,7 @@
 ActiveAdmin.register Biography do
 
   menu :parent => "Contributions"
+  decorate_with BiographyDecorator
   
   index do
     selectable_column
@@ -8,12 +9,11 @@ ActiveAdmin.register Biography do
     column "Creator" do |r|
       User.where("id = ?", r.creator_id).first.fullname
     end
-    column :item_id
+    column :title
     column :created_at
     default_actions
   end
   
-  filter :item_id
+  filter :title
   filter :user_fullname, :as => :string, :label => "Creator"
-    
 end

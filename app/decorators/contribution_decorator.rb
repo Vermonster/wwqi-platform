@@ -25,4 +25,8 @@ class ContributionDecorator < Draper::Decorator
   def title
     item.name
   end
+
+  def image
+    h.image_tag item.thumbnail_src
+  end
 end

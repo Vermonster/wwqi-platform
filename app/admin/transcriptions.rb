@@ -1,6 +1,7 @@
 ActiveAdmin.register Transcription do
 
   menu :parent => "Contributions"
+  decorate_with TranscriptionDecorator
   
   index do
     selectable_column
@@ -8,12 +9,12 @@ ActiveAdmin.register Transcription do
     column "Creator Name" do |r|
       User.where("id = ?", r.creator_id).first.fullname
     end
-    column :item_id
+    column :title
     column :created_at
     default_actions
   end
   
-  filter :item_id
+  filter :title
   filter :user_fullname, :as => :string, :label => "Creator"
   
 end
