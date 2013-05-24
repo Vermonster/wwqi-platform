@@ -28,11 +28,14 @@
 @mixin item-created {
   float: left;
   font-size: .85em;
-  color: $gold;
-  font-weight: 600;
+  color: $medgrey;
+  font-weight: 300;
   margin: 0 10px .25em 0;
   line-height: 1em;
   @include proxima-bold;
+  &:first-letter {
+    text-transform: uppercase;
+  }
 }
 
 @mixin item-title {
