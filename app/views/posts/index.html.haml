@@ -1,9 +1,5 @@
 .items-index
   .intro
-    - if current_page?(controller: 'threads')
-      %h2 Questions &amp; Discussions
-    - else
-      %h2 Research in Progress
     = form_tag collection_path, class: "navbar-search pull-left", id: 'post_search', method: :get do |f|
       = search_field_tag :q, params[:q], placeholder: t(".#{resource_name}.placeholder"), class: "pull-left"
       = submit_tag "Search", { class: "btn" }
