@@ -581,8 +581,6 @@
       float: left;
       color: #FFF;
       text-shadow: none;
-      border-radius-bottom-left: 0;
-      border-radius-top-left: 0;
       p {
         margin-bottom: 0;
       }
@@ -595,6 +593,12 @@
     background: $darkgrey;
     height: 23px;
     line-height: 1.75em;
+    &:hover {
+      background: #000;
+      border-top: $lightgrey 2px solid inset;
+      @include transition-property(background, border);
+      @include transition-duration(.2s);
+    }
     .icon-right-open-mini {
       color: white;
       margin-left: .5em;
