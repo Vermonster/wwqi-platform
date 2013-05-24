@@ -8,8 +8,9 @@
     = search_field_tag :q, params[:q], placeholder: t(".#{resource_name}.placeholder"), class: "search-query pull-left"
     = submit_tag "Search", { class: "btn" }
 
-  .btn.pull-right
-    = link_to t(".#{resource_name}.new"), new_resource_path
+    .btn.new.pull-right
+      = link_to t(".#{resource_name}.new"), new_resource_path
+      .icon-right-open-mini
 
   %ul.thread-type.btn-group
     %li.btn{class: current_page?(action: 'index', followed: nil) && !current_page?(action: 'index', followed: 'true') && 'active'}

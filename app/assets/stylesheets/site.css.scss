@@ -591,6 +591,20 @@
   .btn {
     @include action-button;
   }
+  .new {
+    background: $darkgrey;
+    height: 23px;
+    line-height: 1.75em;
+    .icon-right-open-mini {
+      color: white;
+      margin-left: .5em;
+      font-size: 1.25em;
+      &:before {
+        font-family: 'fontello';
+        content: '\e762';
+      }
+    }
+  }
   .thread-type {
     display: block;
     width: 100%;
@@ -685,6 +699,7 @@
         }
         .item-created, .item-comments, p {
           @include item-created;
+          font-weight: 300;
           &:first-child {
             margin-right: 0;
           }
