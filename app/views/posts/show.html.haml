@@ -4,7 +4,8 @@
       .item-image.pull-left
         =image_tag avatar_url(resource.creator)
       .item-created.pull-left
-        = "#{resource.created_ago}, #{resource.header}"
+        %p
+          = "#{resource.created_ago}, #{resource.header}"
     .item-title
       = resource.title
     .item-details

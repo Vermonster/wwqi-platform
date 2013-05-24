@@ -2,15 +2,30 @@
 .comments {
   .comment {
     float: left;
-    width: 600px;
-    margin: 5px 0px;
-    padding: 10px;
+    padding: 1.75em 0;
+    margin: 0 2em;
+    width: 87%;
+    border-bottom: 1px solid $lightgrey;
     .item-content {
       width: 93%;
+      line-height: 1.5em;
       .item-created {
         padding-bottom: 1em;
         color: $gold;
-        font-family: "proxima-nova", sans-serif;
+        font-size: .75em;
+        font-weight: 300;
+      }
+    }
+    .item-bottom {
+      float: right;
+      a {
+        font-size: .8em;
+        font-weight: 600;
+        font-family: $fontproxima;
+        color: $medgrey;
+        &:hover {
+          color: $gold;
+        }
       }
     }
   }
@@ -20,4 +35,8 @@
   iframe.wysihtml5-sandbox {
     width: 752px !important;
   }
+}
+
+.item-details .wysiwyg {
+  line-height: 1.65em;
 }

@@ -704,6 +704,7 @@
         .item-created, .item-comments, p {
           @include item-created;
           font-weight: 300;
+          color: $medgrey;
           &:first-child {
             margin-right: 0;
           }

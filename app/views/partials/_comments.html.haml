@@ -18,7 +18,7 @@
                 %li.span1
                   .thumbnail{ title: "#{i.name}" }
                     = image_tag i.thumbnail, size: "50x50", "data-src" => "holder.js/50x50"
-          = link_to "Edit", edit_post_comment_path(resource, c), {class: 'btn btn-inverse'} if current_user == c.user
+          = link_to "edit", edit_post_comment_path(resource, c), {class: ''} if current_user == c.user
 .comment-box.span12
   - if user_signed_in?
     .item-image.pull-left
