@@ -727,6 +727,16 @@
       }
     }
   }
+  &.profile {
+    .item-image {
+      margin: 0 1em 2em 0;
+      float: left;
+    }
+    h4 {
+      margin: 2.25em 0 2em;
+      float: left;
+    }
+  }
   .intro {
     p {
       margin-bottom: 1.75em;

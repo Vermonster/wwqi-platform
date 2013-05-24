@@ -1,4 +1,6 @@
-%h2 #{current_user.first_name} #{current_user.last_name}
+.item-image
+  =image_tag avatar_url(current_user)
+%h4 #{current_user.first_name} #{current_user.last_name}
 
 %ul.thread-type.btn-group
   %li.btn.pull-left{class: current_page?(action: 'show', type: nil) && !current_page?(action: 'show', type: 'threads') && !current_page?(action: 'show', type: 'researches') && !current_page?(action: 'show', type: 'contributions') && 'active'}

@@ -1,11 +1,9 @@
-.items-index.row
+.items-index.profile
   = render 'profile_header'
       
   %ul.items
     - @resources.each do |resource|
       %li
-        .item-image.pull-left
-          =image_tag avatar_url(resource.creator)
         .item-content
           .item-header
             = resource.header
