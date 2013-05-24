@@ -29,7 +29,7 @@
         = f.submit t("#{klass_name}.submit"), { class: "btn pull-right" }
   - else
     .black-box
-      %p You have to sign in to comment. Sign in #{link_to 'here', new_user_session_path}
+      %p To comment on this post, please #{link_to 'sign in', new_user_session_path}.
 :coffeescript
   $( ->
     $('.thumbnail').mouseover (event) ->

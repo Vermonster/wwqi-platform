@@ -884,12 +884,18 @@
 }
 
 .black-box {
-  padding: 10px;
+  padding: 2em;
+  background: $lightgrey;
+  text-align: center;
   p {
-    font-style: italic; 
-    color: #000;
+    font-family: $fontproxima;
+    font-weight: 500;
+    color: $medgrey;
     a {
-      color: red;
+      color: $gold;
+      &:hover {
+        color: $darkgold;
+      }
     }
   }
 }

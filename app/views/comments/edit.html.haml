@@ -1,4 +1,4 @@
-.comment-box.span12
+.comment-box
   -if user_signed_in?
     .item-image.pull-left
       = image_tag avatar_url(current_user)
@@ -8,4 +8,4 @@
         = f.submit
   - else
     .black-box
-      %p You have to sign in to comment. Sign in #{link_to 'here', new_user_session_path}
+      %p To comment on this post, please #{link_to 'sign in', new_user_session_path}.
