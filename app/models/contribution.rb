@@ -2,7 +2,7 @@ class Contribution < ActiveRecord::Base
   include AssociateItems
 
   attr_accessible :details, :uploads_attributes, :item_relation_attributes, :creator_id, :type
-  
+
   belongs_to :creator, class_name: 'User'
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :uploads, as: :uploadable, dependent: :destroy

@@ -5,25 +5,46 @@
     %h3 There are numerous ways you can contribute.
 
     %ul.thread-type.btn-group
-      %li.btn.active.pull-left
-        = link_to 'Transcribe a document'
-      %li.btn.pull-left
-        = link_to 'Translate a document'
-      %li.btn.pull-left
-        = link_to 'Write a biography'
+      %li{class: "btn #{'active' if params[:type] == "transcription"} pull-left"}
+        = link_to 'Transcribe a document', contributions_path(type: 'transcription')
+      %li{class: "btn #{'active' if params[:type] == 'translation'} pull-left"}
+        = link_to 'Translate a document', contributions_path(type: 'translation')
+      %li{class: "btn #{'active' if params[:type] == 'biography'} pull-left"}
+        = link_to 'Write a biography', contributions_path(type: 'biography')
       %li.btn.pull-left
         = link_to 'Submit a correction', new_correction_path
   #contributions-content
     #contribution-list
-      %h4 Items in need of transcription
+      %h4= "Items in need of #{params[:type]}".titleize
       %p.feed-intro= t('contributions.transcription.intro') 
+      %p
+        - case params[:type]
+        - when 'transcription'
+          = "Asking transcription contribution for selected by admin"
+        - when 'translation'
+          = "Asking translation contribution for selected by admin"
+        - when 'biography'
+          = "Asking biography contribution for selected by admin"
       %ul.items
+        - unless @items.empty?
+          - @items.each do |item|
+            %li
+              .item-image.pull-left
+                = image_tag item.thumbnail ||= 'flag.png'
+              .itme-content.pull-left
+                .item-title
+                  = item.name
+              .transcribe.btn.pull-left
+                = link_to params[:type].titleize, new_contribution_path(type: params[:type], item: item)
+        -else
+          %li
+          %p= "No items in need of #{params[:type]}"
         %li
           .item-image.pull-left
           .item-content.pull-left
             .item-title Publication permit for Zaban-i zanan, 4 March 1944
           .transcribe.btn.pull-right
-            = link_to 'Transcribe'
+            = link_to 'Transcribe', new_contribution_path(type: params[:type])
         %li
           .item-image.pull-left
           .item-content.pull-left

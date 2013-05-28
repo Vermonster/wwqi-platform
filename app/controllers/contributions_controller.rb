@@ -5,13 +5,26 @@ class ContributionsController < ApplicationController
 
   def show
     @contribution = "#{resource.type}Decorator".constantize.decorate(resource)
+    @contribution.item = Item.find(@contribution.item_id)
     show!
   end
 
-  def create
-    @contribution = Contribution.new(params[:contribution].merge(
-      creator_id: current_user.id))
+  def index
+    # Recently created or updated contributions
+    @contributions = Contribution.where('type =?', params[:type] ||= 'transcription')
 
+    # All items for now. It will select the items that are selected by admin
+    @items = Item.all
+  end
+
+  def new
+    @contribution = "#{params[:type]}".titleize.constantize.new
+    @contribution.item = Item.find(params[:item])
+  end
+
+  def create
+    @contribution = "#{params[:type]}".constantize.new(params["#{params[:type]}".downcase])
+    @contribution.creator = current_user
     if @contribution.save
       redirect_to contribution_path(@contribution), 
         notice: "Your contribution was successfully submitted."
