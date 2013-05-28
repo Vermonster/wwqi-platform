@@ -85,7 +85,14 @@
       float: none;
       text-align: center;
     }
+    .btn {
+      background-color: transparent;
+      text-shadow: none;
+      border: none;
+      background-image: none;
+    }
     a.icon-menu {
+      box-shadow: none;
       float: right;
       margin: 5% 5% 0 0;
       font-size: 1.5em;
