@@ -59,24 +59,25 @@
                   = nav_link 'Research-in-Progress', researches_path, 'researches'
                   = nav_link 'Contributions', contributions_path, ['contributions', 'corrections']
               - if user_signed_in?
-                #notifications-wrapper.pull-right
-                  = link_to 'My Profile', my_profile_path, { :class => "pull-right" }
-                  .dropdown.pull-right
-                    %a.dropdown-toggle{:"data-toggle" => "dropdown", role: "button"}
-                      #notifications.pull-right
-                        .icon-notification
-                        .notification-count
-                          %p= current_user.unread_notifications.size
-                    %ul.dropdown-menu{role: "menu", "aria-labeledby" => "dLabel"}
-                      %li
-                        %p Notifications
-                      - if current_user.unread_notifications.present?
-                        - current_user.unread_notifications.each do |n|
+                #notifications-outer-wrapper
+                  #notifications-inner-wrapper
+                    = link_to 'My Profile', my_profile_path, { :class => "pull-right" }
+                    .dropdown.pull-right
+                      %a.dropdown-toggle{:"data-toggle" => "dropdown", role: "button"}
+                        #notifications.pull-right
+                          .icon-notification
+                          .notification-count
+                            %p= current_user.unread_notifications.size
+                      %ul.dropdown-menu{role: "menu", "aria-labeledby" => "dLabel"}
+                        %li
+                          %p Notifications
+                        - if current_user.unread_notifications.present?
+                          - current_user.unread_notifications.each do |n|
+                            %li
+                              %p= n.link
+                        - else
                           %li
-                            %p= n.link
-                      - else
-                        %li 
-                          %p You have no notifications
+                            %p You have no notifications
       #main-content
         .container
           = flash_messages
