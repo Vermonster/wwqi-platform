@@ -6,10 +6,10 @@ class Post < ActiveRecord::Base
   has_many :uploads, as: :uploadable, dependent: :destroy
   has_many :followings, as: :followable, dependent: :destroy
   has_many :followers, through: :followings, class_name: :User
-  has_many :items, as: :itemable, dependent: :destroy
+  has_many :item_relations, as: :itemable, dependent: :destroy
   has_many :collaborators, dependent: :destroy
   has_many :invitations, dependent: :destroy
-  attr_accessible :title, :details, :item_related, :private, :creator_id, :type, :tag_list, :uploads_attributes, :items_attributes, :collaborators_attributes, :invitations_attributes
+  attr_accessible :title, :details, :item_related, :private, :creator_id, :type, :tag_list, :uploads_attributes, :item_relations_attributes, :collaborators_attributes, :invitations_attributes
   delegate :fullname, to: :creator, prefix: true
 
   validates :title, :details, :creator_id, presence: true
@@ -18,7 +18,7 @@ class Post < ActiveRecord::Base
   before_validation :mark_empty_collaborator_for_removal
 
   accepts_nested_attributes_for :uploads, allow_destroy: true, reject_if: :all_blank
-  accepts_nested_attributes_for :items, :reject_if => :not_item_related?, :allow_destroy => true
+  accepts_nested_attributes_for :item_relations, :reject_if => :not_item_related?, :allow_destroy => true
   accepts_nested_attributes_for :collaborators, :reject_if => :not_private?, :allow_destroy => true
   accepts_nested_attributes_for :invitations, reject_if: :all_blank, allow_destroy: true
 
@@ -70,10 +70,10 @@ class Post < ActiveRecord::Base
   end
 
   def item_duplication
-    unique = items.map(&:accession_no).uniq.length
+    unique = item_relations.map(&:item).map(&:accession_no).uniq.length
 
-    if items.length != unique
-      errors.add(:items, 'You have duplicate items listed.')
+    if item_relations.length != unique
+      errors.add(:item_relations, 'You have duplicate items listed.')
     end
   end
 
