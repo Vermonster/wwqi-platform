@@ -1,0 +1,12 @@
+#new-correction
+  %h2= "New #{resource.type}"
+  %h3= "You are submitting a  #{resource.type} for "
+  .item-group
+    .item-image.pull-left
+      = image_tag resource.item.thumbnail
+      = resource.item.name
+  .span-12
+    = simple_form_for resource, url: contributions_path(type: resource.type) do |f|
+      = f.input :item_id, as: :hidden, input_html: { value: resource.item.id }
+      = f.input :details, label: resource.type, input_html: { class: 'wysihtml5' }
+      = f.submit "Submit #{resource.type}", class: 'btn'
