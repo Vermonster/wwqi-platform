@@ -28,7 +28,7 @@ module DemoData
                        last_name: 'Nash',
                        email: 'user3@example.com')
 
-    FactoryGirl.create(:user
+    FactoryGirl.create(:user,
                        first_name: 'Ryan',
                        last_name: 'Seacrest',
                        email: 'admin@example.com',
