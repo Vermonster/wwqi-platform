@@ -1,12 +1,11 @@
 .items-index
-  .intro
-    = form_tag collection_path, class: "navbar-search pull-left", id: 'post_search', method: :get do |f|
-      = search_field_tag :q, params[:q], placeholder: t(".#{resource_name}.placeholder"), class: "pull-left"
-      = submit_tag "Search", { class: "btn" }
+  .btn.new.pull-right
+    = link_to t(".#{resource_name}.new"), new_resource_path
+    .icon-right-open-mini
 
-    .btn.new.pull-right
-      = link_to t(".#{resource_name}.new"), new_resource_path
-      .icon-right-open-mini
+  = form_tag collection_path, class: "navbar-search pull-left", id: 'post_search', method: :get do |f|
+    = search_field_tag :q, params[:q], placeholder: t(".#{resource_name}.placeholder"), class: "pull-left"
+    = submit_tag "Search", { class: "btn" }
 
   %ul.thread-type.btn-group
     %li.btn{class: current_page?(action: 'index', followed: nil) && !current_page?(action: 'index', followed: 'true') && 'active'}
