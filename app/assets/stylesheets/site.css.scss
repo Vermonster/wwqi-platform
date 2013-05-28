@@ -85,12 +85,22 @@
       float: none;
       text-align: center;
     }
-    a.btn.btn-navbar {
+    a.icon-menu {
       float: right;
-      top: 3%;
-      background: $gold;
-      border: none;
+      margin: 15% 15% 0 0;
+      font-size: 1.5em;
       @include box-shadow(rgba(0, 0, 0, 0.2) 0 -2px 4px inset);
+      &:before {
+        color: $gold;
+        content: '\e802';
+        font-family: 'fontello';
+      }
+      &:hover {
+        cursor: pointer;
+        &:before {
+          color: $darkgold;
+        }
+      }
       @media (min-width: 768px) {
         display: none;
       }
