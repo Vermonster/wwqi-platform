@@ -288,6 +288,11 @@
         color: $lightgrey;
         border-top: none;
         font-size: .75em;
+        &:hover {
+          opacity: .5;
+          @include transition-property(opacity);
+          @include transition-duration(.2s);
+        }
       }
       @media (max-width: 767px) {
         margin: .5em 1em;
@@ -309,12 +314,21 @@
         #notifications {
           cursor: pointer;
           margin-right: 1.25em;
+          &:hover {
+            .icon-notification {
+              color: $darkgold;
+              @include transition-property(color);
+              @include transition-duration(.2s);
+            }
+          }
           .icon-notification:before {
             font-family: "fontello";
             content: "\e106";
             font-size: 1.75em;
-            color: $gold;
             @include flip;
+          }
+          .icon-notification {
+            color: $gold;
           }
           .notification-count {
             top: -3px;
@@ -808,6 +822,9 @@
             &:hover {
               color: $lightgrey;
             }
+          }
+          .icon-plus-circle:hover {
+            color: $lightgrey;
           }
         }
       }
