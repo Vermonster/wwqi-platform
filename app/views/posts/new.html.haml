@@ -28,7 +28,7 @@
       #items
         .expand
           %p Search by name or id, then select from the list.
-          = f.error :items
+          = f.error :item_relations
           = f.simple_fields_for :item_relations do |item|
             = render 'partials/item_fields', :f => item
           .links-add

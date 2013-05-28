@@ -5,7 +5,8 @@ class Comment < ActiveRecord::Base
   belongs_to :commentable, polymorphic: true, counter_cache: true
   has_many :uploads, as: :uploadable
   has_many :notifications, as: :notifiable
-  has_many :items, as: :itemable, dependent: :destroy
+  has_many :item_relations, as: :itemable, dependent: :destroy
+  has_many :items, through: :item_relations
   accepts_nested_attributes_for :items, reject_if: :all_blank, allow_destroy: true
 
   validates :details, :commentable_id, :user_id, presence: true

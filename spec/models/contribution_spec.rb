@@ -8,7 +8,8 @@ describe Contribution do
   it { should have_many(:uploads).dependent(:destroy) }
   it { should accept_nested_attributes_for(:uploads) }
   it { should have_many(:comments).dependent(:destroy) }
-  it { should have_one(:item).dependent(:destroy) }
+  it { should have_one(:item_relation).dependent(:destroy) }
+  it { should have_one(:item).through(:item_relation) }
 
   shared_examples "a contribution" do
     let(:klass) { described_class.to_s.downcase.intern }

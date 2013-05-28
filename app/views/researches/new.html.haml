@@ -19,11 +19,12 @@
       #items
         .expand
           %p Enter the item name or record number:
-          = f.simple_fields_for :items do |item|
+          = f.error :item_relations
+          = f.simple_fields_for :item_relations do |item|
             = render 'partials/item_fields', :f => item
           .links-add
             .icon-plus-circle
-            = link_to_add_association 'Add Item', f, :items, partial: 'partials/item_fields'
+            = link_to_add_association 'Add Item', f, :item_relations, partial: 'partials/item_fields'
 
     .invite-collaborators
       %label Invite Collaborators

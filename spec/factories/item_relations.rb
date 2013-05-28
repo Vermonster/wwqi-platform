@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :item_relation do
-    item
     association :itemable, factory: :question
+    item
   end
 end

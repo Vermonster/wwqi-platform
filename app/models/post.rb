@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
   has_many :followings, as: :followable, dependent: :destroy
   has_many :followers, through: :followings, class_name: :User
   has_many :item_relations, as: :itemable, dependent: :destroy
+  has_many :items, through: :item_relations
   has_many :collaborators, dependent: :destroy
   has_many :invitations, dependent: :destroy
   attr_accessible :title, :details, :item_related, :private, :creator_id, :type, :tag_list, :uploads_attributes, :item_relations_attributes, :collaborators_attributes, :invitations_attributes
@@ -70,7 +71,7 @@ class Post < ActiveRecord::Base
   end
 
   def item_duplication
-    unique = item_relations.map(&:item).map(&:accession_no).uniq.length
+    unique = item_relations.map(&:accession_no).uniq.length
 
     if item_relations.length != unique
       errors.add(:item_relations, 'You have duplicate items listed.')
