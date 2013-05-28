@@ -5,6 +5,7 @@ class Contribution < ActiveRecord::Base
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :uploads, as: :uploadable, dependent: :destroy
   has_one :item_relation, as: :itemable, dependent: :destroy
+  has_one :item, through: :item_relation
 
   validates :details, presence: true
   validates :creator_id, :presence => true, :unless => Proc.new {|contribution| contribution.type == "Correction"}

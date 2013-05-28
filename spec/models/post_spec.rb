@@ -8,16 +8,17 @@ describe Post do
   it { should validate_presence_of(:creator_id) }
   it { should have_many(:uploads).dependent(:destroy) }
   it { should have_many(:comments).dependent(:destroy) }
-  it { should have_many(:items).dependent(:destroy) }         # for Item URL
-  it { should have_many(:collaborators).dependent(:destroy) } # for Collaborator
+  it { should have_many(:item_relations) }
+  it { should have_many(:items).through(:item_relations) }
+  it { should have_many(:collaborators).dependent(:destroy) }
   it { should respond_to(:item_related?) }
   it { should respond_to(:private?) }
   it { should belong_to(:creator).class_name(:User) }
   it { should have_many(:followings).dependent(:destroy) }
   it { should have_many(:followers).through(:followings).class_name(:User) }
   it { should accept_nested_attributes_for(:uploads) }
-  it { should accept_nested_attributes_for(:items) }          # for Item URL 
-  it { should accept_nested_attributes_for(:collaborators) }  # for Collaborator 
+  it { should accept_nested_attributes_for(:item_relations) }
+  it { should accept_nested_attributes_for(:collaborators) }
 
   shared_examples "a post" do
     let(:klass) { described_class.to_s.downcase.intern }
@@ -40,8 +41,13 @@ describe Post do
       it "does not create items when item_related is false" do
         user = create(:user)
         attrs = attributes_for(klass, item_related: false).merge({
-          :items_attributes => [
-            attributes_for(:item)
+          :item_relations_attributes => [
+            attributes_for(:item_relation).merge(
+              :url => 'waa',
+              :thumbnail => 'waa',
+              :name => 'waa',
+              :accession_no => 'waa'
+            )
         ]})
         post = described_class.new(attrs)
         post.creator_id = user.id
@@ -53,8 +59,13 @@ describe Post do
       it "creates items when item_related is true" do
         user = create(:user)
         attrs = attributes_for(klass, item_related: true).merge({
-          :items_attributes => [
-            attributes_for(:item)
+          :item_relations_attributes => [
+            attributes_for(:item_relation).merge(
+              :url => 'waa',
+              :thumbnail => 'waa',
+              :name => 'waa',
+              :accession_no => 'waa'
+            )
         ]})
         post = described_class.new(attrs)
         post.creator_id = user.id

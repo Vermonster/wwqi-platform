@@ -6,6 +6,5 @@ FactoryGirl.define do
     name { generate(:string) }
     thumbnail { generate(:string) }
     accession_no { generate(:number) }
-    association :itemable, factory: :question
   end
 end
