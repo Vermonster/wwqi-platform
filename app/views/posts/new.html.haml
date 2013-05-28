@@ -29,11 +29,11 @@
         .expand
           %p Search by name or id, then select from the list.
           = f.error :items
-          = f.simple_fields_for :items do |item|
+          = f.simple_fields_for :item_relations do |item|
             = render 'partials/item_fields', :f => item
           .links-add
             .icon-plus-circle
-            = link_to_add_association 'Add Item', f, :items, partial: 'partials/item_fields'
+            = link_to_add_association 'Add Item', f, :item_relations, partial: 'partials/item_fields'
 
     .tag-list
       %label= t('simple_form.labels.post.tag_list')

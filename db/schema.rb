@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130528142001) do
+ActiveRecord::Schema.define(:version => 20130528160653) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -90,16 +90,12 @@ ActiveRecord::Schema.define(:version => 20130528142001) do
 
   create_table "items", :force => true do |t|
     t.string   "url"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.string   "name"
     t.string   "thumbnail"
     t.string   "accession_no"
-    t.integer  "itemable_id"
-    t.string   "itemable_type"
   end
-
-  add_index "items", ["itemable_id", "itemable_type"], :name => "index_items_on_itemable_id_and_itemable_type"
 
   create_table "notifications", :force => true do |t|
     t.boolean  "unread",          :default => true
