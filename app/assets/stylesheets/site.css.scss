@@ -604,12 +604,20 @@
       font-weight: 500;
     }
   }
-  form {
+  form.navbar-search {
     display: block;
     width: 68%;
     margin: 0 0 2.5em;
+    @media (max-width: 480px) {
+      width: 92%;
+      margin: 0 4% 2em;
+      float: none;
+    }
     input {
-      width: 55%;
+      width: 62%;
+      @media (max-width: 480px) {
+        width: 62%;
+      }
     }
     .btn {
       max-width: 25%;
@@ -618,6 +626,12 @@
       float: left;
       color: #FFF;
       text-shadow: none;
+      @media (max-width: 480px) {
+        max-width: 30%;
+        padding: 0;
+        margin-right: 0;
+        float: right;
+      }
       p {
         margin-bottom: 0;
       }
@@ -644,6 +658,12 @@
         font-family: 'fontello';
         content: '\e762';
       }
+    }
+    @media (max-width: 480px) {
+      float: none;
+      display: block;
+      margin: 0 auto 1.75em;
+      width: 80%;
     }
   }
   .thread-type {
