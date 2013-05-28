@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   acts_as_taggable
+  include AssociateItems
   
   belongs_to :creator, class_name: :User
   has_many :comments, as: :commentable, dependent: :destroy

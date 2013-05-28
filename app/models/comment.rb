@@ -1,4 +1,6 @@
 class Comment < ActiveRecord::Base
+  include AssociateItems
+
   attr_accessible :details, :user_id, :commentable_id, :items_attributes
 
   belongs_to :user
@@ -11,7 +13,7 @@ class Comment < ActiveRecord::Base
 
   validates :details, :commentable_id, :user_id, presence: true
 
-  before_save :search_and_add_items
+  before_item_association :search_and_add_items
   
   search_methods :user_fullname_contains
   
@@ -25,12 +27,22 @@ class Comment < ActiveRecord::Base
 
   # Create items based on the urls in a comment text
   def search_and_add_items
-    temp_items = Array.new
     accession_numbers = self.details.scan(/\/\/[\w]+[.]qajarwomen.org\/[^\/]+\/items\/(\w+).html/).uniq.flatten
-    accession_numbers.each do |num|
-      temp_items.push(Item.new(collect_item_info(num)))
+    if self.new_record?
+      accession_numbers.each do |num|
+        self.item_relations.build(collect_item_info(num))
+      end
+    
+    else
+      accession_numbers.each do |num|
+        ir = item_relations.where(accession_no: num).first
+        if ir
+          ir.update_attributes(collect_item_info(num))
+        else
+          self.item_relations.build(collect_item_info(num))
+        end
+      end
     end
-    self.items = temp_items
   end
 
   def collect_item_info(num)
