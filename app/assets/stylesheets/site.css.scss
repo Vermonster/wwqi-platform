@@ -123,6 +123,12 @@
     }
     .nav-collapse.in.collapse, .nav-collapse {
       width: 100%;
+      @media (max-width: 979px) and (min-width: 769px) {
+        overflow: visible;
+      }
+      @media (max-width: 768px) {
+        overflow: hidden;
+      }
       ul {
         @media (max-width: 480px) {
           padding: 10px 0;
