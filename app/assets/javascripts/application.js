@@ -31,3 +31,4 @@
 //= require sessions
 //= require registration
 //= require add_file
+//= require contributions
