@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(params[:post])
     @post.creator = current_user
+    associate_items
 
     if @post.save
       redirect_to post_path(@post), notice: "Thread was successfully posted."
@@ -29,7 +30,7 @@ class PostsController < ApplicationController
 
   def build_resource
     @post = Post.new
-    @post.items.build
+    @post.item_relations.build
     @post.collaborators.build
     set_resource_ivar(@post)
   end
@@ -64,6 +65,19 @@ class PostsController < ApplicationController
       end
       
       set_collection_ivar(decorated_posts)
+    end
+  end
+
+  def associate_items 
+    @post.item_relations.each do |item_relation|
+      item = Item.find_or_create_by_accession_no(
+        accession_no: item_relation.accession_no, 
+        url: item_relation.url,
+        thumbnail: item_relation.thumbnail,
+        name: item_relation.name
+        )
+      item_relation.item = item
+      item_relation.itemable = @post
     end
   end
 end
