@@ -7,6 +7,11 @@
       = resource.item.name
   .span-12
     = simple_form_for resource, url: contributions_path(type: resource.type) do |f|
-      = f.input :item_id, as: :hidden, input_html: { value: resource.item.id }
+      = f.simple_fields_for :item do |i|
+        = i.input :url, as: :hidden, input_html: { value: resource.item.url}
+        = i.input :name, as: :hidden, input_html: { value: resource.item.name }
+        = i.input :thumbnail, as: :hidden, input_html: { value: resource.item.thumbnail }
+        = i.input :accession_no, as: :hidden, input_html: { value: resource.item.accession_no }
+        = i.input :search, as: :hidden, input_html: { value: resource.item.search }
       = f.input :details, label: resource.type, input_html: { class: 'wysihtml5' }
       = f.submit "Submit #{resource.type}", class: 'btn'
