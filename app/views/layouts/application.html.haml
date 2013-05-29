@@ -42,11 +42,17 @@
                     %li#bullet.hidden-phone.hidden-tablet
                       %h2 &#124;
                   - unless user_signed_in?
-                    %li
+                    %li.hidden-phone
                       = link_to new_user_registration_path do
                         %h2 Sign up
-                    %li
+                    %li.hidden-tablet.hidden-desktop
+                      %a{href: '#registration'}
+                        %h2 Sign up
+                    %li.hidden-phone
                       = link_to new_user_session_path do
+                        %h2 Sign in
+                    %li.hidden-tablet.hidden-desktop
+                      %a{href: '#sign-in'}
                         %h2 Sign in
                   - else
                     %li
