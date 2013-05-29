@@ -5,8 +5,8 @@ FactoryGirl.define do
     details { generate(:string) }
     creator
 
-    after(:create) do |contribution, evaluator|
-      create(:item_relation, itemable: contribution)
+    after(:build) do |contribution, evaluator|
+      contribution.item_relation = build(:item_relation)
     end
   end
 end
