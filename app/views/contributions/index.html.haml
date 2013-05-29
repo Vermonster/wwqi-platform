@@ -105,14 +105,21 @@
   $ ->
     visible_item = 2
     visible_contribution = 2
+    item_max = $('#selected-items').find('li').length
+    contribution_max = $('#recent-contributions').find('li').length
+    contribution_max = 0
     $('.items').each -> 
       $(this).find('li').hide()
       $(this).find('li').slice(0, visible_item).show()
     $('#show-more-items').click (e) ->
       e.preventDefault()
       visible_item+=2
+      if (visible_item > item_max)
+        visible_item = item_max
       $('#selected-items').find('li').slice(0, visible_item).show()
     $('#show-more-contributions').click (e) ->
       e.preventDefault()
       visible_contribution+=2
+      if (visible_contributions > contribution_max)
+        visible_contributions = contribution_max
       $('#recent-contributions').find('li').slice(0, visible_contribution).show()
