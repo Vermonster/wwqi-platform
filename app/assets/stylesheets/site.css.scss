@@ -1052,6 +1052,10 @@
   display: none;
   padding: 1em 3em 3em;
   background: $lightgrey;
+  @media (max-width: 480px) {
+    width: 90%;
+    padding: 1em 8% 3em;
+  }
   .language-select {
     float: right;
     width: 4em;
@@ -1127,4 +1131,12 @@
 .ui-corner-right,
 .ui-corner-br {
   border-bottom-right-radius: 0px!important/*{cornerRadius}*/;
+}
+
+.ui-dialog {
+  margin: 0 15%;
+  left: 0;
+  @media (max-width: 480px) {
+    margin: 0 3%;
+  }
 }
