@@ -4,7 +4,7 @@ describe "research creation" do
   describe "without authentication" do
     it "only allows a signed in user to create a new post" do
       visit new_research_path
-      current_path.should == new_user_session_path
+      current_path.should == root_path 
       page.should have_content("You need to sign in or sign up before continuing.")
     end
   end
