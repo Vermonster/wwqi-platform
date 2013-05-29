@@ -481,10 +481,17 @@
         margin: 0 auto;
         overflow: hidden;
         padding: 0 12%;
+        @media (max-width: 979px) and (min-width: 481px) {
+          padding: 0 4%;
+        }
         .registration, .sign-in {
           float: left;
           padding: 50px 6%;
           width: 38%;
+          @media (max-width: 480px) {
+            width: 88%;
+            padding: 50px 2%;
+          }
           form {
             overflow: visible;
             h2 {
