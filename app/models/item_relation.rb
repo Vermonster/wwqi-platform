@@ -7,6 +7,8 @@ class ItemRelation < ActiveRecord::Base
 
   accepts_nested_attributes_for :item
 
+  after_initialize :set_search_attr
+
   def updated?
     [:name, :thumbnail, :url].each do |attr|
       if self.send(attr).present? and self.send(attr) != item.send(attr)
@@ -15,5 +17,11 @@ class ItemRelation < ActiveRecord::Base
     end
 
     false
+  end
+
+  private
+
+  def set_search_attr
+    self.search = "#{accession_no} - #{item.name}" if item
   end
 end
