@@ -484,13 +484,22 @@
         @media (max-width: 979px) and (min-width: 481px) {
           padding: 0 4%;
         }
+        #sign-in {
+          @media (max-width: 480px) {
+            padding: 0 2% 50px!important;
+          }
+        }
+        #registration {
+          @media (max-width: 480px) {
+            padding: 50px 2%!important;
+          }
+        }
         #registration, #sign-in {
           float: left;
           padding: 50px 6%;
           width: 38%;
-          @media (max-width: 480px) {
+          @media (max-width: 767px) {
             width: 88%;
-            padding: 50px 2%;
           }
           form {
             overflow: visible;
