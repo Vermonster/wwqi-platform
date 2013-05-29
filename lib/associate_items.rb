@@ -16,7 +16,9 @@ module AssociateItems
         item
       end
 
-      if self.reflections[:item_relation]
+      # Rails can't reflect on polymorphic associations? WTF?
+      # Need to fix this
+      if self == Contribution
         def associate_item
           if item_relation.new_record? or item_relation.updated? 
             item = create_or_update_item(item_relation)
