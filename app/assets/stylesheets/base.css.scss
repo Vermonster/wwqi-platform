@@ -72,6 +72,14 @@ ul {
   @include transparent-gradient-horiz;
 }
 
+.white-horiz-line {
+  width: 107%;
+  height: 3px;
+  background: #FFF;
+  float: left;
+  margin-top: 50px;
+}
+
 .vert-line {
   width: 1px;
   height: 530px;
