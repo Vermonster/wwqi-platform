@@ -5,13 +5,13 @@ class ContributionsController < ApplicationController
 
   def show
     @contribution = "#{resource.type}Decorator".constantize.decorate(resource)
-    @contribution.item = Item.find(@contribution.item_id)
+    # @contribution.item = Item.find(@contribution.item_id)
     show!
   end
 
   def index
     # Recently created or updated contributions
-    @contributions = Contribution.where('type =?', params[:type] ||= 'transcription')
+    @contributions = Contribution.where('type =? AND created_at > ?', params[:type] ||= 'Transcription', 6.days.ago).decorate
 
     # All items for now. It will select the items that are selected by admin
     @items = Item.all
@@ -19,7 +19,8 @@ class ContributionsController < ApplicationController
 
   def new
     @contribution = "#{params[:type]}".titleize.constantize.new
-    @contribution.item = Item.find(params[:item])
+    selected_item = Item.find(params[:item])
+    @contribution.build_item( {url: selected_item.url, name: selected_item.name, thumbnail: selected_item.thumbnail, accession_no: selected_item.accession_no, search: selected_item.search} )
   end
 
   def create

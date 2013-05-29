@@ -5,12 +5,12 @@
     %h3 There are numerous ways you can contribute.
 
     %ul.thread-type.btn-group
-      %li{class: "btn #{'active' if params[:type] == "transcription"} pull-left"}
-        = link_to 'Transcribe a document', contributions_path(type: 'transcription')
-      %li{class: "btn #{'active' if params[:type] == 'translation'} pull-left"}
-        = link_to 'Translate a document', contributions_path(type: 'translation')
-      %li{class: "btn #{'active' if params[:type] == 'biography'} pull-left"}
-        = link_to 'Write a biography', contributions_path(type: 'biography')
+      %li{class: "btn #{'active' if params[:type] == "Transcription"} pull-left"}
+        = link_to 'Transcribe a document', contributions_path(type: 'Transcription')
+      %li{class: "btn #{'active' if params[:type] == 'Translation'} pull-left"}
+        = link_to 'Translate a document', contributions_path(type: 'Translation')
+      %li{class: "btn #{'active' if params[:type] == 'Biography'} pull-left"}
+        = link_to 'Write a biography', contributions_path(type: 'Biography')
       %li.btn.pull-left
         = link_to 'Submit a correction', new_correction_path
   #contributions-content
@@ -31,7 +31,7 @@
             %li
               .item-image.pull-left
                 = image_tag item.thumbnail ||= 'flag.png'
-              .itme-content.pull-left
+              .item-content.pull-left
                 .item-title
                   = item.name
               .transcribe.btn.pull-left
@@ -58,9 +58,27 @@
             .icon-plus-circle#contributions-icon
             %span Show more documents
     #contribution-feed
-      %h4 Recently contributed transcriptions
-      %p.feed-intro Here are some recent transcriptions contributed by the WWQI users:
+      %h4= "Recently contributed #{params[:type]}"
+      %p.feed-intro= "Here are some recent #{params[:type]} contributed by the WWQI users:"
       %ul.items
+        - unless @contributions.empty?
+          - @contributions.each do |c|
+            %li
+              .item-image.pull-left
+                = image_tag c.item.thumbnail ||= 'flag.png'
+              .item-content.pull-left
+                .item-header
+                  = c.header
+                .item-title
+                  = c.item.name
+                .item-comments
+                  = c.comments_size
+                %p.bullet &bull;
+                .item-created
+                  = c.created_ago
+        - else
+          %p No recent contributions
+
         %li
           .item-image.pull-left
           .item-content.pull-left
