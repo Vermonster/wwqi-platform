@@ -1,6 +1,6 @@
 class CommentObserver < ActiveRecord::Observer
   def after_create(comment)
-    unless comment.user == creator.commentable.creator
+    unless comment.user == comment.commentable.creator
       comment.notifications.create(user_id: comment.commentable_creator.id)
     end
   
