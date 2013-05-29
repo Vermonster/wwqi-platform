@@ -15,17 +15,9 @@
         = link_to 'Submit a correction', new_correction_path
   #contributions-content
     #contribution-list
-      %h4= "Items in need of #{params[:type]}".titleize
-      %p.feed-intro= t('contributions.transcription.intro') 
-      %p
-        - case params[:type]
-        - when 'transcription'
-          = "Asking transcription contribution for selected by admin"
-        - when 'translation'
-          = "Asking translation contribution for selected by admin"
-        - when 'biography'
-          = "Asking biography contribution for selected by admin"
-      %ul.items
+      %h4= "Items in need of #{params[:type]}"
+      %p.feed-intro= t("contributions.#{params[:type].downcase}.intro") 
+      %ul.items#selected-items
         - unless @items.empty?
           - @items.each do |item|
             %li
@@ -54,13 +46,13 @@
     .transcription-subnav
       %ul
         %li.pull-left
-          %a.show-more{href: '#'}
+          %a.show-more{href: '#', id: 'show-more-items'}
             .icon-plus-circle#contributions-icon
             %span Show more documents
     #contribution-feed
       %h4= "Recently contributed #{params[:type]}"
-      %p.feed-intro= "Here are some recent #{params[:type]} contributed by the WWQI users:"
-      %ul.items
+      %p.feed-intro= "Here are some recent #{params[:type].pluralize} contributed by the WWQI users:"
+      %ul.items#recent-contributions
         - unless @contributions.empty?
           - @contributions.each do |c|
             %li
@@ -103,3 +95,24 @@
             %p.bullet &bull;
             .item-created
               %p Last month
+    .transcription-subnav
+      %ul
+        %li.pull-left
+          %a{href: '#', id: 'show-more-contributions'}
+            .icon-plus-circle
+            = "Show more #{params[:type].downcase.pluralize}"
+:coffeescript
+  $ ->
+    visible_item = 2
+    visible_contribution = 2
+    $('.items').each -> 
+      $(this).find('li').hide()
+      $(this).find('li').slice(0, visible_item).show()
+    $('#show-more-items').click (e) ->
+      e.preventDefault()
+      visible_item+=2
+      $('#selected-items').find('li').slice(0, visible_item).show()
+    $('#show-more-contributions').click (e) ->
+      e.preventDefault()
+      visible_contribution+=2
+      $('#recent-contributions').find('li').slice(0, visible_contribution).show()
