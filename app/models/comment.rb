@@ -34,14 +34,21 @@ class Comment < ActiveRecord::Base
       end
     
     else
+      # convert to an array for safe use of `delete`
+      irs = item_relations.all
+
       accession_numbers.each do |num|
-        ir = item_relations.where(accession_no: num).first
+        ir = irs.find {|ir| ir.accession_no == num}
+
         if ir
+          irs.delete(ir)
           ir.update_attributes(collect_item_info(num))
         else
           self.item_relations.build(collect_item_info(num))
         end
       end
+
+      irs.map(&:destroy)
     end
   end
 
