@@ -144,6 +144,11 @@ span.error {
     text-transform: uppercase;
   }
 }
+
+.flash-messages {
+  font-family: $fontproxima;
+}
+
 input[type='text'], input[type='email'], input[type='password'] {
   margin-bottom: 0;
 }
