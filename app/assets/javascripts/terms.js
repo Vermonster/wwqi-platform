@@ -28,12 +28,12 @@ $(document).ready(function(){
 
 function initializeTermsDialog() {
   var $dialog = $("#dialog");
-  var $close = $("#close-dialog");
+  var $close = $(".close-dialog");
   var $link = $("#legal_terms").one('click', function() {
     $dialog.dialog({
         //open: function(event, ui) { $(".ui-dialog-titlebar-close").show(); },
         autoOpen: true,
-        closeOnEscape: true,
+        //closeOnEscape: true,
         title: "Terms",
         maxWidth: 600,
         width: 'auto', //overcomes width: 'auto and maxWidth bug
@@ -43,7 +43,7 @@ function initializeTermsDialog() {
         resizable: false,
         modal: true,
         open: function(event, ui){
-          fluidDialog();
+          //fluidDialog();
         }
       });
 
@@ -62,7 +62,7 @@ function initializeTermsDialog() {
 
 // run function on all dialog opens
 $(document).on("dialogopen", ".ui-dialog", function (event, ui) {
-    fluidDialog();
+    //fluidDialog();
 });
 
 // remove window resize namespace
