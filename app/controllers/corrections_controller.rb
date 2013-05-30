@@ -19,7 +19,7 @@ class CorrectionsController < ContributionsController
 
   def build_resource
     @correction = Correction.new
-    @correction.build_item
+    @correction.build_item_relation
     set_resource_ivar(@correction)
   end
 end
