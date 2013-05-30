@@ -58,3 +58,19 @@
 
   .submit-button
     = f.button :submit, :label => 'Post Research', :value => 'Submit Research', id: 'research-submit-button', class: 'submit-button'
+  #add_invitation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "NewInvitationLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
+      %h3#NewInvitationLabel Invitation
+    .modal-body
+      %form
+        %fieldset
+          %label{for: "recipient_name"} Recipient Name
+          %input#modal_recipient_name
+          %label{for: "recipient_email"} Recipient Email
+          %input#modal_recipient_email{type: 'email', required: ''}
+          %label{for: "message"} Message
+          %textarea#modal_message{placeholder: 'Please type your message...'}
+    .modal-footer
+      %button.btn#create_invitation Invite
+      %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
