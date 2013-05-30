@@ -19,7 +19,7 @@
         %h4 Attachments:
         %ul.item-uploads
           - resource.uploads.each do |upload|
-            %li.item-upload.icon-large
+            %li.item-upload
               %i.icon-file-alt
               = link_to upload[:content], upload.content_url
 
