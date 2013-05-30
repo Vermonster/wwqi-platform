@@ -43,13 +43,13 @@
                       %h2 &#124;
                   - unless user_signed_in?
                     %li.hidden-phone
-                      = link_to new_user_registration_path do
+                      = link_to root_path do
                         %h2 Sign up
                     %li.hidden-tablet.hidden-desktop#scroll-to-registration
                       %a{href: '#registration'}
                         %h2 Sign up
                     %li.hidden-phone
-                      = link_to new_user_session_path do
+                      = link_to root_path do
                         %h2 Sign in
                     %li.hidden-tablet.hidden-desktop#scroll-to-sign-in
                       %a{href: '#sign-in'}
