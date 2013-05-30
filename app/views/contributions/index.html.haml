@@ -5,62 +5,93 @@
     %h3 There are numerous ways you can contribute.
 
     %ul.thread-type.btn-group
-      %li.btn.active.pull-left
-        = link_to 'Transcribe a document'
-      %li.btn.pull-left
-        = link_to 'Translate a document'
-      %li.btn.pull-left
-        = link_to 'Write a biography'
+      %li{class: "btn #{'active' if params[:type] == "Transcription"} pull-left"}
+        = link_to 'Transcribe a document', contributions_path(type: 'Transcription')
+      %li{class: "btn #{'active' if params[:type] == 'Translation'} pull-left"}
+        = link_to 'Translate a document', contributions_path(type: 'Translation')
+      %li{class: "btn #{'active' if params[:type] == 'Biography'} pull-left"}
+        = link_to 'Write a biography', contributions_path(type: 'Biography')
       %li.btn.pull-left
         = link_to 'Submit a correction', new_correction_path
   #contributions-content
     #contribution-list
-      %h4 Items in need of transcription
-      %p.feed-intro= t('contributions.transcription.intro') 
-      %ul.items
-        %li
-          .item-image.pull-left
-          .item-content.pull-left
-            .item-title Publication permit for Zaban-i zanan, 4 March 1944
-          .transcribe.btn.pull-right
-            = link_to 'Transcribe'
-        %li
-          .item-image.pull-left
-          .item-content.pull-left
-            .item-title Lists of jewelry and kitchen items
-          .transcribe.btn.pull-right
-            = link_to 'Transcribe'
+      %h4= "Items in need of #{params[:type]}"
+      %p.feed-intro= t("contributions.#{params[:type].downcase}.intro") 
+      %ul.items#selected-items
+        - unless @items.empty?
+          - @items.each do |item|
+            %li
+              .item-image.pull-left
+                = image_tag item.thumbnail ||= 'flag.png'
+              .item-content.pull-left
+                .item-title
+                  = item.name
+              .transcribe.btn.pull-left
+                = link_to params[:type].titleize, new_contribution_path(type: params[:type], item: item)
+        -else
+          %li
+          %p= "No items in need of #{params[:type]}"
     .transcription-subnav
       %ul
         %li.pull-left
-          %a.show-more{href: '#'}
+          %a.show-more{href: '#', id: 'show-more-items'}
             .icon-plus-circle#contributions-icon
             %span Show more documents
     #contribution-feed
-      %h4 Recently contributed transcriptions
-      %p.feed-intro Here are some recent transcriptions contributed by the WWQI users:
-      %ul.items
-        %li
-          .item-image.pull-left
-          .item-content.pull-left
-            .item-header
-              Maryam contributed a transcription for
-            .item-title
-              School diplomas of Houri Mostofi Moghadam
-            .item-comments
-              %p 2 comments
-            %p.bullet &bull;
-            .item-created
-              %p 2 weeks ago
-        %li
-          .item-image.pull-left
-          .item-content.pull-left
-            .item-header
-              Maryam contributed a transcription for
-            .item-title
-              Kanun-i Banuvan Cultural Services Cooperative, Articles of Association, 1964
-            .item-comments
-              %p 5 comments
-            %p.bullet &bull;
-            .item-created
-              %p Last month
+      %h4= "Recently contributed #{params[:type]}"
+      %p.feed-intro= "Here are some recent #{params[:type].pluralize} contributed by the WWQI users:"
+      %ul.items#recent-contributions
+        - unless @contributions.empty?
+          - @contributions.each do |c|
+            %li
+              .item-image.pull-left
+                = image_tag c.item.thumbnail ||= 'flag.png'
+              .item-content.pull-left
+                .item-header
+                  = c.header
+                .item-title
+                  = link_to c.item.name, contribution_path(c)
+                .item-comments
+                  = c.comments_size
+                %p.bullet &bull;
+                .item-created
+                  = c.created_ago
+        - else
+          %p No recent contributions
+    .transcription-subnav
+      %ul
+        %li.pull-left
+          %a{href: '#', id: 'show-more-contributions'}
+            .icon-plus-circle
+            = "Show more #{params[:type].downcase.pluralize}"
+:coffeescript
+  $ ->
+    # Default number of items and contributions to show
+    visible_item = 2
+    visible_contribution = 2
+
+    # Set the maximum number of the items and contributions
+    item_max = $('#selected-items').find('li').length
+    contribution_max = $('#recent-contributions').find('li').length
+
+    # Hide all items and contributions on the page and
+    # show the default number of items and contributions
+    $('.items').each -> 
+      $(this).find('li').hide()
+      $(this).find('li').slice(0, visible_item).show()
+
+    # Show two more items when 'Show more' link is clicked
+    $('#show-more-items').click (e) ->
+      e.preventDefault()
+      visible_item+=2
+      if (visible_item > item_max)
+        visible_item = item_max
+      $('#selected-items').find('li').slice(0, visible_item).show()
+
+    # Show two more contributions when 'Show more' link is clicked
+    $('#show-more-contributions').click (e) ->
+      e.preventDefault()
+      visible_contribution+=2
+      if (visible_contributions > contribution_max)
+        visible_contributions = contribution_max
+      $('#recent-contributions').find('li').slice(0, visible_contribution).show()

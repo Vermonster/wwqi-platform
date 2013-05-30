@@ -2,6 +2,7 @@
   .item-show.span8.pull-left
     .show-intro
       .item-image.pull-left
+        = image_tag resource.item.thumbnail
       .item-created.pull-left
         = "#{resource.created_ago}, #{resource.header}"
     .item-title
