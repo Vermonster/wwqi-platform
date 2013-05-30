@@ -956,6 +956,7 @@
 .show {
   overflow: hidden;
   .item-show, .comments, .comment-box {
+    overflow: hidden;
     margin:0;
     &.comments {
       margin: 2em 0 1em;
@@ -972,7 +973,7 @@
       background-size: contain;
       height: 30px;
       width: 30px;
-      margin-right: 10px;
+      margin-right: 2%;
     }
     .item-created {
       @include item-created;
