@@ -72,12 +72,13 @@ ul {
   @include transparent-gradient-horiz;
 }
 
-.white-horiz-line {
+.horiz-line-thick {
   width: 107%;
   height: 3px;
-  background: #FFF;
+  background: $medgrey;
   float: left;
   margin-top: 50px;
+  opacity: .3;
 }
 
 .vert-line {
