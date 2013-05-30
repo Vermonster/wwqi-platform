@@ -1,5 +1,5 @@
 class BiographyDecorator < ContributionDecorator
   def header
-    "#{creator.first_name} contributed a biography for"
+    "#{creator.fullname} contributed a biography for"
   end
 end

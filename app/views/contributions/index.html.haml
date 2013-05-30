@@ -31,18 +31,6 @@
         -else
           %li
           %p= "No items in need of #{params[:type]}"
-        %li
-          .item-image.pull-left
-          .item-content.pull-left
-            .item-title Publication permit for Zaban-i zanan, 4 March 1944
-          .transcribe.btn.pull-right
-            = link_to 'Transcribe', new_contribution_path(type: params[:type])
-        %li
-          .item-image.pull-left
-          .item-content.pull-left
-            .item-title Lists of jewelry and kitchen items
-          .transcribe.btn.pull-right
-            = link_to 'Transcribe'
     .transcription-subnav
       %ul
         %li.pull-left
@@ -78,20 +66,29 @@
             = "Show more #{params[:type].downcase.pluralize}"
 :coffeescript
   $ ->
+    # Default number of items and contributions to show
     visible_item = 2
     visible_contribution = 2
+
+    # Set the maximum number of the items and contributions
     item_max = $('#selected-items').find('li').length
     contribution_max = $('#recent-contributions').find('li').length
-    contribution_max = 0
+
+    # Hide all items and contributions on the page and
+    # show the default number of items and contributions
     $('.items').each -> 
       $(this).find('li').hide()
       $(this).find('li').slice(0, visible_item).show()
+
+    # Show two more items when 'Show more' link is clicked
     $('#show-more-items').click (e) ->
       e.preventDefault()
       visible_item+=2
       if (visible_item > item_max)
         visible_item = item_max
       $('#selected-items').find('li').slice(0, visible_item).show()
+
+    # Show two more contributions when 'Show more' link is clicked
     $('#show-more-contributions').click (e) ->
       e.preventDefault()
       visible_contribution+=2
