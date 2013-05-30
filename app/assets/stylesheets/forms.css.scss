@@ -52,6 +52,9 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
   input#research_title {
     width: 100%;
     margin-bottom: 2em;
+    @media (max-width: 979px) {
+      width: 97%;
+    }
   }
 
   span.ui-helper-hidden-accessible {
