@@ -5,7 +5,6 @@ class ContributionsController < ApplicationController
 
   def show
     @contribution = "#{resource.type}Decorator".constantize.decorate(resource)
-    # @contribution.item = Item.find(@contribution.item_id)
     show!
   end
 
@@ -13,7 +12,7 @@ class ContributionsController < ApplicationController
     # Recently created or updated contributions
     @contributions = Contribution.where('type =? AND created_at > ?', params[:type] ||= 'Transcription', 6.days.ago).decorate
 
-    # All items for now. It will select the items that are selected by admin
+    # All items for now. 
     @items = Item.all
   end
 
