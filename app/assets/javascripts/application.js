@@ -32,3 +32,5 @@
 //= require registration
 //= require add_file
 //= require contributions
+//= require scroll_to
+//= require jquery.localscroll-1.2.7-min
