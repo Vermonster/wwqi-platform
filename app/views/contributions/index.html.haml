@@ -50,7 +50,7 @@
                 .item-header
                   = c.header
                 .item-title
-                  = c.item.name
+                  = link_to c.item.name, contribution_path(c)
                 .item-comments
                   = c.comments_size
                 %p.bullet &bull;
