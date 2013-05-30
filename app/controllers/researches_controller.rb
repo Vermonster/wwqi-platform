@@ -16,7 +16,7 @@ class ResearchesController < PostsController
 
   def build_resource
     @research = Research.new
-    @research.items.build
+    @research.item_relations.build
     @research.collaborators.build
     set_resource_ivar(@research)
   end
