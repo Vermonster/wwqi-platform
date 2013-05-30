@@ -7,11 +7,12 @@ module AssociateItems
       define_model_callbacks :item_association
 
       def create_or_update_item(item_relation)
-        item = Item.find_or_initialize_by_accession_no(item_relation.accession_no)
+        num = item_relation.accession_no
+        item = Item.find_or_initialize_by_accession_no(num)
         item.update_attributes({
-          url: item_relation.url,
-          thumbnail: item_relation.thumbnail,
-          name: item_relation.name
+          url: item_relation.url || "http://www.qajarwomen.org/en/items/#{num}.html",
+          thumbnail: item_relation.thumbnail || "flag.png",
+          name: item_relation.name || "Not Found"
         })
         item
       end

@@ -5,6 +5,6 @@ FactoryGirl.define do
     url { generate(:url) }
     name { generate(:string) }
     thumbnail { generate(:string) }
-    accession_no { generate(:number) }
+    accession_no { generate(:string) }
   end
 end
