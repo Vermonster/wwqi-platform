@@ -484,14 +484,12 @@
         @media (max-width: 979px) and (min-width: 481px) {
           padding: 0 4%;
         }
+        @media (max-width: 480px) {
+          padding: 0;
+        }
         #sign-in {
           @media (max-width: 480px) {
             padding: 0 2% 50px!important;
-          }
-        }
-        #registration {
-          @media (max-width: 480px) {
-            padding: 50px 2%!important;
           }
         }
         #registration, #sign-in {
@@ -501,8 +499,17 @@
           @media (max-width: 767px) {
             width: 88%;
           }
-          form {
-            overflow: visible;
+          @media (max-width: 480px) {
+            /*padding: 50px 2%!important;*/
+            margin: 0 auto;
+            width: 80%;
+            padding: 50px 0!important;
+            float: none!important;
+          }
+          .sign-in-header {
+            margin: 0 auto;
+            display: block;
+            width: 100%;
             h2 {
               color: $gold;
               font-weight: 300;
@@ -517,13 +524,25 @@
               color: $medgrey;
               text-align: center;
             }
+          }
+          form {
+            overflow: visible;
             label {
               font-size: .75em;
               font-weight: 300;
               color: $medgrey;
             }
-            input, .text-input {
+            .input {
               width: 87%;
+              @media (max-width: 480px) {
+                width: 100%;
+                input {
+                  width: 84%;
+                }
+              }
+            }
+            input, .text-input {
+              width: 100%;
               @include text-input;
             }
             .field_with_errors {
@@ -597,6 +616,12 @@
               @include button;
               margin-top: 2.125em;
               border: none;
+              @media (max-width: 480px) {
+                width: 100%;
+                margin-left: auto;
+                margin-right: auto;
+                float: none;
+              }
             }
           }
         }
