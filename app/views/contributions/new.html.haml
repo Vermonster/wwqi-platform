@@ -3,15 +3,15 @@
   %h3= "You are submitting a  #{resource.type} for "
   .item-group
     .item-image.pull-left
-      = image_tag resource.item.thumbnail
-      = resource.item.name
+      = image_tag resource.item_relation.thumbnail
+      = resource.item_relation.name
   .span-12
     = simple_form_for resource, url: contributions_path(type: resource.type) do |f|
-      = f.simple_fields_for :item do |i|
-        = i.input :url, as: :hidden, input_html: { value: resource.item.url}
-        = i.input :name, as: :hidden, input_html: { value: resource.item.name }
-        = i.input :thumbnail, as: :hidden, input_html: { value: resource.item.thumbnail }
-        = i.input :accession_no, as: :hidden, input_html: { value: resource.item.accession_no }
-        = i.input :search, as: :hidden, input_html: { value: resource.item.search }
+      = f.simple_fields_for :item_relation do |i|
+        = i.input :url, as: :hidden, input_html: { value: resource.item_relation.url}
+        = i.input :name, as: :hidden, input_html: { value: resource.item_relation.name }
+        = i.input :thumbnail, as: :hidden, input_html: { value: resource.item_relation.thumbnail }
+        = i.input :accession_no, as: :hidden, input_html: { value: resource.item_relation.accession_no }
+        = i.input :search, as: :hidden, input_html: { value: resource.item_relation.search }
       = f.input :details, label: resource.type, input_html: { class: 'wysihtml5' }
       = f.submit "Submit #{resource.type}", class: 'btn'
