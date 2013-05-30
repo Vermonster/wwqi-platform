@@ -1,5 +1,5 @@
 - klass_name = resource.model.class.to_s.downcase
-.comments.span12
+.comments
   - resource.comments.each do |c|
     .comment
       %a{href: "#c#{c.id}"}
@@ -9,8 +9,8 @@
         .item-created.full-width
           = "#{c.header} #{c.created_ago}"
         .item-details
-          .wysiwyg      
-            != c.details
+        .wysiwyg
+          != c.details
         .item-bottom
           - unless c.items.empty?
             %ul.thumbnails
@@ -19,14 +19,14 @@
                   .thumbnail{ title: "#{i.name}" }
                     = image_tag i.thumbnail, size: "50x50", "data-src" => "holder.js/50x50"
           = link_to "edit", edit_post_comment_path(resource, c), {class: ''} if current_user == c.user
-.comment-box.span12
+.comment-box
   - if user_signed_in?
     .item-image.pull-left
       = image_tag avatar_url(current_user)
     .item-content.pull-left
       = simple_form_for Comment.new, url: post_comments_path(resource) do |f|
         = f.input :details, label: t("#{klass_name}.comment_label"), input_html: { class: 'wysihtml5' }
-        = f.submit t("#{klass_name}.submit"), { class: "btn pull-right" }
+        = f.submit t("#{klass_name}.submit"), { class: "btn pull-right submit-button", id: "comment-submit-button" }
   - else
     .black-box
       %p To comment on this post, please #{link_to 'sign in', new_user_session_path}.

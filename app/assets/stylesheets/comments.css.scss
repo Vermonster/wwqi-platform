@@ -1,5 +1,8 @@
 @import 'variables';
+@import 'mixins';
+
 .comments {
+  width: 100%;
   .comment {
     float: left;
     padding: 1.75em 0;
@@ -7,7 +10,6 @@
     width: 87%;
     border-bottom: 1px solid $lightgrey;
     .item-content {
-      width: 84%;
       line-height: 1.5em;
       .item-created {
         padding-bottom: 1em;
@@ -31,6 +33,26 @@
   }
 }
 
+.comment-box {
+  width: 100%;
+  overflow: hidden;
+  .item-content {
+    width: 93%;
+  }
+  form {
+    label {
+      margin-top: 0;
+    }
+    #comment-submit-button {
+      @include button;
+      overflow: hidden;
+      margin: .25em;
+      @media (max-width: 979px) {
+        width: 99%;
+      }
+    }
+  }
+}
 .item-details .wysiwyg {
   line-height: 1.65em;
 }
