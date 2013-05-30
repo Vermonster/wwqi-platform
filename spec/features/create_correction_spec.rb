@@ -5,10 +5,10 @@ describe "creating corrections" do
     it "can submit corrections", js: true do
       visit new_correction_path
       
-      page.execute_script %Q{ $('#correction_item_attributes_search').val('tin').keydown(); }
+      page.execute_script %Q{ $('#correction_item_relation_attributes_search').val('tin').keydown(); }
       expect { find('.ui-menu-item a#ui-id-2').text == "31g171 - Aspirin tin" }.to become_true
       page.execute_script %Q{ $('.ui-menu-item a:contains("31g171 - Aspirin tin")').click(); }
-      expect { find('#correction_item_attributes_search').value == '31g171 - Aspirin tin' }.to become_true
+      expect { find('#correction_item_relation_attributes_search').value == '31g171 - Aspirin tin' }.to become_true
       page.execute_script("editor.setValue('Hello world')")
       click_on 'Submit Correction'
      
@@ -28,10 +28,10 @@ describe "creating corrections" do
       
       visit new_correction_path
       
-      page.execute_script %Q{ $('#correction_item_attributes_search').val('tin').keydown(); }
+      page.execute_script %Q{ $('#correction_item_relation_attributes_search').val('tin').keydown(); }
       expect { find('.ui-menu-item a#ui-id-2').text == "31g171 - Aspirin tin" }.to become_true
       page.execute_script %Q{ $('.ui-menu-item a:contains("31g171 - Aspirin tin")').click(); }
-      expect { find('#correction_item_attributes_search').value == '31g171 - Aspirin tin' }.to become_true
+      expect { find('#correction_item_relation_attributes_search').value == '31g171 - Aspirin tin' }.to become_true
       page.execute_script("editor.setValue('Hello world')")
       click_on 'Submit Correction'
       
