@@ -7,14 +7,10 @@ feature "Post creator(registered user)" do
       visit new_post_path
       click_on 'Sign in'
       expect(page).to have_content('SIGN IN')
-      fill_in 'Email', with: @user.email 
-      fill_in 'Password', with: @user.password
+      fill_in 'user_email', with: @user.email 
+      fill_in 'user_password', with: @user.password
       click_button 'Sign In'
       visit new_post_path
-    end
-
-    after :each do
-      click_on 'Sign out'
     end
 
     it 'adds an invitee in the new post page', js: true do

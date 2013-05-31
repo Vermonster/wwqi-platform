@@ -6,8 +6,8 @@ feature "Cross-platform item search", js: true do
   before(:each) do
     visit '/'
     click_on 'Sign in'
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
+    fill_in 'user_email', with: user.email
+    fill_in 'user_password', with: user.password
     click_button 'Sign In'
     visit new_post_path
   end
