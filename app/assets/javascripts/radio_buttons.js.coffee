@@ -17,8 +17,15 @@ $ ->
           else
             $('label#title').html('Your Discussion Title')
             $('input[label="Post Thread"]').val('Create Discussion')
+  
+      # to compensate for the postgres values 't' and 'f' 
+      hidden_val = hidden.val()
+      corrected_hidden_value = switch hidden_val
+        when "t" then "true"
+        when "f" then "false"
+        else hidden_val
 
-      if (button.val() == hidden.val())
+      if (button.val() == corrected_hidden_value)
         button.addClass('active')
 
   for grp in ['items', 'collaborators']
