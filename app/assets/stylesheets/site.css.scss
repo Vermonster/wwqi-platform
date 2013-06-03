@@ -478,155 +478,155 @@
         }
       }
     }
-    #sign-in-main {
-      margin: 2% -4% -4%;
-      background: $lightgrey;
-      .forms {
+  }
+}
+#sign-in-main {
+  margin: 2% -4% -4%;
+  background: $lightgrey;
+  .forms {
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 0 12%;
+    @media (max-width: 979px) and (min-width: 481px) {
+      padding: 0 4%;
+    }
+    @media (max-width: 480px) {
+      padding: 0;
+    }
+    #sign-in {
+      @media (max-width: 480px) {
+        padding: 0 2% 50px!important;
+      }
+    }
+    #registration, #sign-in {
+      float: left;
+      padding: 50px 6%;
+      width: 38%;
+      @media (max-width: 767px) {
+        width: 88%;
+      }
+      @media (max-width: 480px) {
+        /*padding: 50px 2%!important;*/
         margin: 0 auto;
-        overflow: hidden;
-        padding: 0 12%;
-        @media (max-width: 979px) and (min-width: 481px) {
-          padding: 0 4%;
+        width: 80%;
+        padding: 50px 0!important;
+        float: none!important;
+      }
+      .sign-in-header {
+        margin: 0 auto;
+        display: block;
+        width: 100%;
+        h2 {
+          color: $gold;
+          font-weight: 300;
+          font-size: 1.75em;
+          text-align: center;
+          text-transform: none;
         }
-        @media (max-width: 480px) {
-          padding: 0;
+        p {
+          font-size: .8em;
+          font-weight: 300;
+          margin-bottom: 2em;
+          color: $medgrey;
+          text-align: center;
         }
-        #sign-in {
+      }
+      form {
+        overflow: visible;
+        label {
+          font-size: .75em;
+          font-weight: 300;
+          color: $medgrey;
+        }
+        .input {
+          width: 87%;
           @media (max-width: 480px) {
-            padding: 0 2% 50px!important;
-          }
-        }
-        #registration, #sign-in {
-          float: left;
-          padding: 50px 6%;
-          width: 38%;
-          @media (max-width: 767px) {
-            width: 88%;
-          }
-          @media (max-width: 480px) {
-            /*padding: 50px 2%!important;*/
-            margin: 0 auto;
-            width: 80%;
-            padding: 50px 0!important;
-            float: none!important;
-          }
-          .sign-in-header {
-            margin: 0 auto;
-            display: block;
             width: 100%;
-            h2 {
+            input {
+              width: 84%;
+            }
+          }
+        }
+        input, .text-input {
+          width: 100%;
+          @include text-input;
+        }
+        .field_with_errors {
+          .text-input {
+            @include error-text-input;
+          }
+        }
+        .terms {
+          width: auto;
+          overflow: hidden;
+          margin-top: 1.5em;
+          padding-right: 1%;
+          #legal_terms {
+            overflow: hidden;
+            width: 100%;
+            .icon-right-open-mini {
+              float: right;
+              font-size: 1.5em;
               color: $gold;
-              font-weight: 300;
-              font-size: 1.75em;
-              text-align: center;
-              text-transform: none;
+              margin-top: .2em;
+              width: 3%;
+              margin-right: 1%;
+              &:before {
+                content: '\e762';
+                font-family: 'fontello';
+              }
+            }
+            a {
+              float: left;
+              font-size: .875em;
+              color: $gold;
+              display: block;
+              width: 94%;
+              &:hover {
+                color: $darkgold;
+              }
             }
             p {
-              font-size: .8em;
-              font-weight: 300;
-              margin-bottom: 2em;
-              color: $medgrey;
-              text-align: center;
+              float: left;
+              margin-bottom: .25em;
             }
           }
-          form {
-            overflow: visible;
+          .checkbox {
+            float: left;
+            width: 100%;
+            padding-left: 0;
+            input[type='checkbox'] {
+              display: none;
+              margin-left: 0;
+            }
+            input[type='checkbox'] + label span {
+              display: inline-block;
+              float: left;
+              width: 18px;
+              height: 18px;
+              background: image-url('checkbox.png') left top no-repeat;
+              cursor: pointer;
+              padding-left: 0;
+              margin-right: .5em;
+              margin-top: -.325em;
+            }
+            input[type='checkbox']:checked + label span {
+              background: image-url('checkbox.png') -18px top no-repeat;
+            }
             label {
-              font-size: .75em;
-              font-weight: 300;
-              color: $medgrey;
+              margin-top: 15px;
             }
-            .input {
-              width: 87%;
-              @media (max-width: 480px) {
-                width: 100%;
-                input {
-                  width: 84%;
-                }
-              }
-            }
-            input, .text-input {
-              width: 100%;
-              @include text-input;
-            }
-            .field_with_errors {
-              .text-input {
-                @include error-text-input;
-              }
-            }
-            .terms {
-              width: auto;
-              overflow: hidden;
-              margin-top: 1.5em;
-              padding-right: 1%;
-              #legal_terms {
-                overflow: hidden;
-                width: 100%;
-                .icon-right-open-mini {
-                  float: right;
-                  font-size: 1.5em;
-                  color: $gold;
-                  margin-top: .2em;
-                  width: 3%;
-                  margin-right: 1%;
-                  &:before {
-                    content: '\e762';
-                    font-family: 'fontello';
-                  }
-                }
-                a {
-                  float: left;
-                  font-size: .875em;
-                  color: $gold;
-                  display: block;
-                  width: 94%;
-                  &:hover {
-                    color: $darkgold;
-                  }
-                }
-                p {
-                  float: left;
-                  margin-bottom: .25em;
-                }
-              }
-              .checkbox {
-                float: left;
-                width: 100%;
-                padding-left: 0;
-                input[type='checkbox'] {
-                  display: none;
-                  margin-left: 0;
-                }
-                input[type='checkbox'] + label span {
-                  display: inline-block;
-                  float: left;
-                  width: 18px;
-                  height: 18px;
-                  background: image-url('checkbox.png') left top no-repeat;
-                  cursor: pointer;
-                  padding-left: 0;
-                  margin-right: .5em;
-                  margin-top: -.325em;
-                }
-                input[type='checkbox']:checked + label span {
-                  background: image-url('checkbox.png') -18px top no-repeat;
-                }
-                label {
-                  margin-top: 15px;
-                }
-              }
-            }
-            .btn {
-              @include button;
-              margin-top: 2.125em;
-              border: none;
-              @media (max-width: 480px) {
-                width: 100%;
-                margin-left: auto;
-                margin-right: auto;
-                float: none;
-              }
-            }
+          }
+        }
+        .btn {
+          @include button;
+          margin-top: 2.125em;
+          border: none;
+          @media (max-width: 480px) {
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            float: none;
           }
         }
       }
