@@ -12,27 +12,25 @@
     .intro-farsi
       %h2 پژوهشگاه
       %p به پژوهشگاه «دنیای زنان در عصر قاجار» خوش آمدید.  هدف این پژوهشگاه ایجاد فضایی برای گفتگو و تبادل فکری میان دانشجویان و پژوهشگرانی است که علاقه دارند با استفاده از منابع دیجیتال این آرشیو پژوهشهای خلاق در زمینه تاریخ فرهنگی دوره قاجار را، با تمرکز بر زندگی زنان و مقولات جنس‌گونگی و جنسیت، گسترش دهند.
--######Features commented out until we get real content
--#.row
-  -#.features.span12
-    -#.col1.span4
-      -#.feature-image.hidden-phone
-        -##img1
-      -#.feature-copy
-        -#%h3 Feature 1
-        -#%p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    -#.col2.span4
-      -#.feature-image.hidden-phone
-        -##img2
-      -#.feature-copy
-        -#%h3 Feature 2
-        -#%p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-    -#.col3.span4
-      -#.feature-image.hidden-phone
-        -##img3
-      -#.feature-copy
-        -#%h3 Feature 3
-        -#%p Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  .features
+    .col1
+      .feature-image
+        #img1
+      .feature-copy
+        %h3 Questions &amp; Discussions
+        %p Ask or answer questions and begin or participate in discussions.
+    .col2
+      .feature-image
+        #img2
+      .feature-copy
+        %h3 Research in Progress
+        %p Submit research and ask others to offer feedback.
+    .col3
+      .feature-image
+        #img3
+      .feature-copy
+        %h3 Contributions
+        %p Help us enrich the WWQI archives by contributing information to the project.
 #sign-in-main.row
   .forms
     = render '/partials/user_registration', :resource => User.new
