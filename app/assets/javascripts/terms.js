@@ -9,6 +9,13 @@ $(document).ready(function(){
     $('.select-english').toggle();
   });
 
+  $('.language-select-dialog').click(function() {
+    $('.terms-farsi-dialog').toggle();
+    $('.terms-english-dialog').toggle();
+    $('.select-farsi-dialog').toggle();
+    $('.select-english-dialog').toggle();
+  });
+
   $('#legal_terms').mouseenter(
     function() {
       $('.icon-right-open-mini').css('color', '#8a6f17');

@@ -1103,7 +1103,7 @@
     width: 90%;
     padding: 1em 8% 3em;
   }
-  .language-select {
+  .language-select-dialog {
     float: right;
     width: 4em;
     text-align: right;
@@ -1112,7 +1112,7 @@
     & a:hover, :hover {
       color: $gold;
     }
-    .select-english {
+    .select-english-dialog {
       display: none;
     }
   }
@@ -1140,11 +1140,11 @@
   .no-margin {
     margin-bottom: 0;
   }
-  .terms-farsi {
+  .terms-farsi-dialog {
     display: none;
     text-align: right;
   }
-  .terms-english, .terms-farsi {
+  .terms-english-dialog, .terms-farsi-dialog {
     float: left;
   }
   .btn {
