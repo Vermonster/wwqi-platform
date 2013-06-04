@@ -5,6 +5,10 @@ $(document).ready(function(){
     $('.intro-english').toggle();
     $('.select-farsi').toggle();
     $('.select-english').toggle();
+    $('.intro-copy').toggle();
+    $('.intro-copy-farsi').toggle();
+    $('.feature-copy-farsi').toggle();
+    $('.feature-copy').toggle();
   });
 
 });
