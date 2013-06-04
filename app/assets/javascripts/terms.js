@@ -2,13 +2,6 @@ $(document).ready(function(){
 
   initializeTermsDialog();
 
-  $('.language-select').click(function() {
-    $('.terms-farsi').toggle();
-    $('.terms-english').toggle();
-    $('.select-farsi').toggle();
-    $('.select-english').toggle();
-  });
-
   $('.language-select-dialog').click(function() {
     $('.terms-farsi-dialog').toggle();
     $('.terms-english-dialog').toggle();
