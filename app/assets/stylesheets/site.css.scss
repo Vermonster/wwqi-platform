@@ -462,6 +462,11 @@
     .features-wrapper {
       text-align: center;
       margin: 3.5em 0;
+      h3.intro-copy, h3.intro-copy-farsi {
+        padding: 2%;
+        margin-bottom: -1.5em;
+        background: #ddd;
+      }
       .intro-copy-farsi {
         display: none;
         direction: rtl;
@@ -477,7 +482,7 @@
         .col1, .col2, .col3 {
           width: 27.333%;
           float: left;
-          padding: 3.75% 3% 3%;
+          padding: 3%;
           text-align: center;
           @media (max-width: 767px) {
             width: 91%;
@@ -517,12 +522,28 @@
           }
         }
       }
+      .sharing {
+        float: none;
+        padding: .5%;
+        margin-top: -1.25em;
+        background: $lightgrey;
         text-align: center;
+        p {
+          color: $darkgrey;
+          font-weight: 500;
+          font-size: 1em;
+        }
+      }
     }
   }
 }
 #sign-in-main-wrapper {
+  .intro-copy, .intro-copy-farsi {
+    background: #ddd;
+    padding: 2%;
+    margin-bottom: -1.5em;
     text-align: center;
+  }
   .intro-copy-farsi {
     display: none;
     direction: rtl;
