@@ -461,24 +461,21 @@
     }
     .features-wrapper {
       text-align: center;
-      margin: 3.5em 0;
+      margin: 3.5em 0 0;
       h3.intro-copy, h3.intro-copy-farsi {
         padding: 2%;
-        margin-bottom: -1.5em;
         background: #ddd;
+        margin-bottom: 0;
       }
       .intro-copy-farsi {
         display: none;
         direction: rtl;
       }
       .features {
-        margin: 20px 0;
+        margin: 0 0 20px;
         padding: 0 3%;
         overflow: hidden;
         background: $lightgrey;
-        @media (max-width: 767px) {
-          padding: 5%;
-        }
         .col1, .col2, .col3 {
           width: 27.333%;
           float: left;
@@ -538,18 +535,24 @@
   }
 }
 #sign-in-main-wrapper {
+  margin-top: 3em;
   .intro-copy, .intro-copy-farsi {
     background: #ddd;
     padding: 2%;
-    margin-bottom: -1.5em;
     text-align: center;
+    @media (max-width: 767px) {
+      padding: 5%;
+      float: left;
+      width: 90%;
+    }
   }
+  h3 { margin-bottom: 0!important; }
   .intro-copy-farsi {
     display: none;
     direction: rtl;
   }
   #sign-in-main {
-    margin: 1.5% 0 -4%;
+    margin: 0 0 -4%;
     background: $lightgrey;
     .forms {
       margin: 0 auto;
