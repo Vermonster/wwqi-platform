@@ -805,6 +805,10 @@
     overflow: hidden;
     list-style: none;
     border-bottom: none;
+    &.contributions-nav {
+      width: 67%;
+      margin: 1em auto 0;
+    }
     li.btn {
       @include border-top-left-radius(20px);
       @include border-top-right-radius(20px);

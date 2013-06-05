@@ -4,7 +4,7 @@
 
     %h3 There are numerous ways you can contribute.
 
-    %ul.thread-type.btn-group
+    %ul.thread-type.btn-group.contributions-nav
       %li{class: "btn #{'active' if params[:type] == "Transcription"} pull-left"}
         = link_to 'Transcribe a document', contributions_path(type: 'Transcription')
       %li{class: "btn #{'active' if params[:type] == 'Translation'} pull-left"}
