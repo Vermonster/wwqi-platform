@@ -1044,12 +1044,13 @@
       width: 100%;
       overflow: hidden;
       margin-bottom: 2em;
+      .item-created { margin-top: 2.6em; }
     }
     .item-image {
       background: image-url("placeholder.png") no-repeat;
       background-size: contain;
-      height: 30px;
-      width: 30px;
+      height: 50px;
+      width: 50px;
       margin-right: 2%;
     }
     .item-created {
