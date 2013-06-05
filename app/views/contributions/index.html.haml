@@ -29,7 +29,6 @@
               .transcribe.btn.pull-left
                 = link_to params[:type].titleize, new_contribution_path(type: params[:type], item: item)
         -else
-          %li
           %p= "No items in need of #{params[:type]}"
     .transcription-subnav
       %ul
