@@ -873,11 +873,10 @@
           font-size: .75em;
           font-family: "proxima-nova",sans-serif;
           font-weight: 600;
-          color: #b29628;
+          color: $gold;
         }
         .item-title {
           @include item-title;
-          color: #505050;
           width: 100%;
           a {
             line-height: 1.25em;
@@ -1062,7 +1061,6 @@
     }
     .item-title {
       @include item-title;
-      color: #505050;
       width: 100%;
     }
     .item-details {
