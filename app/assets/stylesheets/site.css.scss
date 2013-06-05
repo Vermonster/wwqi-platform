@@ -423,9 +423,6 @@
     overflow: hidden;
     .intro {
       text-align: center;
-      p {
-        margin-bottom: 1.5em;
-      }
       .intro-header {
         overflow: hidden;
         .language-select-intro {
@@ -721,7 +718,8 @@
       font-weight: 500;
     }
     p {
-      margin-bottom: 1.75em;
+      margin-bottom: 3em;
+      margin-top: 0;
     }
   }
   form.navbar-search {
