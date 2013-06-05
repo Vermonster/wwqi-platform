@@ -923,15 +923,18 @@
     }
   }
   #contributions-content {
-    .intro {
-      margin: 2em 1% .75em 1%;
+    /*.intro {*/
+      /*margin: 2em 1% .75em 1%;*/
+    /*}*/
+    h3 {
+      padding: 2% 3%;
+      margin-top: 2em;
+      margin-bottom: 0;
+      background: #ddd;
     }
     #contribution-list, #contribution-feed {
       background: $lightgrey;
-      @include border-radius(5px);
-      border: 2px solid #CCC;
-      padding: 2em;
-      margin: 1em 0 0;
+      padding: 2% 3% 3%;
       h4 {
         font-weight: 600;
         margin-bottom: .5em;
@@ -956,11 +959,9 @@
     .transcription-subnav {
       font-size: .75em;
       background: $darkgrey;
-      border-bottom-left-radius: 5px;
-      border-bottom-right-radius: 8px;
       position: relative;
-      margin: -.5em 0 0;
-      padding: 10px 3%;
+      margin: -.5em 0 4%;
+      padding: 5px 3%;
       &:after {
         display: table;
         content: '';

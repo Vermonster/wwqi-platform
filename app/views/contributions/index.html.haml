@@ -14,8 +14,8 @@
       %li.btn.pull-left
         = link_to 'Submit a correction', new_correction_path
   #contributions-content
+    %h3= "Items in need of #{params[:type]}"
     #contribution-list
-      %h4= "Items in need of #{params[:type]}"
       %p.feed-intro= t("contributions.#{params[:type].downcase}.intro") 
       %ul.items#selected-items
         - unless @items.empty?
@@ -26,7 +26,7 @@
               .item-content.pull-left
                 .item-title
                   = item.name
-              .transcribe.btn.pull-left
+              .transcribe.btn.pull-right
                 = link_to params[:type].titleize, new_contribution_path(type: params[:type], item: item)
         -else
           %p= "No items in need of #{params[:type]}"
@@ -36,8 +36,8 @@
           %a.show-more{href: '#', id: 'show-more-items'}
             .icon-plus-circle#contributions-icon
             %span Show more documents
+    %h3= "Recently contributed #{params[:type]}s"
     #contribution-feed
-      %h4= "Recently contributed #{params[:type]}"
       %p.feed-intro= "Here are some recent #{params[:type].pluralize} contributed by the WWQI users:"
       %ul.items#recent-contributions
         - unless @contributions.empty?
