@@ -1,18 +1,16 @@
-#new-correction
+.items-index#new-correction
   %h4 Submit a correction
-  #items.visible
-    = simple_form_for resource do |f|
-      = f.simple_fields_for :item_relation do |item|
-        .item-group
-          .input.row
-            = item.input :search, label: 'Search and select an item from the results', placeholder: 'e.g. tin or 1266A16', input_html: { style: 'width:20em', style: 'margin-right:0.5em' } 
-          = item.input :url, :as => :hidden
-          = item.input :thumbnail, :as => :hidden
-          = item.input :accession_no, :as => :hidden
-          = item.input :name, :as => :hidden
-          .row
-            .item-image.pull-left{style: "height: 200px"}
-              = image_tag 'flag.png'
-      = f.input :details, label: 'Correction', :input_html => { :class => 'wysihtml5' }
-      .corner-submit-button
-        = f.submit 'Submit Correction', class: 'btn', id: 'correction-btn'
+#items.visible
+  = simple_form_for resource do |f|
+    = f.simple_fields_for :item_relation do |item|
+      .item-group
+        .input
+          = item.input :search, label: 'Search by item name or item number', placeholder: 'e.g. tin or 1266A16'
+        = item.input :url, :as => :hidden
+        = item.input :thumbnail, :as => :hidden
+        = item.input :accession_no, :as => :hidden
+        = item.input :name, :as => :hidden
+        .item-image.pull-left
+    = f.input :details, label: 'Correction', :input_html => { :class => 'wysihtml5' }
+    .submit-button
+      = f.submit 'Submit Correction', class: 'btn', id: 'correction-btn'

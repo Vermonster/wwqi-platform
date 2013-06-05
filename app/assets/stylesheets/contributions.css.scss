@@ -96,6 +96,7 @@
 }
 
 #new-correction {
+  margin-bottom: 0;
   form {
     input {
       @include text-input;
@@ -105,9 +106,10 @@
         @include error-text-input;
       }
     }
+
     #correction-btn {
       margin: 2em 0;
-      @include action-button;
+      @include button;
     }
   }
 }

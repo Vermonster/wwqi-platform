@@ -281,17 +281,23 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
 form#new_correction {
   .item-group {
     float: none;
-
-    .item-image.pull-left {
-      height: 100%;
-      img {
-        margin-top: 100%; 
-      }
+    padding: 3%;
+    background: $lightgrey;
+    overflow: hidden;
+    label { margin-top: 0; }
+    .item-image {
+      float: right;
+      /*height: 100%;*/
+      /*img {*/
+        /*margin-top: 100%; */
+      /*}*/
     }
   }
 
   .text.correction_details {
     clear: left;
-    max-width: 70%;
+    iframe.wysihtml5-sandbox {
+      width: 96%!important;
+    }
   }
 }
