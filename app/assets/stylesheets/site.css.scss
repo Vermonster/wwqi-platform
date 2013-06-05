@@ -1029,6 +1029,7 @@
 }
 
 .show {
+  margin-top: 2em;
   overflow: hidden;
   .item-show, .comments, .comment-box {
     overflow: hidden;
@@ -1063,7 +1064,7 @@
       width: 100%;
     }
     .item-details {
-      margin: .5em 0 1em;
+      margin: .5em 0 2em;
       p {
         b { font-weight: bold; }
         i { font-style: italic; }
