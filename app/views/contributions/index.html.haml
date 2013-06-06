@@ -27,7 +27,8 @@
                 .item-title
                   = item.name
               .transcribe.btn.pull-right
-                = link_to params[:type].titleize, new_contribution_path(type: params[:type], item: item)
+                - button = params[:type].blank? ? 'Translation' : params[:type]
+                = link_to t("contributions.#{button.downcase}.button"), new_contribution_path(type: params[:type], item: item)
         -else
           %p= "No items in need of #{params[:type]}"
     .transcription-subnav
