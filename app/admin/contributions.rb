@@ -13,6 +13,7 @@ ActiveAdmin.register Contribution do
         "Anonymous"
       end
     end
+    column :type
     column :title
     column :details
     column :created_at
