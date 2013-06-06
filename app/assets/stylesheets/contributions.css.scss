@@ -2,14 +2,16 @@
 @import 'mixins';
 
 #contributions-content {
-  /*.intro {*/
-    /*margin: 2em 1% .75em 1%;*/
-  /*}*/
-  h3 {
-    padding: 2% 3%;
-    margin-top: 2em;
-    margin-bottom: 0;
+  .contribution-list-title {
     background: #ddd;
+    padding: 2% 3%;
+    margin-top: 3em;
+    h3 {
+      margin-bottom: 0;
+      font-size: 1.1em;
+      text-transform: lowercase;
+      &:first-letter { text-transform: uppercase; }
+    }
   }
   #contribution-list, #contribution-feed {
     background: $lightgrey;
@@ -20,9 +22,10 @@
       font-size: 1.25em;
     }
     p.feed-intro {
-      margin-bottom: 1em;
       border-bottom: 1px solid #a8a8a8;
       padding-bottom: 1.5em;
+      text-transform: lowercase;
+      &:first-letter { text-transform: uppercase; }
     }
     .item-content {
       width: 70%;
@@ -36,40 +39,51 @@
     }
   }
   .transcription-subnav {
-    font-size: .75em;
-    background: $darkgrey;
+    float: none;
+    font-size: 1em;
+    background: #ddd;
     position: relative;
-    margin: -.5em 0 4%;
-    padding: 5px 3%;
+    overflow: hidden;
+    padding: .5em 3%;
+    margin: 0;
+    width: 94%;
+    margin-bottom: 2em;
     &:after {
       display: table;
       content: '';
       clear: both;
     }
-    ul {
+    & a {
+      color: $medgrey;
+    }
+    & a:hover {
+      color: $lightgrey;
+    }
+    .icon-plus-circle:before {
+      font-family: 'fontello';
+      content: '\e801';
+      margin: 2px 1em 0 0;
+      &:hover {
+        color: $lightgrey;
+      }
+    }
+    .icon-plus-circle:hover {
+      color: $lightgrey;
+    }
+  }
+
+  #contribution-list {
+    ul.items {
+      margin: 0;
       li {
-        font-size: 1.25em;
-        overflow: hidden;
-        & a {
-          color: #A8A8A8;
-        }
-        & a:hover {
-          color: $lightgrey;
-        }
-        .icon-plus-circle:before {
-          font-family: 'fontello';
-          content: '\e801';
-          margin-right: .5em;
-          &:hover {
-            color: $lightgrey;
-          }
-        }
-        .icon-plus-circle:hover {
-          color: $lightgrey;
+        &:last-child { border-bottom: none; }
+        .item-content {
+          width: 70%;
         }
       }
     }
   }
+
   #contribution-feed {
     ul li {
       .item-content {

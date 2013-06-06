@@ -14,7 +14,8 @@
       %li.btn.pull-left
         = link_to 'Submit a correction', new_correction_path
   #contributions-content
-    %h3= "Items in need of #{params[:type]}"
+    .contribution-list-title
+      %h3= "Items in need of #{params[:type]}"
     #contribution-list
       %p.feed-intro= t("contributions.#{params[:type].downcase}.intro") 
       %ul.items#selected-items
@@ -31,13 +32,12 @@
                 = link_to t("contributions.#{button.downcase}.button"), new_contribution_path(type: params[:type], item: item)
         -else
           %p= "No items in need of #{params[:type]}"
-    .transcription-subnav
-      %ul
-        %li.pull-left
-          %a.show-more{href: '#', id: 'show-more-items'}
-            .icon-plus-circle#contributions-icon
-            %span Show more documents
-    %h3= "Recently contributed #{params[:type]}s"
+    .transcription-subnav.pull-left
+      %a.show-more{href: '#', id: 'show-more-items'}
+        .icon-plus-circle#contributions-icon
+        %span Show more documents
+    .contribution-list-title
+      %h3= "Recently contributed #{params[:type]}s"
     #contribution-feed
       %p.feed-intro= "Here are some recent #{params[:type].pluralize} contributed by the WWQI users:"
       %ul.items#recent-contributions
