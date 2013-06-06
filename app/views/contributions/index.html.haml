@@ -1,10 +1,10 @@
 .items-index
-  .intro.row
+  .intro.contributions-intro
     %h4 Help us enrich the WWQI archives by contributing information to the project.
 
-    %h3 There are numerous ways you can contribute.
+    %p There are numerous ways you can contribute.
 
-    %ul.thread-type.btn-group
+    %ul.thread-type.btn-group.contributions-nav
       %li{class: "btn #{'active' if params[:type] == "Transcription"} pull-left"}
         = link_to 'Transcribe a document', contributions_path(type: 'Transcription')
       %li{class: "btn #{'active' if params[:type] == 'Translation'} pull-left"}
@@ -14,8 +14,9 @@
       %li.btn.pull-left
         = link_to 'Submit a correction', new_correction_path
   #contributions-content
+    .contribution-list-title
+      %h3= "Items in need of #{params[:type]}"
     #contribution-list
-      %h4= "Items in need of #{params[:type]}"
       %p.feed-intro= t("contributions.#{params[:type].downcase}.intro") 
       %ul.items#selected-items
         - unless @items.empty?
@@ -26,19 +27,18 @@
               .item-content.pull-left
                 .item-title
                   = item.name
-              .transcribe.btn.pull-left
-                = link_to params[:type].titleize, new_contribution_path(type: params[:type], item: item)
+              .transcribe.btn.pull-right
+                - button = params[:type].blank? ? 'Translation' : params[:type]
+                = link_to t("contributions.#{button.downcase}.button"), new_contribution_path(type: params[:type], item: item)
         -else
-          %li
           %p= "No items in need of #{params[:type]}"
-    .transcription-subnav
-      %ul
-        %li.pull-left
-          %a.show-more{href: '#', id: 'show-more-items'}
-            .icon-plus-circle#contributions-icon
-            %span Show more documents
+    .transcription-subnav.pull-left
+      %a.show-more-items{href: '#', id: 'show-more-items'}
+        .icon-plus-circle#items-icon
+        %span Show more documents
+    .contribution-list-title
+      %h3= "Recently contributed #{params[:type]}s"
     #contribution-feed
-      %h4= "Recently contributed #{params[:type]}"
       %p.feed-intro= "Here are some recent #{params[:type].pluralize} contributed by the WWQI users:"
       %ul.items#recent-contributions
         - unless @contributions.empty?
@@ -59,11 +59,9 @@
         - else
           %p No recent contributions
     .transcription-subnav
-      %ul
-        %li.pull-left
-          %a{href: '#', id: 'show-more-contributions'}
-            .icon-plus-circle
-            = "Show more #{params[:type].downcase.pluralize}"
+      %a.show-more-contributions{href: '#', id: 'show-more-contributions'}
+        .icon-plus-circle#recent-contributions-icon
+        = "Show more #{params[:type].downcase.pluralize}"
 :coffeescript
   $ ->
     # Default number of items and contributions to show

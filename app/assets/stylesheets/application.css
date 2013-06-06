@@ -15,6 +15,7 @@
  *= require bootstrap-tags
  *= require bootstrap-wysihtml5
  *= require comments
+ *= require contributions
  *= require flash
  *= require_tree .
  */

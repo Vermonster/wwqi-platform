@@ -1,13 +1,22 @@
 $(document).ready(function(){
 
-  $('.show-more').mouseenter(
+  $('.show-more-items').mouseenter(
     function() {
-      $('#contributions-icon').css('color', '#eeeeee');
+      $('#items-icon').css('color', '#333333');
   });
 
-  $('.show-more').mouseleave(
+  $('.show-more-items').mouseleave(
     function() {
-      $('#contributions-icon').css('color', '#b29628');
+      $('#items-icon').css('color', '#b29628');
   });
 
+  $('.show-more-contributions').mouseenter(
+    function() {
+      $('#recent-contributions-icon').css('color', '#333333');
+  });
+
+  $('.show-more-contributions').mouseleave(
+    function() {
+      $('#recent-contributions-icon').css('color', '#b29628');
+  });
 });

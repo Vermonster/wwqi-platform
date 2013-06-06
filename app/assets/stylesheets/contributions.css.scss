@@ -1,0 +1,208 @@
+@import 'variables';
+@import 'mixins';
+
+.items-index .contributions-intro p {
+  @media (max-width: 767px) {
+    margin-bottom: 2em;
+  }
+}
+
+input, textarea, .uneditable-input {
+  width: 98%;
+  @media (max-width: 979px) {
+    width: 97%;
+  }
+  @media (max-width: 480px) {
+    width: 96%;
+  }
+  @media (max-width: 360px) {
+    width: 95%;
+  }
+}
+
+#contributions-content {
+  .contribution-list-title {
+    background: #ddd;
+    padding: 2% 3%;
+    margin-top: 3em;
+    @media (max-width: 767px) {
+      margin-top: 1.5em;
+    }
+    h3 {
+      margin-bottom: 0;
+      font-size: 1.1em;
+      text-transform: lowercase;
+      &:first-letter { text-transform: uppercase; }
+    }
+  }
+  #contribution-list, #contribution-feed {
+    background: $lightgrey;
+    padding: 2% 3% 3%;
+    h4 {
+      font-weight: 600;
+      margin-bottom: .5em;
+      font-size: 1.25em;
+    }
+    p.feed-intro {
+      border-bottom: 1px solid #a8a8a8;
+      padding-bottom: 1.5em;
+      text-transform: lowercase;
+      &:first-letter { text-transform: uppercase; }
+    }
+    .item-content {
+      width: 70%;
+    }
+    ul li {
+      margin: 0 2%;
+      .btn {
+        @include action-button;
+        margin-top: 2%;
+      }
+    }
+  }
+  .transcription-subnav {
+    float: none;
+    font-size: 1em;
+    background: #ddd;
+    position: relative;
+    overflow: hidden;
+    padding: .5em 3%;
+    margin: 0;
+    width: 94%;
+    margin-bottom: 2em;
+    &:after {
+      display: table;
+      content: '';
+      clear: both;
+    }
+    & a {
+      color: $medgrey;
+    }
+    & a:hover {
+      color: $darkgrey;
+    }
+    .icon-plus-circle:before {
+      font-family: 'fontello';
+      content: '\e801';
+      margin: 2px 1em 0 0;
+      &:hover {
+        color: $lightgrey;
+      }
+    }
+    .icon-plus-circle:hover {
+      color: $lightgrey;
+    }
+  }
+
+  #contribution-list {
+    ul.items {
+      margin: 0;
+      li {
+        &:last-child { border-bottom: none; }
+        .item-content {
+          width: 70%;
+        }
+      }
+    }
+  }
+
+  #contribution-feed {
+    ul li {
+      .item-content {
+        width: 90%;
+      }
+    }
+  }
+}
+
+#new-contribution {
+  width: 99.25%;
+  h4 {
+    @media (max-width: 400px) {
+      text-align: center;
+    }
+  }
+  .item-image {
+    overflow: hidden;
+    padding: 2%;
+    @media (max-width: 400px) {
+      padding: 6%;
+    }
+    background: $lightgrey;
+    img {
+      float: right;
+      width: 16%;
+      margin-right: 2%;
+      @media (min-width: 1200px) { width: 18%; }
+      @media (max-width: 400px) {
+        margin: 6% auto 0;
+        float: none;
+        display: block;
+        width: 40%;
+      }
+    }
+    .submission-copy {
+      width: 79%;
+      float: right;
+      @media (max-width: 400px) {
+        width: 100%;
+        float: none;
+        text-align: center;
+      }
+      p {
+        font-size: .8em;
+        margin: .5em 0 1.5em;
+        @media (max-width: 480px) {
+          margin-top: 1.25em;
+        }
+        @media (max-width: 400px) {
+          margin: .5em 0 .5em;
+        }
+      }
+    }
+  }
+}
+
+.submit-button {
+  padding: 1% 0.5% 1%;
+  overflow: hidden;
+  #thread-submit-button {
+    @include button;
+    width: 11em;
+    @media (max-width: 480px) {
+      padding: 2% 0.5% 2%;
+      width: 100%;
+    }
+  }
+}
+
+#new-correction {
+  margin-bottom: 0;
+  form {
+    input {
+      @include text-input;
+    }
+    .field_with_errors {
+      input {
+        @include error-text-input;
+      }
+    }
+
+    #correction-btn {
+      margin: 2em 0;
+      @include button;
+    }
+  }
+}
+#research-submit, #new-thread {
+  form {
+    input {
+      @include text-input;
+    }
+    .field_with_errors {
+      input {
+        @include error-text-input;
+      }
+    }
+  }
+}

@@ -1,17 +1,19 @@
-#new-correction
-  %h2= "New #{resource.type}"
-  %h3= "You are submitting a  #{resource.type} for "
-  .item-group
-    .item-image.pull-left
-      = image_tag resource.item_relation.thumbnail
-      = resource.item_relation.name
-  .span-12
-    = simple_form_for resource, url: contributions_path(type: resource.type) do |f|
-      = f.simple_fields_for :item_relation do |i|
-        = i.input :url, as: :hidden, input_html: { value: resource.item_relation.url}
-        = i.input :name, as: :hidden, input_html: { value: resource.item_relation.name }
-        = i.input :thumbnail, as: :hidden, input_html: { value: resource.item_relation.thumbnail }
-        = i.input :accession_no, as: :hidden, input_html: { value: resource.item_relation.accession_no }
-        = i.input :search, as: :hidden, input_html: { value: resource.item_relation.search }
-      = f.input :details, label: resource.type, input_html: { class: 'wysihtml5' }
-      = f.submit "Submit #{resource.type}", class: 'btn'
+.items-index#new-contribution
+  %h4= "New #{resource.type}"
+  .item-image
+    .submission-copy
+      %p= "You are submitting a  #{resource.type.downcase} for:"
+      %h3 #{resource.item_relation.name}
+    = image_tag resource.item_relation.thumbnail, {class: "img-polaroid"}
+
+= simple_form_for resource, url: contributions_path(type: resource.type) do |f|
+  = f.simple_fields_for :item_relation do |i|
+    .item-group
+      = i.input :url, as: :hidden, input_html: { value: resource.item_relation.url}
+      = i.input :name, as: :hidden, input_html: { value: resource.item_relation.name }
+      = i.input :thumbnail, as: :hidden, input_html: { value: resource.item_relation.thumbnail }
+      = i.input :accession_no, as: :hidden, input_html: { value: resource.item_relation.accession_no }
+      = i.input :search, as: :hidden, input_html: { value: resource.item_relation.search }
+  = f.input :details, as: :text, label: false, placeholder: "Type your #{resource.type.downcase}..."
+  .submit-button
+    = f.button :submit, "Submit #{resource.type}", class: 'submit-button', id: 'thread-submit-button'

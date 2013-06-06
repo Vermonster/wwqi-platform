@@ -6,12 +6,15 @@ en:
     transcription:
       intro: 'Do you have experience transcribing from Persian to English? If so, help us
       transcribe documents from our archives. Here are some suggested items that need a transcription:'
+      button: 'Transcribe'
     translation:
       intro: 'Do you have experience translating from Persian to English? If so, help us
       translate documents from our archives. Here are some suggested items that need a translation:' 
+      button: 'Translate'
     biography: 
       intro: 'Did you notice an item missing a biography? If so, help us by writing a
       biography for our archives. Here are some suggested items that need a biography:'
+      button: 'Write a biography'
   
   flash:
     threads:
