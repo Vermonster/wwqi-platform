@@ -33,8 +33,8 @@
         -else
           %p= "No items in need of #{params[:type]}"
     .transcription-subnav.pull-left
-      %a.show-more{href: '#', id: 'show-more-items'}
-        .icon-plus-circle#contributions-icon
+      %a.show-more-items{href: '#', id: 'show-more-items'}
+        .icon-plus-circle#items-icon
         %span Show more documents
     .contribution-list-title
       %h3= "Recently contributed #{params[:type]}s"
@@ -59,11 +59,9 @@
         - else
           %p No recent contributions
     .transcription-subnav
-      %ul
-        %li.pull-left
-          %a{href: '#', id: 'show-more-contributions'}
-            .icon-plus-circle
-            = "Show more #{params[:type].downcase.pluralize}"
+      %a.show-more-contributions{href: '#', id: 'show-more-contributions'}
+        .icon-plus-circle#recent-contributions-icon
+        = "Show more #{params[:type].downcase.pluralize}"
 :coffeescript
   $ ->
     # Default number of items and contributions to show
