@@ -1,8 +1,10 @@
 .items-index#new-contribution
   %h4= "New #{resource.type}"
   .item-image
-    = image_tag resource.item_relation.thumbnail, {class: "img-polaroid pull-left"}
-    %p= "You are submitting a  #{resource.type.downcase} for #{resource.item_relation.name}"
+    .submission-copy
+      %p= "You are submitting a  #{resource.type.downcase} for:"
+      %h3 #{resource.item_relation.name}
+    = image_tag resource.item_relation.thumbnail, {class: "img-polaroid"}
 
 = simple_form_for resource, url: contributions_path(type: resource.type) do |f|
   = f.simple_fields_for :item_relation do |i|
@@ -12,6 +14,6 @@
       = i.input :thumbnail, as: :hidden, input_html: { value: resource.item_relation.thumbnail }
       = i.input :accession_no, as: :hidden, input_html: { value: resource.item_relation.accession_no }
       = i.input :search, as: :hidden, input_html: { value: resource.item_relation.search }
-  = f.input :details, as: :text, label: false, placeholder: "Type your #{resource.type.downcase}...", input_html: { class: 'wysihtml5', rows: 10, "style" => "width: 98%" }
+  = f.input :details, as: :text, label: false, placeholder: "Type your #{resource.type.downcase}..."
   .submit-button
     = f.button :submit, "Submit #{resource.type}", class: 'submit-button', id: 'thread-submit-button'

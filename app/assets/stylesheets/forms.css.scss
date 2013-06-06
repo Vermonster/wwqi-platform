@@ -17,6 +17,9 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     @include text-input;
     width: 67%;
     min-width: 260px;
+    @media (max-width: 480px) {
+      width: 96%;
+    }
   }
 
   textarea, iframe {
