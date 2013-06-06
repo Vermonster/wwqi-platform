@@ -161,8 +161,18 @@ input, textarea, .uneditable-input {
       }
     }
   }
-  .submit-button { 
+}
+
+.submit-button {
+  padding: 1% 0.5% 1%;
+  overflow: hidden;
+  #thread-submit-button {
     @include button;
+    width: 11em;
+    @media (max-width: 480px) {
+      padding: 2% 0.5% 2%;
+      width: 100%;
+    }
   }
 }
 
