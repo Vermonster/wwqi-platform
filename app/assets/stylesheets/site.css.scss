@@ -802,8 +802,20 @@
     list-style: none;
     border-bottom: none;
     &.contributions-nav {
-      width: 67%;
+      width: 74%;
       margin: 1em auto 0;
+      @media (max-width: 1199px) {
+        width: 92%;
+      }
+      @media (max-width: 979px) {
+        width: 60%;
+      }
+      @media (max-width: 767px) {
+        width: 410px;
+      }
+      @media (max-width: 429px) {
+        width: 200px;
+      }
     }
     li.btn {
       @include border-top-left-radius(20px);
@@ -814,7 +826,8 @@
       background: none;
       border: none;
       color: $medgrey;
-      margin: 0 .25em;
+      margin: 0 .25em .5em;
+      width: 11em;
       &.active {
         background: $gold;
         color: #FFF;
