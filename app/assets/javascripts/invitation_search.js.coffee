@@ -11,7 +11,7 @@ $ ->
       noResults: ''
       results: ->
     open: (event, ui) ->
-      $("ul.ui-autocomplete").append("<li class='ui-menu-item' id='invite_user_link' role='presentation'><a href='#add_invitation' data-toggle='modal'>Invite the person!</a></li>")
+      $("ul.ui-autocomplete").append("<li class='ui-menu-item' id='invite_user_link' role='presentation'><a href='#add_invitation' data-toggle='modal'>Invite the person!</a><span class='icon-right-open-mini'></span></li>")
     select: (event, ui) ->
       group = $(event.target).parents('.collaborator-group')
       if (typeof ui.item != 'undefined')

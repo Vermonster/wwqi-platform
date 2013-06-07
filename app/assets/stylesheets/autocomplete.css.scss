@@ -1,27 +1,58 @@
+@import 'variables';
+@import 'mixins';
+@import 'base';
 // Place all the styles related to the autocomplete controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .ui-autocomplete {
-  border: 2px solid #000;
+  border: 1px solid rgba(0, 0, 0, .25);
   max-height: 500px;
   max-width: 300px;
   overflow-y: auto;
   overflow-x: hidden;
-  background-color: #fff;
+  background-color: $lightgrey;
+  padding: .5% 1.5%;
 
   .ui-menu-item {
-    border-bottom: 1px solid #000;
+    border-bottom: 1px dotted rgba(0, 0, 0, .25);
+    padding: 3% 0;
     a { 
-      color: black ;
+      color: $medgrey;
+      font-size: .8em;
       font-family: "proxima-nova", sans-serif;
       padding: 5px;
       display: block;
       text-decoration: none;
       
-      &.ui-state-focus {
-        background-color: Gainsboro;
-      }
+      /*&.ui-state-focus {*/
+        /*background-color: $lightgrey;*/
+      /*}*/
+    }
+    &:last-child { border-bottom: none; }
+  }
+}
+#invite_user_link {
+  font-family: $fontproxima;
+  padding-bottom: 5%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 0 -4% -10%;
+  padding: 4% 11%;
+  a {
+    color: $medgrey;
+    font-weight: 500;
+    width: 75%;
+    float: left;
+  }
+  span.icon-right-open-mini {
+    width: 15%;
+    float: right;
+    color: $medgrey;
+    margin-top: 8px;
+    &:before {
+      content: '\e762';
+      font-family: 'fontello';
     }
   }
 }
