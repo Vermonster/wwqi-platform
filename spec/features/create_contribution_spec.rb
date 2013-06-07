@@ -52,7 +52,7 @@ describe "Contribution creation" do
         # Helper to test each contribution type
         def create_and_check_contribution(type, selected_item)
           visit new_contribution_path(type: type, item: selected_item)
-          expect(page).to have_content("You are submitting a #{type.downcase} for #{selected_item.name}")
+          expect(page).to have_content("You are submitting a #{type.downcase} for: #{selected_item.name}")
 
           fill_in "#{type.downcase}_details", with: "Contribution test"
           click_on "Submit #{type.titleize}"
