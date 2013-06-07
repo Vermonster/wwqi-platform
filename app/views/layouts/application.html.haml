@@ -42,17 +42,11 @@
                     %li#bullet.hidden-phone.hidden-tablet
                       %h2 &#124;
                   - unless user_signed_in?
-                    %li.hidden-phone
-                      = link_to root_path do
+                    %li#scroll-to-registration
+                      = link_to(root_path(anchor: 'registration')) do
                         %h2 Sign up
-                    %li.hidden-tablet.hidden-desktop#scroll-to-registration
-                      %a{href: '#registration'}
-                        %h2 Sign up
-                    %li.hidden-phone
-                      = link_to root_path do
-                        %h2 Sign in
-                    %li.hidden-tablet.hidden-desktop#scroll-to-sign-in
-                      %a{href: '#sign-in'}
+                    %li#scroll-to-sign-in
+                      = link_to(root_path(anchor: 'sign-in')) do
                         %h2 Sign in
                   - else
                     %li

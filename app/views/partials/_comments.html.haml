@@ -29,7 +29,7 @@
         = f.submit t("#{klass_name}.submit"), { class: "btn pull-right submit-button", id: "comment-submit-button" }
   - else
     .black-box
-      %p To comment on this post, please #{link_to 'sign in', root_path}.
+      %p To comment on this post, please #{link_to('sign in', root_path(anchor: 'sign-in'))}.
 :coffeescript
   $( ->
     $('.thumbnail').mouseover (event) ->
