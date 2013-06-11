@@ -632,7 +632,7 @@
             margin-top: 1.5em;
             padding-right: 1%;
             #legal_terms_farsi { direction: rtl; }
-            #legal_terms {
+            #legal_terms, #legal_terms_farsi {
               overflow: hidden;
               width: 100%;
               .icon-right-open-mini {
@@ -661,6 +661,15 @@
                 float: left;
                 margin-bottom: .25em;
               }
+            }
+            #legal_terms_farsi {
+              display: none;
+              text-align: right;
+              .icon-right-open-mini {
+                @include flip;
+                float: left;
+              }
+              a { float: right; }
             }
             .checkbox {
               float: left;
@@ -1154,11 +1163,12 @@
     margin-bottom: 0;
   }
   .terms-farsi-dialog {
-    display: none;
     text-align: right;
+    direction: rtl;
   }
   .terms-english-dialog, .terms-farsi-dialog {
     float: left;
+    display: none;
   }
   .btn {
     @include button;
@@ -1195,7 +1205,7 @@
 
 .ui-dialog {
   margin: 0 15%;
-  left: 0;
+  left: 0!important;
   @media (max-width: 480px) {
     margin: 0 3%;
   }
