@@ -9,7 +9,7 @@ ActiveAdmin.register ContributionRequest do
     end
 
     column "thumbnail" do |r|
-      image_tag(r.item.thumbnail, size: "50x50")
+      image_tag(r.item.thumbnail, size: "100x100")
     end
     column :title
     column "Request Type", :details
@@ -51,6 +51,5 @@ ActiveAdmin.register ContributionRequest do
     link_to "Request List", admin_contribution_requests_path
   end
 
-  filter :type
-  filter :accession_number
+  filter :details, label: "Request Type"
 end

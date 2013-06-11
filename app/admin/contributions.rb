@@ -5,13 +5,15 @@ ActiveAdmin.register Contribution do
   
   index do
     selectable_column
-    column :id
     column "Creator Name" do |r|
       if r.creator_id && r.creator_id != 0
         User.where("id = ?", r.creator_id).first.fullname
       else
         "Anonymous"
       end
+    end
+    column "thumbnail" do |r|
+      image_tag(r.item.thumbnail, size: "100x100")
     end
     column :type
     column :title
