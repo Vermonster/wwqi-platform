@@ -13,7 +13,7 @@ class ContributionsController < ApplicationController
     @contributions = Contribution.where('type =? AND created_at > ?', params[:type] ||= 'Transcription', 6.days.ago).decorate
 
     # All items for now. 
-    @items = Item.all
+    @requests = ContributionRequest.where('details = ? ', "#{params[:type]} Request")
   end
 
   def new

@@ -19,17 +19,18 @@
     #contribution-list
       %p.feed-intro= t("contributions.#{params[:type].downcase}.intro") 
       %ul.items#selected-items
-        - unless @items.empty?
-          - @items.each do |item|
+        - unless @requests.empty?
+          - @requests.each do |r|
             %li
               .item-image.pull-left
-                = image_tag item.thumbnail ||= 'flag.png'
+                = image_tag r.item.thumbnail ||= 'flag.png'
               .item-content.pull-left
                 .item-title
-                  = item.name
+                  = r.item.name
               .transcribe.btn.pull-right
                 - button = params[:type].blank? ? 'Translation' : params[:type]
-                = link_to t("contributions.#{button.downcase}.button"), new_contribution_path(type: params[:type], item: item)
+                - binding.pry
+                = link_to t("contributions.#{button.downcase}.button"), new_contribution_path(type: params[:type], item: r.item)
         -else
           %p= "No items in need of #{params[:type]}"
     .transcription-subnav.pull-left

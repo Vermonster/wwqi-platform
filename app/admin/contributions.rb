@@ -20,6 +20,16 @@ ActiveAdmin.register Contribution do
     default_actions
   end
   
+  form do |f|
+    f.inputs "Contribution Request" do
+      f.input :accession_number 
+      f.input :type
+      f.input :creator
+    end
+    f.actions
+  end
+
   filter :title
   filter :user_fullname, :as => :string, :label => "Creator"
+
 end
