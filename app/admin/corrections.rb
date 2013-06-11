@@ -15,7 +15,6 @@ ActiveAdmin.register Correction do
 
   index do
     selectable_column
-    column :id
     column "Submitted By" do |c|
       if c.creator 
         c.creator.fullname

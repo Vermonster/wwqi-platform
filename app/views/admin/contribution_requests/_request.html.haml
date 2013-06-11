@@ -12,6 +12,6 @@
           = item.input :thumbnail, as: :hidden
           = item.input :accession_no, as: :hidden
           = item.input :name, as: :hidden
-      = f.input :details, label: "Request Type", as: :select, collection: ['Transcription Request', 'Translation Request', 'Biography Request']
+      = f.input :details, label: "Request Type", as: :select, collection: ['Transcription', 'Translation', 'Biography']
       = f.input :creator_id, as: :hidden, input_html: { disabled: true, value: current_user.id }
     = f.actions :submit

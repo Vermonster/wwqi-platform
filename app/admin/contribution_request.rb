@@ -4,12 +4,15 @@ ActiveAdmin.register ContributionRequest do
 
   index do
     selectable_column
-    column :id
     column "Creator Name" do |r|
       User.where("id = ?", r.creator_id).first.fullname
     end
 
-    column :details
+    column "thumbnail" do |r|
+      image_tag(r.item.thumbnail, size: "50x50")
+    end
+    column :title
+    column "Request Type", :details
     column :created_at
     default_actions
   end
@@ -39,6 +42,14 @@ ActiveAdmin.register ContributionRequest do
   end
 
   form partial: "request"
+
+  action_item only: :show do
+    link_to "New Contribution Request", new_admin_contribution_request_path
+  end
+
+  action_item only: :show do
+    link_to "Request List", admin_contribution_requests_path
+  end
 
   filter :type
   filter :accession_number

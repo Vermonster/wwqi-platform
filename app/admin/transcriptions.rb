@@ -5,7 +5,6 @@ ActiveAdmin.register Transcription do
   
   index do
     selectable_column
-    column :id
     column "Creator Name" do |r|
       User.where("id = ?", r.creator_id).first.fullname
     end

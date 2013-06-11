@@ -5,7 +5,6 @@ ActiveAdmin.register Biography do
   
   index do
     selectable_column
-    column :id
     column "Creator" do |r|
       User.where("id = ?", r.creator_id).first.fullname
     end
