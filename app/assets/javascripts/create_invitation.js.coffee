@@ -24,3 +24,5 @@ $ ->
       .after('<span class="help-inline">Please check the email address</span>')
       .wrap('<div class="control" />')
       .wrap('<div class="control-group error" />')
+
+    return false;
