@@ -11,6 +11,8 @@ $(document).ready(function(){
     $('.feature-copy').toggle();
     $('.col1').toggleClass('float-right');
     $('.col2').toggleClass('float-right');
+    $('#legal_terms').toggle();
+    $('#legal_terms_farsi').toggle();
   });
 
 });
