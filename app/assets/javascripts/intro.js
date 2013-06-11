@@ -9,6 +9,8 @@ $(document).ready(function(){
     $('.intro-copy-farsi').toggle();
     $('.feature-copy-farsi').toggle();
     $('.feature-copy').toggle();
+    $('.col1').toggleClass('float-right');
+    $('.col2').toggleClass('float-right');
   });
 
 });
