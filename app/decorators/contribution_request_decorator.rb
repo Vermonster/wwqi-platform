@@ -4,6 +4,6 @@ class ContributionRequestDecorator < ContributionDecorator
   end
 
   def title
-    item.name.titleize
+    item.name
   end
 end
