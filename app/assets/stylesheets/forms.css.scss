@@ -6,7 +6,7 @@ form {
   overflow: hidden;
 }
 
-form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-thread, form#new_correction {
+form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-thread, form#new_correction, form#new_transcription {
 
   label {
     font-weight: bold;
@@ -22,24 +22,51 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     }
   }
 
-  textarea, iframe {
+  textarea, iframe, .wysihtml5-sandbox {
     min-height: 200px;
-    width: 100%;
+    width: 95.25%;
     min-width: 256px;
     padding: 10px;
     @include text-input;
+    /* excessive media queries necessary for wysiwyg text editor */
+    @media (max-width: 1199px) {
+      width: 94.25%
+    }
+    @media (max-width: 979px) {
+      width: 92.75%;
+    }
+    @media (max-width: 700px) {
+      width: 91.75%;
+    }
+    @media (max-width: 560px) {
+      width: 90.75%;
+    }
+    @media (max-width: 500px) {
+      width: 89.75%;
+    }
+    @media (max-width: 460px) {
+      width: 87%;
+      margin: 0 auto;
+    }
+    @media (max-width: 430px) {
+      width: 86%;
+      margin: 0 auto;
+    }
+    @media (max-width: 340px) {
+      width: 84%;
+    }
   }
 
-  iframe.wysihtml5-sandbox {
-    padding: 20px;
-    @media (max-width: 979px) {
-      width: 92%!important;
-      max-width: 93%!important;
-    }
-    @media (max-width: 480px) {
-      width: 80%!important;
-    }
-  }
+  /*iframe.wysihtml5-sandbox {*/
+    /*padding: 20px;*/
+    /*@media (max-width: 979px) {*/
+      /*width: 92%!important;*/
+      /*max-width: 93%!important;*/
+    /*}*/
+    /*@media (max-width: 480px) {*/
+      /*width: 80%!important;*/
+    /*}*/
+  /*}*/
 
   input, textarea, .btn-group {
     display: block;
@@ -57,6 +84,9 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     margin-bottom: 2em;
     @media (max-width: 979px) {
       width: 97%;
+    }
+    @media (max-width: 500px) {
+      width: 95%;
     }
   }
 
