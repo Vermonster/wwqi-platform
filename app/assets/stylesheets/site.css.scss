@@ -275,10 +275,15 @@
           }
           a {
             color: #FFF;
-            padding: 15px;
+            padding: 15px 15px 0 15px;
             &:hover {
               background: none;
               color: $lightgrey;
+            }
+            &.farsi-link {
+              padding: 0 15px 15px 15px;
+              direction: rtl;
+              color: $medgrey;
             }
             @media (max-width: 979px) and (min-width: 768px) {
               font-size: .8em;

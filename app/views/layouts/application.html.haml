@@ -58,9 +58,9 @@
             #main-nav
               #nav.span8.offset2.pull-left
                 %ul.nav
-                  = nav_link 'Questions & Discussions', posts_path, 'threads'
-                  = nav_link 'Research-in-Progress', researches_path, 'researches'
-                  = nav_link 'Contributions', contributions_path, ['contributions', 'corrections']
+                  = nav_link 'Questions & Discussions', posts_path, 'threads', 'پرسش و گفتگو'
+                  = nav_link 'Research-in-Progress', researches_path, 'researches', 'پژوهشهای در جریان'
+                  = nav_link 'Contributions', contributions_path, ['contributions', 'corrections'], 'مشارکت'
               - if user_signed_in?
                 #notifications-outer-wrapper
                   #notifications-inner-wrapper
