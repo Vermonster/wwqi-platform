@@ -43,7 +43,7 @@ module ApplicationHelper
     end
   end
 
-  def nav_link(text, path, controller_name)
+  def nav_link(text, path, controller_name, farsi_text=nil)
     case controller_name
     when String
       active = params['controller'] == controller_name
@@ -54,6 +54,7 @@ module ApplicationHelper
     capture_haml do
       haml_tag :li, class: (active ? 'active' : nil) do
         haml_concat link_to(text, path)
+        haml_concat link_to(farsi_text, path, {:class => "farsi-link"})
       end
     end
   end
