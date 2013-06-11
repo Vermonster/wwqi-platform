@@ -22,6 +22,9 @@ ActiveAdmin.register Correction do
         "Anonymous"
       end
     end
+    column "thumbnail" do |r|
+      image_tag(r.item.thumbnail, size: "100x100")
+    end
     column :title
     column :details
     column :created_at

@@ -8,6 +8,9 @@ ActiveAdmin.register Translation do
     column "Creator Name" do |r|
       User.where("id = ?", r.creator_id).first.fullname
     end
+    column "thumbnail" do |r|
+      image_tag(r.item.thumbnail, size: "100x100")
+    end
     column :title
     column :created_at
     default_actions

@@ -28,7 +28,7 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Contributions" do
           ul do
             Contribution.limit(10).decorate(with: nil).map do |post|
-              li link_to(post.title, admin_correction_path(post))
+              li link_to(post.title, admin_contribution_path(post))
             end
           end
         end
