@@ -42,14 +42,14 @@
       -#%span.hint Use tags to describe the people, places, or subjects related to this thread. 
 
     .invite-collaborators
-      %label Invite Collaborators
+      %label Who can collaborate?
       .btn-group.collaborators{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[private]"}
-        %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
-        %button.btn{"data-toggle" => "button", :value => "false"} Everyone
+        %button.btn{"data-toggle" => "button", :value => "true"}People I Choose
+        %button.btn{"data-toggle" => "button", :value => "false"}Anyone
       = f.input :private, as: :hidden
       #collaborators
         .expand
-          %p Enter Name or Email Address of Recipients
+          %p Enter name or email of existing users
           = f.error :collaborators
           = f.simple_fields_for :collaborators do |collaborator|
             = render 'partials/collaborator_fields', :f => collaborator
@@ -57,6 +57,12 @@
             .icon-plus-circle
             = link_to_add_association 'Add Collabator', f, :collaborators, partial: 'partials/collaborator_fields'
 
+        #invitation
+          = f.simple_fields_for :invitations do |invitation|
+            = render 'invitation_fields', :f => invitation
+          .links
+            = link_to_add_association 'Add Invitee', f, :invitations, style: "display: none"
+            %a.btn{:href => '#add_invitation', 'data-toggle' => 'modal' }Invite a new person to the research platform
     .file-upload
       %label Additional Documents
       = f.simple_fields_for :uploads do |upload|
@@ -64,12 +70,6 @@
       .links-add
         .icon-plus-circle
         = link_to_add_association 'Add Upload', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
-
-    #invitation.span6
-      = f.simple_fields_for :invitations do |invitation|
-        = render 'invitation_fields', :f => invitation
-      .links
-        = link_to_add_association 'Add Invitee', f, :invitations, style: "visibility: hidden"
 
   .submit-button
     = f.button :submit, :label => 'Post Thread', :value => 'Submit', id:'thread-submit-button', class: 'submit-button'

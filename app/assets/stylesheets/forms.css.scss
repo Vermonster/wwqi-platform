@@ -140,6 +140,39 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     }
   }
 
+  #invitation {
+    margin-top: 1.5em;
+    p {
+      font-size: .8em;
+      margin-top: .5em;
+      font-weight: 600;
+    }
+    input {
+      border: none;
+      box-shadow: none;
+      background: none;
+      padding-left: 0;
+      font-size: .8em;
+      color: $medgrey;
+    }
+    .nested-fields {
+      background: #ddd;
+      padding: 5px 10px 10px 10px;
+      margin: .5em 0 1em;
+      overflow: hidden;
+      .input {
+        float: left;
+        width: 93%;
+      }
+      .links {
+        overflow: hidden;
+        width: 7%;
+        float: right;
+        margin-top: .35em;
+      }
+    }
+  }
+
   #collaborators, #items, #files {
     overflow: hidden;
     margin: 1.5em 0 0;
@@ -147,7 +180,9 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     .btn-group {
       margin-top: 2em;
     }
-    
+    .nested-fields {
+      overflow: hidden;
+    }
     .expand {
       p {
         font-size: .8em;
@@ -197,6 +232,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
   .submit-button {
     padding: 1em 0 1em 1em;
     overflow: hidden;
+    margin-top: 1em;
     @media (max-width: 979px) {
       width: 100%;
       padding: 0;

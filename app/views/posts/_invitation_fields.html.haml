@@ -1,8 +1,8 @@
-.nested-fields.row-fluid
-  .span10
-    = f.input :recipient_name, as: :hidden
-    = f.input :recipient_email, read_only: true
-    = f.input :message, as: :hidden
-  .links.span2
-    = link_to_remove_association 'Remove', f, style: "visibility: hidden"
+.nested-fields
+  %p Send invitation to:
+  = f.input :recipient_name, as: :hidden
+  = f.input :recipient_email, read_only: true,  disabled: true, label: false
+  = f.input :message, as: :hidden
+  .links
+    = link_to_remove_association '', f, style: "float: right", class: 'icon-minus-circle'
 
