@@ -36,16 +36,16 @@ describe "Contribution creation" do
       before { sign_in(user) }
       after { sign_out }
 
-      describe "transcription creation" do 
+      describe "contribution creation" do 
         it "creates a new transcription" do
           create_and_check_contribution('Transcription', @test_item)
         end
 
-        it "translation creation" do
+        it "creates translation creation" do
           create_and_check_contribution('Translation', @test_item)
         end
 
-        it "biography creation" do
+        it "creates biography creation" do
           create_and_check_contribution('Biography', @test_item)
         end
 

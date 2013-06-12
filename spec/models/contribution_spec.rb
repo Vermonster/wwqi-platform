@@ -44,4 +44,8 @@ describe Contribution do
   describe Correction do
     it_behaves_like "a contribution"
   end
+  
+  describe ContributionRequest do
+    it_behaves_like "a contribution"
+  end
 end
