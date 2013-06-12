@@ -157,6 +157,11 @@ label {
   margin-top: 1.5em;
 }
 
+.btn {
+  font-family: $fontproxima;
+  color: $medgrey;
+}
+
 .icon-plus-circle:before, {
   font-family: 'fontello';
   content: '\e801';
