@@ -27,6 +27,10 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     width: 95.25%;
     min-width: 256px;
     padding: 10px;
+  }
+
+  textarea, iframe, .wysihtml5-sandbox, #post_title, #research_title {
+    width: 100%;
     @include text-input;
     /* excessive media queries necessary for wysiwyg text editor */
     @media (max-width: 1199px) {
@@ -57,17 +61,6 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     }
   }
 
-  /*iframe.wysihtml5-sandbox {*/
-    /*padding: 20px;*/
-    /*@media (max-width: 979px) {*/
-      /*width: 92%!important;*/
-      /*max-width: 93%!important;*/
-    /*}*/
-    /*@media (max-width: 480px) {*/
-      /*width: 80%!important;*/
-    /*}*/
-  /*}*/
-
   input, textarea, .btn-group {
     display: block;
   }
@@ -77,17 +70,6 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     width: 100%;
     margin-top: .25em;
     @include box-sizing(border-box);
-  }
-
-  input#research_title {
-    width: 100%;
-    margin-bottom: 2em;
-    @media (max-width: 979px) {
-      width: 97%;
-    }
-    @media (max-width: 500px) {
-      width: 95%;
-    }
   }
 
   span.ui-helper-hidden-accessible {
@@ -233,6 +215,7 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     padding: 1em 0 1em 1em;
     overflow: hidden;
     margin-top: 1em;
+    float: right;
     @media (max-width: 979px) {
       width: 100%;
       padding: 0;
@@ -259,6 +242,10 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     }
     .post_title {
       margin-top: 2em;
+      /*input {*/
+        /*width: 100%;*/
+        /*@include text-input;*/
+      /*}*/
     }
     label {
       margin-top: 0;
