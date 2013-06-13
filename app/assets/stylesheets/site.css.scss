@@ -995,6 +995,11 @@
       margin-top: 8px;
       font-size: .9em;
       color: #696969;
+      h4 {
+        font-size: 1em;
+        color: $medgrey;
+        margin-bottom: 2em;
+      }
     }
     textarea {
       width: 100%;
@@ -1006,6 +1011,7 @@
     padding: 1.5em;
     overflow: hidden;
     h3 {
+      color: $lightgrey;
       margin-bottom: 1.5em;
     }
     ul {
