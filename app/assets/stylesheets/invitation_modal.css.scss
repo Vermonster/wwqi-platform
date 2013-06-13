@@ -1,0 +1,30 @@
+@import 'mixins';
+@import 'variables';
+#add_invitation {
+  .modal-header {
+    background: $darkgrey;
+    h3 { color: $lightgrey; }
+    button.close { 
+      color: $lightgrey;
+      opacity: .8;
+      font-family: $fontproxima;
+      font-weight: 400;
+    }
+  }
+  .modal-body {
+    padding: 2% 5% 5%;
+    max-height: none;
+    input {
+      @include text-input;
+      width: 91%;
+    }
+    textarea {
+      width: 91%;
+      padding-top: 1em;
+    }
+  }
+}
+
+.modal-backdrop.fade.in {
+  opacity: 0.3!important;
+}
