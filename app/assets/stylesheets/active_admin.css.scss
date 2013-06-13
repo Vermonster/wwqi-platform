@@ -10,14 +10,43 @@
 // Active Admin's got SASS!
 @import "active_admin/mixins";
 @import "active_admin/base";
-/*@import "autocomplete";*/
+@import "variables";
 
 // Overriding any non-variable SASS must be done after the fact.
 // For example, to change the default status-tag color:
 //
-//   body.active_admin {
-//      .status_tag { background: #6090DB; }
-//   }
+   body.active_admin {
+      
+    .ui-autocomplete {
+      border: 1px solid rgba(0, 0, 0, .25);
+      max-height: 500px;
+      max-width: 300px;
+      overflow-y: auto;
+      overflow-x: hidden;
+      background-color: $lightgrey;
+      padding: .5% 1.5%;
+      list-style-type: none;
+      box-shadow: 0 3px 5px rgba(0, 0, 0, .25);
+
+      .ui-menu-item {
+        border-bottom: 1px dotted rgba(0, 0, 0, .25);
+        padding: 3% 0;
+        a { 
+          color: $medgrey;
+          font-size: .8em;
+          font-family: "proxima-nova", sans-serif;
+          padding: 5px;
+          display: block;
+          text-decoration: none;
+          
+          &.ui-state-focus {
+            background-color: white;
+          }
+        }
+        &:last-child { border-bottom: none; }
+      }
+    }
+   }
 //
 // Notice that Active Admin CSS rules are nested within a
 // 'body.active_admin' selector to prevent conflicts with
