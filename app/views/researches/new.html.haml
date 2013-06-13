@@ -42,6 +42,13 @@
             .icon-plus-circle
             = link_to_add_association 'Add Collaborator', f, :collaborators, partial: 'partials/collaborator_fields'
 
+        #invitation
+          = f.simple_fields_for :invitations do |invitation|
+            = render 'invitation_fields', :f => invitation
+          .links
+            = link_to_add_association 'Add Invitee', f, :invitations, style: "display: none"
+            %a.btn{:href => '#add_invitation', 'data-toggle' => 'modal' }Invite a new person to the research platform
+
     .tag-list
       %label= t('simple_form.labels.research.tag_list')
       .tags
