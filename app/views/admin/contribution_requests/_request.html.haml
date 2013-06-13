@@ -7,7 +7,7 @@
             = image_tag 'flag.png'
           -else
             = image_tag @contribution_request.item.thumbnail
-          = item.input :search, placeholder: "Please type an association number"
+          = item.input :search, placeholder: "Search by item name or number"
           = item.input :url, as: :hidden
           = item.input :thumbnail, as: :hidden
           = item.input :accession_no, as: :hidden
