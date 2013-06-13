@@ -1,7 +1,7 @@
 .nested-fields
   %p Send invitation to:
   = f.input :recipient_name, as: :hidden
-  = f.input :recipient_email, read_only: true,  disabled: true, label: false
+  = f.input :recipient_email, read_only: true, label: false
   = f.input :message, as: :hidden
   .links
     = link_to_remove_association '', f, style: "float: right", class: 'icon-minus-circle'
