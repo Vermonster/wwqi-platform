@@ -23,9 +23,9 @@
   - if user_signed_in?
     .item-image.pull-left
       = image_tag avatar_url(current_user)
-    .item-content.pull-left
+    .item-content.pull-right
       = simple_form_for Comment.new, url: post_comments_path(resource) do |f|
-        = f.input :details, label: t("#{klass_name}.comment_label"), input_html: { class: 'wysihtml5' }
+        = f.input :details, label: t("#{klass_name}.comment_label"), input_html: { class: 'wysihtml5-sandbox' }
         = f.submit t("#{klass_name}.submit"), { class: "btn pull-right submit-button", id: "comment-submit-button" }
   - else
     .black-box

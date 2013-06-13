@@ -38,6 +38,9 @@
   overflow: hidden;
   .item-content {
     width: 93%;
+    @media (max-width: 1199px) {
+      width: 100%;
+    }
   }
   form {
     label {
