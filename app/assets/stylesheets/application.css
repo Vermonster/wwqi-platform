@@ -17,5 +17,6 @@
  *= require comments
  *= require contributions
  *= require flash
+ *= require invitation_modal
  *= require_tree .
  */
