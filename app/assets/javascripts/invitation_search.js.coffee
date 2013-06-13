@@ -27,4 +27,4 @@ $ ->
     $(insertedItem)
       .find('input[id$="_term"]')
       .autocomplete(options)
-      .data("ui-autocomplete")._renderItem = renderFunc)
+      .data("ui-autocomplete")?._renderItem = renderFunc)
