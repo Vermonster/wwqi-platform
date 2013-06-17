@@ -6,29 +6,6 @@ form {
   overflow: hidden;
 }
 
-form#new_comment {
-  .comment_details {
-    textarea#comment_details {
-      width: 95%;
-      @media (max-width: 1199px) {
-        width: 94%;
-      }
-      @media (max-width: 979px) {
-        width: 93%;
-      }
-      @media (max-width: 665px) {
-        width: 92%;
-      }
-      @media (max-width: 580px) {
-        width: 91%;
-      }
-      @media (max-width: 500px) {
-        width: 84%;
-      }
-    }
-  }
-}
-
 form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-thread, form#new_correction, form#new_transcription, form#new_comment, form#new_biography, form#new_translation, form#new_transcription {
 
   label {
