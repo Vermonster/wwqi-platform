@@ -6,6 +6,8 @@ class Contribution < ActiveRecord::Base
   belongs_to :creator, class_name: 'User'
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :uploads, as: :uploadable, dependent: :destroy
+  has_many :followings, as: :followable, dependent: :destroy
+  has_many :followers, through: :followings, class_name: :User
   has_one :item_relation, as: :itemable, dependent: :destroy
   has_one :item, through: :item_relation
 
