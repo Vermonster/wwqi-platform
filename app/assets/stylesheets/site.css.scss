@@ -802,13 +802,13 @@
     }
   }
   ul.thread-type.btn-group {
+    width: 100%;
     margin: 1em 0 0;
     padding: none;
     overflow: hidden;
     list-style: none;
     border-bottom: none;
     &.contributions-nav {
-      width: 74%;
       margin: 1em auto 0;
       @media (max-width: 1199px) {
         width: 92%;
@@ -817,10 +817,10 @@
         width: 60%;
       }
       @media (max-width: 767px) {
-        width: 410px;
+        width: 100%;
       }
       @media (max-width: 429px) {
-        width: 200px;
+        width: 100%;
       }
     }
     li.btn {
@@ -838,7 +838,7 @@
         margin: .5em auto;
         display: block;
         float: none;
-        width: 88%;
+        width: 80%;
       }
       &.active {
         background: $gold;
