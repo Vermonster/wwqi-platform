@@ -732,14 +732,14 @@
     display: block;
     width: 68%;
     margin: 0 0 2.5em;
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
       width: 92%;
       margin: 0 4% 2em;
       float: none;
     }
     input {
       width: 62%;
-      @media (max-width: 480px) {
+      @media (max-width: 767px) {
         width: 62%;
       }
     }
@@ -750,7 +750,7 @@
       float: left;
       color: #FFF;
       text-shadow: none;
-      @media (max-width: 480px) {
+      @media (max-width: 767px) {
         max-width: 30%;
         padding: 0;
         margin-right: 0;
@@ -783,11 +783,11 @@
         content: '\e762';
       }
     }
-    @media (max-width: 480px) {
+    @media (max-width: 767px) {
       float: none;
       display: block;
       margin: 0 auto 1.75em;
-      width: 80%;
+      width: 85%;
     }
   }
   .thread-type {
