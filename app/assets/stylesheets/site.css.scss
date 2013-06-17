@@ -833,7 +833,13 @@
       border: none;
       color: $medgrey;
       margin: 0 .25em .5em;
-      width: 11em;
+      background: $lightgrey;
+      @media (max-width: 767px) {
+        margin: .5em auto;
+        display: block;
+        float: none;
+        width: 88%;
+      }
       &.active {
         background: $gold;
         color: #FFF;
