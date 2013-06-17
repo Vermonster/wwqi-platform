@@ -29,7 +29,7 @@ form#new_comment {
   }
 }
 
-form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-thread, form#new_correction, form#new_transcription, form#new_comment {
+form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-thread, form#new_correction, form#new_transcription, form#new_comment, form#new_biography, form#new_translation, form#new_transcription {
 
   label {
     font-weight: bold;
@@ -52,8 +52,8 @@ form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-t
     padding: 10px;
   }
 
-  textarea, iframe, .wysihtml5-sandbox, #post_title, #research_title, #comment_details {
     width: 100%;
+  textarea, iframe, .wysihtml5-sandbox, #post_title, #research_title, #comment_details, #biography_details, #translation_details, #transcription_details {
     @include text-input;
     /* excessive media queries necessary for wysiwyg text editor */
     @media (max-width: 1199px) {
