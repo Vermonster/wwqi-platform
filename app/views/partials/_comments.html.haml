@@ -1,4 +1,5 @@
 - klass_name = resource.model.class.to_s.downcase
+- parent_class = resource.model.class.lookup_ancestors.last.to_s
 .comments
   - resource.comments.each do |c|
     .comment
@@ -18,18 +19,23 @@
                 %li.span1
                   .thumbnail{ title: "#{i.name}" }
                     = image_tag i.thumbnail, size: "50x50", "data-src" => "holder.js/50x50"
-          = link_to "edit", edit_post_comment_path(resource, c), {class: ''} if current_user == c.user
+          -# check the parent class and set the right path for editing a comment
+          - edit_path_arg = parent_class == 'Post' ? edit_post_comment_path(resource, c) : edit_contribution_comment_path(resource, c)
+          = link_to "edit", edit_path_arg, {class: ''} if current_user == c.user
 .comment-box
   - if user_signed_in?
     .item-image.pull-left
       = image_tag avatar_url(current_user)
     .item-content.pull-right
-      = simple_form_for Comment.new, url: post_comments_path(resource) do |f|
-        = f.input :details, label: t("#{klass_name}.comment_label"), input_html: { class: 'wysihtml5-sandbox' }
-        = f.submit t("#{klass_name}.submit"), { class: "btn pull-right submit-button", id: "comment-submit-button" }
+    -# check the paren class and set the right url for a comment form
+    - new_path_arg = parent_class == 'Post' ? post_comments_path(resource) : contribution_comments_path(resource)
+    = simple_form_for Comment.new, url: new_path_arg do |f|
+      = f.input :details, label: t("#{klass_name}.comment_label"), input_html: { class: 'wysihtml5-sandbox' }
+      = f.submit t("#{klass_name}.submit"), { class: "btn pull-right submit-button", id: "comment-submit-button" }
   - else
     .black-box
-      %p To comment on this post, please #{link_to('sign in', root_path(anchor: 'sign-in'))}.
+      %p To comment on this #{klass_name}, please #{link_to('sign in', root_path(anchor: 'sign-in'))}.
+
 :coffeescript
   $( ->
     $('.thumbnail').mouseover (event) ->
