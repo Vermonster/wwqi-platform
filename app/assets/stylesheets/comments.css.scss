@@ -46,10 +46,12 @@
     label {
       margin-top: 0;
     }
-    #comment-submit-button {
+    #comment-submit-button.submit-button {
       @include button;
       overflow: hidden;
+      width: auto;
       margin: .25em;
+      padding: .5em 1em;
       @media (max-width: 979px) {
         width: 99%;
       }
