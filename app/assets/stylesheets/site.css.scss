@@ -802,7 +802,7 @@
     }
   }
   ul.thread-type.btn-group {
-    width: 100%;
+    width: 68%;
     margin: 1em 0 0;
     padding: none;
     overflow: hidden;
@@ -811,7 +811,7 @@
     &.contributions-nav {
       margin: 1em auto 0;
       @media (max-width: 1199px) {
-        width: 92%;
+        width: 83%;
       }
       @media (max-width: 979px) {
         width: 60%;
