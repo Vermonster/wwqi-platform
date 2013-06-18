@@ -26,7 +26,7 @@
                 = image_tag r.item.thumbnail ||= 'flag.png'
               .item-content.pull-left
                 .item-title
-                  = r.item.name
+                  = r.title
               .transcribe.btn.pull-right
                 = link_to t("contributions.#{params[:type].downcase}.button"), new_contribution_path(type: params[:type], item: r.item)
         -else
@@ -49,12 +49,16 @@
                 .item-header
                   = c.header
                 .item-title
-                  = link_to c.item.name, contribution_path(c)
+                  = link_to c.title, contribution_path(c)
                 .item-comments
                   = c.comments_size
                 %p.bullet &bull;
                 .item-created
                   = c.created_ago
+              - if user_signed_in?
+                .item-follow-btn
+                  - following = current_user.following?(c.object)
+                  = link_to following ? 'Unfollow' : 'Follow', '#', :class => ['btn', 'btn-primary', following && 'followed'], :data => { followable_id: c.id, followable_type: c.model.class.to_s.downcase, follow_id: following.try(:id) } 
         - else
           %p No recent contributions
     .transcription-subnav

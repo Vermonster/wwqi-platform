@@ -25,6 +25,8 @@ class NotificationDecorator < Draper::Decorator
       'posted to'
     when Research
       'commented on'
+    when Contribution
+      "commented on your #{target.type.downcase} for"
     end
   end
 end

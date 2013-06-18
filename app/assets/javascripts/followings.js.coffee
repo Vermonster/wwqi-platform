@@ -11,6 +11,7 @@ $ ->
     controller = switch followable_type
       when 'question', 'discussion' then 'threads'
       when 'research' then 'researches'
+      when 'transcription', 'translation', 'biography' then 'contributions'
 
     action = if is_followed then "DELETE" else "POST"
     url = switch is_followed
