@@ -21,6 +21,10 @@ class Contribution < ActiveRecord::Base
   scope :user_fullname_contains, lambda { |str|
     User.joins(:creator).where("LOWER(first_name) = LOWER(?) OR LOWER(last_name) = LOWER(?)", str, str)
   }
+
+  def title
+    item.name
+  end
   
   default_scope order('created_at DESC')
 end

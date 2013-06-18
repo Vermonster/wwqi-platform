@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
     followed_posts.where(type: 'Research')
   end
 
+  def followed_contributions
+    followed_contributions.where("type = 'Transcription' or type = 'Translation' or type = 'Biography'")
+  end
+
   def unread_notifications
     notifications.where(unread: true).decorate
   end

@@ -21,10 +21,6 @@ class ContributionDecorator < Draper::Decorator
   def title_link
     h.link_to title, h.contribution_path(model)
   end
-  
-  def title
-    item.name
-  end
 
   def image
     h.image_tag item.thumbnail_src

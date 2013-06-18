@@ -16,6 +16,8 @@ class NotificationsController < ApplicationController
       post_path(target, anchor: "c#{target.id}")
     when Research
       research_path(target, anchor: "c#{target.id}" )
+    when Contribution
+      contribution_path(target, anchor: "c#{target.id}")
     end
   end
 end
