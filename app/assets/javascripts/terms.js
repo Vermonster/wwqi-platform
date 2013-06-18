@@ -1,6 +1,7 @@
 $(document).ready(function(){
 
-  initializeTermsDialog();
+  initializeTermsDialog('legal_terms');
+  initializeTermsDialog('legal_terms_farsi');
 
   $('.language-select-dialog').click(function() {
     $('.terms-farsi-dialog').toggle();
@@ -26,42 +27,34 @@ $(document).ready(function(){
 
 });
 
-function initializeTermsDialog() {
+function initializeTermsDialog(item) {
   var $dialog = $("#dialog");
   var $close = $(".close-dialog");
-  var $link = $("#legal_terms, #legal_terms_farsi").one('click', function() {
-    $dialog.dialog({
-        //open: function(event, ui) { $(".ui-dialog-titlebar-close").show(); },
-        autoOpen: true,
-        //closeOnEscape: true,
-        title: "Terms",
-        maxWidth: 600,
-        width: 'auto', //overcomes width: 'auto and maxWidth bug
-        height: 500,
-        fluid: true,
-        draggable: false,
-        resizable: false,
-        modal: true,
-      });
-
-    $link.click(function() {
-      $dialog.dialog('open');
-      if ($link.attr('id')=='legal_terms'){
-        $('.terms-english-dialog').css('display', 'block');
-        $('.terms-farsi-dialog').css('display', 'none');
-        console.log('english');
-      } else {
-        console.log('farsi');
-        $('.terms-english-dialog').css('display', 'none');
-        $('.terms-farsi-dialog').css('display', 'block');
-      }      
-      return false;
+  var $link = $("#"+ item);
+  $dialog.dialog({
+      autoOpen: false,
+      title: "Terms",
+      maxWidth: 600,
+      width: 'auto', //overcomes width: 'auto and maxWidth bug
+      height: 500,
+      fluid: true,
+      draggable: false,
+      resizable: false,
+      modal: true
     });
 
-    $close.click(function() {
-      $dialog.dialog('close');
-    });
+  $link.click(function() {
+    $dialog.dialog('open');
+    if ($link.attr('id').match('farsi')) {
+      $('.terms-english-dialog').css('display', 'none');
+      $('.terms-farsi-dialog').css('display', 'block');
+    } else {
+      $('.terms-english-dialog').css('display', 'block');
+      $('.terms-farsi-dialog').css('display', 'none');
+    }      
+  });
 
-    //return false;
+  $close.click(function() {
+    $dialog.dialog('close');
   });
 }
