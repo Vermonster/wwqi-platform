@@ -9,6 +9,8 @@ class CommentDecorator < Draper::Decorator
     case commentable
     when Question, Discussion, Research
       'replied'
+    when Contribution
+      'commented'
     end
   end
 

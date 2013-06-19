@@ -26,8 +26,6 @@ describe "Contribution creation" do
         visit contributions_path
         expect(page).to have_content('Help us enrich the WWQI archives by contributing information to the project.')
         expect(page).to have_content('Items in need of Transcription')
-        expect(page).to have_content(@test_item.name)
-        expect(page).to have_selector("img[src$='#{@test_item.thumbnail}']")
       end
     end
 

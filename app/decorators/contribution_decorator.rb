@@ -15,7 +15,7 @@ class ContributionDecorator < Draper::Decorator
   end
 
   def comment_key
-    "comments"
+    "comment"
   end
   
   def title_link
