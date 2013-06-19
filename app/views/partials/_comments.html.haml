@@ -30,7 +30,7 @@
     -# check the paren class and set the right url for a comment form
     - new_path_arg = parent_class == 'Post' ? post_comments_path(resource) : contribution_comments_path(resource)
     = simple_form_for Comment.new, url: new_path_arg do |f|
-      = f.input :details, label: t("#{klass_name}.comment_label"), input_html: { class: 'wysihtml5-sandbox' }
+      = f.input :details, label: t("#{klass_name}.comment_label"), input_html: { class: 'whsihtml5-sandbox' }
       = f.submit t("#{klass_name}.submit"), { class: "btn pull-right submit-button", id: "comment-submit-button" }
   - else
     .black-box

@@ -29,6 +29,15 @@ en:
   research:
     comment_label: 'Your reply'
     submit: 'Submit reply'
+  transcription:
+    comment_label: 'Your transcription'
+    submit: 'Create comment'
+  translation:
+    comment_label: 'Your translation'
+    submit: 'Create comment'
+  biography:
+  comment_label: 'Create comment'
+      
 
   posts:
     index:

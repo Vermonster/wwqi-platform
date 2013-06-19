@@ -45,16 +45,14 @@ describe ContributionDecorator do
     )
   end
 
-  # Comment feature for Contribution is not implemented yet.
-
-  # let!(:comment) do
-  #   create(
-  #     :comment,
-  #     details: 'A comment',
-  #     commentable: transcription,
-  #     user: user
-  #   )
-  # end
+  let!(:comment) do
+    create(
+      :comment,
+      details: 'A comment',
+      commentable: transcription,
+      user: user
+    )
+  end
 
   let!(:contribution_request) do
     create(
@@ -90,8 +88,8 @@ describe ContributionDecorator do
     request_decorator.title.should == "Not Found"
   end
   
-  # it "reports the number of comments" do
-  #   transl_decorator.comments_received.should == "no comments"
-  #   transc_decorator.comments_received.should == "1 comment"
-  # end
+  it "reports the number of comments" do
+    transl_decorator.comments_size.should == "no comments"
+    transc_decorator.comments_size.should == "1 comment"
+  end
 end

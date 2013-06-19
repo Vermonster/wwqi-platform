@@ -4,7 +4,8 @@ describe PostDecorator do
   let!(:user) do
     user = create(
       :user,
-      first_name: 'Mila'
+      first_name: 'Mila',
+      last_name: 'Smith'
     )
   end
   
@@ -44,7 +45,7 @@ describe PostDecorator do
       title: 'Cinema Paradiso',
       details: 'Is a very good movie',
       creator: user,
-      created_at: 4.houts.ago
+      created_at: 4.hours.ago
     )
   end
 
@@ -77,7 +78,7 @@ describe PostDecorator do
 
   let!(:comment4) do
     create(
-      :comment
+      :comment,
       details: "Yay! I made a comment.",
       commentable: research,
       user: user
@@ -90,9 +91,9 @@ describe PostDecorator do
   let!(:r_decorator) { research.reload.decorate }
 
   it "has a header" do
-    q1_decorator.header.should == "Mila asked a question"
-    d_decorator.header.should == "Mila started a discussion"
-    r_decorator.header.should == "Mila shared research in progress"
+    q1_decorator.header.should == "Mila Smith asked a question"
+    d_decorator.header.should == "Mila Smith started a discussion"
+    r_decorator.header.should == "Mila Smith shared research in progress"
   end
 
   it "has a title" do
@@ -103,16 +104,16 @@ describe PostDecorator do
   end
 
   it "reports the number of replies or answers" do
-    q1_decorator.comments_received.should == "1 answer"
-    q2_decorator.comments_received.should == "2 answers"
-    d_decorator.comments_received.should == "no replies"
-    r_decorator.comments_received.should == "1 comment"
+    q1_decorator.comments_size.should == "1 answer"
+    q2_decorator.comments_size.should == "2 answers"
+    d_decorator.comments_size.should == "no replies"
+    r_decorator.comments_size.should == "1 comment"
   end
 
   it "reports how long ago it was created" do
     q1_decorator.created_ago.should == "2 days ago"
     q2_decorator.created_ago.should == "3 days ago"
     d_decorator.created_ago.should == "about 2 hours ago"
-    r_decorator.created_ago.sould == "about 4 hours ago"
+    r_decorator.created_ago.should == "about 4 hours ago"
   end
 end

@@ -6,7 +6,7 @@ FactoryGirl.define do
     creator
 
     after(:build) do |contribution, evaluator|
-      contribution.item_relation = build(:item_relation)
+      contribution.item_relation ||= build(:item_relation)
     end
   end
 end

@@ -4,10 +4,40 @@ require 'ffaker'
 describe 'comment creation' do
   describe 'without authentication' do
     let!(:question) { create(:question) }
+    let!(:transcription) { create(:transcription) }
     
-    it 'only allows a signed in user to create a new post' do
+    it 'only allows a signed in user to create a new comment' do
       visit post_path(question)
-      page.should have_content("To comment on this post, please sign in.")
+      page.should have_content("To comment on this question, please sign in.")
+
+      visit contribution_path(transcription)
+      expect(page).to have_content("To comment on this transcription, please sign in.")
+    end
+  end
+
+  describe 'submit a comment for a contribution' do
+    let!(:transcription) { create(:transcription) }
+    let!(:user) { create(:user) }
+
+    before(:each) { sign_in(user) }
+    after(:each) { sign_out }
+
+    it 'creates a new comment and redirects back to the parent page' do
+      visit contribution_path(transcription)
+
+      within('.comment-box') do
+        fill_in 'comment_details', with: 'squirrel'
+        click_on 'Create comment'
+      end
+
+      Comment.count.should == 1
+
+      current_path.should == transcription_path(transcription)
+
+      within('.comments') do
+        expect(page).to have_content("#{user.fullname} commented")
+        expect(page).to have_content('squirrel')
+      end
     end
   end
 
@@ -128,14 +158,18 @@ describe 'comment creation' do
     let!(:follower1) { create(:user) }
     let!(:follower2) { create(:user) }
     let!(:question) { create(:question) }
+    let!(:transcription) { create(:transcription) }
 
     before(:each) { sign_in(user) }
     after(:each) { sign_out }
 
     it 'creates a notification for each follower' do
       create(:following, followable: question, user: user)
+      create(:following, followable: transcription, user: user)
       create(:following, followable: question, user: follower1)
+      create(:following, followable: transcription, user: follower1)
       create(:following, followable: question, user: follower2)
+      create(:following, followable: transcription, user: follower2)
 
       visit post_path(question)
       
@@ -147,6 +181,17 @@ describe 'comment creation' do
       user.notifications.count.should == 0
       follower1.notifications.count.should == 1
       follower2.notifications.count.should == 1
+
+      visit contribution_path(transcription)
+
+      within('.comment-box') do
+        fill_in 'comment_details', with: 'squirrel'
+        click_on 'Create comment'
+      end
+
+      user.notifications.count.should == 0
+      follower1.notifications.count.should == 2
+      follower2.notifications.count.should == 2
     end
   end
 end

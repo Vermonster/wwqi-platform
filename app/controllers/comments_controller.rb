@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
   def create
     @comment = Comment.new(params[:comment])
     @comment.commentable = parent
+    binding.pry
     @comment.user = current_user
 
     create! do |success, failure|

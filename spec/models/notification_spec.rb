@@ -12,9 +12,17 @@ describe Notification do
   describe 'creation' do
     let(:user) { create(:user) }
     let(:question) { create(:question, creator: user) }
+    let(:contribution) { create(:contribution, creator: user) }
     
     it 'is created after a comment is made' do
       comment = create(:comment, commentable: question)
+      user.notifications.size.should == 1
+      n = user.notifications.last
+      n.notifiable.should == comment
+    end
+
+    it 'is created after a comment it made on contribution' do
+      comment = create(:comment, commentable: contribution)
       user.notifications.size.should == 1
       n = user.notifications.last
       n.notifiable.should == comment

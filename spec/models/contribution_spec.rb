@@ -10,6 +10,8 @@ describe Contribution do
   it { should have_many(:comments).dependent(:destroy) }
   it { should have_one(:item_relation).dependent(:destroy) }
   it { should have_one(:item).through(:item_relation) }
+  it { should have_many(:followings).dependent(:destroy) }
+  it { should have_many(:followers).through(:followings) }
 
   shared_examples "a contribution" do
     let(:klass) { described_class.to_s.downcase.intern }
