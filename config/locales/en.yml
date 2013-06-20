@@ -36,8 +36,8 @@ en:
     comment_label: 'Your translation'
     submit: 'Create comment'
   biography:
-  comment_label: 'Create comment'
-      
+    comment_label: 'Biography'
+    submit: 'Create comment'
 
   posts:
     index:
