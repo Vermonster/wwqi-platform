@@ -32,7 +32,7 @@ describe 'comment creation' do
 
       Comment.count.should == 1
 
-      current_path.should == transcription_path(transcription)
+      current_path.should == contribution_path(transcription)
 
       within('.comments') do
         expect(page).to have_content("#{user.fullname} commented")

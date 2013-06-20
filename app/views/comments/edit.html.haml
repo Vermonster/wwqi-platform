@@ -3,8 +3,7 @@
     .item-image.pull-left
       = image_tag avatar_url(current_user)
     .item-content.pull-left
-      - binding.pry
-      - edit_comment_path_arg = parent.class.lookup_ancestors.last == 'Post' ? post_comment_path(params[:post_id], @comment) : contribution_comment_path(params[:contribution_id], @comment)
+      - edit_comment_path_arg = parent_type == :post ? post_comment_path(params[:post_id], @comment) : contribution_comment_path(params[:contribution_id], @comment)
       = simple_form_for @comment, url: edit_comment_path_arg do |f|
         = f.input :details, input_html: { class: "wysihtml5" }
         = f.submit
