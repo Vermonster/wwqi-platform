@@ -55,10 +55,10 @@
                 %p.bullet &bull;
                 .item-created
                   = c.created_ago
-              - if user_signed_in?
-                .item-follow-btn
-                  - following = current_user.following?(c.object)
-                  = link_to following ? 'Unfollow' : 'Follow', '#', :class => ['btn', 'btn-primary', following && 'followed'], :data => { followable_id: c.id, followable_type: c.model.class.to_s.downcase, follow_id: following.try(:id) } 
+                - if user_signed_in?
+                  .item-follow-btn{ style:  "margin-top: -10px;" }
+                    - following = current_user.following?(c.object)
+                    = link_to following ? 'Unfollow' : 'Follow', '#', :class => ['btn', 'btn-primary', following && 'followed'], :data => { followable_id: c.id, followable_type: c.model.class.to_s.downcase, follow_id: following.try(:id) } 
         - else
           %p No recent contributions
     .transcription-subnav
