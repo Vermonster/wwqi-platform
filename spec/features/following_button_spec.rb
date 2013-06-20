@@ -8,12 +8,14 @@ feature "follow button", js: true do
   let!(:transcription) { create(:transcription, item_relation: item_relation, creator: user) }
 
   describe "as a public user" do
-    it "doesn't show the follow button" do
+    it "doesn't show the follow button on the post page" do
       # on the question or discussion index page
       visit posts_path
       page.find('ul.items li').hover
       page.should_not have_content('Follow')
+    end
 
+    it "doesn't show the follow button on the contribution page" do
       # on the contribution index page
       visit contributions_path
       page.find('ul.items#recent-contributions li').hover

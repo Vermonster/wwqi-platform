@@ -23,6 +23,6 @@ class ContributionDecorator < Draper::Decorator
   end
 
   def image
-    h.image_tag item.thumbnail_src
+    h.image_tag item.thumbnail ||= 'flag.png'
   end
 end
