@@ -19,6 +19,7 @@ feature "Post creator(registered user)" do
       find(:xpath, '//input[@id="post_title"]').visible?
 
       fill_post('Queen', 'another one bites the dust')
+      click_button 'People I Choose'
 
       page.execute_script('$("#add_invitation").modal("show")')
 
@@ -32,14 +33,14 @@ feature "Post creator(registered user)" do
       fill_invitation(test_email, test_name, test_message)
 
       page.execute_script("$('#create_invitation').click()")
-      sleep 5
+      sleep 5 
 
       # Check the all information has been transferred to the hidden nested
       # fields
-      within('#invitation') do
+      within('#invitation', visible: false) do
         #Check the nested fields are created
         expect(page).to have_selector('.input.hidden.post_invitations_recipient_name', visible: false)
-        expect(page).to have_selector('.input.email.post_invitations_recipient_email')
+        expect(page).to have_selector('.input.email.required.post_invitations_recipient_email')
         expect(page).to have_selector('.input.hidden.post_invitations_message', visible: false)
         # Check the information has been transferred correctly from the modal
         # form
@@ -48,7 +49,7 @@ feature "Post creator(registered user)" do
         find('.input.hidden.post_invitations_message input', visible: false).value.should == test_message
       end
 
-      click_button 'Submit Question'
+      click_button 'Submit'
       expect(page).to have_content('Thread was successfully posted.')
     end
 
@@ -78,7 +79,7 @@ feature "Post creator(registered user)" do
       click_button 'Invite'
       sleep 5
 
-      click_button 'Submit Question'
+      click_button 'Submit'
       expect(page).to have_content('Thread was successfully posted.')
     end
 

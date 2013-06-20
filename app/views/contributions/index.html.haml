@@ -44,7 +44,7 @@
           - @contributions.each do |c|
             %li
               .item-image.pull-left
-                = image_tag c.item.thumbnail ||= 'flag.png'
+                = c.image
               .item-content.pull-left
                 .item-header
                   = c.header
