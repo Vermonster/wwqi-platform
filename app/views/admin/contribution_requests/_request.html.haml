@@ -1,3 +1,6 @@
+:javascript
+  window.search_url = '#{ENV['SEARCH_URL']}' + '/' + '#{ENV['SEARCH_INDEX']}/item/_search';
+  
 #items
   = semantic_form_for [:admin, @contribution_request] do |f|
     = f.inputs "Request Information" do
