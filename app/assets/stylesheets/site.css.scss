@@ -947,13 +947,23 @@
   }
   &.profile {
     overflow: hidden;
-    .item-image {
-      margin: 0 1em 2em 0;
-      float: left;
+    .user-info {
+      overflow: hidden;
+      width: 100%;
+      .item-image {
+        margin: 0 1em 2em 0;
+        float: left;
+      }
+      h4 {
+        margin: 2.25em 0 2em;
+        float: left;
+      }
     }
-    h4 {
-      margin: 2.25em 0 2em;
-      float: left;
+    .profile-sort {
+      .btn-group {
+        overflow: hidden;
+        width: 100%;
+      }
     }
   }
 }
