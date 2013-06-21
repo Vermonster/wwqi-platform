@@ -81,5 +81,7 @@ module WwqiPlatform
       g.test_framework :rspec
       g.fixture_replacement :factory_girl, :dir => 'spec/factories'
     end
+
+    config.action_mailer.default_url_options = { :host => ENV['HOST'] }
   end
 end
