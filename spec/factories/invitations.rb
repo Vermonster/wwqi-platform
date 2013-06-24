@@ -6,5 +6,7 @@ FactoryGirl.define do
     recipient_email { generate(:email) }
     message { generate(:string) }
     association :post, factory: :question
+
+    after(:build) {|invitation| invitation.generate_token}
   end
 end

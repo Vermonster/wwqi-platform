@@ -9,6 +9,7 @@
     = f.input :email, input_html: { id: "sign_up_user_email", class: "text-input" }
     = f.input :password, input_html: { id: "sign_up_user_password", class: "text-input" }
     = f.input :password_confirmation, input_html: { class: "text-input" }
+    = f.input :token, as: :hidden, label: false, input_html: { value: "#{params[:token]}"}
     .terms
       #legal_terms
         %a{href: 'javascript:void(0)'}

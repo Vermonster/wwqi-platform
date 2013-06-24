@@ -27,7 +27,11 @@ describe Invitation do
     it 'has an invitation message' do
       email.body.encoded.should match(new_invitation.post_creator_fullname)
       email.body.encoded.should match(new_invitation.post_title)
-      email.body.encoded.should match("http://www.example.com/signup") 
+      email.body.encoded.should match("http://www.qajarwomen.org/signup") 
+    end
+
+    it 'has a token' do 
+      email.body.encoded.should match("http://www.qajarwomen.org/signup/#{new_invitation.token}")
     end
   end
 end
