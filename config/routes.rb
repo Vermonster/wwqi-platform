@@ -2,7 +2,10 @@ WwqiPlatform::Application.routes.draw do
   #devise_for :admin_users, ActiveAdmin::Devise.config
   get "autocomplete/users"
 
-  devise_for :users, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'registrations' } 
+  devise_scope :user do
+    get '/users/sign_up/:token' => 'registrations#new'
+  end
 
   resources :users do
     resources :notifications

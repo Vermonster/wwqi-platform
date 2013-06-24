@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :terms, :fullname, :is_admin
-  attr_accessor :terms
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :terms, :fullname, :is_admin, :token
+  attr_accessor :terms, :token
   
   validates :first_name, :last_name, :email, presence: true
   validates :password, confirmation: true
@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
   has_many :followed_posts, through: :followings, source: :followable, source_type: 'Post'
   has_many :notifications
   has_many :invitations, foreign_key: :inviter_id, dependent: :destroy
+
+  after_create :register_as_collaborator
 
   def followed_questions_and_discussions
     followed_posts.where("type = 'Question' or type = 'Discussion'") 
@@ -45,5 +47,12 @@ class User < ActiveRecord::Base
 
   def following?(object)
     followings.where(followable_id: object.id).first
+  end
+
+  def register_as_collaborator
+    unless token.nil? or token == ""
+      p = Invitation.find_by_token(token).post
+      Collaborator.create(user_id: self.id, post_id: p.id)
+    end
   end
 end
