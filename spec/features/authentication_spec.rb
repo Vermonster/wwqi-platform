@@ -83,6 +83,7 @@ describe "authentication" do
 
   describe 'singing up as an invitee' do
     let!(:invitation) { create :invitation }
+    let(:email) { InvitationMailer.new_invitation(invitation).deliver }
     it 'signs up with the invitation token' do
       # Visit to the sign up path with an invitation token
       visit "/users/sign_up/#{invitation.token}"
