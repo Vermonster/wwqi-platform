@@ -25,6 +25,8 @@ class User < ActiveRecord::Base
 
   after_create :register_as_collaborator
 
+  after_create :register_as_collaborator
+
   def followed_questions_and_discussions
     followed_posts.where("type = 'Question' or type = 'Discussion'") 
   end
