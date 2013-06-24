@@ -31,7 +31,7 @@ describe Invitation do
     end
 
     it 'has a token' do 
-      email.body.encoded.should match("http://www.qajarwomen.org/signup/#{new_invitation.token}")
+      email.body.encoded.should match("http://www.qajarwomen.org/users/sign_up/#{new_invitation.token}")
     end
   end
 end
