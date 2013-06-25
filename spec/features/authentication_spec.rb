@@ -116,6 +116,9 @@ describe "authentication" do
 
       # Test the current path is the invitee profile path
       current_path.should == my_profile_path
+      
+      click_on 'My Collaborations'
+      expect(page).to have_content(test_post.title)
     end
     
   end
