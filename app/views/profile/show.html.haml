@@ -17,4 +17,4 @@
             %p
               = resource.created_ago
         .item-edit-btn
-          = link_to 'Edit', choose_edit_path(resource), :class => 'btn btn-primary'
+          = link_to 'Edit', choose_edit_path(resource), :class => 'btn btn-primary' if resource.creator == current_user
