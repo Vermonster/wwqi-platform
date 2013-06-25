@@ -21,6 +21,7 @@ class User < ActiveRecord::Base
   has_many :followed_posts, through: :followings, source: :followable, source_type: 'Post'
   has_many :notifications
   has_many :invitations, foreign_key: :inviter_id, dependent: :destroy
+  has_many :collaborators, dependent: :destroy
 
   after_create :register_as_collaborator
 
@@ -38,6 +39,14 @@ class User < ActiveRecord::Base
 
   def unread_notifications
     notifications.where(unread: true).decorate
+  end
+
+  def collaborations
+    collaborated_posts = Array.new
+    collaborators.each do |c|
+      collaborated_posts.push c.post.decorate
+    end
+    collaborated_posts
   end
 
   # Return full name

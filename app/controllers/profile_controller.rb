@@ -8,6 +8,8 @@ class ProfileController < ApplicationController
                 current_user.posts.researches.decorate
               when "contributions"
                 current_user.contributions.decorate(with: nil)
+              when 'collaborations'
+                current_user.collaborations
               else
                 latest = current_user.posts.decorate + current_user.contributions.decorate(with: nil)
               end

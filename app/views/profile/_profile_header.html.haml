@@ -15,3 +15,5 @@
       = link_to 'My Contributions', my_profile_path(type: "contributions")
     %li.btn.pull-left{class: current_page?(action: 'notifications') && 'active'}
       = link_to 'My Notifications', my_notifications_path
+    %li.btn.pull-left{class: current_page?(action: 'show', type: 'collaborations') && 'active'}
+      = link_to 'My Collaborations', my_profile_path(type: 'collaborations')
