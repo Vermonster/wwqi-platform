@@ -86,7 +86,7 @@ describe "authentication" do
     let(:email) { InvitationMailer.new_invitation(invitation).deliver }
     it 'signs up with the invitation token' do
       # Visit to the sign up path with an invitation token
-      visit "/users/sign_up/#{invitation.token}"
+      visit "#{new_user_registration_path}/#{invitation.token}"
 
       within('#sign-in-main') do
         # Test token value has been successfully filled in

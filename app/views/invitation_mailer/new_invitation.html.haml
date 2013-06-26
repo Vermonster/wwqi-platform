@@ -10,4 +10,4 @@
         = @invitation.message
       %p
         Please visit and sign up at 
-        = link_to 'Qajar Women Sign Up', "http://www.qajarwomen.org/users/sign_up/#{@invitation.token}"
+        = link_to 'Qajar Women Sign Up', "#{new_user_registration_path}/#{@invitation.token}"
