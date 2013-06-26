@@ -14,6 +14,5 @@ class Collaborator < ActiveRecord::Base
   def term=(id)
     # setter method for the term field. It doesn't do any thing since the term
     # is not a real field. 
-
   end
 end
