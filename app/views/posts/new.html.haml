@@ -22,8 +22,8 @@
     .related-items
       %label Is this related to specific WWQI items?
       .btn-group.items{"data-toggle" => "buttons-radio", "data-toggle-name"=> "post[item_related]"}
-        %button.btn{"data-toggle" => "button", :value => "true"} Yes
-        %button.btn{"data-toggle" => "button", :value => "false"} No
+        %button.btn{"data-toggle" => "button", :value => "true", "name" => "item_related"} Yes
+        %button.btn{"data-toggle" => "button", :value => "false", "name" => "item_related"} No
       = f.input :item_related, as: :hidden
       #items
         .expand
@@ -90,3 +90,16 @@
     .modal-footer
       %button.btn#create_invitation Invite
       %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
+:coffeescript
+  $ ->
+    params = window.location.search.match(/(discussion|question).(accession_no=\S+)/)
+    if params
+      type = params[1]
+      accession_no = params[2].split('=')[1]
+
+      if type == 'discussion'
+        $('button[value="Discussion"]').trigger('click')
+      $('button[value="true"][name="item_related"]').trigger('click')
+      $('#items').find('input[id$="_search"]').autocomplete('search', accession_no)
+      $('#items').find('input[id$="_search"]').on('autocompleteopen', (event, ui) -> 
+        $(".ui-menu-item:first").trigger('click'))
