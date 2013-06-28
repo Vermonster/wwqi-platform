@@ -13,8 +13,8 @@
     .related-items
       %label Is this related to specific WWQI items?
       .btn-group.items{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[item_related]"}
-        %button.btn{"data-toggle" => "button", :value => "true"} Yes
-        %button.btn{"data-toggle" => "button", :value => "false"} No
+        %button.btn{"data-toggle" => "button", 'name' => 'item_related', :value => "true"} Yes
+        %button.btn{"data-toggle" => "button", 'name' => 'item_related', :value => "false"} No
       = f.input :item_related, as: :hidden
       #items
         .expand
@@ -81,3 +81,14 @@
     .modal-footer
       %button.btn#create_invitation Invite
       %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
+:coffeescript
+  $ ->
+    -# This javascript is for handling the url parameter from qajar women site. 
+    params = window.location.search.match(/(accession_no=\S+)/)
+    if params
+      accession_no = params[1].split('=')[1]
+
+      $('button[value="true"][name="item_related"]').trigger('click')
+      $('#items').find('input[id$="_search"]').autocomplete('search', accession_no)
+      $('#items').find('input[id$="_search"]').on('autocompleteopen', (event, ui) -> 
+        $(".ui-menu-item:first").trigger('click'))

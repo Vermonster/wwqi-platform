@@ -92,6 +92,7 @@
       %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
 :coffeescript
   $ ->
+    -# This javascript is for handling the url parameter from qajar women site. 
     params = window.location.search.match(/(discussion|question).(accession_no=\S+)/)
     if params
       type = params[1]
