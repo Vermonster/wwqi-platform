@@ -7,9 +7,17 @@ class RegistrationsController < Devise::RegistrationsController
         set_flash_message :notice, :signed_up
         sign_up(resource_name, resource)
         if request.xhr?
-          render js: "window.location=#{my_profile_path.to_json}"
+          # If this request is from qajarwomen to start a discussion or to ask
+          # a question, it routes to a new discussion or question path.
+          if request.env["rack.session"]["user_return_to"].nil?
+            render js: "window.location=#{my_profile_path.to_json}"
+          else
+            render js: "window.location=#{request.env['rack.session']['user_return_to'].to_json}"
+          end
         else
-          respond_with resource, :location => after_sign_up_path_for(resource)
+          respond_with resource do |format| 
+            format.html {render :location => after_sign_up_path_for(resource)}
+          end
         end
       else
         set_flash_message :notice, :"signed_up_but_#{resource.inactive_message}" if is_navigational_format?
