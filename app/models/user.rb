@@ -20,10 +20,7 @@ class User < ActiveRecord::Base
   has_many :followings
   has_many :followed_posts, through: :followings, source: :followable, source_type: 'Post'
   has_many :notifications
-  has_many :invitations, foreign_key: :inviter_id, dependent: :destroy
   has_many :collaborators, dependent: :destroy
-
-  after_create :register_as_collaborator
 
   after_create :register_as_collaborator
 
