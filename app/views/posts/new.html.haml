@@ -86,18 +86,21 @@
           %label{for: "recipient_email"} Recipient Email
           %input#modal_recipient_email{type: 'email', required: ''}
           %label{for: "message"} Message
-          %textarea#modal_message{placeholder: 'Please type your message...'}
+          %textarea#modal_message{placeholder: 'Please type your message...'} 
     .modal-footer
       %button.btn#create_invitation Invite
       %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
 :coffeescript
   $ ->
     -# This javascript is for handling the url parameter from qajar women site. 
-    -# The order of parameters should not be matter. Fix it later!
-    params = window.location.search.match(/(discussion|question).(accession_no=\S+)/)
-    if params
-      type = params[1]
-      accession_no = params[2].split('=')[1]
+    accession_no_params = window.location.search.match(/(accession_no=([^&]+))/)
+    type_params = window.location.search.match(/type=(discussion|question)/)
+
+    if type_params?
+      type = type_params[1]
+
+      if accession_no_params?
+        accession_no = accession_no_params[2]
 
       if type == 'discussion'
         $('button[value="Discussion"]').trigger('click')
