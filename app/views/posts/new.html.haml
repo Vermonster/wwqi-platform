@@ -93,6 +93,7 @@
 :coffeescript
   $ ->
     -# This javascript is for handling the url parameter from qajar women site. 
+    -# The order of parameters should not be matter. Fix it later!
     params = window.location.search.match(/(discussion|question).(accession_no=\S+)/)
     if params
       type = params[1]
