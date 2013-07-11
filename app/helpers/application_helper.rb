@@ -65,6 +65,8 @@ module ApplicationHelper
       edit_post_path(resource)
     when Research
       edit_research_path(resource)
+    when Contribution
+      edit_contribution_path(resource)
     end
   end
 end

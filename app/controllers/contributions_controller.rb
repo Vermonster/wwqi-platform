@@ -35,6 +35,20 @@ class ContributionsController < ApplicationController
     end
   end
 
+  def edit
+    @contribution = Contribution.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @contribution = Contribution.find(params[:id])
+    if @contribution.update_attributes(params[:contribution])
+      respond_with @contribution
+    else
+      render :edit
+    end
+  end
+
   private
 
   def collection
