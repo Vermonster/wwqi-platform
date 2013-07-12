@@ -30,13 +30,13 @@ en:
     comment_label: 'Your reply'
     submit: 'Submit reply'
   transcription:
-    comment_label: 'Your transcription'
+    comment_label: 'Your comment'
     submit: 'Create comment'
   translation:
-    comment_label: 'Your translation'
+    comment_label: 'Your comment'
     submit: 'Create comment'
   biography:
-    comment_label: 'Biography'
+    comment_label: 'Your comment'
     submit: 'Create comment'
 
   posts:

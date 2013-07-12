@@ -1,8 +1,8 @@
 .items-index
   %h4= "Edit #{resource.type}"
   .item-image
-    = image_tag resource.item_relation.thumbnail, { class: 'img-polaroid' }
-= simple_form_for resource, url: contributions_path(type: resource.type) do |f|
+    = image_tag resource.item.thumbnail, { class: 'img-polaroid' }
+= simple_form_for resource do |f|
   = f.input :details, as: :text, label: false
   .submit-button
     =f.button :submit, "Save changes", class: 'submit-button', id: 'thread-submit-button'

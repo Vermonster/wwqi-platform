@@ -23,7 +23,7 @@ class Contribution < ActiveRecord::Base
   }
 
   def title
-    item.name
+    self.item_relation.item.name
   end
   
   default_scope order('created_at DESC')
