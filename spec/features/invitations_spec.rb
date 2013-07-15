@@ -2,14 +2,9 @@ require 'spec_helper'
 
 feature "Post creator(registered user)" do
   describe "as a test user" do
+    let(:user) { create(:user) }
     before :each do
-      @user = create(:user)
-      visit new_post_path
-      click_on 'Sign in'
-      expect(page).to have_content('SIGN IN')
-      fill_in 'user_email', with: @user.email 
-      fill_in 'user_password', with: @user.password
-      click_button 'Sign In'
+      sign_in(user)
       visit new_post_path
     end
 

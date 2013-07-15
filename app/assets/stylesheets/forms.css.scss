@@ -6,7 +6,10 @@ form {
   overflow: hidden;
 }
 
-form#new_post, form#new_research, form.edit_post, form.edit_research, form#new-thread, form#new_correction, form#new_transcription, form#new_comment, form#new_biography, form#new_translation, form#new_transcription {
+form#new_post, form#new_research, form.edit_post, form.edit_research,
+form#new-thread, form#new_correction, form#new_transcription, form#new_comment,
+form#new_biography, form#new_translation, form#new_transcription,
+form.edit_transcription, form.edit_biography, form.edit_translation {
 
   label {
     font-weight: bold;

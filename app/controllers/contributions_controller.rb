@@ -35,6 +35,21 @@ class ContributionsController < ApplicationController
     end
   end
 
+  def edit
+    @contribution = Contribution.find(params[:id])
+    render :edit
+  end
+
+  def update
+    @contribution = Contribution.find(params[:id])
+    if @contribution.update_attributes(params[resource.type.downcase.to_sym])
+      redirect_to contribution_path(@contribution),
+        notice: "Your #{resource.type.downcase} was successfully updated."
+    else
+      render :edit
+    end
+  end
+
   private
 
   def collection
