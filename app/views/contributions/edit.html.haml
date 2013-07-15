@@ -1,6 +1,9 @@
-.items-index
+.items-index#new-contribution
   %h4= "Edit #{resource.type}"
   .item-image
+    .submission-copy
+      %p= "Your #{resource.type.downcase} for: "
+      %h3 #{resource.item.name}
     = image_tag resource.item.thumbnail, { class: 'img-polaroid' }
 = simple_form_for resource do |f|
   = f.input :details, as: :text, label: false
