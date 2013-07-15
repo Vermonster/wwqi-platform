@@ -7,13 +7,15 @@ describe 'process request from qajarwomen' do
   let(:new_research_request) { '/researches/new?accession_no=1145A13' }
 
   context 'a new question request' do
-    it 'asks sign up or sign in first' do
+    before do
       visit new_question_request
+    end
+
+    it 'asks sign up or sign in first' do
       expect(page).to have_content('You need to sign in or sign up before continuing.')
     end
 
     it 'shows the pre-filled question form after sign in', js: true do
-      visit new_question_request
       fill_signin
       click_on 'Sign In'
       sleep 5
@@ -24,7 +26,6 @@ describe 'process request from qajarwomen' do
     end
 
     it 'shows the pre-filled question form after sign up', js: true do
-      visit new_question_request
       fill_signup
       click_on 'Sign Up'
       sleep 5
@@ -36,13 +37,15 @@ describe 'process request from qajarwomen' do
   end
 
   context 'a new discussion request' do
-    it 'asks sign up or sign in first' do
+    before do
       visit new_discussion_request
+    end
+
+    it 'asks sign up or sign in first' do
       expect(page).to have_content('You need to sign in or sign up before continuing.')
     end
 
     it 'shows the pre-filled discussion form after sign in', js: true do
-      visit new_discussion_request
       fill_signin
       click_on 'Sign In'
       sleep 5
@@ -53,7 +56,6 @@ describe 'process request from qajarwomen' do
     end
 
     it 'shows the pre-filled discussion form after sign up', js: true do
-      visit new_discussion_request
       fill_signup
       click_on 'Sign Up'
       sleep 5
@@ -65,13 +67,15 @@ describe 'process request from qajarwomen' do
   end
 
   context 'a new research request' do
-    it 'asks sign up or sign in first' do
+    before do
       visit new_research_request
+    end
+
+    it 'asks sign up or sign in first' do
       expect(page).to have_content('You need to sign in or sign up before continuing.')
     end
 
     it 'shows the pre-filled research form after sign in', js: true do
-      visit new_research_request
       fill_signin
       click_on 'Sign In'
       sleep 5
@@ -81,7 +85,6 @@ describe 'process request from qajarwomen' do
     end
 
     it 'shows the pre-filled research form after sign up', js: true do
-      visit new_research_request
       fill_signup
       click_on 'Sign Up'
       sleep 5
