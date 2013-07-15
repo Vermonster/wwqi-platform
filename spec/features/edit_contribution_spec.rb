@@ -19,6 +19,7 @@ describe 'Contribution Edit button', js: true do
 
   it 'shows the edit page' do
     click_on 'Edit'
+
     current_path.should == edit_contribution_path(transcription)
     expect(page).to have_selector("img[src$='#{test_item.thumbnail}']")
     page.find('textarea[id="transcription_details"]').value.should == transcription.details
