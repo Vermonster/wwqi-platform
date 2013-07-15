@@ -2,19 +2,11 @@ require 'spec_helper'
 
 describe "Contribution creation" do
   context "with a selected item" do
-    before :all do
-      @test_item = 
-        FactoryGirl.create(
-          :item, 
-          url: "http://www.qajarwomen.org/en/items/1016A200.html", 
-          name: "Infant headband", 
-          thumbnail: "http://s3.amazonaws.com/assets.qajarwomen.org/thumbs/it_200.jpg?1329177600", 
-          accession_no: "1016A200")
-    end
-    after :all do 
-      @test_item.delete
-    end
-
+    let!(:test_item) { create(:item, 
+                              url: "http://www.qajarwomen.org/en/items/1016A200.html", 
+                              name: "Infant headband",
+                              thumbnail: "http://s3.amazonaws.com/assets.qajarwomen.org/thumbs/it_200.jpg?1329177600",
+                              accession_no: "1016A200") }
     describe "without authentication" do
       it "only allows a signed in user to create a new contribution" do
         visit new_contribution_path
@@ -32,19 +24,18 @@ describe "Contribution creation" do
     context "authenticated" do 
       let(:user) { create(:user) }
       before { sign_in(user) }
-      after { sign_out }
 
       describe "contribution creation" do 
         it "creates a new transcription" do
-          create_and_check_contribution('Transcription', @test_item)
+          create_and_check_contribution('Transcription', test_item)
         end
 
         it "creates translation creation" do
-          create_and_check_contribution('Translation', @test_item)
+          create_and_check_contribution('Translation', test_item)
         end
 
         it "creates biography creation" do
-          create_and_check_contribution('Biography', @test_item)
+          create_and_check_contribution('Biography', test_item)
         end
 
         # Helper to test each contribution type
