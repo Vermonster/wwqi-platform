@@ -67,4 +67,5 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
   config.include WaitSteps
   config.color_enabled = true
+  config.include RSpec::Rails::RequestExampleGroup
 end

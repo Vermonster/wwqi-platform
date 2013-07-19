@@ -67,4 +67,5 @@ module ApplicationHelper
       edit_research_path(resource)
     end
   end
+
 end
