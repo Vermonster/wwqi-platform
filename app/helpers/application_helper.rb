@@ -69,4 +69,5 @@ module ApplicationHelper
       edit_contribution_path(resource)
     end
   end
+
 end
