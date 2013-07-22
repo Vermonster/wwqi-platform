@@ -2,14 +2,10 @@ require 'spec_helper'
 
 feature "Post creator(registered user)" do
   describe "as a test user" do
-    before :each do
-      @user = create(:user)
-      visit new_post_path
-      click_on 'Sign in'
-      expect(page).to have_content('SIGN IN')
-      fill_in 'user_email', with: @user.email 
-      fill_in 'user_password', with: @user.password
-      click_button 'Sign In'
+    let(:user) { create(:user) }
+
+    before do
+      sign_in(user)
       visit new_post_path
     end
 
@@ -20,7 +16,6 @@ feature "Post creator(registered user)" do
 
       fill_post('Queen', 'another one bites the dust')
       click_button 'People I Choose'
-
       page.execute_script('$("#add_invitation").modal("show")')
 
       # Check the modal form has been opened
@@ -31,7 +26,6 @@ feature "Post creator(registered user)" do
 
       # Fill the invitation form
       fill_invitation(test_email, test_name, test_message)
-
       page.execute_script("$('#create_invitation').click()")
       sleep 5 
 
@@ -50,6 +44,7 @@ feature "Post creator(registered user)" do
       end
 
       click_button 'Submit'
+
       expect(page).to have_content('Thread was successfully posted.')
     end
 
@@ -71,6 +66,7 @@ feature "Post creator(registered user)" do
     end
 
     it 'adds a invitee without a recipient name and message', js: true do
+      find('#post_title').visible?
       fill_post('Test Title', 'This is a test.')
       page.execute_script('$("#add_invitation").modal("show")')
       sleep 5
@@ -106,7 +102,6 @@ feature "Post creator(registered user)" do
   end
 
   def fill_post(title, detail)
-    find('#post_title').visible?
     fill_in 'post_title', with: title
     page.execute_script("editor.setValue('#{detail}')")
   end
