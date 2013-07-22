@@ -29,5 +29,9 @@ FactoryGirl.define do
     trait :with_comment do
       association :itemable, factory: :comment
     end
+
+    trait :with_contribution_request do
+      association :itemable, factory: :contribution_request
+    end
   end
 end
