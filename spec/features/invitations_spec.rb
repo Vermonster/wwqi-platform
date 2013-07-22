@@ -33,7 +33,7 @@ feature 'Invitation', js: true do
         expect(find('.input.email.post_invitations_recipient_email input').value).to eq 'abc@abc.com'
         expect(find('.input.hidden.post_invitations_message input', visible: false).value).to eq 'I am inviting you.'
       end
-    end
+   end
 
     it 'lets a user submits a post with an invitee' do
       fill_invitation('abc@abc.com', 'AB C', 'I am inviting you')
