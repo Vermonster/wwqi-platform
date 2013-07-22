@@ -3,10 +3,17 @@ class ActivityController < ApplicationController
 
   def activity_data
     if params[:accession_no]
-      type_array = ['Question', 'Discussion', 'Research', 'Translation', 'Transcription', 'Biography', 'Comment']
       activities = ItemRelation.where(accession_no: params[:accession_no])
-      activities.delete_if { |a| a.itemable.class == ContributionRequest }
-      respond_with collect_numbers(type_array, activities)
+      if activities.empty?
+        respond_with Hash["Not Found", "Not Found"]
+      else
+        type_array = ['Question', 'Discussion', 'Research', 'Translation', 'Transcription', 'Biography', 'Comment']
+
+        # Remove 'Contribution Request' objects since they are not considered 
+        # as an activity. 
+        activities.delete_if { |a| a.itemable.class == ContributionRequest }
+        respond_with collect_numbers(type_array, activities), :callback => params[:callback]
+      end
     end
   end
 
