@@ -58,6 +58,15 @@ class PostsController < ApplicationController
         posts = posts.search_text(params[:q])
       end
 
+      # Handles the request from Qajar Women to list the post related an item
+      if params[:accession_no]
+        posts = Post.joins(:item_relations).where('type = ? AND accession_no = ?', 
+          params[:type] ||= 'Research', params[:accession_no])
+        if posts.empty?
+          posts = scoped_collection
+          flash[:notice] = 'Missing item'
+        end
+      end
       
       decorated_posts = posts.decorate.select do |post|
         post.can_see?(current_user)

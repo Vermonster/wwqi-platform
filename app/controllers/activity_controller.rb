@@ -1,5 +1,5 @@
 class ActivityController < ApplicationController
-  respond_to :json
+  respond_to :json, :html
 
   def activity_data
     if params[:accession_no]
@@ -16,6 +16,17 @@ class ActivityController < ApplicationController
       end
     end
   end
+
+  # For the comments request
+  # def comments
+  #   if params[:accession_no]
+  #     @comments = Comment.joins(:item_relations).where('accession_no = ?', params[:accession_no])
+  #     if @comments.empty?
+  #       @comments = Comment.all
+  #     end
+  #   end
+  #   respond_with @comments
+  # end
 
   def collect_numbers(types, activities)
     if types.length > 0 and activities.length > 0

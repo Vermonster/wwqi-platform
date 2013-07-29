@@ -3,7 +3,6 @@
 FactoryGirl.define do
   factory :item_relation do
     item
-    association :itemable, factory: :question
     accession_no { item ? item.accession_no : generate(:string) }
 
     trait :with_discussion do
@@ -32,6 +31,10 @@ FactoryGirl.define do
 
     trait :with_contribution_request do
       association :itemable, factory: :contribution_request
+    end
+
+    after(:build) do |ir|
+      ir.itemable = create(:question) if ir.itemable.nil?
     end
   end
 end
