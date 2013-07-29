@@ -9,10 +9,13 @@ class ContributionsController < ApplicationController
   end
 
   def index
-    # Recently created or updated contributions
-    @contributions = Contribution.where('type =? AND created_at > ?', params[:type] ||= 'Transcription', 6.days.ago).decorate
-
-    # All items for now. 
+    # List recently created or updated contributions if the reaquest is not from
+    # Qajar Women. If so, it responses the request. 
+    if params[:accession_no]
+      @contributions = Contribution.joins(:item_relation).where('type = :type AND item_relations.accession_no = :accession_no', {type: params[:type], accession_no: params[:accession_no]}).decorate
+    else
+      @contributions = Contribution.where('type =? AND created_at > ?', params[:type] ||= 'Transcription', 6.days.ago).decorate
+    end
     @requests = ContributionRequest.where('details = ? ', params[:type])
   end
 
