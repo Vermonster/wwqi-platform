@@ -2,7 +2,7 @@ WwqiPlatform::Application.routes.draw do
   #devise_for :admin_users, ActiveAdmin::Devise.config
   get "autocomplete/users"
   
-  get 'activity/activity_data'
+  get '/activity/activity_data'
 
   devise_for :users, controllers: { registrations: 'registrations' } 
   devise_scope :user do
