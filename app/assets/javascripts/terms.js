@@ -48,6 +48,8 @@ function initializeTermsDialog(item) {
     if ($link.attr('id').match('farsi')) {
       $('.terms-english-dialog').css('display', 'none');
       $('.terms-farsi-dialog').css('display', 'block');
+      $('.select-farsi-dialog').toggle();
+      $('.select-english-dialog').toggle();
     } else {
       $('.terms-english-dialog').css('display', 'block');
       $('.terms-farsi-dialog').css('display', 'none');
