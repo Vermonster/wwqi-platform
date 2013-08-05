@@ -55,3 +55,10 @@ en:
       wrong_size: "is the wrong size (should be %{file_size})"
       size_too_small: "is too small (should be at least %{file_size})"
       size_too_big: "is too big (should be at most %{file_size})"
+
+  activerecord:
+    errors:
+      messages:
+        taken: "Had already been taken. / .از این رمز استفاده شده. عبارت دیگری انتخاب کنی"
+        accepted: "Must be accepted. / .توافق شما الزامی است"
+        blank: "Can't be blank. / .این میدان نمی تواند خالی باشد"
