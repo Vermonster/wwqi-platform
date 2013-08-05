@@ -9,12 +9,12 @@ en:
     failure:
       already_authenticated: "You are already signed in."
       inactive: "Your account was not activated yet."
-      invalid: "Invalid email or password."
+      invalid: "Invalid email or password / ایمیل یا رمز ورود فاقد اعتبار است"
       invalid_token: "Invalid authentication token."
       locked: "Your account is locked."
-      not_found_in_database: "Invalid email or password."
+      not_found_in_database: "Invalid email or password / ایمیل یا رمز ورود فاقد اعتبار است"
       timeout: "Your session expired, please sign in again to continue."
-      unauthenticated: "You need to sign in or sign up before continuing."
+      unauthenticated: "You need to sign in or sign up before continuing. / .برای ادامه باید عضو شوید یا نام کاربری و رمز ورود خود را وارد کنید"
       unconfirmed: "You have to confirm your account before continuing."
     mailer:
       confirmation_instructions:
