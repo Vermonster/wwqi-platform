@@ -103,7 +103,7 @@ describe "authentication" do
       expect(current_path).to eq my_profile_path
     end
 
-    it 'redirects to root when a non administartor trys to visit' do
+    it 'redirects to root when a non administartor tries to visit' do
       sign_out
       visit admin_root_path
 
