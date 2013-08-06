@@ -7,6 +7,8 @@ feature "Post creator(registered user)" do
     before do
       sign_in(user)
       visit new_post_path
+      click_on 'People I Choose'
+      click_on 'Invite a new person to the research platform'
     end
 
     it 'adds an invitee in the new post page', js: true do
@@ -27,20 +29,20 @@ feature "Post creator(registered user)" do
       # Fill the invitation form
       fill_invitation(test_email, test_name, test_message)
       page.execute_script("$('#create_invitation').click()")
-      sleep 5 
+      sleep 5
 
-      # Check the all information has been transferred to the hidden nested
-      # fields
       within('#invitation', visible: false) do
+
         #Check the nested fields are created
         expect(page).to have_selector('.input.hidden.post_invitations_recipient_name', visible: false)
         expect(page).to have_selector('.input.email.required.post_invitations_recipient_email')
         expect(page).to have_selector('.input.hidden.post_invitations_message', visible: false)
+
         # Check the information has been transferred correctly from the modal
         # form
-        find('.input.hidden.post_invitations_recipient_name input', visible: false).value.should == test_name
-        find('.input.email.post_invitations_recipient_email input').value.should == test_email
-        find('.input.hidden.post_invitations_message input', visible: false).value.should == test_message
+        expect(find('.input.hidden.post_invitations_recipient_name input', visible: false).value).to eq 'AB C'
+        expect(find('.input.email.post_invitations_recipient_email input').value).to eq 'abc@abc.com'
+        expect(find('.input.hidden.post_invitations_message input', visible: false).value).to eq 'I am inviting you.'
       end
 
       click_button 'Submit'
@@ -48,21 +50,23 @@ feature "Post creator(registered user)" do
       expect(page).to have_content('Thread was successfully posted.')
     end
 
-    it 'closes the invitation form by clicking either Cancel button or X button', js: true do
-      # Open the invitation form
-      page.execute_script('$("#add_invitation").modal("show")')
+    it 'lets a user submits a post with an invitee' do
+      fill_invitation('abc@abc.com', 'AB C', 'I am inviting you')
+      click_button 'Invite'
+      # page.execute_script("$('#create_invitation').click()")
       sleep 5
+      fill_post('Queen', 'Another one bites the dust.')
+      click_on 'Submit'
 
-      # Make sure the invitaion form is opened
-      expect(page).to have_selector('.modal-backdrop')
-      expect(page).to have_button('Cancel')
+      expect(page).to have_content('Thread was successfully posted.')
+      expect(Invitation.count).to eq 1
+    end
 
-      # Close the form
+    it 'allows a user closes an invitation form' do
       click_button 'Cancel'
-      sleep 5
+      sleep 3
 
-      # Check the form is closed
-      expect(page).to_not have_selector('.modal-backdrop')
+      expect(page).not_to have_selector('.modal-backdrop')
     end
 
     it 'adds a invitee without a recipient name and message', js: true do
@@ -73,24 +77,26 @@ feature "Post creator(registered user)" do
 
       fill_invitation('test@test.com', '', '')
       click_button 'Invite'
-      sleep 5
+      fill_post('Test Title', 'This is a test.')
+      click_on 'Submit'
+      sleep 3
 
-      click_button 'Submit'
       expect(page).to have_content('Thread was successfully posted.')
     end
 
-    it 'adds with a wrong email address', js: true do
-      page.execute_script('$("#add_invitation").modal("show")')
-      sleep 5
+    it 'validates a recipient email' do
+      fill_invitation('test@test', 'Wrong Email', 'Email validation test')
+      click_button 'Invite'
+      sleep 3
 
-      fill_invitation('test@test', 'Wrong Email', 'This is a test for the emial validation.')
-      page.execute_script("$('#create_invitation').click()")
-      sleep 5
-
-      # Check the error message is showed up
       expect(page).to have_content('Please check the email address')
-      click_button 'Cancel'
     end
+  end
+
+  def fill_post(title, detail)
+    find('#post_title').visible?
+    fill_in 'post_title', with: title
+    page.execute_script("editor.setValue('#{detail}')")
   end
 
   def fill_invitation(email, name, message)
