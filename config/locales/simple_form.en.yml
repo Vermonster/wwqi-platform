@@ -39,6 +39,13 @@ en:
         private: 'Who do you want to ask?'
       item:
         search: 'Enter the item name or id'
+      user:
+        first_name: 'First name'
+        last_name: 'Last name'
+        email: 'E-mail'
+        password: 'Password'
+        password_confirmation: 'Confirm password again'
+        terms: 'I accept'
     hints:
       post:
         tag_list: 'Use tags to describe the people, places, or subjects related to this thread.'
