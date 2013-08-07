@@ -22,18 +22,32 @@ en:
       sign_up: "Please sign in or sign up below to access all of the research platform's features:"
 
   contributions:
-    transcription:
-      intro: 'Do you have experience transcribing from Persian to English? If so, help us
-      transcribe documents from our archives. Here are some suggested items that need a transcription:'
-      button: 'Transcribe'
-    translation:
-      intro: 'Do you have experience translating from Persian to English? If so, help us
-      translate documents from our archives. Here are some suggested items that need a translation:' 
-      button: 'Translate'
-    biography: 
-      intro: 'Did you notice an item missing a biography? If so, help us by writing a
-      biography for our archives. Here are some suggested items that need a biography:'
-      button: 'Write a biography'
+    index:
+      contribution_header: 'Help us enrich the WWQI archives by contributing information to the project.'
+      contribution_message: 'There are numerous ways you can contribute.'
+      no_contribution_request_message: 'No items in need of %{type}.'
+      contribution_request_message: 'Items in need of %{type}'
+      transcription_button: 'Transcribe a document'
+      translation_button: 'Translate a document'
+      biography_button: 'Write a biography'
+      correction_button: 'Submit a correction'
+      recently_contributed_header: "Recently contributed %{type}"
+      recently_contributed_intro: "Here are some recent %{type} contributed by the WWQI users:"
+      show_more_documents: 'Show more documents'
+      show_more_contributions: 'Show more %{type}'
+      no_recent_contributions: 'No recent contributions'
+      transcription:
+        intro: 'Do you have experience transcribing from Persian to English? If so, help us
+        transcribe documents from our archives. Here are some suggested items that need a transcription:'
+        button: 'Transcribe'
+      translation:
+        intro: 'Do you have experience translating from Persian to English? If so, help us
+        translate documents from our archives. Here are some suggested items that need a translation:' 
+        button: 'Translate'
+      biography: 
+        intro: 'Did you notice an item missing a biography? If so, help us by writing a
+        biography for our archives. Here are some suggested items that need a biography:'
+        button: 'Write a biography'
   
   flash:
     threads:
