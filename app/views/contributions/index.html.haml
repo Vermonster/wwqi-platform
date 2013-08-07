@@ -1,23 +1,22 @@
 .items-index
   .intro.contributions-intro
-    %h4 Help us enrich the WWQI archives by contributing information to the project.
-
-    %p There are numerous ways you can contribute.
+    %h4=t '.contribution_header'
+    %p=t '.contribution_message'
 
     %ul.thread-type.btn-group.contributions-nav
       %li{class: "btn #{'active' if params[:type] == "Transcription"} pull-left"}
-        = link_to 'Transcribe a document', contributions_path(type: 'Transcription')
+        = link_to t('.transcription_button'), contributions_path(type: 'Transcription')
       %li{class: "btn #{'active' if params[:type] == 'Translation'} pull-left"}
-        = link_to 'Translate a document', contributions_path(type: 'Translation')
+        = link_to t('.translation_button'), contributions_path(type: 'Translation')
       %li{class: "btn #{'active' if params[:type] == 'Biography'} pull-left"}
-        = link_to 'Write a biography', contributions_path(type: 'Biography')
+        = link_to t('.biography_button'), contributions_path(type: 'Biography')
       %li.btn.pull-left
-        = link_to 'Submit a correction', new_correction_path
+        = link_to t('.correction_button'), new_correction_path
   #contributions-content
     .contribution-list-title
-      %h3= "Items in need of #{params[:type]}"
+      %h3=t '.contribution_request_message', type: params[:type]
     #contribution-list
-      %p.feed-intro= t("contributions.#{params[:type].downcase}.intro") 
+      %p.feed-intro= t(".#{params[:type].downcase}.intro")
       %ul.items#selected-items
         - unless @requests.empty?
           - @requests.each do |r|
@@ -28,17 +27,17 @@
                 .item-title
                   = r.title
               .transcribe.btn.pull-right
-                = link_to t("contributions.#{params[:type].downcase}.button"), new_contribution_path(type: params[:type], item: r.item)
+                = link_to t(".#{params[:type].downcase}.button"), new_contribution_path(type: params[:type], item: r.item)
         -else
-          %p= "No items in need of #{params[:type]}"
+          %p=t '.no_contribution_request_message', type: params[:type]
     .transcription-subnav.pull-left
       %a.show-more-items{href: '#', id: 'show-more-items'}
         .icon-plus-circle#items-icon
-        %span Show more documents
+        %span=t '.show_more_documents'
     .contribution-list-title
-      %h3= "Recently contributed #{params[:type].pluralize}"
+      %h3=t '.recently_contributed_header', type: params[:type].pluralize
     #contribution-feed
-      %p.feed-intro= "Here are some recent #{params[:type].pluralize} contributed by the WWQI users:"
+      %p.feed-intro=t '.recently_contributed_header', type: params[:type].pluralize
       %ul.items#recent-contributions
         - unless @contributions.empty?
           - @contributions.each do |c|
@@ -58,13 +57,13 @@
                 - if user_signed_in?
                   .item-follow-btn{ style:  "margin-top: -10px;" }
                     - following = current_user.following?(c.object)
-                    = link_to following ? 'Unfollow' : 'Follow', '#', :class => ['btn', 'btn-primary', following && 'followed'], :data => { followable_id: c.id, followable_type: c.model.class.to_s.downcase, follow_id: following.try(:id) } 
+                    = link_to following ? 'Unfollow' : 'Follow', '#', :class => ['btn', 'btn-primary', following && 'followed'], :data => { followable_id: c.id, followable_type: c.model.class.to_s.downcase, follow_id: following.try(:id) }
         - else
-          %p No recent contributions
+          %p=t '.no_recent_contributions'
     .transcription-subnav
       %a.show-more-contributions{href: '#', id: 'show-more-contributions'}
         .icon-plus-circle#recent-contributions-icon
-        = "Show more #{params[:type].downcase.pluralize}"
+        =t '.show_more_contributions', type: params[:type].downcase.pluralize
 :coffeescript
   $ ->
     # Default number of items and contributions to show
@@ -77,7 +76,7 @@
 
     # Hide all items and contributions on the page and
     # show the default number of items and contributions
-    $('.items').each -> 
+    $('.items').each ->
       $(this).find('li').hide()
       $(this).find('li').slice(0, visible_item).show()
 
