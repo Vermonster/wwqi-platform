@@ -2,6 +2,25 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  terms: 'I accept' # 'term' translation in the user registration form
+  sign_up: 'Sign Up'
+  sign_up_message: 'Start using the research platform today.'
+  sign_in: 'Sign In'
+  sign_in_message: 'Already a member? Sign in below.'
+
+  site:
+    index:
+      welcome_header: 'Welcome to the WWQI Research Platform'
+      welcome_description: 'This space aims to encourage interactive use of the WWQI digital archive, put students and scholars in collaborative conversations, and generate innovative scholarship on the cultural history of the Qajar period focused on lives of women and issues of gender and sexuality.'
+      feature_list: 'Features of this research platform include:'
+      question_discussion_header: 'Questions & Discussions'
+      question_discussion_description: 'Start a discussion, respond to others threads, search existing threads for your topic of interest, link threads to the archive items, and a lot more.'
+      research_in_progress_header: 'Research in Progress'
+      research_in_progress_description: 'Share your research in progress, ask research questions, comment on others research notes.'
+      contribution_header: 'Contributions'
+      contribution_description: 'Post translations and transcriptions of documents from the archive, write a biography, and submit corrections.'
+      sign_up: "Please sign in or sign up below to access all of the research platform's features:"
+
   contributions:
     transcription:
       intro: 'Do you have experience transcribing from Persian to English? If so, help us

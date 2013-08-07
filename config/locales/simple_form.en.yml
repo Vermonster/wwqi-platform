@@ -44,7 +44,7 @@ en:
         last_name: 'Last name'
         email: 'E-mail'
         password: 'Password'
-        password_confirmation: 'Confirm password again'
+        password_confirmation: 'Type password again'
         terms: 'I accept'
     hints:
       post:
