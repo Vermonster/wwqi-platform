@@ -9,4 +9,4 @@
         = f.submit
   - else
     .black-box
-      %p To comment on this post, please #{link_to('sign in', root_path(anchor: 'sign-in'))}.
+      %p=raw t('sign_in_to_comment', type: parent_type, link: link_to(t('sign_up').downcase, root_path(anchor: 'sign-in')), scope: 'posts.show')

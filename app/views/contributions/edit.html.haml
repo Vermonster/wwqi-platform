@@ -1,11 +1,11 @@
 .items-index#new-contribution
-  %h4= "Edit #{resource.type}"
+  %h4=t '.header', type: resource.type
   .item-image
     .submission-copy
-      %p= "Your #{resource.type.downcase} for: "
+      %p=t '.description', type: resource.type.downcase
       %h3 #{resource.item.name}
     = image_tag resource.item.thumbnail, { class: 'img-polaroid' }
 = simple_form_for resource do |f|
   = f.input :details, as: :text, label: false
   .submit-button
-    =f.button :submit, "Save changes", class: 'submit-button', id: 'thread-submit-button'
+    =f.button :submit, t('.save_changes_button'), class: 'submit-button', id: 'thread-submit-button'

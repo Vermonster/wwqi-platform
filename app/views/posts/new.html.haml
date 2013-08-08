@@ -1,95 +1,84 @@
 .items-index#new-thread
-  %h4 Start a New Thread
-
+  %h4=t '.header'
 = simple_form_for @post do |f|
-
   .col-1.pull-left
-
-    %label Thread Type
-
+    %label=t '.type'
     .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[type]"}
-      %button.btn.active{"data-toggle" => "button", :value => "Question"} Question
-      %button.btn{"data-toggle" => "button", :value => "Discussion"} Discussion
-
+      %button.btn.active{"data-toggle" => "button", :value => "Question"}=t '.question'
+      %button.btn{"data-toggle" => "button", :value => "Discussion"}=t '.discussion'
     = f.input :type, as: :hidden, input_html: { value: 'Question' }
-
     = f.input :title, :label_html =>  { id: 'title' }
-
     = f.input :details, :input_html => { :class => 'wysihtml5' }
-
   .col-2.pull-left
-
     .related-items
-      %label Is this related to specific WWQI items?
+      %label=t '.is_related_items'
       .btn-group.items{"data-toggle" => "buttons-radio", "data-toggle-name"=> "post[item_related]"}
-        %button.btn{"data-toggle" => "button", :value => "true", "name" => "item_related"} Yes
-        %button.btn{"data-toggle" => "button", :value => "false", "name" => "item_related"} No
+        %button.btn{"data-toggle" => "button", :value => "true", "name" => "item_related"}=t '.yes'
+        %button.btn{"data-toggle" => "button", :value => "false", "name" => "item_related"}=t '.no'
       = f.input :item_related, as: :hidden
       #items
         .expand
-          %p Search by name or id, then select from the list.
+          %p=t '.search'
           = f.error :item_relations
           = f.simple_fields_for :item_relations do |item|
             = render 'partials/item_fields', :f => item
           .links-add
             .icon-plus-circle
-            = link_to_add_association 'Add Item', f, :item_relations, partial: 'partials/item_fields'
-
+            = link_to_add_association t('.add_item_button'), f, :item_relations, partial: 'partials/item_fields'
     .tag-list
       %label= t('simple_form.labels.post.tag_list')
       .tags
         = f.input :tag_list
       -#%span.hint Use tags to describe the people, places, or subjects related to this thread. 
-
     .invite-collaborators
-      %label Who can collaborate?
+      %label=t '.collaborator_header'
       .btn-group.collaborators{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[private]"}
-        %button.btn{"data-toggle" => "button", :value => "true"}People I Choose
-        %button.btn{"data-toggle" => "button", :value => "false"}Anyone
+        %button.btn{"data-toggle" => "button", :value => "true"}=t '.people_i_choose'
+        %button.btn{"data-toggle" => "button", :value => "false"}=t '.anyone'
       = f.input :private, as: :hidden
       #collaborators
         .expand
-          %p Enter name or email of existing users
+          %p=t '.enter_name'
           = f.error :collaborators
           = f.simple_fields_for :collaborators do |collaborator|
             = render 'partials/collaborator_fields', :f => collaborator
           .links-add
             .icon-plus-circle
-            = link_to_add_association 'Add Collabator', f, :collaborators, partial: 'partials/collaborator_fields'
+            = link_to_add_association t('.collaborator_button'), f, :collaborators, partial: 'partials/collaborator_fields'
 
         #invitation
           = f.simple_fields_for :invitations do |invitation|
             = render 'invitation_fields', :f => invitation
           .links
-            = link_to_add_association 'Add Invitee', f, :invitations, style: "display: none"
-            %a.btn{:href => '#add_invitation', 'data-toggle' => 'modal' }Invite a new person to the research platform
+            = link_to_add_association t('.invitation_button'), f, :invitations, style: "display: none"
+            %a.btn{:href => '#add_invitation', 'data-toggle' => 'modal' }=t '.invitation_button'
     .file-upload
-      %label Additional Documents
+      %label=t '.upload_header'
       = f.simple_fields_for :uploads do |upload|
         = render 'partials/upload_fields', f: upload
       .links-add
         .icon-plus-circle
-        = link_to_add_association 'Add Upload', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
+        = link_to_add_association t('.upload_button'), f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
 
   .submit-button
-    = f.button :submit, :label => 'Post Thread', :value => 'Submit', id:'thread-submit-button', class: 'submit-button'
+    = f.button :submit, :label => t('.post_thread_button'), :value => 'Submit', id:'thread-submit-button', class: 'submit-button'
 
   #add_invitation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "NewInvitationLabel", :role => "dialog", :tabindex => "-1"}
     .modal-header
       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
-      %h3#NewInvitationLabel Invitation
+      %h3#NewInvitationLabel=t '.invitation_form_title'
     .modal-body
       %form
         %fieldset
-          %label{for: "recipient_name"} Recipient Name
+          %label{for: "recipient_name"}=t '.recipient_name'
           %input#modal_recipient_name{type:'text'}
-          %label{for: "recipient_email"} Recipient Email
+          %label{for: "recipient_email"}=t '.recipient_email'
           %input#modal_recipient_email{type: 'email', required: ''}
-          %label{for: "message"} Message
+          %label{for: "message"}=t '.invitation_message'
           %textarea#modal_message{placeholder: 'Please type your message...'} 
     .modal-footer
       %button.btn#create_invitation Invite
-      %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
+      %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"}=t '.cancel'
 :coffeescript
   $ ->
     -# This javascript is for handling the url parameter from qajar women site. 

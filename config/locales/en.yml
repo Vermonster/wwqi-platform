@@ -48,7 +48,20 @@ en:
         intro: 'Did you notice an item missing a biography? If so, help us by writing a
         biography for our archives. Here are some suggested items that need a biography:'
         button: 'Write a biography'
-  
+    new:
+      header: 'New %{type}'
+      description: 'You are submitting a %{type} for:'
+      submit_button: 'Submit %{type}'
+    edit:
+      header: 'Edit %{type}'
+      description: 'Your %{type} for: '
+      save_changes_button: 'Save changes'
+  corrections:
+    new:
+      intro: 'Submit a correction'
+      button: 'Submit Correction'
+      search: 'Seach by item name or item number'
+      details: 'Correction'
   flash:
     threads:
       create:
@@ -82,7 +95,36 @@ en:
         placeholder: 'Search Research in Progress'
         new: 'Submit Your Research'
         follow: 'Followed Research'
-
+    new:
+      header: 'Start a New Thread'
+      type: 'Thread Type'
+      question: 'Question'
+      discussion: 'Discussion'
+      is_related_items: 'Is this related to specific WWQI items?'
+      yes: 'Yes'
+      no: 'No'
+      search: 'Search by name or accession number, then select from the list.'
+      add_item_button: 'Add Item'
+      collaborator_header: 'Who can collaborate?'
+      people_i_choose: 'People I Choose'
+      anyone: 'Anyone'
+      enter_name: 'Enter name or email of existing users'
+      collaborator_button: 'Add Collaborator'
+      invitation_button: 'Invite a new person to the research platform'
+      upload_header: 'Additional Documents'
+      upload_button: 'Add Upload'
+      invitation_form_title: 'Invitation'
+      recipient_name: 'Recipient Name'
+      recipient_email: 'Recipient Email'
+      invitation_message: 'Message'
+      invite_button: 'Invite'
+      cancel: 'Cancel'
+      post_thread_button: 'Post Thread'
+    edit:
+      header: 'Edit Post'
+      submit_post_button: 'Submit Post'
+    show:
+      sign_in_to_comment: 'To comment on this %{type}, please %{link}.'
   errors:
     messages:
       wrong_size: "is the wrong size (should be %{file_size})"

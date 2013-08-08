@@ -1,8 +1,8 @@
 .items-index#new-contribution
-  %h4= "New #{resource.type}"
+  %h4=t '.header', type: resource.type
   .item-image
     .submission-copy
-      %p= "You are submitting a  #{resource.type.downcase} for:"
+      %p=t '.description', type: resource.type.downcase
       %h3 #{resource.item_relation.name}
     = image_tag resource.item_relation.thumbnail, {class: "img-polaroid"}
 
@@ -16,4 +16,4 @@
       = i.input :search, as: :hidden, input_html: { value: resource.item_relation.search }
   = f.input :details, as: :text, label: false, placeholder: "Type your #{resource.type.downcase}..."
   .submit-button
-    = f.button :submit, "Submit #{resource.type}", class: 'submit-button', id: 'thread-submit-button'
+    = f.button :submit, t('.submit_button', type: resource.type), class: 'submit-button', id: 'thread-submit-button'
