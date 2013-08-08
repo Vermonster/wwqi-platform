@@ -27,14 +27,14 @@
     .item-image.pull-left
       = image_tag avatar_url(current_user)
     .item-content.pull-right
-    -# check the paren class and set the right url for a comment form
+    -# check the paren class and set the right url for a comment form
     - new_path_arg = parent_class == 'Post' ? post_comments_path(resource) : contribution_comments_path(resource)
     = simple_form_for Comment.new, url: new_path_arg do |f|
       = f.input :details, label: t("#{klass_name}.comment_label"), input_html: { class: 'whsihtml5-sandbox' }
       = f.submit t("#{klass_name}.submit"), { class: "btn pull-right submit-button", id: "comment-submit-button" }
   - else
     .black-box
-      %p To comment on this #{klass_name}, please #{link_to('sign in', root_path(anchor: 'sign-in'))}.
+      %p=raw t('sign_in_to_comment', type: klass_name, link: link_to(t('sign_in').downcase, root_path(anchor: 'sign-in')), scope: 'posts.show')
 
 :coffeescript
   $( ->
