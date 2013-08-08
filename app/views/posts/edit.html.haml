@@ -1,39 +1,30 @@
 .items-index#edit-thread
-  %h4 Edit Post
-
+  %h4=t '.header'
 = simple_form_for resource, as: :post, url: post_path do |f|
-
   .col-1.pull-left
-
-    %label Thread Type
-
+    %label=t 'type', scope: 'posts.new'
     .btn-group{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[type]"}
-      %button.btn.active{"data-toggle" => "button", :value => "Question"} Question
-      %button.btn{"data-toggle" => "button", :value => "Discussion"} Discussion
-
+      %button.btn.active{"data-toggle" => "button", :value => "Question"}=t 'question', scope: 'posts.new'
+      %button.btn{"data-toggle" => "button", :value => "Discussion"}=t 'discussion', scope: 'posts.new'
     = f.input :type, as: :hidden, input_html: { value: 'Question' }
-
     = f.input :title, :label_html =>  { id: 'title' }
-
     = f.input :details, :input_html => { :class => 'wysihtml5' }
-
   .col-2.pull-left
-
     .related-items
-      %label Is this related to specific WWQI items?
+      %label=t 'is_related_items', scope: 'posts.new'
       .btn-group.items{"data-toggle" => "buttons-radio", "data-toggle-name"=> "post[item_related]"}
-        %button.btn{"data-toggle" => "button", :value => "true"} Yes
-        %button.btn{"data-toggle" => "button", :value => "false"} No
+        %button.btn{"data-toggle" => "button", :value => "true"}=t 'yes', scope: 'posts.new'
+        %button.btn{"data-toggle" => "button", :value => "false"}=t 'no', scope: 'posts.new'
       = f.input :item_related, as: :hidden
       #items
         .expand
-          %p Search by name or id, then select from the list.
+          %p=t 'search', scope: 'posts.new'
           = f.error :item_relations
           = f.simple_fields_for :item_relations do |item|
             = render 'partials/item_fields', :f => item
           .links-add
             .icon-plus-circle
-            = link_to_add_association 'Add Item', f, :item_relations, partial: 'partials/item_fields'
+            = link_to_add_association t('add_item_button', scope: 'posts.new'), f, :item_relations, partial: 'partials/item_fields'
 
     .tag-list
       %label= t('simple_form.labels.post.tag_list')
@@ -42,51 +33,51 @@
       -#%span.hint Use tags to describe the people, places, or subjects related to this thread. 
 
     .invite-collaborators
-      %label Invite Collaborators
+      %label=t 'collaborator_header', scope: 'posts.new'
       .btn-group.collaborators{"data-toggle" => "buttons-radio", "data-toggle-name" => "post[private]"}
-        %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
-        %button.btn{"data-toggle" => "button", :value => "false"} Everyone
+        %button.btn{"data-toggle" => "button", :value => "true"}=t 'people_i_choose', scope: 'posts.new'
+        %button.btn{"data-toggle" => "button", :value => "false"}=t 'anyone', scope: 'posts.new'
       = f.input :private, as: :hidden
       #collaborators
         .expand
-          %p Enter Name or Email Address of Recipients
+          %p=t 'enter_name', scope: 'posts.new'
           = f.error :collaborators
           = f.simple_fields_for :collaborators do |collaborator|
             = render 'partials/collaborator_fields', :f => collaborator
           .links-add
             .icon-plus-circle
-            = link_to_add_association 'Add Collabator', f, :collaborators, partial: 'partials/collaborator_fields'
+            = link_to_add_association t('collaborator_button', scope: 'posts.new'), f, :collaborators, partial: 'partials/collaborator_fields'
 
     .file-upload
-      %label Additional Documents
+      %label=t 'upload_header', scope: 'posts.new'
       = f.simple_fields_for :uploads do |upload|
         = render 'partials/upload_fields', f: upload
       .links-add
         .icon-plus-circle
-        = link_to_add_association 'Add Upload', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
+        = link_to_add_association t('upload_button', scope: 'posts.new'), f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
 
     #invitation.span6
       = f.simple_fields_for :invitations do |invitation|
         = render 'invitation_fields', :f => invitation
       .links
-        = link_to_add_association 'Add Invitee', f, :invitations, style: "visibility: hidden"
+        = link_to_add_association t('invitation_button', scope: 'posts.new'), f, :invitations, style: "visibility: hidden"
 
   .submit-button
-    = f.button :submit, :label => 'Post Thread', :value => 'Submit', id:'thread-submit-button', class: 'submit-button'
+    = f.button :submit, :label => t('.submit_post_button'), :value => 'Submit', id:'thread-submit-button', class: 'submit-button'
 
   #add_invitation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "NewInvitationLabel", :role => "dialog", :tabindex => "-1"}
     .modal-header
       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
-      %h3#NewInvitationLabel Invitation
+      %h3#NewInvitationLabel=t 'invitation_form_title', scope: 'posts.new'
     .modal-body
       %form
         %fieldset
-          %label{for: "recipient_name"} Recipient Name
+          %label{for: "recipient_name"}=t 'recipient_name', scope: 'posts.new'
           %input#modal_recipient_name
-          %label{for: "recipient_email"} Recipient Email
+          %label{for: "recipient_email"}=t 'recipient_email', scope: 'posts.new'
           %input#modal_recipient_email{type: 'email', required: ''}
-          %label{for: "message"} Message
+          %label{for: "message"}=t 'invitation_message', scope: 'posts.new'
           %textarea#modal_message{placeholder: 'Please type your message...'}
     .modal-footer
-      %button.btn#create_invitation Invite
-      %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
+      %button.btn#create_invitation=t 'invite_button', scope: 'posts.new'
+      %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"}=t 'cancel', scope: 'posts.new'
