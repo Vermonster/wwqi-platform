@@ -16,7 +16,7 @@ describe "Contribution creation" do
       
       it "user can visit contribuion page without authentication" do
         visit contributions_path
-        expect(page).to have_content('Help us enrich the WWQI archives by contributing information to the project.')
+        expect(page).to have_content('Help us enrich the WWQI archives.')
         expect(page).to have_content('Items in need of Transcription')
       end
     end
