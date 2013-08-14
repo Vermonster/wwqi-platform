@@ -1,7 +1,11 @@
 #dialog.terms-dialog
   .language-select-dialog
-    .select-farsi-dialog فارسی
-    .select-english-dialog english
+    - if locale == :fa
+      .select-english-dialog english
+    - else
+      .select-farsi-dialog فارسی
+    -# .select-farsi-dialog فارسی
+    -# .select-english-dialog english
   .terms-english-dialog
     .horiz-line
     .agree

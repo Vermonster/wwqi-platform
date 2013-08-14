@@ -1,5 +1,5 @@
 .items-index#research-submit
-  %h4 Submit a Research Project
+  %h4= t 'header_html', scope: 'posts.new.research'
 
 = simple_form_for resource do |f|
 
@@ -11,23 +11,23 @@
   .col-2.pull-left
 
     .related-items
-      %label Is this related to specific WWQI items?
+      %label= t 'is_related_items_html', scope: 'posts.new'
       .btn-group.items{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[item_related]"}
-        %button.btn{"data-toggle" => "button", 'name' => 'item_related', :value => "true"} Yes
-        %button.btn{"data-toggle" => "button", 'name' => 'item_related', :value => "false"} No
+        %button.btn{"data-toggle" => "button", 'name' => 'item_related', :value => "true"}= t 'yes', scope: 'posts.new'
+        %button.btn{"data-toggle" => "button", 'name' => 'item_related', :value => "false"}=t 'no', scope: 'posts.new'
       = f.input :item_related, as: :hidden
       #items
         .expand
-          %p Enter the item name or record number:
+          %p= t 'search_html', scope: 'posts.new'
           = f.error :item_relations
           = f.simple_fields_for :item_relations do |item|
             = render 'partials/item_fields', :f => item
           .links-add
             .icon-plus-circle
-            = link_to_add_association 'Add Item', f, :item_relations, partial: 'partials/item_fields'
+            = link_to_add_association t('add_item_button', scope: 'posts.new'), f, :item_relations, partial: 'partials/item_fields'
 
     .invite-collaborators
-      %label Invite Collaborators
+      %label= t 'invite_collaborators_html', scope: 'posts.new.research'
       .btn-group.collaborators{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[private]"}
         %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
         %button.btn{"data-toggle" => "button", :value => "false"} Everyone
@@ -64,7 +64,7 @@
         = link_to_add_association 'Add file', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
 
   .submit-button
-    = f.button :submit, :label => 'Post Research', :value => 'Submit Research', id: 'research-submit-button', class: 'submit-button'
+    = f.button :submit, :label => 'Post Research', :value => t('submit_research_button_html', scope: 'posts.new.research'), id: 'research-submit-button', class: 'submit-button'
   #add_invitation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "NewInvitationLabel", :role => "dialog", :tabindex => "-1"}
     .modal-header
       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x

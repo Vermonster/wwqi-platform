@@ -1,0 +1,140 @@
+fa:
+  sign_up: 'Sign Up'
+  sign_up_message: 'اگر بار اولی است که وارد این پژوهشگاه می‌شوید، از اینجا شروع کنید. لطفا توجه کنید که نام، نام خانوادگی، و نام کاربری باید به حروف لاتین باشد. برای رمز ورود می توانید از حروف و اعداد لاتین استفاده کنی'
+  sign_in: 'Sign In'
+  sign_in_message: ':اگر نام کاربری و رمز ورود دارید، از اینجا وارد شوید'
+  read_terms_and_conditions: 'برای استفاده از امکانات پژوهشگاه باید ابتدا در بخش فوق ثبت نام کنید و از آن پس با وارد کردن  نام کاربری و رمز ورود خود به پژوهشگاه وارد شوید:'
+  search: 'جستجو'
+
+  site:
+    index:
+      welcome_header: 'به «پژوهشگاه دنیای زنان در عصر قاجار» خوش آمدی'
+      welcome_description: 'به پژوهشگاه «دنیای زنان در عصر قاجار» خوش آمدید.  هدف این پژوهشگاه ایجاد فضایی برای گفتگو و تبادل فکری میان دانشجویان و پژوهشگرانی است که علاقه دارند با استفاده از منابع دیجیتال این آرشیو پژوهشهای خلاق در زمینه تاریخ فرهنگی دوره قاجار را، با تمرکز بر زندگی زنان و مقولات جنس‌گونگی و جنسیت، گسترش دهند'
+      feature_list: ':امکاناتی که این پژوهشگاه فراهم می آورد'
+      question_discussion_header: 'پرسش و گفتگو'
+      question_discussion_description: 'می توانید با طرح سؤال یا نکته ای رشته گفتگو و بحث را آغاز کنید، در رشته گفتگوهای دیگران شرکت کنید، پرسش ها و نکات را به اقلام سایت «دنیای زنان در عصر قاجار» پیوند دهید، و بسیار امکانات دیگر'
+      research_in_progress_header: 'پژوهشهای در جریان'
+      research_in_progress_description: 'می توانید کارهای پژوهشی، یادداشت ها و ایده های تحقیقی خود را برای مبادله فکری با دیگران به اشتراک بگذارید؛ و یا با نقد و نظر خود به پژوهشهای دیگران یاری رسانید'
+      contribution_header: 'مشارکت'
+      contribution_description: 'می توانید به انواع مختلف با«دنیای زنان در عصر قاجار» همکاری کنید؛ از جمله ترجمه اسناد، تایپ اسناد خطی، نگارش شرح حال افراد موجود در آرشیو، تکمیل زندگی نامه های موجود، و تصحیح اطلاعات مربوط به اقلام آرشیو'
+      sign_up: ':برای استفاده از امکانات پژوهشگاه باید ابتدا در بخش سمت چپ ثبت نام کنید و از آن پس با وارد کردن نام کاربری و رمز ورود خود به پژوهشگاه وارد شوید'
+      terms: 'می پذیرم'
+
+  contributions:
+    index:
+      contribution_header: '.به غنی تر شدن آرشیو «دنیای زنان در عصر قاجار» کمک کنید'
+      contribution_message: '.از این راه‌ها می توانید کمک کنید'
+      no_contribution_request_message: 'No items in need of %{type}.'
+      contribution_request_message: 'Item in need of %{type}'
+      transcription_button: 'تایپ اسناد خطی'
+      translation_button: 'ترجمه اسناد'
+      biography_button: 'نگارش شرح حال افراد'
+      correction_button: 'ارسال تصحیح'
+      recently_contributed_header: "Recently contributed %{type}"
+      recently_contributed_intro: "Here are some recent %{type} contributed by the WWQI users:"
+      show_more_documents: 'Show more documents'
+      show_more_contributions: 'Show more %{type}'
+      no_recent_contributions: 'No recent contributions'
+      transcription:
+        intro: ':اگر علاقه‌مند به خواندن اسناد خطی هستید، می‌توانید در تایپ متون زیر به ما کمک کنید'
+        button: 'Transcript'
+      translation:
+        intro: ':گرعلاقه‌مند به ترجمه اسناد فارسی هستید، می‌توانید در ترجمه متون زیر به ما کمک کنید'
+        button: 'Translate'
+      biography:
+        intro: ':آیا علاقه‌مند هستید در نوشتن و یا تکمیل شرح حال افراد آرشیو به ما کمک کنید؟ به طور مثال'
+        button: 'نگارش شرح حال افراد'
+    new:
+      header: 'New %{type}'
+      description: 'Your are submitting a %{type} for: '
+      submit_button: 'Submit %{type}'
+    edit:
+      header: 'Edit %{type}'
+      description: 'Your %{type}for : '
+      save_changes_button: 'Save changes'
+  corrections:
+    new:
+      intro: 'ارسال تصحیح'
+      button: 'ارسال تصحیح'
+      search: 'جستجوی فقره از راه عنوان و یا شماره آن'
+      details: ' تصحیح'
+  flash:
+    threads:
+      create:
+        notice: 'Thread was successfully created.'
+  question:
+    comment_label: 'Your answer'
+    submit: 'Submit answer'
+  discussion:
+    comment_label: 'Your reply'
+    submit: 'Submit reply'
+  research:
+    comment_label: 'Your reply'
+    submit: 'Submit reply'
+  transcription:
+    comment_label: 'Your comment'
+    submit: 'Create comment'
+  translation:
+    comment_label: 'Your comment'
+    submit: 'Create comment'
+  biography:
+    comment_label: 'Your comment'
+    submit: 'Create comment'
+  posts:
+    index:
+      post:
+        placeholder: 'Search Questions & Discussions'
+        new: 'سؤال یا بحث تازه ای را آغاز کنید'
+        follow: 'Followed Threads'
+      research:
+        placeholder: 'Search Research in Progress'
+        new: 'نوشته پژوهشی خود را به اشتراک بگذارید'
+        follow: 'Followed Research'
+    new:
+      header: '.سؤال یا بحث تازه ای را آغاز کنید'
+      type: 'Thread Type'
+      question: 'Question'
+      discussion: 'Discussion'
+      is_related_items: 'آیا این نوشته با اقلام مشخصی از آرشیو مرتبط است؟'
+      yes: 'Yes'
+      no: 'No'
+      search: 'جستجوی فقره از راه عنوان و یا شماره آن'
+      add_item_button: 'Add Item'
+      collaborator_header: 'Who can collaborate?'
+      people_i_choose: 'People I Choose'
+      anyone: 'Anyone'
+      enter_name: 'Enter name or email of existing users'
+      collaborator_button: 'Add Collaborator'
+      invitation_button: 'Invite a new person to the research platform'
+      upload_header: 'Additional Documents'
+      upload_button: 'Add Upload'
+      invitation_form_title: 'Invitation'
+      recipient_name: 'Recipient Name'
+      recipient_email: 'Recipient Email'
+      invitation_message: 'Message'
+      invite_button: 'Invite'
+      cancel: 'Cancel'
+      post_thread_button: 'Post Thread'
+      research:
+        header: 'نوشته پژوهشی خود را به اشتراک بگذارید.'
+        invite_collaborators: 'دعوت به مشارکت'
+        submit_research_button: 'ارسال کار پژوهشی'
+    edit:
+      header: 'Edit Post'
+      submit_post_button: 'Submit Post'
+    show:
+      sign_in_to_comment: 'To comment on this %{type}, please %{link}.'
+  errors:
+    messages:
+      wrong_size: "is the wrong size (should be %{file_size})"
+      size_too_small: "is too small (should be at least %{file_size})"
+      size_too_big: "is too big (should be at most %{file_size})"
+
+  activerecord:
+    errors:
+      messages:
+        taken: ".از این رمز استفاده شده. عبارت دیگری انتخاب کنی"
+        accepted: ".توافق شما الزامی است"
+        blank: ".این میدان نمی تواند خالی باشد"
+        confirmation: '.تکرار با اصل مطابقت ندارد'
+        invalid: '.قابل قبول نیست'

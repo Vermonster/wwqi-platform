@@ -2,11 +2,13 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  terms: 'I accept' # 'term' translation in the user registration form
   sign_up: 'Sign Up'
   sign_up_message: 'Start using the research platform today.'
   sign_in: 'Sign In'
   sign_in_message: 'Already a member? Sign in below.'
+  read_terms_and_conditions: 'Please read and accept the terms and conditions.'
+  search: 'Search'
+  search_html: 'Search&#13;&#10;جستجو'
 
   site:
     index:
@@ -20,34 +22,46 @@ en:
       contribution_header: 'Contributions'
       contribution_description: 'Post translations and transcriptions of documents from the archive, write a biography, and submit corrections.'
       sign_up: "Please sign in or sign up below to access all of the research platform's features:"
+      terms: 'I accept' # 'term' translation in the user registration form
 
   contributions:
     index:
-      contribution_header: 'Help us enrich the WWQI archives by contributing information to the project.'
-      contribution_message: 'There are numerous ways you can contribute.'
+      contribution_header: 'Help us enrich the WWQI archives.'
+      contribution_header_html: 'Help us enrich the WWQI archives.<br>.به غنی تر شدن آرشیو «دنیای زنان در عصر قاجار» کمک کنید'
+      contribution_message: 'Here are the ways you can contribute.'
+      contribution_message_html: 'Here are the ways you can contribute.<br>.از این راه‌ها می توانید کمک کنید'
       no_contribution_request_message: 'No items in need of %{type}.'
       contribution_request_message: 'Items in need of %{type}'
       transcription_button: 'Transcribe a document'
+      transcription_button_html: 'Transcribe a document<br>تایپ اسناد خطی'
       translation_button: 'Translate a document'
+      translation_button_html: 'Translate a document<br>ترجمه اسناد'
       biography_button: 'Write a biography'
+      biography_button_html: 'Write a biography<br>نگارش شرح حال افراد'
       correction_button: 'Submit a correction'
+      correction_button_html: 'Submit a correction<br>رسال تصحیح'
       recently_contributed_header: "Recently contributed %{type}"
       recently_contributed_intro: "Here are some recent %{type} contributed by the WWQI users:"
       show_more_documents: 'Show more documents'
       show_more_contributions: 'Show more %{type}'
       no_recent_contributions: 'No recent contributions'
       transcription:
-        intro: 'Do you have experience transcribing from Persian to English? If so, help us
+        intro: 'Do you have experience transcribing? Help us
         transcribe documents from our archives. Here are some suggested items that need a transcription:'
+        intro_html: 'Do you have experience transcribing? Help us
+        transcribe documents from our archives. Here are some suggested items that need a transcription:<br>:اگر علاقه‌مند به خواندن اسناد خطی هستید، می‌توانید در تایپ متون زیر به ما کمک کنید'
         button: 'Transcribe'
       translation:
-        intro: 'Do you have experience translating from Persian to English? If so, help us
+        intro: 'Do you have experience translating? Help us
         translate documents from our archives. Here are some suggested items that need a translation:' 
         button: 'Translate'
       biography: 
-        intro: 'Did you notice an item missing a biography? If so, help us by writing a
+        intro: 'Did you notice an person missing a biography? Help us by writing a
         biography for our archives. Here are some suggested items that need a biography:'
+        intro_html: 'Did you notice an person missing a biography? Help us by writing a
+        biography for our archives. Here are some suggested items that need a biography:<br>:آیا علاقه‌مند هستید در نوشتن و یا تکمیل شرح حال افراد آرشیو به ما کمک کنید؟ به طور مثال'
         button: 'Write a biography'
+        button_html: 'Write a biography<br>نگارش شرح حال افراد'
     new:
       header: 'New %{type}'
       description: 'You are submitting a %{type} for:'
@@ -59,9 +73,13 @@ en:
   corrections:
     new:
       intro: 'Submit a correction'
+      intro_html: 'Submit a correction<br>ارسال تصحیح'
       button: 'Submit Correction'
+      button_html: 'Submit Correction&#13;&#10;رسال تصحیح'
       search: 'Seach by item name or item number'
+      search_html: 'Seach by item name or item number<br>جستجوی فقره از راه عنوان و یا شماره آن'
       details: 'Correction'
+      details_html: 'Correction<br>تصحیح'
   flash:
     threads:
       create:
@@ -84,7 +102,6 @@ en:
   biography:
     comment_label: 'Your comment'
     submit: 'Create comment'
-
   posts:
     index:
       post:
@@ -94,6 +111,7 @@ en:
       research:
         placeholder: 'Search Research in Progress'
         new: 'Submit Your Research'
+        new_html: 'Submit Your Research<br>نوشته پژوهشی خود را به اشتراک بگذارید'
         follow: 'Followed Research'
     new:
       header: 'Start a New Thread'
@@ -101,9 +119,11 @@ en:
       question: 'Question'
       discussion: 'Discussion'
       is_related_items: 'Is this related to specific WWQI items?'
+      is_related_items_html: 'Is this related to specific WWQI items?<br>آیا این نوشته با اقلام مشخصی از آرشیو مرتبط است؟'
       yes: 'Yes'
       no: 'No'
       search: 'Search by name or accession number, then select from the list.'
+      search_html: 'Search by name or accession number, then select from the list.<br>جستجوی فقره از راه عنوان و یا شماره آن'
       add_item_button: 'Add Item'
       collaborator_header: 'Who can collaborate?'
       people_i_choose: 'People I Choose'
@@ -120,6 +140,13 @@ en:
       invite_button: 'Invite'
       cancel: 'Cancel'
       post_thread_button: 'Post Thread'
+      research:
+        header: 'Submit a Research Project'
+        header_html: 'Submit a Research Project<br>نوشته پژوهشی خود را به اشتراک بگذارید.'
+        invite_collaborators: 'Invite Collaborators'
+        invite_collaborators_html: 'Invite Collaborators<br>دعوت به مشارکت'
+        submit_research_button: 'Submit Research'
+        submit_research_button_html: 'Submit Research&#13;&#10;رسال کار پژوهشی'
     edit:
       header: 'Edit Post'
       submit_post_button: 'Submit Post'
@@ -134,6 +161,6 @@ en:
   activerecord:
     errors:
       messages:
-        taken: "Had already been taken. / .از این رمز استفاده شده. عبارت دیگری انتخاب کنی"
-        accepted: "Must be accepted. / .توافق شما الزامی است"
-        blank: "Can't be blank. / .این میدان نمی تواند خالی باشد"
+        taken: "Had already been taken."
+        accepted: "Must be accepted."
+        blank: "Can't be blank."

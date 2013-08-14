@@ -1,22 +1,22 @@
 .items-index
   .intro.contributions-intro
-    %h4=t '.contribution_header'
-    %p=t '.contribution_message'
+    %h4=t '.contribution_header_html'
+    %p=t '.contribution_message_html'
 
     %ul.thread-type.btn-group.contributions-nav
       %li{class: "btn #{'active' if params[:type] == "Transcription"} pull-left"}
-        = link_to t('.transcription_button'), contributions_path(type: 'Transcription')
+        = link_to t('.transcription_button_html'), contributions_path(type: 'Transcription')
       %li{class: "btn #{'active' if params[:type] == 'Translation'} pull-left"}
-        = link_to t('.translation_button'), contributions_path(type: 'Translation')
+        = link_to t('.translation_button_html'), contributions_path(type: 'Translation')
       %li{class: "btn #{'active' if params[:type] == 'Biography'} pull-left"}
-        = link_to t('.biography_button'), contributions_path(type: 'Biography')
+        = link_to t('.biography_button_html'), contributions_path(type: 'Biography')
       %li.btn.pull-left
-        = link_to t('.correction_button'), new_correction_path
+        = link_to t('.correction_button_html'), new_correction_path
   #contributions-content
     .contribution-list-title
       %h3=t '.contribution_request_message', type: params[:type]
     #contribution-list
-      %p.feed-intro= t(".#{params[:type].downcase}.intro")
+      %p.feed-intro= t(".#{params[:type].downcase}.intro_html")
       %ul.items#selected-items
         - unless @requests.empty?
           - @requests.each do |r|
@@ -27,7 +27,7 @@
                 .item-title
                   = r.title
               .transcribe.btn.pull-right
-                = link_to t(".#{params[:type].downcase}.button"), new_contribution_path(type: params[:type], item: r.item)
+                = link_to t(".#{params[:type].downcase}.button_html"), new_contribution_path(type: params[:type], item: r.item)
         -else
           %p=t '.no_contribution_request_message', type: params[:type]
     .transcription-subnav.pull-left
