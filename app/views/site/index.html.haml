@@ -2,6 +2,11 @@
   .intro
     .intro-header
       .language-select-intro
+        .select-language
+          - if locale == :fa 
+            %p= link_to 'English', params.merge(locale: 'en')
+          - else
+            %p= link_to 'فارسی', params.merge(locale: 'fa')
         .select-farsi
           %p فارسی
         .select-english

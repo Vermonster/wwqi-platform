@@ -1,16 +1,16 @@
 .items-index#new-correction
-  %h4=t '.intro'
+  %h4=t '.intro_html'
 #items.visible
   = simple_form_for resource do |f|
     = f.simple_fields_for :item_relation do |item|
       .item-group
         .input
-          = item.input :search, label: t('.search'), placeholder: 'e.g. tin or 1266A16'
+          = item.input :search, label: t('.search_html'), placeholder: 'e.g. tin or 1266A16'
         = item.input :url, :as => :hidden
         = item.input :thumbnail, :as => :hidden
         = item.input :accession_no, :as => :hidden
         = item.input :name, :as => :hidden
         .item-image.pull-left
-    = f.input :details, label: t('.details'), :input_html => { :class => 'wysihtml5' }
+    = f.input :details, label: t('.details_html'), :input_html => { :class => 'wysihtml5' }
     .submit-button
-      = f.submit t('.button'), class: 'btn', id: 'correction-btn'
+      = f.submit t('.button_html'), class: 'btn', id: 'correction-btn'
