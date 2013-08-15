@@ -9,12 +9,12 @@
       = resource.title
     .item-details
       %p= resource.details
-- unless resource.uploads.empty?
-  .item-attachments
-    %h4 Attached Documents
-    %ul.item-uploads
-      - resource.uploads.each do |upload|
-        %li.item-upload
-          %i.icon-file-alt
-          = link_to upload[:content], upload.content_url
+  - unless resource.uploads.empty?
+    .item-attachments
+      %h4 Attached Documents
+      %ul.item-uploads
+        - resource.uploads.each do |upload|
+          %li.item-upload
+            %i.icon-file-alt
+            = link_to upload[:content], upload.content_url
   = render 'partials/comments', resource: resource
