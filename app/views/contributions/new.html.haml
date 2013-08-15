@@ -15,5 +15,11 @@
       = i.input :accession_no, as: :hidden, input_html: { value: resource.item_relation.accession_no }
       = i.input :search, as: :hidden, input_html: { value: resource.item_relation.search }
   = f.input :details, as: :text, label: false, placeholder: "Type your #{resource.type.downcase}..."
+  .file-upload
+    = f.simple_fields_for :uploads do |upload|
+      = render 'partials/upload_fields', f: upload
+    .links-add
+      .icon-plus-circle
+      = link_to_add_association 'Add Upload', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
   .submit-button
     = f.button :submit, "Submit #{resource.type}", class: 'submit-button', id: 'thread-submit-button'
