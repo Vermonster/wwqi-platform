@@ -61,8 +61,8 @@ describe "Contribution creation" do
             pending('Fila attachment issue')
             # proecedures for the upload document test. To make this test work,
             # the file field must have a label name. Otherwise, the test won't
-            # find the field correctly and failed. To test, please update the
-            # file field label to 'Additional Doucments'. 
+            # find the field correctly and will be failed. To test it properly, please update the
+            # file field label to 'Additional Doucments'.
             click_on 'Add Upload' if test_upload
             page.execute_script("$('.file.optional.upload').toggle();") if test_upload
             attach_file('Additional Documents', "#{Rails.root}/spec/support/Montmarte.jpg") if test_upload
