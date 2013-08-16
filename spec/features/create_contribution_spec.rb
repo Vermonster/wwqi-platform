@@ -58,14 +58,11 @@ describe "Contribution creation" do
           fill_in "#{type.downcase}_details", with: "Contribution test"
 
           if test_upload 
-            pending('Fila attachment issue')
-            # proecedures for the upload document test. To make this test work,
-            # the file field must have a label name. Otherwise, the test won't
-            # find the field correctly and will be failed. To test it properly, please update the
-            # file field label to 'Additional Doucments'.
-            click_on 'Add Upload' if test_upload
-            page.execute_script("$('.file.optional.upload').toggle();") if test_upload
-            attach_file('Additional Documents', "#{Rails.root}/spec/support/Montmarte.jpg") if test_upload
+            # Since the file field doesn't have a label, attach_file can't not
+            # be used. Instead, the file path is stored manually.
+            click_on 'Add Upload'
+            page.execute_script("$('.file.optional.upload').toggle();")
+            find(".input.file.optional.#{type.downcase}_uploads_content").find('input').set("#{Rails.root}/spec/support/Montmarte.jpg")
           end
 
           click_on "Submit #{type.titleize}"
@@ -78,7 +75,7 @@ describe "Contribution creation" do
           expect(page).to have_selector("img[src$='#{selected_item.thumbnail}']")
           expect(page).to have_content("Contribution test")
           if test_upload
-            expect(page).to have_content('Uploaded Documents') if test_upload
+            expect(page).to have_content('Attached Documents') if test_upload
             expect(page).to have_content('Montmarte.jpg') if test_upload
           end
 
