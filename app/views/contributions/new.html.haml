@@ -16,6 +16,7 @@
       = i.input :search, as: :hidden, input_html: { value: resource.item_relation.search }
   = f.input :details, as: :text, label: false, placeholder: "Type your #{resource.type.downcase}..."
   .file-upload
+    %p Additional Documents
     = f.simple_fields_for :uploads do |upload|
       = render 'partials/upload_fields', f: upload
     .links-add
