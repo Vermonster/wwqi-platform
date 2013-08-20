@@ -3,7 +3,7 @@
   = f.input :content_cache, as: :hidden
   .dummyfile
     %a.fileselectbutton.btn Choose...
-    %input.filename{type: 'text', name: 'filename'}
+    %input.filename{type: 'text', name: 'filename', value: f.object["content"]}
   .links-remove
     = link_to_remove_association '', f, :class => 'icon-minus-circle'
   #alert-message

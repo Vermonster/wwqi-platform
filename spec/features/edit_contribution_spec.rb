@@ -51,7 +51,7 @@ describe 'Contribution Edit button', js: true do
     expect(page).to have_content('Can\'t be blank')
   end
   
-  it 'allsows a user add a file' do
+  it 'allows a user add a file' do
     click_on 'Add Upload'
     page.execute_script("$('.file.optional.upload').toggle();")
     find(".input.file.optional.transcription_uploads_content").find('input').set("#{Rails.root}/spec/support/Montmarte.jpg")
