@@ -8,6 +8,7 @@
 = simple_form_for resource do |f|
   = f.input :details, as: :text, label: false
   .file-upload
+    %h3 Additional Documents
     = f.simple_fields_for :uploads do |upload|
       = render 'partials/upload_fields', f: upload
     .links-add
