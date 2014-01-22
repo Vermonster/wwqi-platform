@@ -64,18 +64,15 @@ describe "post creation" do
   context "with javascript" do
     describe "question creation with uploads" do
       let(:user) { create(:user) }
-    
       before { sign_in(user) }
-      after { sign_out }
 
       it "creates new uploads", js: true do
-        pending('file attachment issues')
         visit new_post_path
-
         fill_in 'post_title', with: 'a title'
         page.execute_script("editor.setValue('additional details')")
         click_on 'Add Upload'
-        attach_file('filename' ,'spec/support/files/cow.jpg')
+        page.execute_script("$('.file.optional.upload').toggle();")
+        find(".input.file.optional.post_uploads_content").find('input').set("#{Rails.root}/spec/support/Montmarte.jpg")
         click_on 'Submit'
 
         Question.count.should == 1
@@ -84,7 +81,7 @@ describe "post creation" do
         
         page.should have_content('a title')
         page.should have_content('additional details')
-        page.should have_content('cow.jpg')
+        page.should have_content('Montmarte.jpg')
       end
     end
   end

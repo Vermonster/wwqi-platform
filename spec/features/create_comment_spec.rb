@@ -3,7 +3,7 @@ require 'ffaker'
 
 describe 'comment creation' do
   let!(:question) { create(:question) }
-  let(:transcription) { create(:transcription) }
+  let!(:transcription) { create(:transcription) }
   let(:user) { create(:user) }
 
   describe 'without authentication' do

@@ -64,6 +64,23 @@ RSpec.configure do |config|
     Warden.test_reset!
   end
 
+  config.after(:all) do
+    if Rails.env.test?
+      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+    end
+  end
+
+  if defined?(CarrierWave)
+    CarrierWave::Uploader::Base.descendants.each do |klass|
+      next if klass.anonymous?
+      klass.class_eval do
+        def store_dir
+          "#{Rails.root}/spec/support/uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+        end
+      end
+    end
+  end
+
   config.include FactoryGirl::Syntax::Methods
   config.include Warden::Test::Helpers
   config.include WaitSteps
