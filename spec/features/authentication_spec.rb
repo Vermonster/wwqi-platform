@@ -52,7 +52,7 @@ describe "authentication" do
       sleep 3
 
       expect(User.count).to eq 0
-      expect(page).to have_content('Must be accepted')
+      expect(page).to have_content('must be accepted')
     end
   end
   
