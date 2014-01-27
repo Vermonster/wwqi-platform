@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe 'Contribution Edit button', js: true do
+  # Create a test contribution with an item and a user
   let(:test_item) { create(:item, thumbnail: 'http://s3.amazonaws.com/assets.qajarwomen.org/thumbs/it_3438.jpg?1345647766') }
   let(:test_item_relation) { create(:item_relation, item: test_item)}
   let(:test_user) { create :user }
@@ -11,15 +12,21 @@ describe 'Contribution Edit button', js: true do
     visit root_path
     click_on 'My Contributions'
     page.find('.item-title').hover
+    click_on 'Edit'
   end
   
   it 'shows edit button' do 
+    # Go back to the My Contributions page to test the edit button appears
+    visit root_path
+    click_on 'My Contributions'
+    page.find('.item-title').hover
+
     find_link('Edit').should be_visible
   end
 
   it 'shows the edit page' do
-    click_on 'Edit'
-
+    # Test the edit page shows buttons and the contribution text stored with the
+    # test item
     current_path.should == edit_contribution_path(transcription)
     expect(page).to have_selector("img[src$='#{test_item.thumbnail}']")
     page.find('textarea[id="transcription_details"]').value.should == transcription.details
@@ -27,7 +34,7 @@ describe 'Contribution Edit button', js: true do
   end
 
   it 'updates the content' do
-    click_on 'Edit'
+    # Test the contribution text is editable
     page.find('textarea[id="transcription_details"]').set(' -updated- ')
     click_on 'Save changes'
 
@@ -37,10 +44,23 @@ describe 'Contribution Edit button', js: true do
   end
 
   it 'validates' do
-    click_on 'Edit'
+    # Test the edit page validates the edited text
     page.find('textarea[id="transcription_details"]').set('')
     click_on 'Save changes'
 
     expect(page).to have_content('Can\'t be blank')
+  end
+  
+  it 'allows a user add a file' do
+    click_on 'Add Upload'
+    page.execute_script("$('.file.optional.upload').toggle();")
+    find(".input.file.optional.transcription_uploads_content").find('input').set("#{Rails.root}/spec/support/Montmarte.jpg")
+    click_on "Save changes"
+
+    current_path.should == contribution_path(transcription)
+    expect(page).to have_content('Your transcription was successfully updated.')
+    expect(page).to have_content(transcription.details)
+    expect(page).to have_content('Attached Documents')
+    expect(page).to have_content('Montmarte.jpg')
   end
 end

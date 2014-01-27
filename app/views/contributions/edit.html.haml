@@ -7,5 +7,12 @@
     = image_tag resource.item.thumbnail, { class: 'img-polaroid' }
 = simple_form_for resource do |f|
   = f.input :details, as: :text, label: false
+  .file-upload
+    %h3 Additional Documents
+    = f.simple_fields_for :uploads do |upload|
+      = render 'partials/upload_fields', f: upload
+    .links-add
+      .icon-plus-circle
+      = link_to_add_association 'Add Upload', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
   .submit-button
     =f.button :submit, "Save changes", class: 'submit-button', id: 'thread-submit-button'
