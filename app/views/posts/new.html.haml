@@ -92,19 +92,19 @@
       %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
 :coffeescript
   $ ->
-    -# This javascript is for handling the url parameter from qajar women site. 
-    accession_no_params = window.location.search.match(/(accession_no=([^&]+))/)
-    type_params = window.location.search.match(/type=(discussion|question)/)
-
+    type_params = window.location.search.match(/type=(discussion|question)/i)
     if type_params?
       type = type_params[1]
-
-      if accession_no_params?
-        accession_no = accession_no_params[2]
-
-      if type == 'discussion'
+      if type.toLowerCase() == 'discussion'
         $('button[value="Discussion"]').trigger('click')
+
+  $ ->
+    -# This javascript is for handling the url parameter from qajar women site.
+    params = window.location.search.match(/(accession_no=\S+)/)
+    if params
+      accession_no = params[1].split('=')[1]
+
       $('button[value="true"][name="item_related"]').trigger('click')
       $('#items').find('input[id$="_search"]').autocomplete('search', accession_no)
-      $('#items').find('input[id$="_search"]').on('autocompleteopen', (event, ui) -> 
+      $('#items').find('input[id$="_search"]').on('autocompleteopen', (event, ui) ->
         $(".ui-menu-item:first").trigger('click'))
