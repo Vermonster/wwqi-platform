@@ -81,14 +81,5 @@
     .modal-footer
       %button.btn#create_invitation Invite
       %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
-:coffeescript
-  $ ->
-    -# This javascript is for handling the url parameter from qajar women site. 
-    params = window.location.search.match(/(accession_no=\S+)/)
-    if params
-      accession_no = params[1].split('=')[1]
 
-      $('button[value="true"][name="item_related"]').trigger('click')
-      $('#items').find('input[id$="_search"]').autocomplete('search', accession_no)
-      $('#items').find('input[id$="_search"]').on('autocompleteopen', (event, ui) -> 
-        $(".ui-menu-item:first").trigger('click'))
+= render 'partials/item_autocomplete'
