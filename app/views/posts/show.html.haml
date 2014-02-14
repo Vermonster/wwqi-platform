@@ -28,6 +28,7 @@
       %h3 This post is related to
       %ul
         - resource.items.each do |item|
+          - next unless item.url.present? && item.thumbnail.present?
           %li
             .image.pull-left
               = image_tag item.thumbnail
