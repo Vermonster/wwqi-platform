@@ -21,9 +21,25 @@ class ContributionsController < ApplicationController
 
   def new
     @contribution = "#{params[:type]}".titleize.constantize.new
+
+    # search for an existing item based on parameters
     if params[:item]
       selected_item = Item.find(params[:item])
-      @contribution.build_item_relation( {url: selected_item.url, name: selected_item.name, thumbnail: selected_item.thumbnail, accession_no: selected_item.accession_no} )
+    elsif params[:accession_no]
+      selected_item = Item.find_by_accession_no(params[:accession_no])
+    else
+      selected_item = nil
+    end
+
+    # if present, render new form with that item;
+    # otherwise, just render the normal new form
+    if selected_item
+      @contribution.build_item_relation({
+        url: selected_item.url,
+        name: selected_item.name,
+        thumbnail: selected_item.thumbnail,
+        accession_no: selected_item.accession_no
+      })
     else
       @contribution.build_item_relation
     end
