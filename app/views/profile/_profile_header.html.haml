@@ -1,6 +1,7 @@
 .user-info
   .item-image
-    =image_tag avatar_url(current_user)
+    = link_to 'https://gravatar.com/', title: 'Change your avatar at gravatar.com', target: '_blank' do
+      = image_tag avatar_url(current_user)
   %h4 #{current_user.first_name} #{current_user.last_name}
 
 .profile-sort
