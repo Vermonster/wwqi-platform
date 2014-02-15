@@ -31,7 +31,8 @@
           - next unless item.url.present? && item.thumbnail.present?
           %li
             .image.pull-left
-              = image_tag item.thumbnail
+              = link_to "#{WWQI_SITE}#{item.url}", :target => '_blank' do
+                = image_tag item.thumbnail
             .caption.pull-left
               %p
                 = link_to item.name, "#{WWQI_SITE}#{item.url}", :target => '_blank'
