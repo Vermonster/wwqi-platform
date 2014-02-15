@@ -3,7 +3,7 @@
     .show-intro
       .item-image.pull-left
         = link_to "#{WWQI_SITE}#{resource.item.url}", :target => '_blank' do
-          = image_tag resource.item.thumbnail
+          = resource.image
       .item-created.pull-left
         = "#{resource.created_ago}, #{resource.header}"
     .item-title
