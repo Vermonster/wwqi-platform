@@ -21,8 +21,12 @@ class ContributionsController < ApplicationController
 
   def new
     @contribution = "#{params[:type]}".titleize.constantize.new
-    selected_item = Item.find(params[:item])
-    @contribution.build_item_relation( {url: selected_item.url, name: selected_item.name, thumbnail: selected_item.thumbnail, accession_no: selected_item.accession_no} )
+    if params[:item]
+      selected_item = Item.find(params[:item])
+      @contribution.build_item_relation( {url: selected_item.url, name: selected_item.name, thumbnail: selected_item.thumbnail, accession_no: selected_item.accession_no} )
+    else
+      @contribution.build_item_relation
+    end
   end
 
   def create

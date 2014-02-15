@@ -1,20 +1,33 @@
 .items-index#new-contribution
   %h4= "New #{resource.type}"
-  .item-image
-    .submission-copy
-      %p= "You are submitting a  #{resource.type.downcase} for:"
-      %h3 #{resource.item_relation.name}
-    = image_tag resource.item_relation.thumbnail, {class: "img-polaroid"}
+  - if resource.item_relation.try(:accession_no)
+    .item-image
+      .submission-copy
+        %p= "You are submitting a  #{resource.type.downcase} for:"
+        %h3 #{resource.item_relation.name}
+      = image_tag resource.item_relation.thumbnail, {class: "img-polaroid"}
 
 = simple_form_for resource, url: contributions_path(type: resource.type) do |f|
-  = f.simple_fields_for :item_relation do |i|
-    .item-group
-      = i.input :url, as: :hidden, input_html: { value: resource.item_relation.url}
-      = i.input :name, as: :hidden, input_html: { value: resource.item_relation.name }
-      = i.input :thumbnail, as: :hidden, input_html: { value: resource.item_relation.thumbnail }
-      = i.input :accession_no, as: :hidden, input_html: { value: resource.item_relation.accession_no }
-      = i.input :search, as: :hidden, input_html: { value: resource.item_relation.search }
-  = f.input :details, as: :text, label: false, placeholder: "Type your #{resource.type.downcase}..."
+  - if resource.item_relation.try(:accession_no)
+    = f.simple_fields_for :item_relation do |i|
+      .item-group
+        = i.input :url, as: :hidden, input_html: { value: resource.item_relation.url}
+        = i.input :name, as: :hidden, input_html: { value: resource.item_relation.name }
+        = i.input :thumbnail, as: :hidden, input_html: { value: resource.item_relation.thumbnail }
+        = i.input :accession_no, as: :hidden, input_html: { value: resource.item_relation.accession_no }
+        = i.input :search, as: :hidden, input_html: { value: resource.item_relation.search }
+  - else
+    #items.visible
+      = f.simple_fields_for :item_relation do |item|
+        .item-group
+          .input
+            = item.input :search, label: 'Search by name or item number', placeholder: 'e.g. tin or 1266A16'
+          = item.input :url, :as => :hidden
+          = item.input :thumbnail, :as => :hidden
+          = item.input :accession_no, :as => :hidden
+          = item.input :name, :as => :hidden
+          .item-image.pull-left
+  = f.input :details, label: resource.type, :input_html => { :class => 'wysihtml5' }, placeholder: "Type your #{resource.type.downcase}..."
   .file-upload
     %p Additional Documents
     = f.simple_fields_for :uploads do |upload|
@@ -24,3 +37,5 @@
       = link_to_add_association 'Add Upload', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
   .submit-button
     = f.button :submit, "Submit #{resource.type}", class: 'submit-button', id: 'thread-submit-button'
+
+= render 'partials/item_autocomplete'
