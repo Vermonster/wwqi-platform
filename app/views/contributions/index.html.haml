@@ -31,6 +31,8 @@
                 = link_to t("contributions.#{params[:type].downcase}.button"), new_contribution_path(type: params[:type], item: r.item)
         -else
           %p= "No items in need of #{params[:type]}"
+          %br
+      = link_to "Add New", new_contribution_path(type: params[:type]), class: 'btn'
     .transcription-subnav.pull-left
       %a.show-more-items{href: '#', id: 'show-more-items'}
         .icon-plus-circle#items-icon
