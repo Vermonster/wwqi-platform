@@ -1,0 +1,82 @@
+= simple_form_for resource do |f|
+
+  .col-1.pull-left
+    = f.input :title
+
+    = f.input :details, :input_html => { :class => 'wysihtml5' }
+
+  .col-2.pull-left
+
+    .related-items
+      %label Is this related to specific WWQI items?
+      .btn-group.items{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[item_related]"}
+        %button.btn{"data-toggle" => "button", 'name' => 'item_related', :value => "true"} Yes
+        %button.btn{"data-toggle" => "button", 'name' => 'item_related', :value => "false"} No
+      = f.input :item_related, as: :hidden
+      #items
+        .expand
+          %p Enter the item name or record number:
+          = f.error :item_relations
+          = f.simple_fields_for :item_relations do |item|
+            = render 'partials/item_fields', :f => item
+          .links-add
+            .icon-plus-circle
+            = link_to_add_association 'Add Item', f, :item_relations, partial: 'partials/item_fields'
+
+    .invite-collaborators
+      %label Invite Collaborators
+      .btn-group.collaborators{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[private]"}
+        %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
+        %button.btn{"data-toggle" => "button", :value => "false"} Everyone
+      = f.input :private, as: :hidden
+      #collaborators
+        .expand
+          %p Enter Name or Email Address of Recipients
+          = f.error :collaborators
+          = f.simple_fields_for :collaborators do |collaborator|
+            = render 'partials/collaborator_fields', :f => collaborator
+          .links-add
+            .icon-plus-circle
+            = link_to_add_association 'Add Collaborator', f, :collaborators, partial: 'partials/collaborator_fields'
+
+        #invitation
+          = f.simple_fields_for :invitations do |invitation|
+            = render 'invitation_fields', :f => invitation
+          .links
+            = link_to_add_association 'Add Invitee', f, :invitations, style: "display: none"
+            %a.btn{:href => '#add_invitation', 'data-toggle' => 'modal' }Invite a new person to the research platform
+
+    .tag-list
+      %label= t('simple_form.labels.research.tag_list')
+      .tags
+        = f.input :tag_list, wrapper_html: { id: 'research-tags-list' }
+      -#%span.hint= t('simple_form.hints.research.tag_list')
+
+    .file-upload
+      %label Additional Documents
+      = f.simple_fields_for :uploads do |upload|
+        = render 'partials/upload_fields', f: upload
+      .links-add
+        .icon-plus-circle
+        = link_to_add_association 'Add file', f, :uploads, class: 'add-file', partial: 'partials/upload_fields'
+
+  .submit-button
+    = f.button :submit, :label => 'Post Research', :value => 'Submit Research', id: 'research-submit-button', class: 'submit-button'
+  #add_invitation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "NewInvitationLabel", :role => "dialog", :tabindex => "-1"}
+    .modal-header
+      %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x
+      %h3#NewInvitationLabel Invitation
+    .modal-body
+      %form
+        %fieldset
+          %label{for: "recipient_name"} Recipient Name
+          %input#modal_recipient_name
+          %label{for: "recipient_email"} Recipient Email
+          %input#modal_recipient_email{type: 'email', required: ''}
+          %label{for: "message"} Message
+          %textarea#modal_message{placeholder: 'Please type your message...'}
+    .modal-footer
+      %button.btn#create_invitation Invite
+      %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Cancel
+
+= render 'partials/item_autocomplete'
