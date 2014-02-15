@@ -1,6 +1,7 @@
 .container
   #footer.row-fluid
     .credits
-      = link_to 'http://www.roshan-institute.org/' do
-        .roshan-logo
-      %p This Research Platform has become possible in part through a grant by Roshan Cultural Heritage Institute.
+      = link_to 'http://www.roshan-institute.org/', target: '_blank' do
+        = image_tag 'roshan-logo.png', class: 'roshan-logo'
+      %p
+        This Research Platform has become possible in part through a grant by Roshan Cultural Heritage Institute.
