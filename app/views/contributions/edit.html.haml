@@ -5,8 +5,9 @@
       %p= "Your #{resource.type.downcase} for: "
       %h3 #{resource.item.name}
     = image_tag resource.item.thumbnail, { class: 'img-polaroid' }
+
 = simple_form_for resource do |f|
-  = f.input :details, as: :text, label: false
+  = f.input :details, label: resource.type, :input_html => { :class => 'wysihtml5' }, placeholder: "Type your #{resource.type.downcase}..."
   .file-upload
     %h3 Additional Documents
     = f.simple_fields_for :uploads do |upload|

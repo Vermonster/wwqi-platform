@@ -9,7 +9,8 @@
     .item-title
       = link_to resource.title, "#{WWQI_SITE}#{resource.item.url}", :target => '_blank'
     .item-details
-      %p= resource.details
+      .wysiwyg
+        != resource.details
   - unless resource.uploads.empty?
     .item-attachments
       %h3 Attached Documents
