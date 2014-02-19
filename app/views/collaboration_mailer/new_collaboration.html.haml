@@ -1,0 +1,10 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %body
+      Hi #{@recipient.fullname || @recipient.email}
+      %p You've been invited by #{@post.creator.fullname} to collaborate on researching "#{@post.title}".
+      %p
+        Please view this posting at
+        = link_to 'the WWQI Research Platform.', post_url(@post)
+
