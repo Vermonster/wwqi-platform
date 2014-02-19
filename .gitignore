@@ -7,3 +7,4 @@ log/*
 .env.test
 chromedriver.log
 public/*
+.env
