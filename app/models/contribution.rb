@@ -24,8 +24,12 @@ class Contribution < ActiveRecord::Base
   }
 
   def title
-    self.item_relation.item.name
+    self.item_relation.item.try(:name)
   end
-  
+
+  def accession_no
+    self.item_relation.item.try(:accession_no)
+  end
+
   default_scope order('created_at DESC')
 end

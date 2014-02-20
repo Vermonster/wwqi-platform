@@ -22,10 +22,11 @@ ActiveAdmin.register Correction do
         "Anonymous"
       end
     end
-    column "thumbnail" do |r|
+    column "Thumbnail" do |r|
       image_tag(r.item.thumbnail, size: "100x100")
     end
     column :title
+    column("Item") { |r| r.item.accession_no }
     column :details
     column :created_at
     default_actions

@@ -12,9 +12,10 @@ ActiveAdmin.register Contribution do
         "Anonymous"
       end
     end
-    column "thumbnail" do |r|
+    column "Thumbnail" do |r|
       image_tag(r.item.thumbnail, size: "100x100")
     end
+    column("Item") { |r| r.item.accession_no }
     column :type
     column :title
     column :details
