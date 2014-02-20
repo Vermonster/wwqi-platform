@@ -2,7 +2,8 @@ ActiveAdmin.register Contribution do
 
   menu :priority => 5
   decorate_with ContributionDecorator
-  
+  actions :all, except: [:edit]
+
   index do
     selectable_column
     column "Creator Name" do |r|
@@ -21,15 +22,6 @@ ActiveAdmin.register Contribution do
     column :details
     column :created_at
     default_actions
-  end
-  
-  form do |f|
-    f.inputs "Contribution Request" do
-      f.input :accession_number 
-      f.input :type
-      f.input :creator
-    end
-    f.actions
   end
 
   filter :title
