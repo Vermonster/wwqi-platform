@@ -39,7 +39,8 @@ module ApplicationHelper
       "flag.png"
     else
       gravatar_id = Digest::MD5::hexdigest(user.email).downcase
-      "http://gravatar.com/avatar/#{gravatar_id}.png?d=mm"
+      protocol = (defined?(request) ? request.protocol : 'http://')
+      "#{protocol}gravatar.com/avatar/#{gravatar_id}.png?d=mm"
     end
   end
 

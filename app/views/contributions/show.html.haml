@@ -2,13 +2,15 @@
   .item-show.span8.pull-left
     .show-intro
       .item-image.pull-left
-        = image_tag resource.item.thumbnail
+        = link_to "#{WWQI_SITE}#{resource.item.url}", :target => '_blank' do
+          = resource.image
       .item-created.pull-left
         = "#{resource.created_ago}, #{resource.header}"
     .item-title
-      = resource.title
+      = link_to resource.title, "#{WWQI_SITE}#{resource.item.url}", :target => '_blank'
     .item-details
-      %p= resource.details
+      .wysiwyg
+        != resource.details
   - unless resource.uploads.empty?
     .item-attachments
       %h3 Attached Documents

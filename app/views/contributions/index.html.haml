@@ -31,12 +31,14 @@
                 = link_to t("contributions.#{params[:type].downcase}.button"), new_contribution_path(type: params[:type], item: r.item)
         -else
           %p= "No items in need of #{params[:type]}"
+          %br
+      = link_to "Add New", new_contribution_path(type: params[:type]), class: 'btn'
     .transcription-subnav.pull-left
       %a.show-more-items{href: '#', id: 'show-more-items'}
         .icon-plus-circle#items-icon
         %span Show more documents
     .contribution-list-title
-      %h3= "Recently contributed #{params[:type]}s"
+      %h3= "Recently contributed #{params[:type].pluralize}"
     #contribution-feed
       %p.feed-intro= "Here are some recent #{params[:type].pluralize} contributed by the WWQI users:"
       %ul.items#recent-contributions

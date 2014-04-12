@@ -2,7 +2,8 @@ ActiveAdmin.register Contribution do
 
   menu :priority => 5
   decorate_with ContributionDecorator
-  
+  actions :all, except: [:edit]
+
   index do
     selectable_column
     column "Creator Name" do |r|
@@ -12,23 +13,15 @@ ActiveAdmin.register Contribution do
         "Anonymous"
       end
     end
-    column "thumbnail" do |r|
+    column "Thumbnail" do |r|
       image_tag(r.item.thumbnail, size: "100x100")
     end
+    column("Item") { |r| r.item.accession_no }
     column :type
     column :title
     column :details
     column :created_at
     default_actions
-  end
-  
-  form do |f|
-    f.inputs "Contribution Request" do
-      f.input :accession_number 
-      f.input :type
-      f.input :creator
-    end
-    f.actions
   end
 
   filter :title

@@ -8,15 +8,16 @@ ActiveAdmin.register ContributionRequest do
       User.where("id = ?", r.creator_id).first.fullname
     end
 
-    column "thumbnail" do |r|
+    column "Thumbnail" do |r|
       image_tag(r.item.thumbnail, size: "100x100")
     end
+    column("Item") { |r| r.item.accession_no }
     column :title
     column "Request Type", :details
     column :created_at
     default_actions
   end
-  
+
   controller do
     def build_resource
       @contribution_request = ContributionRequest.new(params[:contribution_request])
@@ -38,7 +39,7 @@ ActiveAdmin.register ContributionRequest do
         image_tag(r.item.thumbnail)
       end
     end
-    
+
   end
 
   form partial: "request"

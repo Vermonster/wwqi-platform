@@ -356,3 +356,19 @@ form#new_correction {
     }
   }
 }
+
+form#new_translation, form#new_transcription, form#new_biography {
+  #items {
+    margin-top: 0;
+    .item-group {
+      float: none;
+      padding: 3%;
+      background: $lightgrey;
+      overflow: hidden;
+      label { margin-top: 0; }
+      .item-image {
+        float: right;
+      }
+    }
+  }
+}

@@ -83,5 +83,7 @@ module WwqiPlatform
     end
 
     config.action_mailer.default_url_options = { :host => ENV['HOST'] }
+    config.force_ssl = true if ENV['FORCE_SSL']
+
   end
 end
