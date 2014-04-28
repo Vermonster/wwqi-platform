@@ -2,13 +2,14 @@
 
   .col-1.pull-left
     = f.input :title
-
     = f.input :details, :input_html => { :class => 'wysihtml5' }
 
   .col-2.pull-left
 
     .related-items
-      %label Is this related to specific WWQI items?
+      %label
+        Is this related to specific WWQI items?
+        %span.fa-label آیا این نوشته با اقلام مشخصی از آرشیو مرتبط است؟
       .btn-group.items{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[item_related]"}
         %button.btn{"data-toggle" => "button", 'name' => 'item_related', :value => "true"} Yes
         %button.btn{"data-toggle" => "button", 'name' => 'item_related', :value => "false"} No
@@ -24,7 +25,9 @@
             = link_to_add_association 'Add Item', f, :item_relations, partial: 'partials/item_fields'
 
     .invite-collaborators
-      %label Invite Collaborators
+      %label
+        Invite Collaborators
+        %span.fa-label.pull-right دعوت به مشارکت
       .btn-group.collaborators{"data-toggle" => "buttons-radio", "data-toggle-name" => "research[private]"}
         %button.btn{"data-toggle" => "button", :value => "true"} People I Choose
         %button.btn{"data-toggle" => "button", :value => "false"} Everyone
@@ -62,6 +65,7 @@
 
   .submit-button
     = f.button :submit, :label => 'Post Research', :value => 'Submit Research', id: 'research-submit-button', class: 'submit-button'
+  .submit-button.fa-label ارسال کار پژوهشی
   #add_invitation.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "NewInvitationLabel", :role => "dialog", :tabindex => "-1"}
     .modal-header
       %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} x

@@ -4,18 +4,18 @@
 en:
   contributions:
     transcription:
-      intro: 'Do you have experience transcribing from Persian to English? If so, help us
-      transcribe documents from our archives. Here are some suggested items that need a transcription:'
+      intro: 'Do you have experience transcribing? Help us transcribe documents from our archives. Here are some suggested items that need a transcription:'
+      farsiIntro: 'اگر علاقه‌مند به خواندن اسناد خطی هستید، می‌توانید در تایپ متون زیر به ما کمک کنید'
       button: 'Transcribe'
     translation:
-      intro: 'Do you have experience translating from Persian to English? If so, help us
-      translate documents from our archives. Here are some suggested items that need a translation:' 
+      intro: 'Do you have experience translating from Persian to English? If so, help us translate documents from our archives. Here are some suggested items that need a translation:'
+      farsiIntro: 'اگرعلاقه‌مند به ترجمه اسناد فارسی هستید، می‌توانید در ترجمه متون زیر به ما کمک کنید'
       button: 'Translate'
-    biography: 
-      intro: 'Did you notice an item missing a biography? If so, help us by writing a
-      biography for our archives. Here are some suggested items that need a biography:'
+    biography:
+      intro: 'Did   you notice a person missing a biography? If so, help us by  writing a biography for our archives. Here are some suggested   persons that need a biography:'
+      farsiIntro: 'آیا   علاقه‌مند هستید در نوشتن و یا تکمیل   شرح حال افراد آرشیو به ما کمک کنید؟ به  طور مثال:'
       button: 'Write a biography'
-  
+
   flash:
     threads:
       create:
@@ -48,6 +48,12 @@ en:
       research:
         placeholder: 'Search Research in Progress'
         new: 'Submit Your Research'
+        follow: 'Followed Research'
+      farsipost:
+        new: 'سؤال یا بحث تازه ای را آغاز کنید'
+        follow: 'Followed Threads'
+      farsiresearch:
+        new: 'نوشته پژوهشی خود را به اشتراک بگذارید'
         follow: 'Followed Research'
 
   errors:

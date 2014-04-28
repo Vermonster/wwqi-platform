@@ -13,6 +13,7 @@ $(document).ready(function(){
     $('.col2').toggleClass('float-right');
     $('#legal_terms').toggle();
     $('#legal_terms_farsi').toggle();
+    $('.sign-in-header').toggle();
   });
 
 });

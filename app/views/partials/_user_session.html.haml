@@ -1,8 +1,11 @@
 #sign-in
-  .sign-in-header
+  .sign-in-header.english
     %h2 Sign In
     %p Already a member? Sign in below.
-    .horiz-line
+  .sign-in-header.farsi
+    %h2 ورود به سایت
+    %p اگر ایمیل و رمز ورود دارید، از اینجا وارد شوید.
+  .horiz-line
   = simple_form_for "user", url: user_session_path do |f|
     = f.input :email, input_html: { class: "text-input" }
     = f.input :password, input_html: { class: "text-input" }

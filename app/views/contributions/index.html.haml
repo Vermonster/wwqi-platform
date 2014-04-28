@@ -1,23 +1,35 @@
 .items-index
   .intro.contributions-intro
-    %h4 Help us enrich the WWQI archives by contributing information to the project.
+    .cf
+      .pull-left.en
+        %h4 Help us enrich the WWQI archives.
+        %p Here are the ways you can contribute.
+      .pull-right.fa
+        %h4 به غنی تر شدن آرشیو «دنیای زنان در عصر قاجار» کمک کنید
+        %p از این راه‌ها می توانید کمک کنید
 
-    %p There are numerous ways you can contribute.
 
-    %ul.thread-type.btn-group.contributions-nav
+    %ul.thread-type.btn-group.contributions-nav.cf
       %li{class: "btn #{'active' if params[:type] == "Transcription"} pull-left"}
         = link_to 'Transcribe a document', contributions_path(type: 'Transcription')
+        %span.fa-label تایپ اسناد خطی
       %li{class: "btn #{'active' if params[:type] == 'Translation'} pull-left"}
         = link_to 'Translate a document', contributions_path(type: 'Translation')
+        %span.fa-label ترجمه اسناد
       %li{class: "btn #{'active' if params[:type] == 'Biography'} pull-left"}
         = link_to 'Write a biography', contributions_path(type: 'Biography')
+        %span.fa-label نگارش شرح حال افراد
       %li.btn.pull-left
         = link_to 'Submit a correction', new_correction_path
+        %span.fa-label ارسال تصحیح
   #contributions-content
     .contribution-list-title
       %h3= "Items in need of #{params[:type]}"
     #contribution-list
-      %p.feed-intro= t("contributions.#{params[:type].downcase}.intro") 
+      %p.feed-intro
+        = t("contributions.#{params[:type].downcase}.intro")
+        %span.pull-right.fa-label
+          = t("contributions.#{params[:type].downcase}.farsiIntro")
       %ul.items#selected-items
         - unless @requests.empty?
           - @requests.each do |r|
@@ -40,7 +52,10 @@
     .contribution-list-title
       %h3= "Recently contributed #{params[:type].pluralize}"
     #contribution-feed
-      %p.feed-intro= "Here are some recent #{params[:type].pluralize} contributed by the WWQI users:"
+      %p.feed-intro
+        = "Here are some recent #{params[:type].pluralize} contributed by the WWQI users:"
+        %span.pull-right.fa-label اسنادی که به تازگی اضافه شده اند
+
       %ul.items#recent-contributions
         - unless @contributions.empty?
           - @contributions.each do |c|
@@ -60,7 +75,7 @@
                 - if user_signed_in?
                   .item-follow-btn{ style:  "margin-top: -10px;" }
                     - following = current_user.following?(c.object)
-                    = link_to following ? 'Unfollow' : 'Follow', '#', :class => ['btn', 'btn-primary', following && 'followed'], :data => { followable_id: c.id, followable_type: c.model.class.to_s.downcase, follow_id: following.try(:id) } 
+                    = link_to following ? 'Unfollow' : 'Follow', '#', :class => ['btn', 'btn-primary', following && 'followed'], :data => { followable_id: c.id, followable_type: c.model.class.to_s.downcase, follow_id: following.try(:id) }
         - else
           %p No recent contributions
     .transcription-subnav
@@ -79,7 +94,7 @@
 
     # Hide all items and contributions on the page and
     # show the default number of items and contributions
-    $('.items').each -> 
+    $('.items').each ->
       $(this).find('li').hide()
       $(this).find('li').slice(0, visible_item).show()
 

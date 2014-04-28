@@ -167,6 +167,7 @@ input, textarea, .uneditable-input {
 .submit-button {
   padding: 1% 0.5% 1%;
   overflow: hidden;
+  clear:both;
   #thread-submit-button {
     @include button;
     width: 11em;

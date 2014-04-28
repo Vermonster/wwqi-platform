@@ -33,7 +33,7 @@ en:
         private: 'Who do you want to ask?'
       research:
         tag_list: 'Tags'
-        title: 'Your Research Title'
+        title: 'Your Research Title  <span class="pull-right fa-label">عنوان کار پژوهشی شما</span>'
         details: 'Additional Details'
         item_related: 'Is this related to specific WWQI items?'
         private: 'Who do you want to ask?'
