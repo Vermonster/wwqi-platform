@@ -34,6 +34,7 @@
                   %li
                     = link_to 'http://www.qajarwomen.org/en/index.html', target: 'blank' do
                       %h2 WWQI Archive
+                      .fa-label آرشیو
                   %li#bullet.hidden-phone.hidden-tablet
                     %h2 &#124;
                   - if current_user && current_user.is_admin?
@@ -49,10 +50,12 @@
                     %li#scroll-to-sign-in
                       = link_to(root_path(anchor: 'sign-in')) do
                         %h2 Sign in
+                        .fa-label ورود
                   - else
                     %li
                       = link_to destroy_user_session_path, method: :delete do
                         %h2 Sign out
+                        .fa-label خروج
       #main-nav-wrapper
         .container
           .row
@@ -82,6 +85,8 @@
                         - else
                           %li
                             %p You have no notifications
+                    .fa-label
+                      پوشه من
       #main-content
         .container
           = flash_messages

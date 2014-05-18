@@ -5,16 +5,22 @@
   %h4 #{current_user.first_name} #{current_user.last_name}
 
 .profile-sort
-  %ul.thread-type.btn-group
+  %ul.thread-type.btn-group.cf
     %li.btn.pull-left{class: current_page?(action: 'show', type: nil) && !current_page?(action: 'show', type: 'threads') && !current_page?(action: 'show', type: 'researches') && !current_page?(action: 'show', type: 'contributions') && 'active'}
       = link_to 'Latest', my_profile_path
+      %span.fa-label  تازه ترین
     %li.btn.pull-left{class: current_page?(action: 'show', type: 'threads') && 'active'}
       = link_to 'My Questions and Discussions', my_profile_path(type: "threads")
+      %span.fa-label  پرسش‌ها و گفتگوهایم
     %li.btn.pull-left{class: current_page?(action: 'show', type: 'researches') && 'active'}
       = link_to 'My Research-in-Progress', my_profile_path(type: "researches")
+      %span.fa-label  پژوهشهایم
     %li.btn.pull-left{class: current_page?(action: 'show', type: 'contributions') && 'active'}
       = link_to 'My Contributions', my_profile_path(type: "contributions")
+      %span.fa-label  مشارکت‌هایم
     %li.btn.pull-left{class: current_page?(action: 'notifications') && 'active'}
       = link_to 'My Notifications', my_notifications_path
+      %span.fa-label   اعلان هایم
     %li.btn.pull-left{class: current_page?(action: 'show', type: 'collaborations') && 'active'}
       = link_to 'My Collaborations', my_profile_path(type: 'collaborations')
+      %span.fa-label   همکاری‌هایم

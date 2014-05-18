@@ -50,13 +50,17 @@
             %a.btn{:href => '#add_invitation', 'data-toggle' => 'modal' }Invite a new person to the research platform
 
     .tag-list
-      %label= t('simple_form.labels.research.tag_list')
+      %label
+        = t('simple_form.labels.research.tag_list')
+        %span.fa-label.pull-right برچسب‌ها
       .tags
         = f.input :tag_list, wrapper_html: { id: 'research-tags-list' }
       -#%span.hint= t('simple_form.hints.research.tag_list')
 
     .file-upload
-      %label Additional Documents
+      %label
+        Additional Documents
+        %span.fa-label.pull-right  اسناد تکمیلی
       = f.simple_fields_for :uploads do |upload|
         = render 'partials/upload_fields', f: upload
       .links-add

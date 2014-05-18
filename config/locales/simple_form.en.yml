@@ -27,14 +27,14 @@ en:
       post:
         type: 'Thread Type'
         tag_list: 'Tags'
-        title: 'Your Concise Question'
-        details: 'Additional Details'
+        title: 'Your Concise Question  <span class="pull-right fa-label">پرسش مشخص شما</span>'
+        details: 'Additional Details <span class="pull-right fa-label"> اطلاعات بیشتر</span>'
         item_related: 'Is this related to specific WWQI items?'
         private: 'Who do you want to ask?'
       research:
         tag_list: 'Tags'
         title: 'Your Research Title  <span class="pull-right fa-label">عنوان کار پژوهشی شما</span>'
-        details: 'Additional Details'
+        details: 'Additional Details <span class="pull-right fa-label"> اطلاعات بیشتر</span>'
         item_related: 'Is this related to specific WWQI items?'
         private: 'Who do you want to ask?'
       item:

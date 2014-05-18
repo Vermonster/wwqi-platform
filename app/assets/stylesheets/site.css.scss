@@ -883,11 +883,30 @@
       color: $medgrey;
       margin: 0 .25em .5em;
       background: $lightgrey;
+      position:relative;
       @media (max-width: 767px) {
         margin: .5em auto;
         display: block;
         float: none;
         width: 80%;
+      }
+      .fa-label{
+        position:absolute;
+        top:100%;
+        left:0;
+        width:100%;
+        font-size:1em;
+        @media (max-width: 979px) {
+          visibility:hidden;
+        }
+        @media (max-width: 767px) {
+          top:0;
+          right:10px;
+          left:auto;
+          text-align:right;
+          text-shadow:none;
+          visibility:visible;
+        }
       }
       &.active {
         background: $gold;
@@ -1005,7 +1024,7 @@
     }
     .profile-sort {
       .btn-group {
-        overflow: hidden;
+        overflow: visible;
         width: 100%;
       }
     }

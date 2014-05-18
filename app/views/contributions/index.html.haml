@@ -23,13 +23,18 @@
         = link_to 'Submit a correction', new_correction_path
         %span.fa-label ارسال تصحیح
   #contributions-content
-    .contribution-list-title
-      %h3= "Items in need of #{params[:type]}"
+    .contribution-list-title.cf
+      %h3.pull-right.fa
+        ="#{'اسناد خطی که باید تایپ شوند' if params[:type] == 'Transcription'}"
+        ="#{'اسناد پیشنهادی برای ترجمه' if params[:type] == 'Translation'}"
+        ="#{'افراد پیشنهای برای نگارش شرح حال' if params[:type] == 'Biography'}"
+      %h3
+        ="#{'Items in need of transcription' if params[:type] == 'Transcription'}"
+        ="#{'Items in need of translation' if params[:type] == 'Translation'}"
+        ="#{'Persons in need of biography' if params[:type] == 'Biography'}"
     #contribution-list
       %p.feed-intro
         = t("contributions.#{params[:type].downcase}.intro")
-        %span.pull-right.fa-label
-          = t("contributions.#{params[:type].downcase}.farsiIntro")
       %ul.items#selected-items
         - unless @requests.empty?
           - @requests.each do |r|
@@ -50,11 +55,14 @@
         .icon-plus-circle#items-icon
         %span Show more documents
     .contribution-list-title
+      %h3.pull-right.fa
+        = "#{'اسنادی که به تازگی تایپ شده‌اند' if params[:type] == 'Transcription'}"
+        = "#{'اسنادی که به تازگی ترجمه شده' if params[:type] == 'Translation'}"
+        = "#{'شرح حال‌هایی که به تازگی نوشته‌شده' if params[:type] == 'Biography'}"
       %h3= "Recently contributed #{params[:type].pluralize}"
     #contribution-feed
       %p.feed-intro
         = "Here are some recent #{params[:type].pluralize} contributed by the WWQI users:"
-        %span.pull-right.fa-label اسنادی که به تازگی اضافه شده اند
 
       %ul.items#recent-contributions
         - unless @contributions.empty?
