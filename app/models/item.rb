@@ -4,10 +4,12 @@ class Item < ActiveRecord::Base
   validates :url, :name, :thumbnail, :accession_no, presence: true
 
   def name
-    if (n = super).present?
-      n
-    else
-      'Missing Item'
-    end
+    # if (n = super).present?
+    #   n
+    # else
+    #   'Missing Item'
+    # end
+
+    super.present? ? 'Missing Item' : super
   end
 end

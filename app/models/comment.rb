@@ -14,9 +14,9 @@ class Comment < ActiveRecord::Base
   validates :details, :commentable_id, :user_id, presence: true
 
   before_item_association :search_and_add_items
-  
+
   search_methods :user_fullname_contains
-  
+
   scope :user_fullname_contains, lambda { |str|
     User.joins(:user).where("LOWER(first_name) = LOWER(?) OR LOWER(last_name) = LOWER(?)", str, str)
   }
@@ -32,7 +32,6 @@ class Comment < ActiveRecord::Base
       accession_numbers.each do |num|
         self.item_relations.build(collect_item_info(num))
       end
-    
     else
       # convert to an array for safe use of `delete`
       irs = item_relations.all
@@ -47,7 +46,6 @@ class Comment < ActiveRecord::Base
           self.item_relations.build(collect_item_info(num))
         end
       end
-
       irs.map(&:destroy)
     end
   end
