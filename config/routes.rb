@@ -36,11 +36,11 @@ WwqiPlatform::Application.routes.draw do
   match "/me" => "profile#show", :as => 'my_profile'
   match "/me/notifications" => "profile#notifications", :as => 'my_notifications'
 
-  # scope "/:Locale", locale: /en|fa/ do
+  # scope "/:locale", locale: /en|fa/ do
   #   resources :corrections, :transcriptions, :translations, :biographies, :post, :researches
   # end
 
-  get "/:Locale" => "site#index"
+  get "/:locale" => "site#index"
   root :to => 'site#index'
 
   ActiveAdmin.routes(self)
