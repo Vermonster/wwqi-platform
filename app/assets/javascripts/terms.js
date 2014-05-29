@@ -3,12 +3,12 @@ $(document).ready(function(){
   initializeTermsDialog('legal_terms');
   initializeTermsDialog('legal_terms_farsi');
 
-  $('.language-select-dialog').click(function() {
-    $('.terms-farsi-dialog').toggle();
-    $('.terms-english-dialog').toggle();
-    $('.select-farsi-dialog').toggle();
-    $('.select-english-dialog').toggle();
-  });
+  // $('.language-select-dialog').click(function() {
+  //   $('.terms-farsi-dialog').toggle();
+  //   $('.terms-english-dialog').toggle();
+  //   $('.select-farsi-dialog').toggle();
+  //   $('.select-english-dialog').toggle();
+  // });
 
   $('#legal_terms, #legal_terms_farsi').mouseenter(
     function() {
