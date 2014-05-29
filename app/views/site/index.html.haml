@@ -2,52 +2,47 @@
   .intro
     .intro-header
       .language-select-intro
-        .select-farsi
-          %p فارسی
-        .select-english
-          %p English
-    .intro-english
-      %h4 Welcome to the WWQI Research Platform
-      %p This space aims to encourage interactive use of the WWQI digital archive, put students and scholars in collaborative conversations, and generate innovative scholarship on the cultural history of the Qajar period focused on lives of women and issues of gender and sexuality.
-    .intro-farsi
-      %h4 به «پژوهشگاه دنیای زنان در عصر قاجار» خوش آمدید
-      %p به پژوهشگاه «دنیای زنان در عصر قاجار» خوش آمدید.  هدف این پژوهشگاه ایجاد فضایی برای گفتگو و تبادل فکری میان دانشجویان و پژوهشگرانی است که علاقه دارند با استفاده از منابع دیجیتال این آرشیو پژوهشهای خلاق در زمینه تاریخ فرهنگی دوره قاجار را، با تمرکز بر زندگی زنان و مقولات جنس‌گونگی و جنسیت، گسترش دهند.
+        .select-language
+          %p
+            = link_to t '.language', url: root_path
+    .intro
+      %h4 
+        =  t '.welcome_header'
+      %p
+        = t '.welcome_description'
   .features-wrapper
-    %h3.intro-copy Features of this research platform include:
-    %h3.intro-copy-farsi امکاناتی که این پژوهشگاه فراهم می آورد:
+    %h3.intro-copy
+      = t '.feature_list'
     .features
       .col1
         .feature-image
           #img1
         .feature-copy
-          %h3 Questions &amp; Discussions
-          %p Start a discussion, respond to others' threads, search existing threads for your topic of interest, link threads to the archive items, and a lot more.
-        .feature-copy-farsi
-          %h3 پرسش و گفتگو
-          %p می توانید با طرح سؤال یا نکته ای رشته گفتگو و بحث را آغاز کنید، در رشته گفتگوهای دیگران شرکت کنید، پرسش ها و نکات را به اقلام سایت «دنیای زنان در عصر قاجار» پیوند دهید، و بسیار امکانات دیگر.
+          %h3
+            = t '.question_discussion_header'
+          %p
+            = t '.question_discussion_description'
       .col2
         .feature-image
           #img2
         .feature-copy
-          %h3 Research in Progress
-          %p Share your research in progress, ask research questions, comment on others' research notes.
-        .feature-copy-farsi
-          %h3 پژوهشهای در جریان
-          %p می توانید کارهای پژوهشی، یادداشت ها و ایده های تحقیقی خود را برای مبادله فکری با دیگران به اشتراک بگذارید؛ و یا با نقد و نظر خود به پژوهشهای دیگران یاری رسانید.
+          %h3
+            = t '.research_in_progress_header'
+          %p
+            = t '.research_in_progress_description'
       .col3
         .feature-image
           #img3
         .feature-copy
-          %h3 Contributions
-          %p Post translations and transcriptions of documents from the archive, write a biography, and submit corrections.
-        .feature-copy-farsi
-          %h3 مشارکت
-          %p می توانید به انواع مختلف با«دنیای زنان در عصر قاجار» همکاری کنید؛ از جمله ترجمه اسناد، تایپ اسناد خطی، نگارش شرح حال افراد موجود در آرشیو، تکمیل زندگی نامه های موجود، و تصحیح اطلاعات مربوط به اقلام آرشیو.
+          %h3
+            = t '.contribution_header'
+          %p
+            = t '.contribution_description'
     -#.sharing
       -#%p You can decide your level of sharing in all threads and posts.
 #sign-in-main-wrapper
-  %h3.intro-copy Please sign in or sign up below to access all of the research platform's features:
-  %h3.intro-copy-farsi برای استفاده از امکانات پژوهشگاه باید ابتدا در بخش سمت چپ ثبت نام کنید و از آن پس با وارد کردن ایمیل و رمز ورود خود به پژوهشگاه وارد شوید
+  %h3.intro-copy
+    = t '.sign_up_to_access'
   #sign-in-main.row
     .forms
       = render '/partials/user_registration', :resource => User.new

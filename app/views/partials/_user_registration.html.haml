@@ -1,11 +1,11 @@
 #registration
-  .sign-in-header.english
-    %h2 Sign Up
-    %p Start using the research platform today.
-  .sign-in-header.farsi
-    %h2 ثبت نام
-    %p اگر بار اولی است که وارد این پژوهشگاه می‌شوید، از اینجا شروع کنید.
-    %span لطفا توجه کنید که نام و نام خانوادگی باید به حروف لاتین باشد. برای رمز ورود می توانید از حروف و اعداد لاتین استفاده کنید.
+  .sign-in-header
+    %h2
+      = t '.sign_up'
+    %p 
+      = t '.start_using'
+    %span
+      = t '.sign_up_span'
   .horiz-line
   = simple_form_for resource, url: user_registration_path, remote: true do |f|
     = f.input :first_name, input_html: { class: 'text-input'}
@@ -17,17 +17,14 @@
     .terms
       #legal_terms
         %a{href: 'javascript:void(0)'}
-          %span Please read and accept the terms and conditions.
-        %span.icon-right-open-mini
-      #legal_terms_farsi
-        %a{href: 'javascript:void(0)'}
-          %span لطفأ مقررات کاربری را مطالعه کرده و موافقت خود را اعلام کنید
+          %span
+            = t ".read_and_accept"
         %span.icon-right-open-mini
       = render 'partials/terms_dialog'
       .checkbox
         = f.check_box :terms
         = f.label :terms do
-          I accept
+          = t ".accept"
           %span
         - if resource.errors[:terms].any?
           %span.error= resource.errors[:terms].to_sentence

@@ -27,7 +27,7 @@ fa:
       post:
         type: 'Thread Type'
         tag_list: 'Tags'
-        title: 'Your Consice Question'
+        title: 'Your Concise Question'
         details: 'Additional Details'
         item_related: 'آیا این نوشته با اقلام مشخصی از آرشیو مرتبط است؟'
         private: 'Who do you want to ask?'
