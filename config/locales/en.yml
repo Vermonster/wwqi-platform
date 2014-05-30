@@ -9,6 +9,7 @@ en:
   sign_in_message: 'Already a member? Sign in below.'
   read_terms_and_conditions: 'Please read and accept the terms and conditions.'
 
+  language: 'ﻑﺍﺮﺳی'
   accept: 'I accept'
   contributions:
     transcription:
@@ -89,7 +90,7 @@ en:
       welcome_header: 'Welcome to the WWQI Research Platform'
       welcome_description: 'This space aims to encourage interactive use of the WWQI digital archive, put students and scholars in collaborative conversations, and generate innovative scholarship on the cultural history of the Qajar period focused on lives of women and issues of gender and sexuality.'
       feature_list: 'Features of this research platform include:'
-      question_discussion_header: 'Questions &amp; Discussions'
+      question_discussion_header: 'Questions & Discussions'
       question_discussion_description: "Start a discussion, respond to others' threads, search existing threads for your topic of interest, link threads to the archive items, and a lot more"
       research_in_progress_header: 'Research in Progress'
       research_in_progress_description: "Share your research in progress, ask research questions, comment on others' research notes."

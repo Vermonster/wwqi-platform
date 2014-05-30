@@ -1,6 +1,6 @@
 WwqiPlatform::Application.routes.draw do
   #devise_for :admin_users, ActiveAdmin::Devise.config
-  scope "/:locale", locale: /en|fa/ do
+  scope "(/:locale)", locale: /en|fa/ do
     get "autocomplete/users"
 
     get '/activity/activity_data'
@@ -36,6 +36,7 @@ WwqiPlatform::Application.routes.draw do
     match "/admin" => "admin/dashboard#index"
     match "/me" => "profile#show", :as => 'my_profile'
     match "/me/notifications" => "profile#notifications", :as => 'my_notifications'
+    root :to => 'site#index'
   end
 
   # scope "/:locale", locale: /en|fa/ do
@@ -43,7 +44,6 @@ WwqiPlatform::Application.routes.draw do
   # end
 
   # get "/:locale" => "site#index"
-  root :to => 'site#index'
 
   ActiveAdmin.routes(self)
 end

@@ -8,7 +8,8 @@ fa:
 
   accept: 'ﻡی پﺫیﺮﻣ'
   search: 'جستجو'
-
+  
+  language: 'English'
   site:
     index:
       language: 'English'
