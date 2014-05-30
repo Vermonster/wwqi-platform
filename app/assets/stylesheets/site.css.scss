@@ -475,7 +475,7 @@
         padding: 0 3%;
         overflow: hidden;
         background: $lightgrey;
-        .col1, .col2, .col3 {
+        .question-discussion-feature, .research-feature, .contribution-feature {
           width: 27.333%;
           float: left;
           padding: 3%;
@@ -497,22 +497,22 @@
             display: none;
             direction: rtl;
           }
-          #img1, #img2, #img3 {
+          #qd-icon, #research-icon, #contribution-icon {
             width: 100px;
             height: 100px;
             background-size: contain;
             display: block;
             margin: 0 auto;
           }
-          #img1 {
+          #qd-icon {
             background: url('qd-icon.svg') no-repeat;
             background-size: contain;
           }
-          #img2 {
+          #research-icon {
             background: url('rip-icon.svg') no-repeat;
             background-size: contain;
           }
-          #img3 {
+          #contribution-icon {
             background: url('contributions-icon.svg') no-repeat;
             background-size: contain;
           }
