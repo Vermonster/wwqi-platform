@@ -1,11 +1,11 @@
 #registration
   .sign-in-header
     %h2
-      = t '.sign_up'
+      = t 'sign_up'
     %p 
-      = t '.start_using'
+      = t 'sign_up_message'
     %span
-      = t '.sign_up_span'
+      = t 'sign_up_span'
   .horiz-line
   = simple_form_for resource, url: user_registration_path, remote: true do |f|
     = f.input :first_name, input_html: { class: 'text-input'}
@@ -18,15 +18,15 @@
       #legal_terms
         %a{href: 'javascript:void(0)'}
           %span
-            = t ".read_and_accept"
+            = t 'read_terms_and_conditions'
         %span.icon-right-open-mini
       = render 'partials/terms_dialog'
       .checkbox
         = f.check_box :terms
         = f.label :terms do
-          = t ".accept"
+          = t "accept"
           %span
         - if resource.errors[:terms].any?
           %span.error= resource.errors[:terms].to_sentence
-    = f.button :submit, 'Sign Up', { class: 'btn' }
+    = f.button :submit, t('sign_up'), { class: 'btn' }
   .horiz-line-thick.hidden-desktop.hidden-tablet

@@ -21,7 +21,7 @@ feature 'Persian Welcome page in Persian' do
     expect(page).to have_content('پرسش و گفتگو')
   end
 
-  scenario 'shows Qusetion & Discussion description' do
+  scenario 'shows Question & Discussion description' do
     expect(page).to have_content('می توانید با طرح سؤال یا نکته ای رشته گفتگو و بحث را آغاز کنید، در رشته گفتگوهای دیگران شرکت کنید، پرسش ها و نکات را به اقلام سایت «دنیای زنان در عصر قاجار» پیوند دهید، و بسیار امکانات دیگر')
   end
 
@@ -46,7 +46,7 @@ feature 'Persian Welcome page in Persian' do
   end
 
   scenario 'shows sign up' do
-    # expect(page).to have_content('')
+    expect(page).to have_content('ﺚﺒﺗ ﻥﺎﻣ')
   end
 
   scenario 'shows sign up description' do
@@ -54,14 +54,18 @@ feature 'Persian Welcome page in Persian' do
   end
 
   scenario 'shows sign in' do
-    # expect(page).to have_content('')
+    expect(page).to have_content('ﻭﺭﻭﺩ ﺐﻫ ﺱﺍیﺕ')
   end
 
   scenario 'shows sign in description' do
     expect(page).to have_content(':اگر نام کاربری و رمز ورود دارید، از اینجا وارد شوید')
   end
 
-  scenario 'shows a language swtich button' do
-    expect(page).to have_link('English', href: root_path(locale: 'en'))
+  scenario 'shows a language switch button' do
+    expect(page).to have_link('English')
+  end
+
+  scenario 'shows checkbox label for accept' do
+    expect(page).to have_content('ﻡی پﺫیﺮﻣ')
   end
 end

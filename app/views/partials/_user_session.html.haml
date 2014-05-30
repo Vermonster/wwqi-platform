@@ -1,9 +1,9 @@
 #sign-in
   .sign-in-header.english
     %h2
-      = t '.sign_in'
+      = t 'sign_in'
     %p 
-      = t '.member'
+      = t 'sign_in_message'
   .horiz-line
   = simple_form_for "user", url: user_session_path do |f|
     = f.input :email, input_html: { class: "text-input" }
