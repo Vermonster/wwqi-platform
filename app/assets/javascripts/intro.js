@@ -9,8 +9,8 @@ $(document).ready(function(){
     $('.intro-copy-farsi').toggle();
     $('.feature-copy-farsi').toggle();
     $('.feature-copy').toggle();
-    $('.col1').toggleClass('float-right');
-    $('.col2').toggleClass('float-right');
+    $('.question-discussion-feature').toggleClass('float-right');
+    $('.research-feature').toggleClass('float-right');
     $('#legal_terms').toggle();
     $('#legal_terms_farsi').toggle();
     $('.sign-in-header').toggle();
