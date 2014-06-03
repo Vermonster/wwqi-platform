@@ -1,13 +1,10 @@
 .items-index
   .intro.contributions-intro
     .cf
-      .pull-left.en
-        %h4 Help us enrich the WWQI archives.
-        %p Here are the ways you can contribute.
-      .pull-right.fa
-        %h4 به غنی تر شدن آرشیو «دنیای زنان در عصر قاجار» کمک کنید
-        %p از این راه‌ها می توانید کمک کنید
-
+      %h4
+        = t '.contribution_header'
+      %p 
+        = t '.contribution_message'
 
     %ul.thread-type.btn-group.contributions-nav.cf
       %li{class: "btn #{'active' if params[:type] == "Transcription"} pull-left"}

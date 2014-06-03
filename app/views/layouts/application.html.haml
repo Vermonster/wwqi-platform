@@ -33,8 +33,8 @@
                 %ul.pull-right
                   %li
                     = link_to 'http://www.qajarwomen.org/en/index.html', target: 'blank' do
-                      %h2 WWQI Archive
-                      .fa-label آرشیو
+                      %h2
+                        = t 'wwqi_archive'
                   %li#bullet.hidden-phone.hidden-tablet
                     %h2 &#124;
                   - if current_user && current_user.is_admin?
@@ -46,16 +46,17 @@
                   - unless user_signed_in?
                     %li#scroll-to-registration
                       = link_to(root_path(anchor: 'registration')) do
-                        %h2 Sign up
+                        %h2 
+                          = t 'sign_up'
                     %li#scroll-to-sign-in
                       = link_to(root_path(anchor: 'sign-in')) do
-                        %h2 Sign in
-                        .fa-label ورود
+                        %h2 
+                          = t 'sign_in'
                   - else
                     %li
                       = link_to destroy_user_session_path, method: :delete do
-                        %h2 Sign out
-                        .fa-label خروج
+                        %h2 
+                          = t 'sign_out'
                   %li
                     = link_to t('language'), root_path(locale: (I18n.locale == :en ? 'fa' : 'en'))
       #main-nav-wrapper
@@ -64,13 +65,13 @@
             #main-nav
               #nav.span8.offset2.pull-left
                 %ul.nav
-                  = nav_link 'Questions & Discussions', posts_path, 'threads', 'پرسش و گفتگو'
-                  = nav_link 'Research-in-Progress', researches_path, 'researches', 'پژوهشهای در جریان'
-                  = nav_link 'Contributions', contributions_path, ['contributions', 'corrections'], 'مشارکت'
+                  = nav_link t('questions_and_discussions_nav'), posts_path, 'threads', ''
+                  = nav_link t('research_in_progress_nav'), researches_path, 'researches', ''
+                  = nav_link t('contributions_nav'), contributions_path, ['contributions', 'corrections'], ''
               - if user_signed_in?
                 #notifications-outer-wrapper
                   #notifications-inner-wrapper
-                    = link_to 'My Profile', my_profile_path, { :class => "pull-right" }
+                    = link_to t('my_profile'), my_profile_path, { :class => "pull-right" }
                     .dropdown.pull-right
                       %a.dropdown-toggle{:"data-toggle" => "dropdown", role: "button"}
                         #notifications.pull-right
@@ -79,16 +80,17 @@
                             %p= current_user.unread_notifications.size
                       %ul.dropdown-menu{role: "menu", "aria-labeledby" => "dLabel"}
                         %li
-                          %p Notifications
+                          %p 
+                          = t 'notifications'
                         - if current_user.unread_notifications.present?
                           - current_user.unread_notifications.each do |n|
                             %li
                               %p= n.link
                         - else
                           %li
-                            %p You have no notifications
-                    .fa-label
-                      پوشه من
+                            %p 
+                            = t 'no_notifications'
+
       #main-content
         .container
           = flash_messages
