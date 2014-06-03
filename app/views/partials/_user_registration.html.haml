@@ -24,7 +24,7 @@
       .checkbox
         = f.check_box :terms
         = f.label :terms do
-          = t "accept"
+          = t '.accept_terms'
           %span
         - if resource.errors[:terms].any?
           %span.error= resource.errors[:terms].to_sentence

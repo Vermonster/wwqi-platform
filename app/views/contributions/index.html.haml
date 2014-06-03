@@ -2,36 +2,28 @@
   .intro.contributions-intro
     .cf
       %h4
-        = t '.contribution_header'
+        = t '.contribution_subheader'
       %p 
         = t '.contribution_message'
 
     %ul.thread-type.btn-group.contributions-nav.cf
       %li{class: "btn #{'active' if params[:type] == "Transcription"} pull-left"}
-        = link_to 'Transcribe a document', contributions_path(type: 'Transcription')
-        %span.fa-label تایپ اسناد خطی
+        = link_to t('.transcription.button'), contributions_path(type: 'Transcription')
       %li{class: "btn #{'active' if params[:type] == 'Translation'} pull-left"}
-        = link_to 'Translate a document', contributions_path(type: 'Translation')
-        %span.fa-label ترجمه اسناد
+        = link_to t('.translation.button'), contributions_path(type: 'Translation')
       %li{class: "btn #{'active' if params[:type] == 'Biography'} pull-left"}
-        = link_to 'Write a biography', contributions_path(type: 'Biography')
-        %span.fa-label نگارش شرح حال افراد
+        = link_to t('.biography.button'), contributions_path(type: 'Biography')
       %li.btn.pull-left
-        = link_to 'Submit a correction', new_correction_path
-        %span.fa-label ارسال تصحیح
+        = link_to t('.correction.button'), new_correction_path
   #contributions-content
     .contribution-list-title.cf
-      %h3.pull-right.fa
-        ="#{'اسناد خطی که باید تایپ شوند' if params[:type] == 'Transcription'}"
-        ="#{'اسناد پیشنهادی برای ترجمه' if params[:type] == 'Translation'}"
-        ="#{'افراد پیشنهای برای نگارش شرح حال' if params[:type] == 'Biography'}"
       %h3
-        ="#{'Items in need of transcription' if params[:type] == 'Transcription'}"
-        ="#{'Items in need of translation' if params[:type] == 'Translation'}"
-        ="#{'Persons in need of biography' if params[:type] == 'Biography'}"
+        ="#{t('.items_in_need_of_transcription') if params[:type] == 'Transcription'}"
+        ="#{t('.items_in_need_of_translation')  if params[:type] == 'Translation'}"
+        ="#{t('.persons_in_need_of_biography')  if params[:type] == 'Biography'}"
     #contribution-list
       %p.feed-intro
-        = t("contributions.#{params[:type].downcase}.intro")
+        = t("contributions.index.#{params[:type].downcase}.intro")
       %ul.items#selected-items
         - unless @requests.empty?
           - @requests.each do |r|
@@ -82,7 +74,8 @@
                     - following = current_user.following?(c.object)
                     = link_to following ? 'Unfollow' : 'Follow', '#', :class => ['btn', 'btn-primary', following && 'followed'], :data => { followable_id: c.id, followable_type: c.model.class.to_s.downcase, follow_id: following.try(:id) }
         - else
-          %p No recent contributions
+          %p
+            = t '.no_recent_contributions'
     .transcription-subnav
       %a.show-more-contributions{href: '#', id: 'show-more-contributions'}
         .icon-plus-circle#recent-contributions-icon

@@ -65,9 +65,9 @@
             #main-nav
               #nav.span8.offset2.pull-left
                 %ul.nav
-                  = nav_link t('questions_and_discussions_nav'), posts_path, 'threads', ''
-                  = nav_link t('research_in_progress_nav'), researches_path, 'researches', ''
-                  = nav_link t('contributions_nav'), contributions_path, ['contributions', 'corrections'], ''
+                  = nav_link t('question_discussion_header'), posts_path, 'threads', ''
+                  = nav_link t('research_in_progress_header'), researches_path, 'researches', ''
+                  = nav_link t('contribution_header'), contributions_path, ['contributions', 'corrections'], ''
               - if user_signed_in?
                 #notifications-outer-wrapper
                   #notifications-inner-wrapper

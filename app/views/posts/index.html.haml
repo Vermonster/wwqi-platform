@@ -3,21 +3,13 @@
     .btn.new
       = link_to t(".#{resource_name}.new"), new_resource_path
       .icon-right-open-mini
-    .fa-label.newbtn
-      = t(".farsi#{resource_name}.new")
-
   = form_tag collection_path, class: "navbar-search pull-left", id: 'post_search', method: :get do |f|
     = search_field_tag :q, params[:q], placeholder: t(".#{resource_name}.placeholder"), class: "pull-left"
-    = submit_tag "Search", { class: "btn" }
-    = label_tag 'جستجو', nil, class: 'fa-label'
+    = submit_tag t('search'), { class: "btn" }
   %ul.thread-type.btn-group
     %li.btn{class: current_page?(action: 'index', followed: nil) && !current_page?(action: 'index', followed: 'true') && 'active'}
-      = link_to 'Latest', collection_url
-      %span.fa-label  تازه ترین
+      = link_to t('latest'), collection_url
     - if user_signed_in?
       %li.btn{class: current_page?(action: 'index', followed: 'true') && 'active'}
         = link_to t(".#{resource_name}.follow"), collection_url(followed: true)
-        %span.fa-label
-          = t(".farsi#{resource_name}.follow")
-
   %ul.items= render partial: 'post', collection: collection

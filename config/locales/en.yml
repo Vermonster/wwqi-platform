@@ -5,9 +5,9 @@ en:
   notifications: 'Notifications'
   no_notifications: 'You have no notifications'
   
-  questions_and_discussions_nav: 'Questions & Discussions'
-  research_in_progress_nav: 'Research-in-Progress'
-  contributions_nav: 'Contributions'
+  question_discussion_header: 'Questions & Discussions'
+  research_in_progress_header: 'Research-in-Progress'
+  contribution_header: 'Contributions'
   
   sign_up: 'Sign Up'
   sign_up_message: 'Start using the research platform today'
@@ -16,12 +16,21 @@ en:
   sign_in_message: 'Already a member? Sign in below.'
   read_terms_and_conditions: 'Please read and accept the terms and conditions.'
 
-  accept: 'I accept'
   search: 'Search'
+  search_by_item: 'Search by item name or item number'
+  follow: 'Follow'
+  unfollow: 'Unfollow'
   
   language: 'ﻑﺍﺮﺳی'
   select-dialog: 'فارسی'
   agree_to_terms: ' Please note that by creating a Username and Password, you are agreeing to the points spelled out in our User Policy. Please read the User Policy below and confirm your acceptance before proceeding. Thank you.'
+    
+  latest: 'Latest'
+  my_questions_and_discussions: 'My Questions and Discussions'
+  my_research_in_progress: 'My Research-in-Progress'
+  my_contributions: 'My Contributions'
+  my_notifications: 'My Notifications'
+  my_collaborations: 'My Collaborations'
   
   site:
     index:
@@ -29,26 +38,52 @@ en:
       welcome_header: 'Welcome to the WWQI Research Platform'
       welcome_description: 'This space aims to encourage interactive use of the WWQI digital archive, put students and scholars in collaborative conversations, and generate innovative scholarship on the cultural history of the Qajar period focused on lives of women and issues of gender and sexuality.'
       feature_list: 'Features of this research platform include:'
-      question_discussion_header: 'Questions & Discussions'
       question_discussion_description: "Start a discussion, respond to others' threads, search existing threads for your topic of interest, link threads to the archive items, and a lot more"
-      research_in_progress_header: 'Research in Progress'
       research_in_progress_description: "Share your research in progress, ask research questions, comment on others' research notes."
-      contribution_header: 'Contributions'
       contribution_description: 'Post translations and transcriptions of documents from the archive, write a biography, and submit corrections.'
       sign_up_to_access: "Please sign in or sign up below to access all of the research platform's features:"
-      terms: ''
+      accept_terms: 'I accept'
 
   contributions:
-  
-    transcription:
-      intro: 'If you have experience in transcribing, help us transcribe documents from our archives.'
-      button: 'Transcribe'
-    translation:
-      intro: 'If you have experience in translating from Persian to English, help us translate documents from our archives.'
-      button: 'Translate'
-    biography:
-      intro: 'Did   you notice a person missing a biography? If so, help us by  writing a biography for our archives. Here are some suggested   persons that need a biography:'
-      button: 'Write a biography'
+    index:      
+      contribution_subheader: 'Help us enrich the WWQI archives.'
+      contribution_message: 'Here are the ways you can contribute.'
+      no_contribution_request_message: 'No items in need of %{type}.'
+      contribution_request_message: 'Item in need of %{type}'
+      recently_contributed_header: "Recently contributed %{type}"
+      recently_contributed_intro: "Here are some recent %{type} contributed by the WWQI users:"
+      show_more_documents: 'Show more documents'
+      show_more_contributions: 'Show more %{type}'
+      no_recent_contributions: 'No recent contributions'
+      items_in_need_of_transcription: 'Items in need of transcription'
+      items_in_need_of_translation: 'Items in need of translation'
+      persons_in_need_of_biography: 'Persons in need of biography'
+      
+      transcription:
+        button: 'Transcribe'
+        intro: 'If you have experience in transcribing, help us transcribe documents from our archives.'
+      translation:
+        button: 'Translate'
+        intro: 'If you have experience in translating from Persian to English, help us translate documents from our archives.'
+      biography:
+        button: 'Write a biography'
+        intro: 'Did you notice a person missing a biography? If so, help us by  writing a biography for our archives. Here are some suggested   persons that need a biography:'
+      correction:
+        button: 'Submit a correction'
+
+    new:
+      header: 'New %{type}'
+      description: 'Your are submitting a %{type} for: '
+      submit_button: 'Submit %{type}'
+    edit:
+      header: 'Edit %{type}'
+      description: 'Your %{type}for : '
+      save_changes_button: 'Save changes'
+    
+  corrections:
+    new:
+      intro: 'Submit a correction'
+      details: 'Correction'
 
   flash:
     threads:
@@ -83,20 +118,51 @@ en:
         placeholder: 'Search Research in Progress'
         new: 'Submit Your Research'
         follow: 'Followed Research'
-      farsipost:
-        new: 'سؤال یا بحث تازه ای را آغاز کنید'
-        follow: 'بحث‌هایی که دنبال می‌کنید'
-      farsiresearch:
-        new: 'نوشته پژوهشی خود را به اشتراک بگذارید'
-        follow: ' پژوهش‌هایی که دنبال می‌کنید'
-
+        
+    new:
+      header: '.سؤال یا بحث تازه ای را آغاز کنید'
+      type: 'Thread Type'
+      question: 'Question'
+      discussion: 'Discussion'
+      is_related_items: 'آیا این نوشته با اقلام مشخصی از آرشیو مرتبط است؟'
+      yes: 'Yes'
+      no: 'No'
+      search: 'جستجوی فقره از راه عنوان و یا شماره آن'
+      add_item_button: 'Add Item'
+      collaborator_header: 'Who can collaborate?'
+      people_i_choose: 'People I Choose'
+      anyone: 'Anyone'
+      enter_name: 'Enter name or email of existing users'
+      collaborator_button: 'Add Collaborator'
+      invitation_button: 'Invite a new person to the research platform'
+      upload_header: 'Additional Documents'
+      upload_button: 'Add Upload'
+      invitation_form_title: 'Invitation'
+      recipient_name: 'Recipient Name'
+      recipient_email: 'Recipient Email'
+      invitation_message: 'Message'
+      invite_button: 'Invite'
+      cancel: 'Cancel'
+      post_thread_button: 'Post Thread'
+      research:
+        header: 'نوشته پژوهشی خود را به اشتراک بگذارید.'
+        invite_collaborators: 'دعوت به مشارکت'
+        submit_research_button: 'ارسال کار پژوهشی'
+ 
   errors:
     messages:
       wrong_size: "is the wrong size (should be %{file_size})"
       size_too_small: "is too small (should be at least %{file_size})"
       size_too_big: "is too big (should be at most %{file_size})"
 
-
+  activerecord:
+    errors:
+      messages:
+        taken: 'Had already been taken'
+        accepted: 'Must be accepted'
+        blank: "Can't be blank"
+        confirmation: "Doesn't match confirmation"
+        invalid: 'invalid'
 
 
 

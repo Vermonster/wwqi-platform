@@ -1,14 +1,13 @@
 fa:
-  wwqi_archive: 'یییی'
-  sign_out: 'یییی'
+  wwqi_archive: 'WWQI Archive'
+  sign_out: 'Sign Out'
   my_profile: 'پوشه من'
-  notifications: 'ییی'
-  no_notifications: 'ییی'
+  notifications: 'Notifications'
+  no_notifications: 'You have no notifications'
   
-  questions_and_discussions_nav: 'پرسش و گفتگو'
-  research_in_progress_nav: 'پژوهشهای در جریان'
-  contributions_nav: 'مشارکت'
-  
+  question_discussion_header: 'پرسش و گفتگو'
+  research_in_progress_header: 'پژوهشهای در جریان'
+  contribution_header: 'مشارکت'  
   
   sign_up: 'ﺚﺒﺗ ﻥﺎﻣ'
   sign_up_message: 'اگر بار اولی است که وارد این پژوهشگاه می‌شوید، از اینجا شروع کنید. لطفا توجه کنید که نام، نام خانوادگی، و نام کاربری باید به حروف لاتین باشد. برای رمز ورود می توانید از حروف و اعداد لاتین استفاده کنی'
@@ -17,12 +16,21 @@ fa:
   sign_in_message: ':اگر نام کاربری و رمز ورود دارید، از اینجا وارد شوید'
   read_terms_and_conditions: 'برای استفاده از امکانات پژوهشگاه باید ابتدا در بخش فوق ثبت نام کنید و از آن پس با وارد کردن  نام کاربری و رمز ورود خود به پژوهشگاه وارد شوید:'
 
-  accept: 'ﻡی پﺫیﺮﻣ'
   search: 'جستجو'
+  search_by_item: 'جستجوی فقره از راه عنوان و یا شماره آن'
+  follow: 'Follow'
+  unfollow: 'Unfollow'
   
   language: 'English'
   select_dialog: 'فارسی'
-  agree_to_terms: ''
+  agree_to_terms: 'Agree to terms and conditions'
+  
+  latest: 'تازه تری'
+  my_questions_and_discussions: 'رسش‌ها و گفتگوهای'
+  my_research_in_progress: 'شهای'
+  my_contributions: ' مشارکت‌هایم'
+  my_notifications: 'اعلان های'
+  my_collaborations: 'همکاری‌هایم'
   
   site:
     index:
@@ -30,39 +38,37 @@ fa:
       welcome_header: 'به «پژوهشگاه دنیای زنان در عصر قاجار» خوش آمدی'
       welcome_description: 'به پژوهشگاه «دنیای زنان در عصر قاجار» خوش آمدید.  هدف این پژوهشگاه ایجاد فضایی برای گفتگو و تبادل فکری میان دانشجویان و پژوهشگرانی است که علاقه دارند با استفاده از منابع دیجیتال این آرشیو پژوهشهای خلاق در زمینه تاریخ فرهنگی دوره قاجار را، با تمرکز بر زندگی زنان و مقولات جنس‌گونگی و جنسیت، گسترش دهند'
       feature_list: ':امکاناتی که این پژوهشگاه فراهم می آورد'
-      question_discussion_header: 'پرسش و گفتگو'
       question_discussion_description: 'می توانید با طرح سؤال یا نکته ای رشته گفتگو و بحث را آغاز کنید، در رشته گفتگوهای دیگران شرکت کنید، پرسش ها و نکات را به اقلام سایت «دنیای زنان در عصر قاجار» پیوند دهید، و بسیار امکانات دیگر'
-      research_in_progress_header: 'پژوهشهای در جریان'
       research_in_progress_description: 'می توانید کارهای پژوهشی، یادداشت ها و ایده های تحقیقی خود را برای مبادله فکری با دیگران به اشتراک بگذارید؛ و یا با نقد و نظر خود به پژوهشهای دیگران یاری رسانید'
-      contribution_header: 'مشارکت'
       contribution_description: 'می توانید به انواع مختلف با«دنیای زنان در عصر قاجار» همکاری کنید؛ از جمله ترجمه اسناد، تایپ اسناد خطی، نگارش شرح حال افراد موجود در آرشیو، تکمیل زندگی نامه های موجود، و تصحیح اطلاعات مربوط به اقلام آرشیو'
       sign_up_to_access: ':برای استفاده از امکانات پژوهشگاه باید ابتدا در بخش سمت چپ ثبت نام کنید و از آن پس با وارد کردن نام کاربری و رمز ورود خود به پژوهشگاه وارد شوید'
-      terms: 'می پذیرم'
+      accept_terms: 'می پذیرم'
 
   contributions:
     index:
-      contribution_header: '.به غنی تر شدن آرشیو «دنیای زنان در عصر قاجار» کمک کنید'
+      contribution_subheader: '.به غنی تر شدن آرشیو «دنیای زنان در عصر قاجار» کمک کنید'
       contribution_message: '.از این راه‌ها می توانید کمک کنید'
       no_contribution_request_message: 'No items in need of %{type}.'
       contribution_request_message: 'Item in need of %{type}'
-      transcription_button: 'تایپ اسناد خطی'
-      translation_button: 'ترجمه اسناد'
-      biography_button: 'نگارش شرح حال افراد'
-      correction_button: 'ارسال تصحیح'
       recently_contributed_header: "Recently contributed %{type}"
       recently_contributed_intro: "Here are some recent %{type} contributed by the WWQI users:"
       show_more_documents: 'Show more documents'
       show_more_contributions: 'Show more %{type}'
       no_recent_contributions: 'No recent contributions'
+      items_in_need_of_transcription: 'اسناد خطی که باید تایپ شوند' 
+      items_in_need_of_ translation: 'اسناد پیشنهادی برای ترجمه'
+      persons_in_need_of_biography: 'افراد پیشنهای برای نگارش شرح حال'
       transcription:
+        button: 'تایپ اسناد خطی'
         intro: ':اگر علاقه‌مند به خواندن اسناد خطی هستید، می‌توانید در تایپ متون زیر به ما کمک کنید'
-        button: 'Transcript'
       translation:
-        intro: ':گرعلاقه‌مند به ترجمه اسناد فارسی هستید، می‌توانید در ترجمه متون زیر به ما کمک کنید'
-        button: 'Translate'
+        button: 'ترجمه اسناد'
+        intro: ':اگر علاقه‌مند به خواندن اسناد خطی هستید، می‌توانید در تایپ متون زیر به ما کمک کنید'
       biography:
-        intro: ':آیا علاقه‌مند هستید در نوشتن و یا تکمیل شرح حال افراد آرشیو به ما کمک کنید؟ به طور مثال'
         button: 'نگارش شرح حال افراد'
+        intro: ':آیا علاقه‌مند هستید در نوشتن و یا تکمیل شرح حال افراد آرشیو به ما کمک کنید؟ به طور مثال'
+      correction:
+        button: 'ارسال تصحیح'
     new:
       header: 'New %{type}'
       description: 'Your are submitting a %{type} for: '
@@ -71,12 +77,13 @@ fa:
       header: 'Edit %{type}'
       description: 'Your %{type}for : '
       save_changes_button: 'Save changes'
+  
   corrections:
     new:
       intro: 'ارسال تصحیح'
       button: 'ارسال تصحیح'
-      search: 'جستجوی فقره از راه عنوان و یا شماره آن'
       details: ' تصحیح'
+      
   flash:
     threads:
       create:
@@ -99,16 +106,18 @@ fa:
   biography:
     comment_label: 'Your comment'
     submit: 'Create comment'
+    
   posts:
     index:
       post:
         placeholder: 'Search Questions & Discussions'
         new: 'سؤال یا بحث تازه ای را آغاز کنید'
-        follow: 'Followed Threads'
+        follow: 'بحث‌هایی که دنبال می‌کنید'
       research:
         placeholder: 'Search Research in Progress'
         new: 'نوشته پژوهشی خود را به اشتراک بگذارید'
-        follow: 'Followed Research'
+        follow: ' پژوهش‌هایی که دنبال می‌کنید'
+        
     new:
       header: '.سؤال یا بحث تازه ای را آغاز کنید'
       type: 'Thread Type'
@@ -143,6 +152,7 @@ fa:
       submit_post_button: 'Submit Post'
     show:
       sign_in_to_comment: 'To comment on this %{type}, please %{link}.'
+
   errors:
     messages:
       wrong_size: "is the wrong size (should be %{file_size})"
