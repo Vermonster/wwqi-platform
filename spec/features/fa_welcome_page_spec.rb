@@ -47,6 +47,7 @@ feature 'Persian Welcome page in Persian' do
 
   scenario 'shows sign up' do
     expect(page).to have_content('ﺚﺒﺗ ﻥﺎﻣ')
+    expect(page).to_not have_content('Sign Up')
   end
 
   scenario 'shows sign up description' do
@@ -55,6 +56,7 @@ feature 'Persian Welcome page in Persian' do
 
   scenario 'shows sign in' do
     expect(page).to have_content('ﻭﺭﻭﺩ ﺐﻫ ﺱﺍیﺕ')
+    expect(page).to_not have_content('Sign In')
   end
 
   scenario 'shows sign in description' do
@@ -63,9 +65,11 @@ feature 'Persian Welcome page in Persian' do
 
   scenario 'shows a language switch button' do
     expect(page).to have_link('English')
+    expect(page).to_not have_content('ﻑﺍﺮﺳی')
   end
 
   scenario 'shows checkbox label for accept' do
     expect(page).to have_content('ﻡی پﺫیﺮﻣ')
+    expect(page).to_not have_content('I accept')
   end
 end
