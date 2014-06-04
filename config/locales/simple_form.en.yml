@@ -27,13 +27,13 @@ en:
       post:
         type: 'Thread Type'
         tag_list: 'Tags'
-        title: 'Your Concise Question  <span class="pull-right fa-label">پرسش مشخص شما</span>'
-        details: 'Additional Details <span class="pull-right fa-label"> اطلاعات بیشتر</span>'
+        title: 'Your Concise Question'
+        details: 'Additional Details'
         item_related: 'Is this related to specific WWQI items?'
         private: 'Who do you want to ask?'
       research:
         tag_list: 'Tags'
-        title: 'Your Research Title  <span class="pull-right fa-label">عنوان کار پژوهشی شما</span>'
+        title: 'Your Research Title'
         details: 'Additional Details <span class="pull-right fa-label"> اطلاعات بیشتر</span>'
         item_related: 'Is this related to specific WWQI items?'
         private: 'Who do you want to ask?'
@@ -45,6 +45,7 @@ en:
         email: 'Email'
         password: 'Password'
         password_confirmation: 'Password confirmation'
+        #terms: ''
     hints:
       post:
         tag_list: 'Use tags to describe the people, places, or subjects related to this thread.'

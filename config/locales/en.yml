@@ -82,7 +82,6 @@ en:
     new:
       intro: 'Submit a correction'
       details: 'Correction'
-
   flash:
     threads:
       create:
@@ -146,7 +145,12 @@ en:
         header: 'نوشته پژوهشی خود را به اشتراک بگذارید.'
         invite_collaborators: 'دعوت به مشارکت'
         submit_research_button: 'ارسال کار پژوهشی'
-
+    edit:
+      header: 'Edit Post'
+      submit_post_button: 'Submit Post'
+    show:
+      sign_in_to_comment: 'To comment on this %{type}, please %{link}.'
+      
   errors:
     messages:
       wrong_size: "is the wrong size (should be %{file_size})"
@@ -161,6 +165,3 @@ en:
         blank: "Can't be blank"
         confirmation: "Doesn't match confirmation"
         invalid: 'invalid'
-
-
-

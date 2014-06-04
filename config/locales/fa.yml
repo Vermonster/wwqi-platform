@@ -1,5 +1,5 @@
 fa:
-  wwqi_archive: 'WWQI Archive'
+  wwqi_archive: 'آرشیو'
   sign_out: 'Sign Out'
   my_profile: 'پوشه من'
   notifications: 'Notifications'
@@ -23,6 +23,7 @@ fa:
   unfollow: 'Unfollow'
   
   language: 'English'
+   
   latest: 'تازه تری'
   my_questions_and_discussions: 'رسش‌ها و گفتگوهای'
   my_research_in_progress: 'شهای'
@@ -41,7 +42,6 @@ fa:
       contribution_description: 'می توانید به انواع مختلف با«دنیای زنان در عصر قاجار» همکاری کنید؛ از جمله ترجمه اسناد، تایپ اسناد خطی، نگارش شرح حال افراد موجود در آرشیو، تکمیل زندگی نامه های موجود، و تصحیح اطلاعات مربوط به اقلام آرشیو'
       sign_up_to_access: ':برای استفاده از امکانات پژوهشگاه باید ابتدا در بخش سمت چپ ثبت نام کنید و از آن پس با وارد کردن نام کاربری و رمز ورود خود به پژوهشگاه وارد شوید'
 
-
   contributions:
     index:
       contribution_subheader: '.به غنی تر شدن آرشیو «دنیای زنان در عصر قاجار» کمک کنید'
@@ -56,6 +56,7 @@ fa:
       items_in_need_of_transcription: 'اسناد خطی که باید تایپ شوند' 
       items_in_need_of_translation: 'اسناد پیشنهادی برای ترجمه'
       persons_in_need_of_biography: 'افراد پیشنهای برای نگارش شرح حال'
+      
       transcription:
         button: 'تایپ اسناد خطی'
         intro: ':اگر علاقه‌مند به خواندن اسناد خطی هستید، می‌توانید در تایپ متون زیر به ما کمک کنید'
@@ -80,8 +81,7 @@ fa:
     new:
       intro: 'ارسال تصحیح'
       button: 'ارسال تصحیح'
-      details: ' تصحیح'
-      
+      details: ' تصحیح'      
   flash:
     threads:
       create:
