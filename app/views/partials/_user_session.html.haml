@@ -8,4 +8,4 @@
   = simple_form_for "user", url: user_session_path do |f|
     = f.input :email, input_html: { class: "text-input" }
     = f.input :password, input_html: { class: "text-input" }
-    = f.button :submit, "Sign In", { class: "btn" }
+    = f.button :submit, t('sign_in'), { class: "btn" }

@@ -4,34 +4,35 @@ en:
   my_profile: 'My Profile'
   notifications: 'Notifications'
   no_notifications: 'You have no notifications'
-  
+
   question_discussion_header: 'Questions & Discussions'
   research_in_progress_header: 'Research-in-Progress'
   contribution_header: 'Contributions'
-  
+
   sign_up: 'Sign Up'
   sign_up_message: 'Start using the research platform today'
   sign_up_span: ''
   sign_in: 'Sign In'
   sign_in_message: 'Already a member? Sign in below.'
   read_terms_and_conditions: 'Please read and accept the terms and conditions.'
+  accept_terms: 'I accept'
 
   search: 'Search'
   search_by_item: 'Search by item name or item number'
   follow: 'Follow'
   unfollow: 'Unfollow'
-  
+
   language: 'ﻑﺍﺮﺳی'
-  select-dialog: 'فارسی'
+  select_dialog: 'فارسی'
   agree_to_terms: ' Please note that by creating a Username and Password, you are agreeing to the points spelled out in our User Policy. Please read the User Policy below and confirm your acceptance before proceeding. Thank you.'
-    
+
   latest: 'Latest'
   my_questions_and_discussions: 'My Questions and Discussions'
   my_research_in_progress: 'My Research-in-Progress'
   my_contributions: 'My Contributions'
   my_notifications: 'My Notifications'
   my_collaborations: 'My Collaborations'
-  
+
   site:
     index:
       language: 'ﻑﺍﺮﺳی'
@@ -42,7 +43,6 @@ en:
       research_in_progress_description: "Share your research in progress, ask research questions, comment on others' research notes."
       contribution_description: 'Post translations and transcriptions of documents from the archive, write a biography, and submit corrections.'
       sign_up_to_access: "Please sign in or sign up below to access all of the research platform's features:"
-      accept_terms: 'I accept'
 
   contributions:
     index:      
@@ -58,7 +58,7 @@ en:
       items_in_need_of_transcription: 'Items in need of transcription'
       items_in_need_of_translation: 'Items in need of translation'
       persons_in_need_of_biography: 'Persons in need of biography'
-      
+
       transcription:
         button: 'Transcribe'
         intro: 'If you have experience in transcribing, help us transcribe documents from our archives.'
@@ -79,7 +79,7 @@ en:
       header: 'Edit %{type}'
       description: 'Your %{type}for : '
       save_changes_button: 'Save changes'
-    
+
   corrections:
     new:
       intro: 'Submit a correction'
@@ -118,7 +118,7 @@ en:
         placeholder: 'Search Research in Progress'
         new: 'Submit Your Research'
         follow: 'Followed Research'
-        
+
     new:
       header: '.سؤال یا بحث تازه ای را آغاز کنید'
       type: 'Thread Type'
@@ -148,7 +148,7 @@ en:
         header: 'نوشته پژوهشی خود را به اشتراک بگذارید.'
         invite_collaborators: 'دعوت به مشارکت'
         submit_research_button: 'ارسال کار پژوهشی'
- 
+
   errors:
     messages:
       wrong_size: "is the wrong size (should be %{file_size})"
