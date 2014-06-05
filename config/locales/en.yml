@@ -10,9 +10,11 @@ en:
   contribution_header: 'Contributions'
 
   sign_up: 'Sign Up'
+  sign_up_header: 'Sign Up'
   sign_up_message: 'Start using the research platform today'
   sign_up_span: ''
   sign_in: 'Sign In'
+  sign_in_header: 'Sign In'
   sign_in_message: 'Already a member? Sign in below.'
   read_terms_and_conditions: 'Please read and accept the terms and conditions.'
   accept_terms: 'I accept'
