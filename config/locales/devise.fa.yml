@@ -7,7 +7,7 @@ fa:
     failure:
       already_authenticated: 'وارد سیستم هستید.'
       inactive: 'حساب شما هنوز فعال نشده است.'
-      invalid: 'ایمیل یا رمز عبور غیر معتبر.'
+      invalid: 'ﺍیﻡیﻝ یﺍ ﺮﻣﺯ ﻊﺑﻭﺭ ﻍیﺭ ﻢﻌﺘﺑﺭ.'
       invalid_token: 'کلمه رمز نامعتبر.'
       locked: 'حسابتان قفل شده است.'
       not_found_in_database: 'ایمیل یا رمز عبور غیر معتبر.'
