@@ -2,8 +2,8 @@ require 'spec_helper'
 
 describe "Contribution creation" do
   context "with a selected item" do
-    let!(:test_item) { create(:item, 
-                              url: "http://www.qajarwomen.org/en/items/1016A200.html", 
+    let!(:test_item) { create(:item,
+                              url: "http://www.qajarwomen.org/en/items/1016A200.html",
                               name: "Infant headband",
                               thumbnail: "http://s3.amazonaws.com/assets.qajarwomen.org/thumbs/it_200.jpg?1329177600",
                               accession_no: "1016A200") }
@@ -13,19 +13,19 @@ describe "Contribution creation" do
         current_path.should == root_path
         expect(page).to have_content("You need to sign in or sign up before continuing.")
       end
-      
+
       it "user can visit contribuion page without authentication" do
         visit contributions_path
-        expect(page).to have_content('Help us enrich the WWQI archives by contributing information to the project.')
-        expect(page).to have_content('Items in need of Transcription')
+        expect(page).to have_content('Help us enrich the WWQI archives.')
+        expect(page).to have_content('Items in need of transcription')
       end
     end
 
-    context "authenticated" do 
+    context "authenticated" do
       let(:user) { create(:user) }
       before { sign_in(user) }
 
-      describe "contribution creation", js: true do 
+      describe "contribution creation", js: true do
         it "creates a new transcription" do
           create_and_check_contribution('Transcription', test_item)
         end
@@ -57,7 +57,7 @@ describe "Contribution creation" do
 
           fill_in "#{type.downcase}_details", with: "Contribution test"
 
-          if test_upload 
+          if test_upload
             # Since the file field doesn't have a label, attach_file can't not
             # be used. Instead, the file path is stored manually.
             click_on 'Add Upload'

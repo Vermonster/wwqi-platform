@@ -4,13 +4,13 @@ fa:
   my_profile: 'پوشه من'
   notifications: 'Notifications'
   no_notifications: 'You have no notifications'
-  
+
   question_discussion_header: 'پرسش و گفتگو'
   research_in_progress_header: 'پژوهشهای در جریان'
-  contribution_header: 'مشارکت'  
-  
+  contribution_header: 'مشارکت'
+
   sign_up: 'ثبت نام'
-  sign_up_header: 'ثبت نام' 
+  sign_up_header: 'ثبت نام'
   sign_up_message: 'اگر بار اولی است که وارد این پژوهشگاه می‌شوید، از اینجا شروع کنید. لطفا توجه کنید که نام، نام خانوادگی، و نام کاربری باید به حروف لاتین باشد. برای رمز ورود می توانید از حروف و اعداد لاتین استفاده کنی'
   sign_up_span: 'ﻞﻄﻓﺍ ﺕﻮﺠﻫ کﻥیﺩ کﻩ ﻥﺎﻣ ﻭ ﻥﺎﻣ ﺥﺎﻧﻭﺍﺩگی ﺏﺍیﺩ ﺐﻫ ﺡﺭﻮﻓ ﻼﺗیﻥ ﺏﺎﺷﺩ. ﺏﺭﺍی ﺮﻣﺯ ﻭﺭﻭﺩ ﻡی ﺕﻭﺎﻧیﺩ ﺍﺯ ﺡﺭﻮﻓ ﻭ ﺎﻋﺩﺍﺩ ﻼﺗیﻥ ﺎﺴﺘﻓﺍﺪﻫ کﻥیﺩ.'
   sign_in: 'ورود'
@@ -23,16 +23,16 @@ fa:
   search_by_item: 'جستجوی فقره از راه عنوان و یا شماره آن'
   follow: 'Follow'
   unfollow: 'Unfollow'
-  
+
   language: 'English'
-   
+
   latest: 'تازه تری'
   my_questions_and_discussions: 'رسش‌ها و گفتگوهای'
   my_research_in_progress: 'شهای'
   my_contributions: ' مشارکت‌هایم'
   my_notifications: 'اعلان های'
   my_collaborations: 'همکاری‌هایم'
-  
+
   site:
     index:
       language: 'English'
@@ -55,10 +55,10 @@ fa:
       show_more_documents: 'Show more documents'
       show_more_contributions: 'Show more %{type}'
       no_recent_contributions: 'No recent contributions'
-      items_in_need_of_transcription: 'اسناد خطی که باید تایپ شوند' 
+      items_in_need_of_transcription: 'اسناد خطی که باید تایپ شوند'
       items_in_need_of_translation: 'اسناد پیشنهادی برای ترجمه'
       persons_in_need_of_biography: 'افراد پیشنهای برای نگارش شرح حال'
-      
+
       transcription:
         button: 'تایپ اسناد خطی'
         intro: ':اگر علاقه‌مند به خواندن اسناد خطی هستید، می‌توانید در تایپ متون زیر به ما کمک کنید'
@@ -78,12 +78,12 @@ fa:
       header: 'Edit %{type}'
       description: 'Your %{type}for : '
       save_changes_button: 'Save changes'
-  
+
   corrections:
     new:
       intro: 'ارسال تصحیح'
       button: 'ارسال تصحیح'
-      details: ' تصحیح'      
+      details: ' تصحیح'
   flash:
     threads:
       create:
@@ -106,7 +106,7 @@ fa:
   biography:
     comment_label: 'Your comment'
     submit: 'Create comment'
-    
+
   posts:
     index:
       post:
@@ -117,7 +117,7 @@ fa:
         placeholder: 'Search Research in Progress'
         new: 'نوشته پژوهشی خود را به اشتراک بگذارید'
         follow: ' پژوهش‌هایی که دنبال می‌کنید'
-        
+
     new:
       header: '.سؤال یا بحث تازه ای را آغاز کنید'
       type: 'Thread Type'
