@@ -45,7 +45,7 @@ en:
       sign_up_to_access: "Please sign in or sign up below to access all of the research platform's features:"
 
   contributions:
-    index:      
+    index:
       contribution_subheader: 'Help us enrich the WWQI archives.'
       contribution_message: 'Here are the ways you can contribute.'
       no_contribution_request_message: 'No items in need of %{type}.'
@@ -152,7 +152,7 @@ en:
       submit_post_button: 'Submit Post'
     show:
       sign_in_to_comment: 'To comment on this %{type}, please %{link}.'
-      
+
   errors:
     messages:
       wrong_size: "is the wrong size (should be %{file_size})"
@@ -162,8 +162,8 @@ en:
   activerecord:
     errors:
       messages:
-        taken: 'Had already been taken'
-        accepted: 'Must be accepted'
-        blank: "Can't be blank"
-        confirmation: "Doesn't match confirmation"
-        invalid: 'invalid'
+        taken: 'Had already been taken / از این رمز استفاده شده. عبارت دیگری انتخاب کنید'
+        accepted: 'Must be accepted / توافق شما الزامی است'
+        blank: "Can't be blank / این میدان نمی تواند خالی باشد"
+        confirmation: "Doesn't match confirmation / تکرار با اصل مطابقت ندارد"
+        invalid: 'invalid / قابل قبول نیست'
