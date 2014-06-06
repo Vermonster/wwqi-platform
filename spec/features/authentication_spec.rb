@@ -6,7 +6,7 @@ describe "authentication" do
 
   context 'when signing in' do
     it 'lets a user sign in' do
-      within('#sign-in') do 
+      within('#sign-in') do
         fill_in 'user_email', with: user.email
         fill_in 'user_password', with: user.password
         click_on 'Sign In'
@@ -37,7 +37,7 @@ describe "authentication" do
   context 'when signing up' do
     it 'lets a user signs up' do
       fill_sign_up('Veronica', 'Mars', 'veronica_mars@gmail.com', 'apples', 'apples', true)
-      click_on 'Sign Up'
+      click_button 'Sign Up'
       sleep 3
 
       expect(User.count).to eq 1
@@ -48,14 +48,14 @@ describe "authentication" do
 
     it 'requires accepting the terms' do
       fill_sign_up('Veronica', 'Mars', 'veronica_mars@gmail.com', 'apples', 'apples', false)
-      click_on 'Sign Up'
+      click_button 'Sign Up'
       sleep 3
 
       expect(User.count).to eq 0
-      expect(page).to have_content('must be accepted')
+      expect(page).to have_content('Must be accepted')
     end
   end
-  
+
   context 'when an invitee visits the sign up page' do
     let!(:invitation) { create :invitation }
     let(:invitation_email) { InvitationMailer.new_invitation(invitation).deliver }
@@ -71,7 +71,7 @@ describe "authentication" do
 
     it 'lets an invitee signs up' do
       fill_sign_up('Veronica', 'Mars', 'veronica_mars@gmail.com', 'apples', 'apples', true)
-      click_on 'Sign Up'
+      click_button 'Sign Up'
       click_on 'My Collaborations'
 
       test_post = Post.find(invitation.post.id)
