@@ -2,7 +2,7 @@
 require 'spec_helper'
 
 feature 'Persian Welcome page in Persian' do
-  before { visit root_path(locale: 'fa') }
+  before { visit root_path }
 
   scenario 'shows welcome header and description' do
     expect(page).to have_content('به «پژوهشگاه دنیای زنان در عصر قاجار» خوش آمدی')
