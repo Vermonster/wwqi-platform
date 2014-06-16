@@ -25,9 +25,9 @@
   #contributions-content
     .contribution-list-title.cf
       %h3.pull-right.fa
-        ="#{'اسناد خطی که باید تایپ شوند' if params[:type] == 'Transcription'}"
-        ="#{'اسناد پیشنهادی برای ترجمه' if params[:type] == 'Translation'}"
-        ="#{'افراد پیشنهای برای نگارش شرح حال' if params[:type] == 'Biography'}"
+        ="#{ 'اسناد خطی پیشنهادی برای تایپ' if params[:type] == 'Transcription' }"
+        ="#{ 'اسناد پیشنهادی برای ترجمه' if params[:type] == 'Translation' }"
+        ="#{ 'افراد پیشنهادی برای نگارش شرح حال'if params[:type] == 'Biography' }"
       %h3
         ="#{'Items in need of transcription' if params[:type] == 'Transcription'}"
         ="#{'Items in need of translation' if params[:type] == 'Translation'}"
@@ -56,7 +56,7 @@
         %span Show more documents
     .contribution-list-title
       %h3.pull-right.fa
-        = "#{'اسنادی که به تازگی تایپ شده‌اند' if params[:type] == 'Transcription'}"
+        = "#{ 'اسنادی که به تازگی تایپ شده'if params[:type] == 'Transcription' }"
         = "#{'اسنادی که به تازگی ترجمه شده' if params[:type] == 'Translation'}"
         = "#{'شرح حال‌هایی که به تازگی نوشته‌شده' if params[:type] == 'Biography'}"
       %h3= "Recently contributed #{params[:type].pluralize}"

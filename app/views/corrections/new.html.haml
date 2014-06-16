@@ -13,8 +13,11 @@
         = item.input :accession_no, :as => :hidden
         = item.input :name, :as => :hidden
         .item-image.pull-left
-    = f.input :details, label: 'Correction', :input_html => { :class => 'wysihtml5' }
+
+    -# added to align the English and Farsi label
+    %label 
     %span.fa-label.pull-right تصحیح
+    = f.input :details, label: 'Correction', :input_html => { :class => 'wysihtml5' }
     .submit-button
       = f.submit 'Submit Correction', class: 'btn', id: 'correction-btn'
     .submit-button.fa-label ارسال تصحیح
