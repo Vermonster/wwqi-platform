@@ -15,7 +15,7 @@ describe 'json request' do
   # Creating a contribution request is not considered as an activity. Also, it
   # should not change any activity counts.
   let!(:item_related_contribution_request) { create_list(:item_relation, 8, :with_contribution_request, item: item) }
-  
+
   # Make a request for the activity data in json format
   before { get '/activity/activity_data?accession_no=1253A24', :format => :json }
 
