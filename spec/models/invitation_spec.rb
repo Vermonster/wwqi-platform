@@ -17,11 +17,11 @@ describe Invitation do
     end
 
     it 'has a from email adddress' do
-      email.from.should == ['info@example.com']
+      email.from.should == ['no-reply@qajarwomen.org']
     end
 
     it 'has a subject' do
-      email.subject.should include('Invitation')
+      email.subject.should include('Collaborate on the WWQI Research Platform!')
     end
 
     it 'has an invitation message' do

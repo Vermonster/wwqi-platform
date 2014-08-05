@@ -32,7 +32,7 @@ feature 'Language switch', js: true do
   scenario 'Persian page shows the term requirement link in Persian' do
     find('.language-select-intro').click
 
-    expect(page).to have_content('برای استفاده از امکانات پژوهشگاه، بار اول میدانهای سمت چپ را کامل کرده، رمز عبور خود را ایجاد کنید. از آن پس، با استفاده از رمز ورود وارد پژوهشگاه شوید:')
+    expect(page).to have_content('لطفأ مقررات کاربری را مطالعه کرده و موافقت خود را اعلام کنید')
   end
 
   scenario 'Terms in English shows Persian switch button' do
@@ -49,7 +49,7 @@ feature 'Language switch', js: true do
 
   scenario 'Terms in Persian shows English switch button' do
     find('.language-select-intro').click
-    click_on 'برای استفاده از امکانات پژوهشگاه، بار اول میدانهای سمت چپ را کامل کرده، رمز عبور خود را ایجاد کنید. از آن پس، با استفاده از رمز ورود وارد پژوهشگاه شوید:'
+    click_link 'لطفأ مقررات کاربری را مطالعه کرده و موافقت خود را اعلام کنید'
 
     # Test the registration terms in Persian
     expect(page).to have_content('مقررات کاربری')
