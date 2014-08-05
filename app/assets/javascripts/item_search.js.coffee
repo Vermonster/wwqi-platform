@@ -7,6 +7,8 @@ $ ->
         type: 'get'
         data:
           q: request.term
+        beforeSend: (xhr) ->
+          xhr.setRequestHeader 'Authorization', "Basic #{window.search_auth}"
         success: (data) ->
           response($.map(data.hits.hits, (item) ->
             label: "#{item._source.accession_num} - #{item._source.title_en}"

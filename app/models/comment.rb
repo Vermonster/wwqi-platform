@@ -51,12 +51,12 @@ class Comment < ActiveRecord::Base
   end
 
   def collect_item_info(num)
-    json_data = open "http://api.searchbox.io/api-key/7a575ca5d7081da4cf55e748d46686e4/wwqi-search-dev/item/_search?q=#{num}"
+    json_data = open "#{SEARCH_URL}?q=#{num}", http_basic_authentication: SEARCH_AUTH.split(':')
     parsed_data = ActiveSupport::JSON.decode(json_data)
     if parsed_data["hits"]["total"] < 1
 
       # In case there is no item for the accession number
-      return { name: "Not Found", thumbnail: "flag.png", accession_no: num, url: "http://www.qajarwomen.org/en/items/#{num}.html" }
+      return { name: "Not Found", thumbnail: "flag.png", accession_no: num, url: "#{WWQI_SITE}/en/items/#{num}.html" }
     else
 
       # In case there is a hit for the accession number
