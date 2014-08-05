@@ -1,7 +1,7 @@
 class ContributionsController < ApplicationController
   inherit_resources
   respond_to :html
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :custom_authenticate_user!, except: [:index, :show]
 
   def show
     @contribution = "#{resource.type}Decorator".constantize.decorate(resource)

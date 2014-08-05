@@ -32,6 +32,21 @@ describe "authentication" do
 
       expect(page).to have_content('You need to sign in or sign up before continuing.')
     end
+
+    it 'allows a user to reset forgotten password' do
+      within('#sign-in') do
+        click_on 'Forgot your password?'
+
+        expect(current_path).to eq new_user_password_path
+
+        within 'form' do
+          fill_in 'user_email', with: 'user@example.com'
+          find(:css, '.btn').click
+        end
+
+        # expect(page).to have_content 'You will receive an email with instructions about how to reset your password in a few minutes.'
+      end
+    end
   end
 
   context 'when signing up' do
@@ -52,7 +67,7 @@ describe "authentication" do
       sleep 3
 
       expect(User.count).to eq 0
-      expect(page).to have_content('must be accepted')
+      expect(page).to have_content('Must be accepted')
     end
   end
 
