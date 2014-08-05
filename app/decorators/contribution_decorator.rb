@@ -23,8 +23,8 @@ class ContributionDecorator < Draper::Decorator
   end
 
   def image
-    if item.thumbnail.present?
-      h.image_tag item.thumbnail
+    if thumbnail.present?
+      h.image_tag thumbnail
     else
       h.image_tag 'flag.png'
     end

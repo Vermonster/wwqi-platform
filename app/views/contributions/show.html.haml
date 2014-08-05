@@ -2,12 +2,12 @@
   .item-show.span8.pull-left
     .show-intro
       .item-image.pull-left
-        = link_to "#{WWQI_SITE}#{resource.item.url}", :target => '_blank' do
-          = resource.image
+        = link_to resource.wwqi_url, target: '_blank' do
+          = safe_image_tag resource.thumbnail
       .item-created.pull-left
         = "#{resource.created_ago}, #{resource.header}"
     .item-title
-      = link_to resource.title, "#{WWQI_SITE}#{resource.item.url}", :target => '_blank'
+      = link_to resource.title, resource.wwqi_url, target: '_blank'
     .item-details
       .wysiwyg
         != resource.details

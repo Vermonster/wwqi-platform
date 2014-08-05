@@ -61,12 +61,12 @@ describe 'Activity Request' do
     expect(page).to have_css('a', text: item.name, count: 4)
   end
 
-  it 'redirects to the related biography list' do
-    visit '/contributions?type=Biography&accession_no=31g166'
+  # it 'redirects to the related biography list' do
+    # visit '/contributions?type=Biography&accession_no=31g166'
 
-    expect(page).to have_content('No recent contributions')
-    expect(page).not_to have_css('a', text: item.name)
-  end
+    # expect(page).to have_content('No recent contributions')
+    # expect(page).not_to have_css('a', text: item.name)
+  # end
 
   def create_contribution(type, selected_item, repeat)
     sign_in(user)

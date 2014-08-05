@@ -9,10 +9,11 @@ ActiveAdmin.register Biography do
       User.where("id = ?", r.creator_id).first.fullname
     end
     column "Thumbnail" do |r|
-      image_tag(r.item.thumbnail, size: "100x100")
+      safe_image_tag r.thumbnail, size: '100x100'
     end
-    column("Item") { |r| r.item.accession_no }
-    column :title
+    column "Person" do |r|
+      link_to r.title, r.wwqi_url, target: '_blank'
+    end
     column :created_at
     default_actions
   end

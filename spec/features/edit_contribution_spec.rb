@@ -29,13 +29,13 @@ describe 'Contribution Edit button', js: true do
     # test item
     current_path.should == edit_contribution_path(transcription)
     expect(page).to have_selector("img[src$='#{test_item.thumbnail}']")
-    page.find('textarea[id="transcription_details"]').value.should == transcription.details
+    page.find('textarea[id="transcription_details"]', visible: false).value.should == transcription.details
     expect(page).to have_button('Save changes')
   end
 
   it 'updates the content' do
     # Test the contribution text is editable
-    page.find('textarea[id="transcription_details"]').set(' -updated- ')
+    page.execute_script("editor.setValue(' -updated- ')")
     click_on 'Save changes'
 
     current_path.should == contribution_path(transcription)
@@ -45,7 +45,7 @@ describe 'Contribution Edit button', js: true do
 
   it 'validates' do
     # Test the edit page validates the edited text
-    page.find('textarea[id="transcription_details"]').set('')
+    page.execute_script("editor.setValue('')")
     click_on 'Save changes'
 
     expect(page).to have_content('Can\'t be blank')

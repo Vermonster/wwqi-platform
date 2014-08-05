@@ -5,6 +5,10 @@ module ApplicationHelper
     current_user.present?
   end
 
+  def safe_image_tag(src, opts={ })
+    image_tag src, opts.reverse_merge(onError: "this.onerror=null;this.src='/assets/noimage.jpg';")
+  end
+
   def post_type_radio_options
     [['Question', 'Question'], ['Discussion', 'Discussion']]
   end

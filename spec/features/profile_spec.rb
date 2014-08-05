@@ -30,7 +30,7 @@ describe "user profile" do
       page.should have_content(question.title)
       page.should have_content(discussion.title)
       page.should have_content(research.title)
-      page.should have_content(biography.item.name)
+      page.should have_content(biography.person_name)
     end
   end
 
@@ -40,7 +40,7 @@ describe "user profile" do
       page.should have_content(question.title)
       page.should have_content(discussion.title)
       page.should_not have_content(research.title)
-      page.should_not have_content(biography.item.name)
+      page.should_not have_content(biography.person_name)
     end
   end
 
@@ -50,7 +50,7 @@ describe "user profile" do
       page.should_not have_content(question.title)
       page.should_not have_content(discussion.title)
       page.should have_content(research.title)
-      page.should_not have_content(biography.item.name)
+      page.should_not have_content(biography.person_name)
     end
   end
 
@@ -60,7 +60,7 @@ describe "user profile" do
       page.should_not have_content(question.title)
       page.should_not have_content(discussion.title)
       page.should_not have_content(research.title)
-      page.should have_content(biography.item.name)
+      page.should have_content(biography.person_name)
     end
   end
 

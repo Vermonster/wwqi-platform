@@ -18,4 +18,6 @@
           = item.input :name, as: :hidden
       = f.input :details, label: "Request Type", as: :select, collection: ['Transcription', 'Translation', 'Biography']
       = f.input :creator_id, as: :hidden, input_html: { disabled: true, value: current_user.id }
+      = f.input :person_name
+      = f.input :person_url, label: 'Person URL'
     = f.actions :submit

@@ -4,10 +4,18 @@
     .item-image
       .submission-copy
         %p= "You are submitting a  #{resource.type.downcase} for:"
-        %h3 #{resource.item_relation.name}
-      = image_tag resource.item_relation.thumbnail, {class: "img-polaroid"}
+        %h3= resource.title
+      = safe_image_tag resource.item_relation.thumbnail
+  - if resource.person_url
+    .item-image
+      .submission-copy
+        %h4= link_to "#{params[:name].titleize}", resource.person_url if params[:name]
+      = safe_image_tag "#{ENV['WWQI_PERSON_THUMBNAIL']}/person_#{params[:person_id]}.jpg"
 
 = simple_form_for resource, url: contributions_path(type: resource.type) do |f|
+  - if resource.type == 'Biography'
+    = f.input :person_name, label: 'Person Name', input_html: { value: params[:name] ? params[:name].titleize : '' }
+    = f.input :person_url, label: 'Person URL', input_html: { value: resource.person_url }, placeholder: "e.g. #{ENV['WWQI_SITE']}/en/people/107.html"
   - if resource.item_relation.try(:accession_no)
     = f.simple_fields_for :item_relation do |i|
       .item-group
@@ -16,7 +24,7 @@
         = i.input :thumbnail, as: :hidden, input_html: { value: resource.item_relation.thumbnail }
         = i.input :accession_no, as: :hidden, input_html: { value: resource.item_relation.accession_no }
         = i.input :search, as: :hidden, input_html: { value: resource.item_relation.search }
-  - else
+  - elsif resource.type != 'Biography'
     #items.visible
       = f.simple_fields_for :item_relation do |item|
         .item-group
