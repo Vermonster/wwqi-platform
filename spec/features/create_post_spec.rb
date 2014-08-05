@@ -4,7 +4,7 @@ describe "post creation" do
   describe "without authentication" do
     it "only allows a signed in user to create a new post" do
       visit new_post_path
-      current_path.should == root_path 
+      current_path.should == root_path
       page.should have_content("You need to sign in or sign up before continuing.")
     end
   end
@@ -33,7 +33,7 @@ describe "post creation" do
         Question.count.should == 1
         question = Question.last
         current_path.should == post_path(question)
-        page.should have_content('Thread was successfully posted.') 
+        page.should have_content('Thread was successfully posted.')
         page.should have_content('a tag')
         page.should have_content('a title')
         page.should have_content('additional details')
@@ -44,7 +44,7 @@ describe "post creation" do
       it "creates a new discussion", js: true do
         visit '/'
         click_on 'Questions & Discussions'
-        click_on 'Start A New Thread' 
+        click_on 'Start A New Thread'
 
         fill_in 'post_title', with: 'a title'
         page.execute_script("editor.setValue('additional details')")
@@ -54,7 +54,7 @@ describe "post creation" do
         Discussion.count.should == 1
         discussion = Discussion.last
         current_path.should == post_path(discussion)
-        page.should have_content('Thread was successfully posted.') 
+        page.should have_content('Thread was successfully posted.')
         page.should have_content('a title')
         page.should have_content('additional details')
       end
@@ -78,7 +78,7 @@ describe "post creation" do
         Question.count.should == 1
         question = Question.last
         current_path.should == post_path(question)
-        
+
         page.should have_content('a title')
         page.should have_content('additional details')
         page.should have_content('Montmarte.jpg')

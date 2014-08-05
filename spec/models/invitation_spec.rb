@@ -4,7 +4,7 @@ describe Invitation do
   it { should belong_to(:post) }
   it { should validate_presence_of :recipient_email}
 
-  it "has a valid factory" do 
+  it "has a valid factory" do
     build(:invitation).should be_valid
   end
 
@@ -29,7 +29,7 @@ describe Invitation do
       email.body.encoded.should match(new_invitation.post_title)
     end
 
-    it 'has a sign up link with a token' do 
+    it 'has a sign up link with a token' do
       email.body.encoded.should match("#{new_invitation.token}")
     end
   end

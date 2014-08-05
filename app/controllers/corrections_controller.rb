@@ -14,7 +14,7 @@ class CorrectionsController < ContributionsController
       render :new, alert: "Submission was not successful."
     end
   end
-  
+
   def new
     @correction = Correction.new
     @correction.build_item_relation

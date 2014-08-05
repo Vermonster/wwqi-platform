@@ -19,7 +19,7 @@ describe 'process request from qajarwomen' do
       fill_signin
       click_on 'Sign In'
       sleep 5
-      
+
       current_path.should == new_post_path
       find('input[id="post_type"]', visible: false).value.should == 'Question'
       check_item_info
@@ -49,7 +49,7 @@ describe 'process request from qajarwomen' do
       fill_signin
       click_on 'Sign In'
       sleep 5
-      
+
       current_path.should == new_post_path
       find('input[id="post_type"]', visible: false).value.should == 'Discussion'
       check_item_info
@@ -79,7 +79,7 @@ describe 'process request from qajarwomen' do
       fill_signin
       click_on 'Sign In'
       sleep 5
-      
+
       current_path.should == new_research_path
       check_item_info
     end
@@ -112,7 +112,7 @@ describe 'process request from qajarwomen' do
 
       # Because js is true for this test, check 'user_terms' does not work.
       # Check commands can not locate the hidden checkbox. The
-      # field shoul be located by find and set the value by replace. 
+      # field shoul be located by find and set the value by replace.
       find('input[name="user[terms]"][type="hidden"]', visible: false).set "1"
     end
   end

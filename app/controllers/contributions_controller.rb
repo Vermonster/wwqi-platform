@@ -10,7 +10,7 @@ class ContributionsController < ApplicationController
 
   def index
     # List recently created or updated contributions if the reaquest is not from
-    # Qajar Women. If so, it responses the request. 
+    # Qajar Women. If so, it responses the request.
     if params[:accession_no]
       @contributions = Contribution.joins(:item_relation).where('type = :type AND item_relations.accession_no = :accession_no', {type: params[:type], accession_no: params[:accession_no]}).decorate
     else
@@ -49,7 +49,7 @@ class ContributionsController < ApplicationController
     @contribution = "#{params[:type]}".constantize.new(params["#{params[:type]}".downcase])
     @contribution.creator = current_user
     if @contribution.save
-      redirect_to contribution_path(@contribution), 
+      redirect_to contribution_path(@contribution),
         notice: "Your contribution was successfully submitted."
       return
     else

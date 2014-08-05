@@ -36,7 +36,7 @@ describe 'comment creation' do
 
   describe 'submit a comment for a question' do
     before { sign_in(user) }
-    
+
     it 'creates a new comment and redirects back to the parent page' do
       visit post_path(question)
       within('.comment-box') do
@@ -59,12 +59,12 @@ describe 'comment creation' do
       # Add the information of two item links
       first_link = "http://www.qajarwomen.org/en/items/1016A200.html"
       first_link_name = "Infant headband"
-      first_link_thumbnail = 
+      first_link_thumbnail =
         "http://s3.amazonaws.com/assets.qajarwomen.org/thumbs/it_200.jpg?1329177600"
       second_link = "http://www.qajarwomen.org/en/items/1016A215.html"
-      second_link_name = 
-       "Chador" 
-      second_link_thumbnail = 
+      second_link_name =
+       "Chador"
+      second_link_thumbnail =
         "http://s3.amazonaws.com/assets.qajarwomen.org/thumbs/it_271.jpg?1329177600"
 
       # Create a random text with one ordinary link and two item links
@@ -121,7 +121,7 @@ describe 'comment creation' do
       # Check the correct comment edit page displayed
       expect(page).to have_button('Update Comment')
       expect(page).to have_content(missing_link)
-      
+
       # Update the comment with a correct item url
       find('textarea').set(correct_link)
       click_on 'Update Comment'

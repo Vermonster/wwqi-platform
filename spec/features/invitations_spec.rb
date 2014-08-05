@@ -27,7 +27,7 @@ feature "Post creator(registered user)" do
       # Fill the invitation form
       fill_invitation(test_email, test_name, test_message)
       page.execute_script("$('#create_invitation').click()")
-      sleep 5 
+      sleep 5
 
       # Check the all information has been transferred to the hidden nested
       # fields

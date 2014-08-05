@@ -23,7 +23,7 @@ ActiveAdmin.register_page "Dashboard" do
           end
         end
       end
-       
+
       column do
         panel "Recent Contributions" do
           ul do

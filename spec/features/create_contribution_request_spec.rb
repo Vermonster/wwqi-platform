@@ -4,7 +4,7 @@ describe 'Contribution request creation' do
   @test_accesssion_no = "1144A1"
   let(:admin) { create(:user, is_admin: true) }
 
-  it 'An admin user can see the admin panel link' do 
+  it 'An admin user can see the admin panel link' do
     sign_in(admin)
     visit contributions_path
     expect(page).to have_content("Admin Panel")
@@ -23,7 +23,7 @@ describe 'Contribution request creation' do
 
     click_on('New Contribution Request')
     current_path.should == new_admin_contribution_request_path
-    
+
     page.execute_script %Q{ $('#contribution_request_item_relation_attributes_search').val('tin').keydown(); }
     expect { find('.ui-menu-item a#ui-id-2').text == "31g171 - Aspirin tin" }.to become_true
     page.execute_script %Q{ $('.ui-menu-item a:contains("31g171 - Aspirin tin")').click(); }

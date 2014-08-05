@@ -10,7 +10,7 @@ module ApplicationHelper
   end
 
   def post_private_radio_options
-    [['true', 'People I Choose'], ['false', 'Everyone']] 
+    [['true', 'People I Choose'], ['false', 'Everyone']]
   end
 
   def flash_messages
@@ -21,7 +21,7 @@ module ApplicationHelper
       success: "alert-success",
       notice: "",
     }
-    
+
     content_tag(:div, id: 'flash-messages') do
       flash.collect do |type, message|
         content_tag(:div, class: "flash-messages") do
@@ -31,9 +31,9 @@ module ApplicationHelper
           end
         end
       end.join('\n').html_safe
-    end    
+    end
   end
-  
+
   def avatar_url(user)
     if user.nil?
       "flag.png"

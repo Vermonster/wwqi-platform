@@ -14,8 +14,8 @@ describe 'Contribution Edit button', js: true do
     page.find('.item-title').hover
     click_on 'Edit'
   end
-  
-  it 'shows edit button' do 
+
+  it 'shows edit button' do
     # Go back to the My Contributions page to test the edit button appears
     visit root_path
     click_on 'My Contributions'
@@ -50,7 +50,7 @@ describe 'Contribution Edit button', js: true do
 
     expect(page).to have_content('Can\'t be blank')
   end
-  
+
   it 'allows a user add a file' do
     click_on 'Add Upload'
     page.execute_script("$('.file.optional.upload').toggle();")

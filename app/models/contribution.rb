@@ -16,9 +16,9 @@ class Contribution < ActiveRecord::Base
 
   accepts_nested_attributes_for :uploads, allow_destroy: true, reject_if: :all_blank
   accepts_nested_attributes_for :item_relation
-  
+
   search_methods :user_fullname_contains
-  
+
   scope :user_fullname_contains, lambda { |str|
     User.joins(:creator).where("LOWER(first_name) = LOWER(?) OR LOWER(last_name) = LOWER(?)", str, str)
   }

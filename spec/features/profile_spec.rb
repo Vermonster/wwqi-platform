@@ -4,26 +4,26 @@ describe "user profile" do
   let!(:user) do
     create(:user)
   end
-  
+
   let!(:question) do
     create(:question, creator: user)
   end
-  
+
   let!(:discussion) do
     create(:discussion, creator: user)
   end
-  
+
   let!(:research) do
     create(:research, creator: user)
   end
-  
+
   let!(:biography) do
     create(:biography, creator: user)
   end
 
   before(:each) { sign_in(user) }
   after(:each) { sign_out }
-  
+
   describe "latest" do
     it "shows most recent posts and contributions" do
       visit my_profile_path
@@ -33,7 +33,7 @@ describe "user profile" do
       page.should have_content(biography.item.name)
     end
   end
-  
+
   describe "threads" do
     it "shows only questions and discussions" do
       visit my_profile_path(type: "threads")
@@ -43,7 +43,7 @@ describe "user profile" do
       page.should_not have_content(biography.item.name)
     end
   end
-  
+
   describe "researches" do
     it "shows only research" do
       visit my_profile_path(type: "researches")
@@ -53,7 +53,7 @@ describe "user profile" do
       page.should_not have_content(biography.item.name)
     end
   end
-  
+
   describe "contributions" do
     it "shows only contributions" do
       visit my_profile_path(type: "contributions")
@@ -81,7 +81,7 @@ describe "user profile" do
       expect(page).to have_content(collaborate2.post.title)
       expect(page).to have_content(collaborate3.post.title)
     end
-    
+
     it 'does not show the edit button' do
       visit my_profile_path(type: 'collaborations')
 
@@ -106,5 +106,5 @@ describe "user profile" do
 
   #   end
   # end
-  
+
 end

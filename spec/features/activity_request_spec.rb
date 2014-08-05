@@ -1,8 +1,8 @@
 require 'spec_helper'
 
 describe 'Activity Request' do
-  let(:item) { create(:item, 
-                       accession_no: '31g166', 
+  let(:item) { create(:item,
+                       accession_no: '31g166',
                        thumbnail: 'http://s3.amazonaws.com/assets.qajarwomen.org/thumbs/it_2387.jpg?1329177600',
                        name: 'Ewer'
                       ) }
@@ -70,7 +70,7 @@ describe 'Activity Request' do
 
   def create_contribution(type, selected_item, repeat)
     sign_in(user)
-    repeat.times do 
+    repeat.times do
       visit new_contribution_path(type: type, item: selected_item)
       fill_in "#{type.downcase}_details", with: "Transcription Test"
       click_on "Submit #{type.titleize}"

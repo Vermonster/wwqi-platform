@@ -8,7 +8,7 @@
         .item-group
           - if @contribution_request.item.nil?
             = image_tag 'flag.png'
-          -else
+          - else
             = image_tag @contribution_request.item.thumbnail
           = item.input :search, placeholder: "Search by item name or number"
           = item.input :url, as: :hidden
