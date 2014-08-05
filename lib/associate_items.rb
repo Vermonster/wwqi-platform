@@ -21,7 +21,7 @@ module AssociateItems
       # Need to fix this
       if self == Contribution
         def associate_item
-          if item_relation.new_record? or item_relation.updated? 
+          if item_relation.new_record? or item_relation.updated?
             item = create_or_update_item(item_relation)
             item_relation.item = item
             item_relation.itemable = self
@@ -29,15 +29,17 @@ module AssociateItems
         end
 
         before_save do
-          run_callbacks :item_association do
-            associate_item
+          if self.class != Biography
+            run_callbacks :item_association do
+              associate_item
+            end
           end
         end
       else
         def associate_items
           self.item_relations.each do |item_relation|
             if item_relation.new_record? or item_relation.updated?
-              item = create_or_update_item(item_relation) 
+              item = create_or_update_item(item_relation)
               item_relation.item = item
               item_relation.itemable = self
             end

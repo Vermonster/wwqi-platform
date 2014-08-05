@@ -3,13 +3,11 @@ class Item < ActiveRecord::Base
   attr_accessible :url, :name, :thumbnail, :accession_no
   validates :url, :name, :thumbnail, :accession_no, presence: true
 
-  def name
-    # if (n = super).present?
-    #   n
-    # else
-    #   'Missing Item'
-    # end
+  def wwqi_url
+    "#{ENV['WWQI_SITE']}#{url}"
+  end
 
-    super.present? ? 'Missing Item' : super
+  def title
+    name
   end
 end

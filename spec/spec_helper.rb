@@ -1,5 +1,12 @@
 # This file is copied to spec/ when you run 'rails generate rspec:install'
+
 ENV["RAILS_ENV"] ||= 'test'
+ENV['WWQI_SITE'] ||= 'http://www.wwqidev.com'
+ENV['WWQI_PERSON_THUMBNAIL'] ||= 'http://s3.amazonaws.com/assets.qajarwomen.org/thumbs'
+ENV['HOST'] ||= 'wwqi.com'
+ENV['SEARCH_URL'] ||= 'http://dwalin-us-east-1.searchly.com/wwqi-search-dev/item/_search'
+ENV['SEARCH_AUTH'] ||= 'paas:8ee19088c92d6bea7906a87a64508df2'
+
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
