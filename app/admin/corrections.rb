@@ -23,7 +23,7 @@ ActiveAdmin.register Correction do
       end
     end
     column "Thumbnail" do |r|
-      image_tag(r.item.thumbnail, size: "100x100")
+      safe_image_tag r.thumbnail, size: '100x100'
     end
     column :title
     column("Item") { |r| r.item.accession_no }

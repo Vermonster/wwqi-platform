@@ -16,6 +16,7 @@
  *= require bootstrap-wysihtml5
  *= require comments
  *= require contributions
+ *= require biographies
  *= require flash
  *= require invitation_modal
  *= require_tree .

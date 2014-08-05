@@ -18,7 +18,12 @@ ActiveAdmin.register_page "Dashboard" do
         panel "Recent Comments" do
           ul do
             Comment.limit(10).decorate.map do |post|
-              li link_to(Post.find(post.commentable_id).title, admin_user_comment_path(post))
+              begin
+                title = Post.find(post.commentable_id).title
+              rescue ActiveRecord::RecordNotFound
+                title = Contribution.find(post.commentable_id).title
+              end
+              li link_to(title, admin_user_comment_path(post))
             end
           end
         end

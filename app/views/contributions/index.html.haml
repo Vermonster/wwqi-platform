@@ -40,7 +40,7 @@
           - @requests.each do |r|
             %li
               .item-image.pull-left
-                = image_tag r.item.thumbnail ||= 'flag.png'
+                = safe_image_tag r.item.thumbnail
               .item-content.pull-left
                 .item-title
                   = r.title
@@ -69,7 +69,7 @@
           - @contributions.each do |c|
             %li
               .item-image.pull-left
-                = c.image
+                = safe_image_tag c.thumbnail
               .item-content.pull-left
                 .item-header
                   = c.header

@@ -16,4 +16,13 @@ class ApplicationController < ActionController::Base
   def current_admin_user
     current_user && current_user.is_admin ? current_user : nil
   end
+
+  def custom_authenticate_user!(opts={ })
+    opts[:scope] = :user
+    unless user_signed_in?
+      flash[:alert] = t 'devise.failure.unauthenticated'
+      session['user_return_to'] = request.fullpath
+      redirect_to new_user_session_path
+    end
+  end
 end

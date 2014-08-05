@@ -1,3 +1,14 @@
-#sign-in-main.row
-  = render '/partials/user_session'
-= render "devise/shared/links"
+#sign-in-main-wrapper
+  %h3.intro-copy Please sign in or sign up below to access all of the research platform's features:
+  %h3.intro-copy-farsi برای استفاده از امکانات پژوهشگاه باید ابتدا در بخش سمت چپ ثبت نام کنید و از آن پس با وارد کردن ایمیل و رمز ورود خود به پژوهشگاه وارد شوید
+  #sign-in-main.row
+    .intro
+      .intro-header
+        .language-select-intro
+          .select-farsi
+            %p فارسی
+          .select-english
+            %p English
+    .forms
+      = render '/partials/user_registration', :resource => User.new
+      = render '/partials/user_session'

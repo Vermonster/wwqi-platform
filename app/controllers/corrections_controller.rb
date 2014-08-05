@@ -1,6 +1,6 @@
 class CorrectionsController < ContributionsController
   inherit_resources
-  skip_before_filter :authenticate_user!
+  skip_before_filter :custom_authenticate_user!
   defaults resource_class: Correction
 
   def create

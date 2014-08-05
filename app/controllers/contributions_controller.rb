@@ -1,7 +1,7 @@
 class ContributionsController < ApplicationController
   inherit_resources
   respond_to :html
-  before_filter :authenticate_user!, except: [:index, :show]
+  before_filter :custom_authenticate_user!, except: [:index, :show]
 
   def show
     @contribution = "#{resource.type}Decorator".constantize.decorate(resource)
@@ -21,6 +21,10 @@ class ContributionsController < ApplicationController
 
   def new
     @contribution = "#{params[:type]}".titleize.constantize.new
+
+    if params[:person_id]
+      @contribution.person_url = "#{ENV['WWQI_SITE']}/en/people/#{params[:person_id]}.html"
+    end
 
     # search for an existing item based on parameters
     if params[:item]

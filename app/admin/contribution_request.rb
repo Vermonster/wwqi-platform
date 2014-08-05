@@ -9,10 +9,13 @@ ActiveAdmin.register ContributionRequest do
     end
 
     column "Thumbnail" do |r|
-      image_tag(r.item.thumbnail, size: "100x100")
+      safe_image_tag r.thumbnail, size: '100x100'
     end
-    column("Item") { |r| r.item.accession_no }
-    column :title
+
+    column("Item") do |r|
+      link_to r.title, r.wwqi_url, target: '_blank'
+    end
+
     column "Request Type", :details
     column :created_at
     default_actions
@@ -35,8 +38,11 @@ ActiveAdmin.register ContributionRequest do
     attributes_table do
       row :details
       row :creator
+      row :item do
+        link_to r.title, r.wwqi_url, target: '_blank'
+      end
       row :image do
-        image_tag(r.item.thumbnail)
+        safe_image_tag r.thumbnail
       end
     end
 

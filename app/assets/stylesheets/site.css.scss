@@ -433,6 +433,7 @@
         .language-select-intro {
           cursor: pointer;
           margin-bottom: .5em;
+          margin-right: .5em;
           overflow: hidden;
           .select-farsi, .select-english {
             float: right;
@@ -460,7 +461,7 @@
     }
     .features-wrapper {
       text-align: center;
-      margin: 3.5em 0 0;
+      margin: 3.5em 0 2em 0;
       h3.intro-copy, h3.intro-copy-farsi {
         padding: 2%;
         background: #ddd;
@@ -534,7 +535,7 @@
   }
 }
 #sign-in-main-wrapper {
-  margin-top: 3em;
+  margin-top: 1em;
   .intro-copy, .intro-copy-farsi {
     background: #ddd;
     padding: 2%;
@@ -560,15 +561,18 @@
       @media (max-width: 979px) and (min-width: 481px) {
         padding: 0 4%;
       }
-      @media (max-width: 480px) {
-        padding: 0;
-      }
       #sign-in {
         @media (max-width: 480px) {
           padding: 0 2% 50px!important;
         }
       }
-      #registration, #sign-in {
+      #forgot-password-wrapper {
+        @media (max-width: 100%) {
+          padding: 0 2% 50px!important;
+        }
+        padding-top: 2em;
+      }
+      #registration, #sign-in, #forgot-password {
         float: left;
         padding: 50px 6%;
         width: 38%;
@@ -719,6 +723,14 @@
               float: none;
             }
           }
+        }
+      }
+      #forgot-password {
+        width: 100%;
+        padding-top: 0;
+        padding-left: 0;
+        input[type='submit'] {
+          float: left;
         }
       }
     }

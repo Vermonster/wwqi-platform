@@ -14,7 +14,8 @@
       = javascript_include_tag 'wwqi-search-mock'
     :javascript
       try{Typekit.load();}catch(e){}
-      window.search_url = '#{ENV['SEARCH_URL']}' + '/' + '#{ENV['SEARCH_INDEX']}/item/_search';
+      window.search_url = '#{SEARCH_URL}';
+      window.search_auth = btoa('#{SEARCH_AUTH}');
   %body
     #root
       #header-wrapper

@@ -30,7 +30,9 @@ WwqiPlatform::Application.routes.draw do
 
   resources :corrections
 
-  resources :transcriptions, :translations, :biographies, controller: :contributions
+  resources :biographies
+
+  resources :transcriptions, :translations, controller: :contributions
 
   match "/admin" => "admin/dashboard#index"
   match "/me" => "profile#show", :as => 'my_profile'

@@ -1,0 +1,9 @@
+.items-index#new-correction
+  %h4 Submit a Biography
+#items.visible
+  = simple_form_for resource do |f|
+    = f.input :person_url, label: 'Person URL', placeholder: "e.g. #{ENV['WWQI_SITE']}/en/people/107.html"
+    = f.input :details, label: 'Biography', :input_html => { :class => 'wysihtml5' }
+
+    .submit-button
+      = f.submit 'Submit Biography', class: 'btn'
