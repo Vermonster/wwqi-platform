@@ -11,11 +11,11 @@
     .item-details
       .wysiwyg
         != resource.details
-    .item-tags
-      - unless resource.tag_list.empty?
+    - unless resource.tag_list.empty?
+      .item-tags
         = "tags: #{resource.tag_list}"
-    .item-attachments
-      - unless resource.uploads.empty?
+    - unless resource.uploads.empty?
+      .item-attachments
         %h4 Attachments:
         %ul.item-uploads
           - resource.uploads.each do |upload|

@@ -762,7 +762,6 @@
   form.navbar-search {
     display: block;
     width: 68%;
-    margin: 0 0 2.5em;
     padding-bottom:1em;
     @media (max-width: 767px) {
       width: 92%;
@@ -974,6 +973,7 @@
       }
       .item-content {
         float: left;
+        max-width: 90%;
         .item-header {
           @include item-header;
           font-size: .75em;
@@ -1056,7 +1056,6 @@
     margin:0;
     &.comments {
       margin: 2em 0 1em;
-      padding-top: 2em;
       border-top: 1px solid $lightgrey;
     }
     .show-intro {
