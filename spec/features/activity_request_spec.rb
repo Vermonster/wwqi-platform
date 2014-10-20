@@ -49,7 +49,8 @@ describe 'Activity Request' do
     visit '/contributions?type=Translation&accession_no=31g166'
 
     expect(page).to have_content('contributed a translation for')
-    expect(page).to have_css('a', text: item.name, count: 2)
+    expect(page).to have_content('Recently contributed Translations for Ewer')
+    expect(page).to have_css('a', text: /^#{item.name}$/, count: 2)
   end
 
   it 'redirects to the related transcription list' do
@@ -58,7 +59,8 @@ describe 'Activity Request' do
     visit '/contributions?type=Transcription&accession_no=31g166'
 
     expect(page).to have_content('contributed a transcription for')
-    expect(page).to have_css('a', text: item.name, count: 4)
+    expect(page).to have_content('Recently contributed Transcriptions for Ewer')
+    expect(page).to have_css('a', text: /^#{item.name}$/, count: 4)
   end
 
   # it 'redirects to the related biography list' do

@@ -1,6 +1,8 @@
 class Contribution < ActiveRecord::Base
   include AssociateItems
 
+  paginates_per 5
+
   attr_accessible :details, :uploads_attributes, :item_relation_attributes,
                   :creator_id, :type, :item_attributes, :person_url, :person_name
 

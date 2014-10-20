@@ -23,43 +23,48 @@
         = link_to 'Submit a correction', new_correction_path
         %span.fa-label ارسال تصحیح
   #contributions-content
-    .contribution-list-title.cf
-      %h3.pull-right.fa
-        ="#{ 'اسناد خطی پیشنهادی برای تایپ' if params[:type] == 'Transcription' }"
-        ="#{ 'اسناد پیشنهادی برای ترجمه' if params[:type] == 'Translation' }"
-        ="#{ 'افراد پیشنهادی برای نگارش شرح حال'if params[:type] == 'Biography' }"
-      %h3
-        ="#{'Items in need of transcription' if params[:type] == 'Transcription'}"
-        ="#{'Items in need of translation' if params[:type] == 'Translation'}"
-        ="#{'Persons in need of biography' if params[:type] == 'Biography'}"
-    #contribution-list
-      %p.feed-intro
-        = t("contributions.#{params[:type].downcase}.intro")
-      %ul.items#selected-items
-        - unless @requests.empty?
-          - @requests.each do |r|
-            %li
-              .item-image.pull-left
-                = safe_image_tag r.item.thumbnail
-              .item-content.pull-left
-                .item-title
-                  = r.title
-              .transcribe.btn.pull-right
-                = link_to t("contributions.#{params[:type].downcase}.button"), new_contribution_path(type: params[:type], item: r.item)
-        -else
-          %p= "No items in need of #{params[:type]}"
-          %br
-      = link_to "Add New", new_contribution_path(type: params[:type]), class: 'btn'
-    .transcription-subnav.pull-left
-      %a.show-more-items{href: '#', id: 'show-more-items'}
-        .icon-plus-circle#items-icon
-        %span Show more documents
+
+    - unless selected_item
+      .contribution-list-title.cf
+        %h3.pull-right.fa
+          ="#{ 'اسناد خطی پیشنهادی برای تایپ' if params[:type] == 'Transcription' }"
+          ="#{ 'اسناد پیشنهادی برای ترجمه' if params[:type] == 'Translation' }"
+          ="#{ 'افراد پیشنهادی برای نگارش شرح حال'if params[:type] == 'Biography' }"
+        %h3
+          ="#{'Items in need of transcription' if params[:type] == 'Transcription'}"
+          ="#{'Items in need of translation' if params[:type] == 'Translation'}"
+          ="#{'Persons in need of biography' if params[:type] == 'Biography'}"
+      #contribution-list
+        %p.feed-intro
+          = t("contributions.#{params[:type].downcase}.intro")
+        %ul.items#selected-items
+          - unless @requests.empty?
+            - @requests.each do |r|
+              %li
+                .item-image.pull-left
+                  = safe_image_tag r.item.thumbnail
+                .item-content.pull-left
+                  .item-title
+                    = r.title
+                .transcribe.btn.pull-right
+                  = link_to t("contributions.#{params[:type].downcase}.button"), new_contribution_path(type: params[:type], item: r.item)
+            = paginate @requests, param_name: "rpage"
+          -else
+            %p= "No items in need of #{params[:type]}"
+            %br
+        = link_to "Add New", new_contribution_path(type: params[:type]), class: 'btn'
+
     .contribution-list-title
       %h3.pull-right.fa
         = "#{ 'اسنادی که به تازگی تایپ شده'if params[:type] == 'Transcription' }"
         = "#{'اسنادی که به تازگی ترجمه شده' if params[:type] == 'Translation'}"
         = "#{'شرح حال‌هایی که به تازگی نوشته‌شده' if params[:type] == 'Biography'}"
-      %h3= "Recently contributed #{params[:type].pluralize}"
+      %h3
+        = "Recently contributed #{params[:type].pluralize}"
+        - if selected_item
+          for
+          = link_to "#{selected_item.title} (#{selected_item.accession_no})", selected_item.wwqi_url
+
     #contribution-feed
       %p.feed-intro
         = "Here are some recent #{params[:type].pluralize} contributed by the WWQI users:"
@@ -84,40 +89,6 @@
                   .item-follow-btn{ style:  "margin-top: -10px;" }
                     - following = current_user.following?(c.object)
                     = link_to following ? 'Unfollow' : 'Follow', '#', :class => ['btn', 'btn-primary', following && 'followed'], :data => { followable_id: c.id, followable_type: c.model.class.to_s.downcase, follow_id: following.try(:id) }
+          = paginate @contributions
         - else
           %p No recent contributions
-    .transcription-subnav
-      %a.show-more-contributions{href: '#', id: 'show-more-contributions'}
-        .icon-plus-circle#recent-contributions-icon
-        = "Show more #{params[:type].downcase.pluralize}"
-:coffeescript
-  $ ->
-    # Default number of items and contributions to show
-    visible_item = 2
-    visible_contribution = 2
-
-    # Set the maximum number of the items and contributions
-    item_max = $('#selected-items').find('li').length
-    contribution_max = $('#recent-contributions').find('li').length
-
-    # Hide all items and contributions on the page and
-    # show the default number of items and contributions
-    $('.items').each ->
-      $(this).find('li').hide()
-      $(this).find('li').slice(0, visible_item).show()
-
-    # Show two more items when 'Show more' link is clicked
-    $('#show-more-items').click (e) ->
-      e.preventDefault()
-      visible_item+=2
-      if (visible_item > item_max)
-        visible_item = item_max
-      $('#selected-items').find('li').slice(0, visible_item).show()
-
-    # Show two more contributions when 'Show more' link is clicked
-    $('#show-more-contributions').click (e) ->
-      e.preventDefault()
-      visible_contribution+=2
-      if (visible_contributions > contribution_max)
-        visible_contributions = contribution_max
-      $('#recent-contributions').find('li').slice(0, visible_contribution).show()

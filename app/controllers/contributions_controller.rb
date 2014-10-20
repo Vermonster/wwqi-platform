@@ -2,6 +2,15 @@ class ContributionsController < ApplicationController
   inherit_resources
   respond_to :html
   before_filter :custom_authenticate_user!, except: [:index, :show]
+  helper_method :selected_item
+
+  def selected_item
+    @selected_item ||= if params[:item]
+      Item.find(params[:item])
+    elsif params[:accession_no]
+      Item.find_by_accession_no(params[:accession_no])
+    end
+  end
 
   def show
     @contribution = "#{resource.type}Decorator".constantize.decorate(resource)
@@ -11,12 +20,18 @@ class ContributionsController < ApplicationController
   def index
     # List recently created or updated contributions if the reaquest is not from
     # Qajar Women. If so, it responses the request.
-    if params[:accession_no]
-      @contributions = Contribution.joins(:item_relation).where('type = :type AND item_relations.accession_no = :accession_no', {type: params[:type], accession_no: params[:accession_no]}).decorate
+    page = params.fetch(:page, 1)
+    type = params[:type] ||= 'Transcription'
+
+    @contributions = if selected_item
+      Contribution.where(type: type).order('created_at DESC').joins(:item_relation).where('item_relations.accession_no = ?', selected_item.accession_no).page(page).decorate
     else
-      @contributions = Contribution.where('type =? AND created_at > ?', params[:type] ||= 'Transcription', 6.days.ago).decorate
+      Contribution.where(type: type).order('created_at DESC').page(page).decorate
     end
-    @requests = ContributionRequest.where('details = ? ', params[:type])
+
+    rpage = params.fetch(:rpage, 1)
+
+    @requests = ContributionRequest.where('details = ? ', type).page(rpage)
   end
 
   def new
@@ -24,15 +39,6 @@ class ContributionsController < ApplicationController
 
     if params[:person_id]
       @contribution.person_url = "#{ENV['WWQI_SITE']}/en/people/#{params[:person_id]}.html"
-    end
-
-    # search for an existing item based on parameters
-    if params[:item]
-      selected_item = Item.find(params[:item])
-    elsif params[:accession_no]
-      selected_item = Item.find_by_accession_no(params[:accession_no])
-    else
-      selected_item = nil
     end
 
     # if present, render new form with that item;
