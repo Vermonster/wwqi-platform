@@ -1,0 +1,7 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %body
+      %p A new post has been added to the WWQI research platform by #{@post.creator.try(:fullname)}:
+      %p
+        = link_to @post.title, @post

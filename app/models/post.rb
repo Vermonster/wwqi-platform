@@ -34,6 +34,12 @@ class Post < ActiveRecord::Base
     User.joins(:creator).where("LOWER(first_name) = LOWER(?) OR LOWER(last_name) = LOWER(?)", str, str)
   }
 
+  after_create do |post|
+    if ENV['ADMIN_NOTIFICATION_EMAIL']
+      AdminNotificationMailer.new_post(post).deliver
+    end
+  end
+
   include PgSearch
   pg_search_scope :search_text, against: [:title, :details],
     associated_against: { tags: [:name] }
