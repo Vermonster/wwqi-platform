@@ -54,7 +54,13 @@ describe "authentication" do
     end
 
     it 'lets a user signs up' do
-      # fill this test
+      fill_sign_up('Veronica', 'Mars', 'veronica_mars@gmail.com', 'apples', 'apples', true)
+      click_on 'Sign Up'
+
+      expect(User.count).to eq 1
+      expect(current_path).to eq(my_profile_path)
+      expect(page).to have_content(User.all[0].fullname)
+      expect(page).to have_content('Sign out')
     end
   end
 
