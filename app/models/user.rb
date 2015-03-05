@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :password, :password_confirmation, :remember_me, :first_name, :last_name, :terms, :fullname, :is_admin, :token
   attr_accessor :terms, :token
-  
+
   validates :first_name, :last_name, :email, presence: true
   validates :password, confirmation: true
   validates :password, presence: true, on: :create
@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
   after_create :register_as_collaborator
 
   def followed_questions_and_discussions
-    followed_posts.where("type = 'Question' or type = 'Discussion'") 
+    followed_posts.where("type = 'Question' or type = 'Discussion'")
   end
 
   def followed_researches
