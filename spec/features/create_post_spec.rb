@@ -33,15 +33,15 @@ describe "post creation" do
         click_link 'Start A New Thread'
 
         fill_in('Your Concise Question', with: 'What is this group for?')
+        fill_in('Additional Details', with: 'test content')
         click_on('Submit')
 
-        #check path
-        expect(current_path).to eq(post_path(0))
-        #check database
-        #check confirmation msg
-        #check user 'asked a question'
-        #check title created
-        #checkout msg created
+        expect(current_path).to eq(post_path(1))
+        expect(Question.count).to eq 1
+        expect(page).to have_content('Thread was successfully posted')
+        expect(page).to have_content("#{user1.fullname} asked a question")
+        expect(page).to have_content('What is this group for?')
+        expect(page).to have_content('test content')
 
       end
     end
