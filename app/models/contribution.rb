@@ -34,4 +34,10 @@ class Contribution < ActiveRecord::Base
   delegate :accession_no, :thumbnail, :wwqi_url, to: :item, allow_nil: true
 
   default_scope order('created_at DESC')
+
+  after_create do |contribution|
+    if ENV['ADMIN_NOTIFICATION_EMAIL']
+      AdminNotificationMailer.new_contribution(contribution).deliver
+    end
+  end
 end

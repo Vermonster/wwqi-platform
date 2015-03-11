@@ -1,0 +1,7 @@
+!!! 5
+%html{:lang => "en"}
+  %head
+    %body
+      %p A new #{@contribution.type} has been added to the WWQI research platform:
+      %p
+        = link_to @contribution.type, [:admin, @contribution]
