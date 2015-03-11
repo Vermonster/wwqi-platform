@@ -6,8 +6,8 @@ module ApplicationHelper
   end
 
   def safe_image_tag(src, opts={ })
-    src ||= '/assets/noimage.jpg'
-    image_tag src, opts.reverse_merge(onError: "this.onerror=null;this.src='/assets/noimage.jpg';")
+    safe_src = src.presence || '/assets/noimage.jpg'
+    image_tag safe_src, opts.reverse_merge(onError: "this.onerror=null;this.src='/assets/noimage.jpg';")
   end
 
   def post_type_radio_options
