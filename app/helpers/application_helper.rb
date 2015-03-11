@@ -6,6 +6,7 @@ module ApplicationHelper
   end
 
   def safe_image_tag(src, opts={ })
+    src ||= '/assets/noimage.jpg'
     image_tag src, opts.reverse_merge(onError: "this.onerror=null;this.src='/assets/noimage.jpg';")
   end
 
