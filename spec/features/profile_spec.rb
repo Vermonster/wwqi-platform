@@ -1,8 +1,28 @@
 require 'spec_helper'
 
 describe "user profile" do
+
+  let(:user1) { create(:user) }
+
+  before do
+    sign_in user1
+  end
+
   describe "latest" do
     it "shows most recent posts and contributions" do
+      question = create(:question, creator: user1, created_at: Date.today - 4)
+      discussion = create(:discussion, creator: user1, created_at: Date.today - 2)
+
+      visit my_profile_path
+
+      save_and_open_page
+      expect(page).to have_content(question.title)
+      expect(page).to have_content(discussion.title)
+
+      expect(page).to have_content("#{user1.fullname} asked a question")
+      expect(page).to have_content("#{user1.fullname} started a discussion")
+      expect(page).to have_content('no replies')
+      expect(page).to have_content('no answers')
     end
   end
 
