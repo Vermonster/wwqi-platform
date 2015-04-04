@@ -10,12 +10,11 @@ describe "user profile" do
 
   describe "latest" do
     it "shows most recent posts and contributions" do
-      question = create(:question, creator: user1, created_at: Date.today - 4)
-      discussion = create(:discussion, creator: user1, created_at: Date.today - 2)
+      question = create(:question, creator: user1, created_at: DateTime.now - 10)
+      discussion = create(:discussion, creator: user1, created_at: DateTime.now - 2)
 
       visit my_profile_path
 
-      save_and_open_page
       expect(page).to have_content(question.title)
       expect(page).to have_content(discussion.title)
 
@@ -23,6 +22,9 @@ describe "user profile" do
       expect(page).to have_content("#{user1.fullname} started a discussion")
       expect(page).to have_content('no replies')
       expect(page).to have_content('no answers')
+
+      first_post = first('.item-created')
+      expect(first_post).to have_content('2 days ago')
     end
   end
 
