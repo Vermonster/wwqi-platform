@@ -65,13 +65,24 @@ describe "user profile" do
       discussion = create(:discussion, creator: user1)
       research = create(:research, creator: user1)
       transcription = create(:transcription, creator: user1)
+      translation = create(:translation, creator: user1)
+      biography = create(:biography, creator: user1)
+      correction = create(:correction, creator: user1)
 
       visit my_profile_path
 
       click_link('My Contributions')
 
       expect(page).to have_content("#{user1.fullname} contributed a transcription for")
+      expect(page).to have_content("#{user1.fullname} contributed a translation for")
+      expect(page).to have_content("#{user1.fullname} contributed a biography for")
+      expect(page).to have_content("#{user1.fullname} contributed a correction for")
+      expect(page).to have_content(transcription.title)
+      expect(page).to have_content(translation.title)
+      expect(page).to have_content(biography.title)
+      expect(page).to have_content(correction.title)
       expect(page).to have_content('no comments')
+
       expect(page).to_not have_content(question.title)
       expect(page).to_not have_content(discussion.title)
       expect(page).to_not have_content(research.title)
