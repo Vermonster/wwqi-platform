@@ -2,7 +2,7 @@ $ ->
   options =
     source: (request, response) ->
       $.ajax
-        url: window.search_url
+        url: window.search_url.replace(/^http:|^https:/, window.location.protocol)
         dataType: "json"
         type: 'get'
         data:
