@@ -26,7 +26,7 @@ ActiveAdmin.register Correction do
       safe_image_tag r.thumbnail, size: '100x100'
     end
     column :title
-    column("Item") { |r| r.item.accession_no }
+    column("Item") { |r| r.item.try(:accession_no) }
     column :details
     column :created_at
     default_actions
