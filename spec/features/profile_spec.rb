@@ -89,14 +89,28 @@ describe "user profile" do
     end
   end
 
-  describe 'collaborations', js: true do
-    it 'has a button for collaborations' do
-    end
-
+  describe 'collaborations' do
     it 'shows all collaborations a user participates' do
+      question = create(:question)
+      research = create(:research)
+      collaboration_1 = create(:collaborator, user: user1, post: question)
+      collaboration_2 = create(:collaborator, user: user1, post: research)
+
+      visit my_profile_path
+
+      click_link('My Collaborations')
+
+      expect(page).to have_content(question.title)
+      expect(page).to have_content(research.title)
     end
 
-    it 'does not show the edit button' do
+    it 'does not show the edit button', js: true do
+      question = create(:question)
+      collaboration_1 = create(:collaborator, user: user1, post: question)
+      visit my_profile_path(type: 'collaborations')
+      page.find_link("#{question.title}").hover
+
+      expect(page).not_to have_link('Edit')
     end
 
   end
